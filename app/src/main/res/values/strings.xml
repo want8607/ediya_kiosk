@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">stage</string>
+    <string name="id">아이디</string>
+    <string name="password">비밀번호</string>
+    <string name="repassword">비밀번호 확인</string>
+    <string name="login">로그인</string>
+    <string name="registration">회원가입</string>
+    <string name="regist_id_check">중복체크</string>
+
+
+</resources>

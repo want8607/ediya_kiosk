@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--  뒤로가기-->
+    <ImageButton
+        android:layout_width="@dimen/arrow_width"
+        android:layout_height="@dimen/arrow_height"
+        android:background="@null"
+        android:src="@drawable/ic_arrow_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"/>
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- 메뉴사진 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:background="@color/menu_background"
+                android:src="@mipmap/americano" />
+            <!--메뉴이름 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/maruburi"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="아메리카노"
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+
+
+            <!--메뉴 영어 이름 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/maruburi"
+                android:paddingLeft="25dp"
+                android:text="Americano"
+                android:textColor="@color/gray"
+                android:textSize="20sp" />
+            <!--  가격-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/maruburi"
+                android:paddingLeft="25dp"
+                android:text="5,000원"
+                android:textColor="@color/black"
+                android:textSize="35sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--  온도 선택 -->
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/hot_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="Hot"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/hot_cold_radiobutton_text"
+                        android:textSize="25sp"/>
+
+
+                    <RadioButton
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cold_radiobutton_background"
+                        android:button="@null"
+                        android:checked="false"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="Ice"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/hot_cold_radiobutton_text"
+                        android:textSize="25sp"/>
+
+
+                </RadioGroup>
+                <!--  사이즈 선택-->
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="사이즈"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+                    app:layout_constraintVertical_bias="0">
+
+                </TextView>
+
+                <RadioGroup
+                    android:id="@+id/radioGroup3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"
+                    app:layout_constraintVertical_bias="0">
+
+                    <RadioButton
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/size_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:text="Tall"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/size_radiobutton_text"
+                        android:textSize="25sp" />
+
+                    <RadioButton
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@drawable/size_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:text="Grande"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/size_radiobutton_text"
+                        android:textSize="25sp" />
+
+                    <RadioButton
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/size_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:text="Venti"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/size_radiobutton_text"
+                        android:textSize="25sp" />
+
+                </RadioGroup>
+
+                <!--  컵선택-->
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="컵 선택"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup3"
+                    app:layout_constraintVertical_bias="0">
+
+                </TextView>
+
+                <RadioGroup
+                    android:id="@+id/radioGroup4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView6">
+
+                    <RadioButton
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cup_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="매장컵"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/cup_radiobutton_text"
+                        android:textSize="22sp">
+
+                    </RadioButton>
+
+                    <RadioButton
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cup_radiobutton_background"
+                        android:button="@null"
+                        android:checked="false"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="개인컵"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/cup_radiobutton_text"
+                        android:textSize="22sp" />
+
+
+                    <RadioButton
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cup_radiobutton_background"
+                        android:button="@null"
+                        android:checked="false"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="일회용컵"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/cup_radiobutton_text"
+                        android:textSize="22sp" />
+
+
+                </RadioGroup>
+                <!--샷 추가-->
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:layout_marginTop="40dp"
+                    android:text="샷 추가"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup4"
+                    app:layout_constraintVertical_bias="0"/>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView7">
+                    <ImageButton
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@color/white"
+                        android:src="@mipmap/big_minus_button"/>
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:textAlignment="center"
+                        android:text="1"
+                        android:background="@drawable/round_circle_background"
+                        android:textSize="50sp"
+                        android:fontFamily="@font/maruburi"/>
+
+                    <ImageButton
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@color/white"
+                        android:src="@mipmap/big_plus_button" />
+                </LinearLayout>
+
+                <!--시럽추가 -->
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:layout_marginTop="40dp"
+                    android:text="시럽 추가"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+                    app:layout_constraintVertical_bias="0"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView8">
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:src="@mipmap/big_minus_button"/>
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:textAlignment="center"
+                        android:text="1"
+                        android:background="@drawable/round_circle_background"
+                        android:textSize="50sp"
+                        android:fontFamily="@font/maruburi"/>
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:src="@mipmap/big_plus_button"/>
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- 스크롤 안잘리게 만들기 -->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:text=""/>
+        </LinearLayout>
+
+    </ScrollView>
+    <!--장바구니 버튼    -->
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/basket_background"
+        android:src="@mipmap/ediya_basketicon"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
+
+    </ImageButton>
+
+    <ImageView
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:background="@drawable/top_shadow"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
+
+    </ImageView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="40dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/minus_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7">
+
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/maruburi"
+            android:text="2"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/imageButton4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7">
+
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/plus_button"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7">
+
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/maruburi"
+            android:text="10,000원"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_button"
+            android:fontFamily="@font/maruburi"
+            android:paddingHorizontal="50dp"
+            android:text="담기"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7"
+            app:layout_constraintHorizontal_bias="0.95">
+
+        </Button>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

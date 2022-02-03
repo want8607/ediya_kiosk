@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fontFamily="@font/maruburi"
+        android:padding="20dp"
+        android:text="장바구니"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.029">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:background="@drawable/basket_blue_underline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선택삭제"
+            android:fontFamily="@font/maruburi"
+            android:textSize="20sp"
+            android:textColor="@color/ediya_blue"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:textColor="@color/ediya_blue"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전체삭제"
+            android:fontFamily="@font/maruburi"
+            android:textSize="20sp"
+            android:textColor="@color/ediya_blue"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="@dimen/arrow_width"
+        android:layout_height="@dimen/arrow_height"
+        android:background="@null"
+        android:src="@drawable/ic_arrow_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05">
+
+    </ImageButton>
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="20dp"
+                android:background="@drawable/basket_border">
+
+                <ImageView
+                    android:id="@+id/aimageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/category_background"
+                    android:src="@mipmap/americano"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/atextView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="26sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/atextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/atextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/atextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/atextView9"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/atextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="ICED|Tall|매장컵\n샷2 | 휘핑크림 3"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/atextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/atextView4"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/atextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/atextView11" />
+
+                <Button
+                    android:id="@+id/abutton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:fontFamily="@font/maruburi"
+                    android:text="옵션변경"
+                    android:textColor="@color/chageoption"
+                    app:layout_constraintEnd_toStartOf="@+id/atextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/atextView11" />
+
+                <ImageButton
+                    android:id="@+id/aimageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/minus_button"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0."
+                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/abutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/atextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="2"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/aimageButton4"
+                    app:layout_constraintTop_toBottomOf="@+id/abutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </TextView>
+
+                <ImageButton
+                    android:id="@+id/aimageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@null"
+                    android:src="@mipmap/plus_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/atextView3"
+                    app:layout_constraintTop_toBottomOf="@+id/abutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/atextView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="10,000원"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/atextView3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="20dp"
+                android:background="@drawable/basket_border">
+
+                <ImageView
+                    android:id="@+id/bimageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/category_background"
+                    android:src="@mipmap/americano"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/btextView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="26sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/bimageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/btextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/bimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/btextView9"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/btextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="ICED|Tall|매장컵\n샷2 | 휘핑크림 3"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/bimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/btextView4"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/btextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btextView11" />
+
+                <Button
+                    android:id="@+id/bbutton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:fontFamily="@font/maruburi"
+                    android:text="옵션변경"
+                    android:textColor="@color/chageoption"
+                    app:layout_constraintEnd_toStartOf="@+id/btextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/bimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/btextView11" />
+
+                <ImageButton
+                    android:id="@+id/bimageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/minus_button"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0."
+                    app:layout_constraintStart_toEndOf="@+id/bimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/bbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/btextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="2"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/bimageButton4"
+                    app:layout_constraintTop_toBottomOf="@+id/bbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </TextView>
+
+                <ImageButton
+                    android:id="@+id/bimageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@null"
+                    android:src="@mipmap/plus_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/btextView3"
+                    app:layout_constraintTop_toBottomOf="@+id/bbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/btextView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="10,000원"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btextView3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="20dp"
+                android:background="@drawable/basket_border">
+
+                <ImageView
+                    android:id="@+id/cimageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/category_background"
+                    android:src="@mipmap/americano"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/ctextView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="26sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ctextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/cimageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/ctextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ctextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/cimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/ctextView9"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/ctextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="ICED|Tall|매장컵\n샷2 | 휘핑크림 3"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ctextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/cimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/ctextView4"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/ctextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ctextView11" />
+
+                <Button
+                    android:id="@+id/cbutton2"
+                    android:layout_width="82dp"
+                    android:layout_height="46dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:fontFamily="@font/maruburi"
+                    android:text="옵션변경"
+                    android:textColor="@color/chageoption"
+                    app:layout_constraintEnd_toStartOf="@+id/ctextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/cimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/ctextView11" />
+
+                <ImageButton
+                    android:id="@+id/cimageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/minus_button"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0."
+                    app:layout_constraintStart_toEndOf="@+id/cimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/cbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/ctextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="2"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/cimageButton4"
+                    app:layout_constraintTop_toBottomOf="@+id/cbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </TextView>
+
+                <ImageButton
+                    android:id="@+id/cimageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@null"
+                    android:src="@mipmap/plus_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/ctextView3"
+                    app:layout_constraintTop_toBottomOf="@+id/cbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/ctextView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="10,000원"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ctextView3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="20dp"
+                android:background="@drawable/basket_border">
+
+                <ImageView
+                    android:id="@+id/dimageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/category_background"
+                    android:src="@mipmap/americano"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/dtextView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="26sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dtextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/dimageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/dtextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dtextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/dimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/dtextView9"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/dtextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="ICED|Tall|매장컵\n샷2 | 휘핑크림 3"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dtextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/dimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/dtextView4"
+                    app:layout_constraintVertical_bias="0" />
+
+                <TextView
+                    android:id="@+id/dtextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/dtextView11" />
+
+                <Button
+                    android:id="@+id/dbutton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@null"
+                    android:fontFamily="@font/maruburi"
+                    android:text="옵션변경"
+                    android:textColor="@color/chageoption"
+                    app:layout_constraintEnd_toStartOf="@+id/dtextView12"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/dimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/dtextView11" />
+
+                <ImageButton
+                    android:id="@+id/dimageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/minus_button"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0."
+                    app:layout_constraintStart_toEndOf="@+id/dimageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/dbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/dtextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="2"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/dimageButton4"
+                    app:layout_constraintTop_toBottomOf="@+id/dbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </TextView>
+
+                <ImageButton
+                    android:id="@+id/dimageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@null"
+                    android:src="@mipmap/plus_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/dtextView3"
+                    app:layout_constraintTop_toBottomOf="@+id/dbutton2"
+                    app:layout_constraintVertical_bias="0.7">
+
+                </ImageButton>
+
+                <TextView
+                    android:id="@+id/dtextView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="10,000원"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/dtextView3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- 스크롤 안잘리게 만들기 -->
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="130dp"
+                android:text=""/>
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="40dp"
+        android:background="@drawable/top_shadow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/maruburi"
+            android:layout_marginTop="10dp"
+            android:text="총"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/maruburi"
+            android:text="2"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.7">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/maruburi"
+            android:text="개"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.7">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/maruburi"
+            android:text="10,000원"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.7">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_button"
+            android:fontFamily="@font/maruburi"
+            android:paddingHorizontal="50dp"
+            android:text="담기"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7">
+
+        </Button>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
