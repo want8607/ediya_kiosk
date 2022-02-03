@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/basket_border.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/bottom_shadow.xml" value="0.33515981735159817" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/category_button.xml" value="0.33515981735159817" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/payment_border.xml" value="0.33515981735159817" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_basket.xml" value="0.33" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_category.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_login.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_menu.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_payment.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_selectmenu.xml" value="0.32546296296296295" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-v24/top_shadow.xml" value="0.21856540084388185" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xhdpi/drawa.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xxhdpi/sa.xml" value="0.26979166666666665" />
