@@ -21,9 +21,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029">
-
-    </TextView>
+        app:layout_constraintVertical_bias="0.029"/>
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -202,9 +200,7 @@
                     app:layout_constraintHorizontal_bias="0."
                     app:layout_constraintStart_toEndOf="@+id/aimageView2"
                     app:layout_constraintTop_toBottomOf="@+id/abutton2"
-                    app:layout_constraintVertical_bias="0.7">
-
-                </ImageButton>
+                    app:layout_constraintVertical_bias="0.7"/>
 
                 <TextView
                     android:id="@+id/atextView3"
@@ -219,9 +215,7 @@
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toEndOf="@+id/aimageButton4"
                     app:layout_constraintTop_toBottomOf="@+id/abutton2"
-                    app:layout_constraintVertical_bias="0.7">
-
-                </TextView>
+                    app:layout_constraintVertical_bias="0.7"/>
 
                 <ImageButton
                     android:id="@+id/aimageButton3"
@@ -235,9 +229,7 @@
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toEndOf="@+id/atextView3"
                     app:layout_constraintTop_toBottomOf="@+id/abutton2"
-                    app:layout_constraintVertical_bias="0.7">
-
-                </ImageButton>
+                    app:layout_constraintVertical_bias="0.7"/>
 
                 <TextView
                     android:id="@+id/atextView13"
@@ -273,9 +265,7 @@
                     app:layout_constraintHorizontal_bias="0.05"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0">
-
-                </ImageView>
+                    app:layout_constraintVertical_bias="0"/>
 
                 <TextView
                     android:id="@+id/btextView9"

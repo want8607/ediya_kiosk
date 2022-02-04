@@ -28,12 +28,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/basket_background"
         android:src="@mipmap/ediya_basketicon"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:layout_constraintVertical_bias="0.95"
-        app:layout_constraintHorizontal_bias="0.95"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
     <ImageView
@@ -151,6 +149,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/atextView12" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -195,6 +194,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/btextView12" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -239,6 +239,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/ctextView12" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -283,6 +284,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/dtextView12" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -327,6 +329,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/etextView12" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

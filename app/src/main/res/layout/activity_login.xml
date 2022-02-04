@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ediya_blue"
-    tools:context=".MainActivity">
+    android:background="@color/ediya_blue">
+
     <!--초기페이지 이디야 로고-->
     <ImageView
         android:id="@+id/ediya_logo"
@@ -19,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15" />
     <!--  뒤로가기 화살표  -->
+
     <ImageButton
         android:layout_width="@dimen/arrow_width"
         android:layout_height="@dimen/arrow_height"
