@@ -11,15 +11,12 @@
         android:layout_height="wrap_content"
         android:background="@drawable/under_blueline"
         android:fontFamily="@font/maruburi"
-        android:padding="20dp"
+        android:paddingTop="45dp"
+        android:paddingBottom="20dp"
         android:text="커피"
         android:textAlignment="center"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03">
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
 
@@ -51,13 +48,11 @@
         app:layout_constraintVertical_bias="0.95">
 
     </ImageButton>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <LinearLayout
@@ -65,7 +60,235 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/aimageView3"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/category_background"
+                    android:src="@mipmap/americano"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/atextView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/menu_korean_name_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/aimageView3"
+                    app:layout_constraintTop_toTopOf="@+id/aimageView3"
+                    app:layout_constraintVertical_bias="0.2"
+                    app:layout_constraintHorizontal_bias="0.1"/>
+
+                <TextView
+                    android:id="@+id/atextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/menu_english_name_size"
+                    app:layout_constraintStart_toStartOf="@+id/atextView13"
+                    app:layout_constraintTop_toBottomOf="@+id/atextView13" />
+
+                <TextView
+                    android:id="@+id/atextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textSize="@dimen/menu_cost_size"
+                    app:layout_constraintStart_toStartOf="@+id/atextView11"
+                    app:layout_constraintTop_toBottomOf="@+id/atextView11" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/bimageView3"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/category_background"
+                    android:src="@mipmap/americano"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/btextView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/menu_korean_name_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/bimageView3"
+                    app:layout_constraintTop_toTopOf="@+id/bimageView3"
+                    app:layout_constraintVertical_bias="0.2"
+                    app:layout_constraintHorizontal_bias="0.1"/>
+
+                <TextView
+                    android:id="@+id/btextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/menu_english_name_size"
+                    app:layout_constraintStart_toStartOf="@+id/btextView13"
+                    app:layout_constraintTop_toBottomOf="@+id/btextView13" />
+
+                <TextView
+                    android:id="@+id/btextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textSize="@dimen/menu_cost_size"
+                    app:layout_constraintStart_toStartOf="@+id/btextView11"
+                    app:layout_constraintTop_toBottomOf="@+id/btextView11" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/cimageView3"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/category_background"
+                    android:src="@mipmap/americano"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ctextView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/menu_korean_name_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cimageView3"
+                    app:layout_constraintTop_toTopOf="@+id/cimageView3"
+                    app:layout_constraintVertical_bias="0.2"
+                    app:layout_constraintHorizontal_bias="0.1"/>
+
+                <TextView
+                    android:id="@+id/ctextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/menu_english_name_size"
+                    app:layout_constraintStart_toStartOf="@+id/ctextView13"
+                    app:layout_constraintTop_toBottomOf="@+id/ctextView13" />
+
+                <TextView
+                    android:id="@+id/ctextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textSize="@dimen/menu_cost_size"
+                    app:layout_constraintStart_toStartOf="@+id/ctextView11"
+                    app:layout_constraintTop_toBottomOf="@+id/ctextView11" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/dimageView3"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/category_background"
+                    android:src="@mipmap/americano"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dtextView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/menu_korean_name_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dimageView3"
+                    app:layout_constraintTop_toTopOf="@+id/dimageView3"
+                    app:layout_constraintVertical_bias="0.2"
+                    app:layout_constraintHorizontal_bias="0.1"/>
+
+                <TextView
+                    android:id="@+id/dtextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/menu_english_name_size"
+                    app:layout_constraintStart_toStartOf="@+id/dtextView13"
+                    app:layout_constraintTop_toBottomOf="@+id/dtextView13" />
+
+                <TextView
+                    android:id="@+id/dtextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textSize="@dimen/menu_cost_size"
+                    app:layout_constraintStart_toStartOf="@+id/dtextView11"
+                    app:layout_constraintTop_toBottomOf="@+id/dtextView11" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -73,327 +296,112 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/eimageView3"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
-                    android:layout_marginStart="20dp"
                     android:background="@drawable/category_background"
-                    android:src="@mipmap/americano">
+                    android:src="@mipmap/americano"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                </ImageView>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/etextView13"
                     android:layout_width="wrap_content"
-                    android:layout_height="160dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/menu_korean_name_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/eimageView3"
+                    app:layout_constraintTop_toTopOf="@+id/eimageView3"
+                    app:layout_constraintVertical_bias="0.2"
+                    app:layout_constraintHorizontal_bias="0.1"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="커피"
-                        android:textColor="@color/black"
-                        android:textSize="26sp">
-                    </TextView>
+                <TextView
+                    android:id="@+id/etextView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/menu_english_name_size"
+                    app:layout_constraintStart_toStartOf="@+id/etextView13"
+                    app:layout_constraintTop_toBottomOf="@+id/etextView13" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="coffee"
-                        android:textColor="@color/gray"
-                        android:textSize="20sp">
-                    </TextView>
+                <TextView
+                    android:id="@+id/etextView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textSize="@dimen/menu_cost_size"
+                    app:layout_constraintStart_toStartOf="@+id/etextView11"
+                    app:layout_constraintTop_toBottomOf="@+id/etextView11" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="5,000원"
-                        android:textSize="26sp">
-                    </TextView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </LinearLayout>
-
-            </LinearLayout>
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp">
 
                 <ImageView
+                    android:id="@+id/imageView3"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
-                    android:layout_marginStart="20dp"
                     android:background="@drawable/category_background"
-                    android:src="@mipmap/americano">
+                    android:src="@mipmap/americano"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                </ImageView>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView13"
                     android:layout_width="wrap_content"
-                    android:layout_height="160dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/maruburi"
+                    android:text="커피"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/menu_korean_name_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3"
+                    app:layout_constraintVertical_bias="0.2"
+                    app:layout_constraintHorizontal_bias="0.1"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="커피"
-                        android:textColor="@color/black"
-                        android:textSize="26sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="coffee"
-                        android:textColor="@color/gray"
-                        android:textSize="20sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="5,000원"
-                        android:textSize="26sp">
-                    </TextView>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano">
-
-                </ImageView>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView11"
                     android:layout_width="wrap_content"
-                    android:layout_height="160dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="coffee"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/menu_english_name_size"
+                    app:layout_constraintStart_toStartOf="@+id/textView13"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="커피"
-                        android:textColor="@color/black"
-                        android:textSize="26sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="coffee"
-                        android:textColor="@color/gray"
-                        android:textSize="20sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="5,000원"
-                        android:textSize="26sp">
-                    </TextView>
-
-                </LinearLayout>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano">
-
-                </ImageView>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView12"
                     android:layout_width="wrap_content"
-                    android:layout_height="160dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="5,000원"
+                    android:textSize="@dimen/menu_cost_size"
+                    app:layout_constraintStart_toStartOf="@+id/textView11"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="커피"
-                        android:textColor="@color/black"
-                        android:textSize="26sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="coffee"
-                        android:textColor="@color/gray"
-                        android:textSize="20sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="5,000원"
-                        android:textSize="26sp">
-                    </TextView>
-
-                </LinearLayout>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano">
-
-                </ImageView>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="160dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="커피"
-                        android:textColor="@color/black"
-                        android:textSize="26sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="coffee"
-                        android:textColor="@color/gray"
-                        android:textSize="20sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="5,000원"
-                        android:textSize="26sp">
-                    </TextView>
-
-                </LinearLayout>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano">
-
-                </ImageView>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="160dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="커피"
-                        android:textColor="@color/black"
-                        android:textSize="26sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="coffee"
-                        android:textColor="@color/gray"
-                        android:textSize="20sp">
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="5,000원"
-                        android:textSize="26sp">
-                    </TextView>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

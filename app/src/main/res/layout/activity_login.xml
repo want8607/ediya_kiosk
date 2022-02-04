@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:background="@color/ediya_blue"
     tools:context=".MainActivity">
+    <!--초기페이지 이디야 로고-->
+    <ImageView
+        android:id="@+id/ediya_logo"
+        android:layout_width="@dimen/ediya_main_logo_width"
+        android:layout_height="@dimen/ediya_main_logo_height"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ediya_main_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
     <!--  뒤로가기 화살표  -->
     <ImageButton
         android:layout_width="@dimen/arrow_width"
@@ -18,71 +30,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05"/>
-    <!--초기페이지 이디야 로고-->
-    <ImageView
-        android:id="@+id/ediya_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ediya_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="70dp"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7">
+        app:layout_constraintTop_toBottomOf="@+id/ediya_logo"
+        app:layout_constraintVertical_bias="0.3">
 
 
         <EditText
             android:id="@+id/input_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
             android:background="@drawable/rounded_rectangle"
             android:fontFamily="@font/maruburi"
+            android:inputType="text"
             android:hint="@string/id"
-            android:padding="@dimen/rounded_padding"
             android:textAlignment="center"
             android:textColor="@color/ediya_blue"
             android:textColorHint="@color/ediya_blue"
-            android:textSize="@dimen/loginpage_textsize" />
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/input_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
             android:layout_marginTop="10dp"
             android:background="@drawable/rounded_rectangle"
             android:fontFamily="@font/maruburi"
-            android:padding="@dimen/rounded_padding"
+            android:inputType="textPassword"
             android:hint="@string/password"
             android:textAlignment="center"
-            android:textColor="@color/ediya_blue"
+            android:textColor="@color/black"
             android:textColorHint="@color/ediya_blue"
-            android:textSize="@dimen/loginpage_textsize" />
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintStart_toStartOf="@+id/input_id"
+            app:layout_constraintTop_toBottomOf="@+id/input_id" />
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="@dimen/rounded_padding"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
+            android:layout_marginTop="10dp"
             android:background="@drawable/blue_rounded_button"
             android:fontFamily="@font/maruburi"
             android:text="@string/login"
             android:textColor="@color/white"
-            android:textSize="@dimen/loginpage_textsize" />
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintStart_toStartOf="@+id/input_password"
+            app:layout_constraintTop_toBottomOf="@+id/input_password" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

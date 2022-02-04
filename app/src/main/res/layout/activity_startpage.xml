@@ -1,62 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ediya_blue"
-    tools:context=".MainActivity">
+    android:background="@color/ediya_blue">
     <!--초기페이지 이디야 로고-->
 
     <ImageView
         android:id="@+id/ediya_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_width="@dimen/ediya_main_logo_width"
+        android:layout_height="@dimen/ediya_main_logo_height"
         android:adjustViewBounds="true"
-        android:src="@drawable/ediya_logo"
+        android:src="@mipmap/ediya_main_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.15" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="70dp"
-        android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7">
+        app:layout_constraintTop_toBottomOf="@+id/ediya_logo"
+        app:layout_constraintVertical_bias="0.3">
 
 
         <Button
             android:id="@+id/regist_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/registration"
-            android:padding="15dp"
-            android:fontFamily="@font/maruburi"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
             android:background="@drawable/blue_rounded_button"
+            android:fontFamily="@font/maruburi"
+            android:padding="15dp"
+            android:text="@string/registration"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
             android:layout_marginTop="10dp"
-            android:text="@string/login"
-            android:padding="15dp"
-            android:fontFamily="@font/maruburi"
             android:background="@drawable/blue_rounded_button"
+            android:fontFamily="@font/maruburi"
+            android:text="@string/login"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintStart_toStartOf="@+id/regist_button"
+            app:layout_constraintTop_toBottomOf="@+id/regist_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
