@@ -2,11 +2,11 @@
 <resources>
     <dimen name="arrow_width">48dp</dimen>
     <dimen name="arrow_height">48dp</dimen>
-    <dimen name="ediya_main_logo_width">350dp</dimen>
-    <dimen name="ediya_main_logo_height">350dp</dimen>
-    <dimen name="rounded_rectangle_width">280dp</dimen>
+    <dimen name="ediya_main_logo_width">400dp</dimen>
+    <dimen name="ediya_main_logo_height">400dp</dimen>
+    <dimen name="rounded_rectangle_width">350dp</dimen>
     <dimen name="rounded_rectangle_height">58dp</dimen>
-    <dimen name="loginpage_rectangle_textsize">20sp</dimen>
+    <dimen name="loginpage_rectangle_textsize">25sp</dimen>
     <dimen name="category_picture_width">120dp</dimen>
     <dimen name="category_picture_height">120dp</dimen>
     <dimen name="category_buttonsize">144dp</dimen>

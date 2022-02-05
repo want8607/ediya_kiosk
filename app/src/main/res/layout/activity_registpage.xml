@@ -6,113 +6,131 @@
     android:background="@color/ediya_blue">
 
     <!--초기페이지 이디야 로고-->
-
-    <ImageView
-        android:id="@+id/ediya_logo"
-        android:layout_width="@dimen/ediya_main_logo_width"
-        android:layout_height="@dimen/ediya_main_logo_height"
-        android:src="@mipmap/ediya_main_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <!--  뒤로가기 화살표  -->
-    <ImageButton
-        android:layout_width="@dimen/arrow_width"
-        android:layout_height="@dimen/arrow_height"
-        android:background="@null"
-        android:src="@drawable/ic_arrow_white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ediya_logo"
-        app:layout_constraintVertical_bias="0.2">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ediya_logo"
+                android:layout_width="@dimen/ediya_main_logo_width"
+                android:layout_height="@dimen/ediya_main_logo_height"
+                android:src="@mipmap/ediya_main_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.15" />
+
+            <!--  뒤로가기 화살표  -->
+            <ImageButton
+                android:layout_width="@dimen/arrow_width"
+                android:layout_height="@dimen/arrow_height"
+                android:background="@null"
+                android:src="@drawable/ic_arrow_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.05" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ediya_logo"
+                app:layout_constraintVertical_bias="0.2">
 
 
-        <EditText
-            android:id="@+id/regist_input_id"
-            android:layout_width="@dimen/rounded_rectangle_width"
-            android:layout_height="@dimen/rounded_rectangle_height"
-            android:background="@drawable/rounded_rectangle"
-            android:fontFamily="@font/maruburi"
-            android:hint="@string/id"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textColorHint="@color/ediya_blue"
-            android:textSize="@dimen/loginpage_rectangle_textsize"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <EditText
+                    android:id="@+id/regist_input_id"
+                    android:layout_width="@dimen/rounded_rectangle_width"
+                    android:layout_height="@dimen/rounded_rectangle_height"
+                    android:background="@drawable/rounded_rectangle"
+                    android:fontFamily="@font/app_main_font"
+                    android:hint="@string/id"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/ediya_blue"
+                    android:textSize="@dimen/loginpage_rectangle_textsize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/regist_id_check"
-            android:layout_width="@dimen/rounded_rectangle_width"
-            android:layout_height="@dimen/rounded_rectangle_height"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/blue_rounded_button"
-            android:fontFamily="@font/maruburi"
-            android:text="@string/regist_id_check"
-            android:textColor="@color/white"
-            android:textSize="@dimen/loginpage_rectangle_textsize"
-            app:layout_constraintTop_toBottomOf="@id/regist_input_id"
-            app:layout_constraintStart_toStartOf="@id/regist_input_id"/>
+                <Button
+                    android:id="@+id/regist_id_check"
+                    android:layout_width="@dimen/rounded_rectangle_width"
+                    android:layout_height="@dimen/rounded_rectangle_height"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/blue_rounded_button"
+                    android:fontFamily="@font/app_main_font"
+                    android:text="@string/regist_id_check"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/loginpage_rectangle_textsize"
+                    app:layout_constraintStart_toStartOf="@id/regist_input_id"
+                    app:layout_constraintTop_toBottomOf="@id/regist_input_id" />
 
-        <EditText
-            android:id="@+id/regist_password"
-            android:layout_width="@dimen/rounded_rectangle_width"
-            android:layout_height="@dimen/rounded_rectangle_height"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_rectangle"
-            android:fontFamily="@font/maruburi"
-            android:hint="@string/password"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textColorHint="@color/ediya_blue"
-            android:textSize="@dimen/loginpage_rectangle_textsize"
-            app:layout_constraintTop_toBottomOf="@id/regist_id_check"
-            app:layout_constraintStart_toStartOf="@id/regist_id_check"/>
+                <EditText
+                    android:id="@+id/regist_password"
+                    android:layout_width="@dimen/rounded_rectangle_width"
+                    android:layout_height="@dimen/rounded_rectangle_height"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_rectangle"
+                    android:fontFamily="@font/app_main_font"
+                    android:inputType="textPassword"
+                    android:hint="@string/password"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/ediya_blue"
+                    android:textSize="@dimen/loginpage_rectangle_textsize"
+                    app:layout_constraintStart_toStartOf="@id/regist_id_check"
+                    app:layout_constraintTop_toBottomOf="@id/regist_id_check" />
 
-        <EditText
-            android:id="@+id/reigst_repassword"
-            android:layout_width="@dimen/rounded_rectangle_width"
-            android:layout_height="@dimen/rounded_rectangle_height"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_rectangle"
-            android:fontFamily="@font/maruburi"
-            android:hint="@string/repassword"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textColorHint="@color/ediya_blue"
-            android:textSize="@dimen/loginpage_rectangle_textsize"
-            app:layout_constraintTop_toBottomOf="@id/regist_password"
-            app:layout_constraintStart_toStartOf="@id/regist_password"/>
+                <EditText
+                    android:id="@+id/reigst_repassword"
+                    android:layout_width="@dimen/rounded_rectangle_width"
+                    android:layout_height="@dimen/rounded_rectangle_height"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_rectangle"
+                    android:fontFamily="@font/app_main_font"
+                    android:inputType="textPassword"
+                    android:hint="@string/repassword"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/ediya_blue"
+                    android:textSize="@dimen/loginpage_rectangle_textsize"
+                    app:layout_constraintStart_toStartOf="@id/regist_password"
+                    app:layout_constraintTop_toBottomOf="@id/regist_password" />
 
-        <Button
-            android:id="@+id/regist_button"
-            android:layout_width="@dimen/rounded_rectangle_width"
-            android:layout_height="@dimen/rounded_rectangle_height"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/blue_rounded_button"
-            android:fontFamily="@font/maruburi"
-            android:text="@string/registration"
-            android:textColor="@color/white"
-            android:textSize="@dimen/loginpage_rectangle_textsize"
-            app:layout_constraintTop_toBottomOf="@id/reigst_repassword"
-            app:layout_constraintStart_toStartOf="@id/reigst_repassword"/>
+                <Button
+                    android:id="@+id/regist_button"
+                    android:layout_width="@dimen/rounded_rectangle_width"
+                    android:layout_height="@dimen/rounded_rectangle_height"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/blue_rounded_button"
+                    android:fontFamily="@font/app_main_font"
+                    android:text="@string/registration"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/loginpage_rectangle_textsize"
+                    app:layout_constraintStart_toStartOf="@id/reigst_repassword"
+                    app:layout_constraintTop_toBottomOf="@id/reigst_repassword" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text=""
+                    app:layout_constraintStart_toStartOf="@+id/regist_button"
+                    app:layout_constraintTop_toBottomOf="@id/regist_button" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
