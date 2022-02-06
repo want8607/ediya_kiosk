@@ -7,10 +7,10 @@ import android.widget.Button
 import android.widget.ImageButton
 
 
-class MainActivity : AppCompatActivity(R.layout.activity_startpage) {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initSetBtn()
+        setContentView(R.layout.activity_startpage)
     }
 
     fun initSetBtn(){
@@ -18,12 +18,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_startpage) {
         var startRegistBtn = findViewById<Button>(R.id.start_regist_button)
         var startBackBtn = findViewById<ImageButton>(R.id.start_back_btn)
         startLoginBtn!!.setOnClickListener {
-            startBackBtn.setVisibility(View.VISIBLE)
             supportFragmentManager.beginTransaction().replace(R.id.start_fragment_container_view, LoginFragment()).commit()
+            startBackBtn.setVisibility(View.VISIBLE)
         }
         startRegistBtn!!.setOnClickListener {
-            startBackBtn.setVisibility(View.VISIBLE)
             supportFragmentManager.beginTransaction().replace(R.id.start_fragment_container_view, RegistFragment()).commit()
+            startBackBtn.setVisibility(View.VISIBLE)
         }
         startBackBtn!!.setOnClickListener{
             startBackBtn.setVisibility(View.INVISIBLE)
