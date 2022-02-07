@@ -1,96 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/registration_linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintVertical_bias="0.2">
+    android:layout_height="wrap_content">
 
-
-    <EditText
-        android:id="@+id/registration_input_id"
-        android:layout_width="@dimen/rounded_rectangle_width"
-        android:layout_height="@dimen/rounded_rectangle_height"
-        android:background="@drawable/rounded_rectangle"
-        android:fontFamily="@font/app_main_font"
-        android:hint="@string/id"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="@color/ediya_blue"
-        android:textSize="@dimen/loginpage_rectangle_textsize"
+    <ImageView
+        android:id="@+id/ediya_logo"
+        android:layout_width="@dimen/ediya_main_logo_width"
+        android:layout_height="@dimen/ediya_main_logo_height"
+        android:src="@drawable/ediya_main_logo"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
-    <Button
-        android:id="@+id/registration_id_check"
-        android:layout_width="@dimen/rounded_rectangle_width"
-        android:layout_height="@dimen/rounded_rectangle_height"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/blue_rounded_button"
-        android:fontFamily="@font/app_main_font"
-        android:text="@string/regist_id_check"
-        android:textColor="@color/white"
-        android:textSize="@dimen/loginpage_rectangle_textsize"
-        app:layout_constraintStart_toStartOf="@id/registration_input_id"
-        app:layout_constraintTop_toBottomOf="@id/registration_input_id" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/registration_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ediya_logo">
 
-    <EditText
-        android:id="@+id/registration_password"
-        android:layout_width="@dimen/rounded_rectangle_width"
-        android:layout_height="@dimen/rounded_rectangle_height"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/rounded_rectangle"
-        android:fontFamily="@font/app_main_font"
-        android:inputType="textPassword"
-        android:hint="@string/password"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="@color/ediya_blue"
-        android:textSize="@dimen/loginpage_rectangle_textsize"
-        app:layout_constraintStart_toStartOf="@id/registration_id_check"
-        app:layout_constraintTop_toBottomOf="@id/registration_id_check" />
 
-    <EditText
-        android:id="@+id/reigstration_repassword"
-        android:layout_width="@dimen/rounded_rectangle_width"
-        android:layout_height="@dimen/rounded_rectangle_height"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/rounded_rectangle"
-        android:fontFamily="@font/app_main_font"
-        android:inputType="textPassword"
-        android:hint="@string/repassword"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textColorHint="@color/ediya_blue"
-        android:textSize="@dimen/loginpage_rectangle_textsize"
-        app:layout_constraintStart_toStartOf="@id/registration_password"
-        app:layout_constraintTop_toBottomOf="@id/registration_password" />
+        <EditText
+            android:id="@+id/registration_input_id"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
+            android:background="@drawable/rounded_rectangle"
+            android:fontFamily="@font/app_main_font"
+            android:hint="@string/id"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="@color/ediya_blue"
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/registration_regist_button"
-        android:layout_width="@dimen/rounded_rectangle_width"
-        android:layout_height="@dimen/rounded_rectangle_height"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/blue_rounded_button"
-        android:fontFamily="@font/app_main_font"
-        android:text="@string/registration"
-        android:textColor="@color/white"
-        android:textSize="@dimen/loginpage_rectangle_textsize"
-        app:layout_constraintStart_toStartOf="@id/reigstration_repassword"
-        app:layout_constraintTop_toBottomOf="@id/reigstration_repassword" />
+        <Button
+            android:id="@+id/registration_id_check"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/blue_rounded_button"
+            android:fontFamily="@font/app_main_font"
+            android:text="@string/regist_id_check"
+            android:textColor="@color/white"
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintStart_toStartOf="@id/registration_input_id"
+            app:layout_constraintTop_toBottomOf="@id/registration_input_id" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text=""
-        app:layout_constraintStart_toStartOf="@+id/registration_regist_button"
-        app:layout_constraintTop_toBottomOf="@id/registration_regist_button" />
+        <EditText
+            android:id="@+id/registration_password"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_rectangle"
+            android:fontFamily="@font/app_main_font"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="@color/ediya_blue"
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintStart_toStartOf="@id/registration_id_check"
+            app:layout_constraintTop_toBottomOf="@id/registration_id_check" />
 
+        <EditText
+            android:id="@+id/reigstration_repassword"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_rectangle"
+            android:fontFamily="@font/app_main_font"
+            android:hint="@string/repassword"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="@color/ediya_blue"
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintStart_toStartOf="@id/registration_password"
+            app:layout_constraintTop_toBottomOf="@id/registration_password" />
+
+        <Button
+            android:id="@+id/registration_regist_button"
+            android:layout_width="@dimen/rounded_rectangle_width"
+            android:layout_height="@dimen/rounded_rectangle_height"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/blue_rounded_button"
+            android:fontFamily="@font/app_main_font"
+            android:text="@string/registration"
+            android:textColor="@color/white"
+            android:textSize="@dimen/loginpage_rectangle_textsize"
+            app:layout_constraintStart_toStartOf="@id/reigstration_repassword"
+            app:layout_constraintTop_toBottomOf="@id/reigstration_repassword" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text=""
+            app:layout_constraintStart_toStartOf="@+id/registration_regist_button"
+            app:layout_constraintTop_toBottomOf="@id/registration_regist_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/regist_back_btn"
+        android:layout_width="@dimen/arrow_width"
+        android:layout_height="@dimen/arrow_height"
+        android:background="@null"
+        android:src="@drawable/ic_arrow_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
 </androidx.constraintlayout.widget.ConstraintLayout>
