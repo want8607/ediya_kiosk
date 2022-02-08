@@ -3,20 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!--  뒤로가기-->
-    <ImageButton
-        android:elevation="10dp"
-        android:layout_width="@dimen/arrow_width"
-        android:layout_height="@dimen/arrow_height"
-        android:background="@null"
-        android:src="@drawable/ic_arrow_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"/>
-
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -25,7 +11,6 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         >
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -346,6 +331,7 @@
     </ScrollView>
     <!--장바구니 버튼    -->
     <ImageButton
+        android:id="@+id/selectmenu_basket_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/basket_background"
@@ -440,7 +426,7 @@
         </TextView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/selectmenu_add_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -456,4 +442,17 @@
 
         </Button>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--  뒤로가기-->
+    <ImageButton
+        android:id="@+id/selectmenu_back_button"
+        android:layout_width="@dimen/arrow_width"
+        android:layout_height="@dimen/arrow_height"
+        android:background="@null"
+        android:src="@drawable/ic_arrow_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

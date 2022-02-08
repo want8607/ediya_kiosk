@@ -7,10 +7,9 @@ import android.widget.RadioButton
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_category)
+        setContentView(R.layout.activity_mainpage)
 
-        var categoryBtn = findViewById<RadioButton>(R.id.category_button1)
-        categoryBtn.isChecked = true
+
 
     }
 

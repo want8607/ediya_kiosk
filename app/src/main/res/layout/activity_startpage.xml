@@ -1,27 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/start_constraintlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ediya_blue">
 
     <!--초기페이지 이디야 로고-->
     <ScrollView
+        android:id="@+id/scrollView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
-        <FrameLayout
-            android:id="@+id/start_fragment_container_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <!--프래그먼트 시작-->
-            <fragment
+
+            <ImageView
+                android:id="@+id/ediya_logo"
+                android:layout_width="@dimen/ediya_main_logo_width"
+                android:layout_height="@dimen/ediya_main_logo_height"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ediya_main_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/start_fragment_container_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:name="com.example.stage.StartFragment"/>
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/ediya_logo">
+                <!--프래그먼트 시작-->
+                <fragment
+                    android:name="com.example.stage.StartFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
-        </FrameLayout>
-
+            </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
+    <ImageButton
+        android:id="@+id/start_back_btn"
+        android:layout_width="@dimen/arrow_width"
+        android:layout_height="@dimen/arrow_height"
+        android:background="@null"
+        android:src="@drawable/ic_arrow_white"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

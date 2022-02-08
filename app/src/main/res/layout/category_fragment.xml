@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
-
-<!--내정보 아이콘-->
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -23,15 +19,7 @@
         app:layout_constraintVertical_bias="0.02"/>
 
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/basket_background"
-        android:src="@mipmap/ediya_basketicon"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+
 
 
     <ImageView
@@ -49,7 +37,7 @@
 
     </ImageView>
 
-        <!--  큰 카테고리  -->
+    <!--  큰 카테고리  -->
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
@@ -108,6 +96,7 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/category_list1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp">
@@ -378,6 +367,14 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
-
-
+    <ImageButton
+        android:id="@+id/category_basket_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/basket_background"
+        android:src="@mipmap/ediya_basketicon"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

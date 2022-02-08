@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 
 class RegistFragment: Fragment() {
@@ -18,14 +19,14 @@ class RegistFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var registBackBtn = view.findViewById<ImageButton>(R.id.regist_back_btn)
         var transaction = parentFragmentManager.beginTransaction()
         var registIdCheckBtn = view.findViewById<Button>(R.id.registration_id_check)
         var registBtn = view.findViewById<Button>(R.id.registration_regist_button)
-
-
+        val startConstraintLayout by lazy{requireActivity().findViewById<ConstraintLayout>(R.id.start_constraintlayout)}
+        val startBackBtn by lazy { startConstraintLayout.findViewById<ImageButton>(R.id.start_back_btn) }
         //뒤로가기버튼
-        registBackBtn.setOnClickListener{
+        startBackBtn.setOnClickListener{
+            startBackBtn.visibility = View.INVISIBLE
             transaction.replace(R.id.start_fragment_container_view,StartFragment()).commit()
         }
 

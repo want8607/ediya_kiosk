@@ -62,7 +62,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/basket_back_button"
         android:layout_width="@dimen/arrow_width"
         android:layout_height="@dimen/arrow_height"
         android:background="@null"
@@ -813,7 +813,7 @@
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/basket_payment_button"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="@+id/textView3"
@@ -822,7 +822,7 @@
         </TextView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/basket_payment_button"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
