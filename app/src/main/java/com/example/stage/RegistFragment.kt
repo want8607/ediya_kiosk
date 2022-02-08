@@ -45,7 +45,9 @@ class RegistFragment: Fragment() {
             var builder2 = AlertDialog.Builder(activity)
             builder2.setMessage("회원가입 완료")
                 .setPositiveButton("확인",DialogInterface.OnClickListener{
-                    dialogInterface, i ->  transaction.replace(R.id.start_fragment_container_view,StartFragment()).commit()
+                    dialogInterface, i ->
+                    startBackBtn.visibility = View.INVISIBLE
+                    transaction.replace(R.id.start_fragment_container_view,StartFragment()).commit()
                 })
             builder2.show()
         }

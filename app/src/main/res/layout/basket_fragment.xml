@@ -410,8 +410,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="20dp"
-                android:background="@drawable/basket_border">
+                android:background="@drawable/basket_border"
+                android:paddingVertical="20dp">
 
                 <ImageView
                     android:id="@+id/cimageView2"
@@ -508,9 +508,9 @@
                     android:id="@+id/cimageButton4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:background="@null"
                     android:src="@mipmap/minus_button"
-                    android:layout_marginLeft="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0."
