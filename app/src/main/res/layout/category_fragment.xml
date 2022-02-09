@@ -21,9 +21,6 @@
         app:layout_constraintVertical_bias="0.02"/>
 
 
-
-
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="271dp"
@@ -59,7 +56,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/category_button"
             android:button="@null"
-            android:fontFamily="@font/nanumsquareroundotfr"
+            android:fontFamily="@font/maruburi"
             android:padding="10dp"
             android:text="음료"
             android:textAlignment="center"
@@ -74,7 +71,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/category_button"
             android:button="@null"
-            android:fontFamily="@font/nanumsquareroundotfr"
+            android:fontFamily="@font/maruburi"
             android:padding="10dp"
             android:text="베이커리"
             android:textAlignment="center"
@@ -118,7 +115,7 @@
                     android:id="@+id/atextView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanumsquareroundotfr"
+                    android:fontFamily="@font/maruburi"
                     android:text="커피"
                     android:textColor="@color/black"
                     android:textSize="26sp"
@@ -134,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/nanumsquareroundotfr"
+                    android:fontFamily="@font/maruburi"
                     android:text="coffee"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
