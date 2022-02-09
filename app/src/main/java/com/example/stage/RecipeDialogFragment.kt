@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 
 class RecipeDialogFragment: DialogFragment() {
@@ -25,7 +26,6 @@ class RecipeDialogFragment: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var recipeExitBtn = view.findViewById<ImageButton>(R.id.recipe_exit_button)
-
         recipeExitBtn.setOnClickListener {
             dismiss()
         }
