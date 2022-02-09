@@ -11,17 +11,16 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:fontFamily="@font/maruburi"
-        android:padding="20dp"
+        android:paddingTop="45dp"
         android:text="장바구니"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -30,10 +29,8 @@
         android:orientation="horizontal"
         android:gravity="right"
         android:background="@drawable/basket_blue_underline"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0">
+       >
 
         <Button
             android:layout_width="wrap_content"
@@ -738,12 +735,17 @@
         </LinearLayout>
     </ScrollView>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@drawable/upper_shadow"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="40dp"
-        android:background="@drawable/top_shadow"
+        android:paddingVertical="20dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -755,7 +757,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/maruburi"
-            android:layout_marginTop="10dp"
             android:text="총"
             android:textColor="@color/black"
             android:textSize="30sp"
@@ -763,8 +764,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7">
+            app:layout_constraintTop_toTopOf="parent">
 
         </TextView>
 
@@ -777,12 +777,11 @@
             android:text="2"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.7">
+            app:layout_constraintTop_toTopOf="@+id/textView3">
 
         </TextView>
 
@@ -794,12 +793,10 @@
             android:text="개"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.7">
+            app:layout_constraintTop_toTopOf="@+id/textView3">
 
         </TextView>
 
@@ -812,18 +809,15 @@
             android:text="10,000원"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/basket_payment_button"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.7">
+            app:layout_constraintTop_toTopOf="@+id/textView3">
 
         </TextView>
 
         <Button
             android:id="@+id/basket_payment_button"
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/white_rounded_button"
@@ -831,12 +825,10 @@
             android:paddingHorizontal="50dp"
             android:text="결제"
             android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7">
+            app:layout_constraintTop_toTopOf="@+id/textView3">
 
         </Button>
     </androidx.constraintlayout.widget.ConstraintLayout>

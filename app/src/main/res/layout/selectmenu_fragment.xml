@@ -345,17 +345,15 @@
 
     </ImageButton>
 
-    <ImageView
+    <View
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:orientation="horizontal"
-        android:background="@drawable/top_shadow"
+        android:background="@drawable/upper_shadow"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1">
+        >
 
-    </ImageView>
+    </View>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
