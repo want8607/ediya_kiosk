@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/alter_dialog_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nanumsquareroundotfr"
+        android:text="사용가능한 아이디 입니다." />
+
+
+    <Button
+        android:id="@+id/yesBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@android:color/transparent"
+        android:textColor="@color/ediya_blue"
+        android:text="확인" />
+
+</LinearLayout>
+<!--   https://mixup.tistory.com/36-->

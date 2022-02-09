@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.33515981735159817" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable-v24/top_shadow.xml" value="0.33515981735159817" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/alter_dialog_background.xml" value="0.33515981735159817" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/basket_background.xml" value="0.1962962962962963" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/basket_border.xml" value="0.1962962962962963" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/blue_rounded_button.xml" value="0.1962962962962963" />
@@ -23,6 +24,7 @@
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/rounded_rectangle.xml" value="0.33515981735159817" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/size_radiobutton_background.xml" value="0.33515981735159817" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/startpage_background.xml" value="0.33515981735159817" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/white_rounded_button.xml" value="0.33515981735159817" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_basket.xml" value="0.33" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_category.xml" value="0.25" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_login.xml" value="0.32546296296296295" />
@@ -32,6 +34,7 @@
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_registpage.xml" value="0.32546296296296295" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_selectmenu.xml" value="0.33" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_startpage.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/alter_dialog.xml" value="0.32546296296296295" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/basket_fragment.xml" value="0.32546296296296295" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/category_fragment.xml" value="0.32546296296296295" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/login_fragment.xml" value="0.32546296296296295" />
