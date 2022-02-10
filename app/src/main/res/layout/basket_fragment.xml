@@ -151,12 +151,8 @@
                     android:text="ICED|Tall|매장컵\n샷2 | 휘핑크림 3"
                     android:textColor="@color/gray"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/atextView12"
-                    app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toEndOf="@+id/aimageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/atextView4"
-                    app:layout_constraintVertical_bias="0" />
+                    app:layout_constraintTop_toBottomOf="@+id/atextView4"/>
 
                 <TextView
                     android:id="@+id/atextView12"
@@ -186,48 +182,37 @@
                     app:layout_constraintStart_toEndOf="@+id/aimageView2"
                     app:layout_constraintTop_toBottomOf="@+id/atextView11" />
 
-                <ImageButton
-                    android:id="@+id/aimageButton4"
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:background="@null"
-                    android:src="@drawable/ic_minus_icon_small"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0."
-                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/abutton2"
-                    app:layout_constraintVertical_bias="0.7" />
+                    app:layout_constraintStart_toStartOf="@+id/abutton2"
+                    app:layout_constraintTop_toBottomOf="@+id/abutton2">
 
-                <TextView
-                    android:id="@+id/atextView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="2"
-                    android:textSize="40sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@+id/aimageButton4"
-                    app:layout_constraintTop_toBottomOf="@+id/abutton2"
-                    app:layout_constraintVertical_bias="0.7"/>
+                    <ImageButton
+                        android:id="@+id/basket_menu_minus_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/ic_minus_icon_small" />
 
-                <ImageButton
-                    android:id="@+id/aimageButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:background="@null"
-                    android:src="@drawable/ic_plus_icon_small"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@+id/atextView3"
-                    app:layout_constraintTop_toBottomOf="@+id/abutton2"
-                    app:layout_constraintVertical_bias="0.7"/>
+                    <TextView
+                        android:id="@+id/basket_menu_num_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/maruburi"
+                        android:text="1"
+                        android:textSize="30sp" />
+
+                    <ImageButton
+                        android:id="@+id/basket_menu_plus_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/ic_plus_icon_small" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/atextView13"
@@ -240,7 +225,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.9"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/atextView3" />
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

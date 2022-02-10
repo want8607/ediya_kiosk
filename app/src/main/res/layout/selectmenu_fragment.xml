@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -269,12 +270,14 @@
                     app:layout_constraintTop_toBottomOf="@id/textView7">
 
                     <ImageButton
+                        android:id="@+id/selectemenu_shot_minus_button"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
                         android:src="@drawable/ic_minus_icon" />
 
                     <TextView
+                        android:id="@+id/selectmenu_shot_num_textview"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginHorizontal="20dp"
@@ -285,6 +288,7 @@
                         android:textSize="50sp" />
 
                     <ImageButton
+                        android:id="@+id/selectemenu_shot_plus_button"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
@@ -314,12 +318,14 @@
                     app:layout_constraintTop_toBottomOf="@id/textView8">
 
                     <ImageButton
+                        android:id="@+id/selectemenu_syrup_minus_button"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
                         android:src="@drawable/ic_minus_icon" />
 
                     <TextView
+                        android:id="@+id/selectmenu_syrup_num_textview"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginHorizontal="20dp"
@@ -330,6 +336,7 @@
                         android:textSize="50sp" />
 
                     <ImageButton
+                        android:id="@+id/selectemenu_syrup_plus_button"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
@@ -374,52 +381,51 @@
         app:layout_constraintStart_toStartOf="parent"
         >
 
-        <ImageButton
-            android:id="@+id/imageButton4"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_minus_icon_small"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintEnd_toStartOf="@id/textView2"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="20dp">
 
-        </ImageButton>
+            <ImageButton
+                android:id="@+id/selectmenu_menu_minus_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_minus_icon_small">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/maruburi"
-            android:text="2"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/imageButton3"
-            app:layout_constraintTop_toTopOf="parent">
+            </ImageButton>
 
-        </TextView>
+            <TextView
+                android:id="@+id/selectmenu_menu_num_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:fontFamily="@font/maruburi"
+                android:text="1"
+                android:textAlignment="center"
+                android:textSize="30sp">
 
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_plus_icon_small"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent">
+            </TextView>
 
-        </ImageButton>
+            <ImageButton
+                android:id="@+id/selectmenu_menu_plus_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_plus_icon_small">
 
+            </ImageButton>
+        </LinearLayout>
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/maruburi"
-            android:paddingTop="5dp"
             android:text="10,000원"
-            android:textSize="25sp"
+            android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
