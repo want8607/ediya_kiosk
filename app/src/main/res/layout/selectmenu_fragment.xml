@@ -272,7 +272,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
-                        android:src="@mipmap/big_minus_button" />
+                        android:src="@drawable/ic_minus_icon" />
 
                     <TextView
                         android:layout_width="70dp"
@@ -288,7 +288,7 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
-                        android:src="@mipmap/big_plus_button" />
+                        android:src="@drawable/ic_plus_icon" />
                 </LinearLayout>
 
                 <!--시럽추가 -->
@@ -314,10 +314,10 @@
                     app:layout_constraintTop_toBottomOf="@id/textView8">
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:background="@color/white"
-                        android:src="@mipmap/big_minus_button" />
+                        android:src="@drawable/ic_minus_icon" />
 
                     <TextView
                         android:layout_width="70dp"
@@ -330,10 +330,10 @@
                         android:textSize="50sp" />
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         android:background="@color/white"
-                        android:src="@mipmap/big_plus_button" />
+                        android:src="@drawable/ic_plus_icon" />
                 </LinearLayout>
 
 
@@ -379,7 +379,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@mipmap/minus_button"
+            android:src="@drawable/ic_minus_icon_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView3"
             app:layout_constraintTop_toTopOf="parent">
@@ -405,8 +405,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:background="@android:color/transparent"
-            android:src="@mipmap/plus_button"
-
+            android:src="@drawable/ic_plus_icon_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="parent">
