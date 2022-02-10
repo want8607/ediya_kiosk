@@ -1,11 +1,9 @@
 package com.example.stage
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
-import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 
 class RecipeDialogFragment: DialogFragment() {
@@ -28,6 +26,7 @@ class RecipeDialogFragment: DialogFragment() {
         var recipeExitBtn = view.findViewById<ImageButton>(R.id.recipe_exit_button)
         recipeExitBtn.setOnClickListener {
             dismiss()
+            parentFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,CategoryFragment()).commit()
         }
     }
 }
