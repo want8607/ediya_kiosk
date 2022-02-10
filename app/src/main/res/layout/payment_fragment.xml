@@ -12,17 +12,15 @@
         android:layout_height="wrap_content"
         android:background="@drawable/under_blueline"
         android:fontFamily="@font/maruburi"
-        android:padding="20dp"
+        android:paddingTop="45dp"
+        android:paddingBottom="30dp"
         android:text="결제하기"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029">
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
     <ImageButton
@@ -58,7 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/payment_border"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                >
 
                 <TextView
                     android:id="@+id/textView9"
@@ -455,23 +454,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@drawable/upper_shadow"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="40dp"
-        android:background="@color/white"
+        android:paddingVertical="30dp"
+        android:background="@drawable/top_blueline"
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1">
+        app:layout_constraintStart_toStartOf="parent">
         <Button
             android:id="@+id/payment_pay_button"
             android:layout_width="wrap_content"

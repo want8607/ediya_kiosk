@@ -22,7 +22,7 @@ class SelectMenuFragment : Fragment(){
         //뒤로가기
         var selectMenuBackBtn = view.findViewById<ImageButton>(R.id.selectmenu_back_button)
         selectMenuBackBtn.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,MenuFragment()).commit()
+            parentFragmentManager.beginTransaction().remove(this).commit()
         }
 
         //장바구니에 추가

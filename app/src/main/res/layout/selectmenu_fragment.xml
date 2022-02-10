@@ -8,7 +8,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         >
         <LinearLayout
@@ -47,12 +47,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/maruburi"
+                android:fontFamily="@font/nanumsquareroundotfr"
                 android:layout_marginLeft="25dp"
                 android:text="5,000원"
                 android:textColor="@color/black"
                 android:textSize="35sp" />
 
+            <!-- 스크롤 안잘리게 만들기 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -70,6 +71,7 @@
                     <RadioButton
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
                         android:background="@drawable/hot_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
@@ -77,12 +79,14 @@
                         android:text="Hot"
                         android:textAlignment="center"
                         android:textColor="@drawable/hot_cold_radiobutton_text"
-                        android:textSize="25sp"/>
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
 
                     <RadioButton
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
                         android:background="@drawable/cold_radiobutton_background"
                         android:button="@null"
                         android:checked="false"
@@ -91,7 +95,8 @@
                         android:text="Ice"
                         android:textAlignment="center"
                         android:textColor="@drawable/hot_cold_radiobutton_text"
-                        android:textSize="25sp"/>
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
 
                 </RadioGroup>
@@ -136,7 +141,8 @@
                         android:text="Tall"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
                     <RadioButton
                         android:layout_width="120dp"
@@ -148,7 +154,8 @@
                         android:text="Grande"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
                     <RadioButton
                         android:layout_width="120dp"
@@ -159,7 +166,8 @@
                         android:text="Venti"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
                 </RadioGroup>
 
@@ -190,8 +198,9 @@
                     app:layout_constraintTop_toBottomOf="@id/textView6">
 
                     <RadioButton
-                        android:layout_width="150dp"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
                         android:background="@drawable/cup_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
@@ -199,13 +208,15 @@
                         android:text="매장컵"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
-                        android:textSize="22sp">
+                        android:textSize="22sp"
+                        android:textStyle="bold">
 
                     </RadioButton>
 
                     <RadioButton
-                        android:layout_width="150dp"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
                         android:background="@drawable/cup_radiobutton_background"
                         android:button="@null"
                         android:checked="false"
@@ -214,11 +225,12 @@
                         android:text="개인컵"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
-                        android:textSize="22sp" />
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
 
 
                     <RadioButton
-                        android:layout_width="150dp"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/cup_radiobutton_background"
                         android:button="@null"
@@ -228,7 +240,8 @@
                         android:text="일회용컵"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
-                        android:textSize="22sp" />
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
 
 
                 </RadioGroup>
@@ -249,25 +262,27 @@
                     android:id="@+id/linearLayout4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textView7">
+
                     <ImageButton
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
-                        android:src="@mipmap/big_minus_button"/>
+                        android:src="@mipmap/big_minus_button" />
+
                     <TextView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginHorizontal="20dp"
-                        android:textAlignment="center"
-                        android:text="1"
                         android:background="@drawable/round_circle_background"
-                        android:textSize="50sp"
-                        android:fontFamily="@font/maruburi"/>
+                        android:fontFamily="@font/maruburi"
+                        android:text="1"
+                        android:textAlignment="center"
+                        android:textSize="50sp" />
 
                     <ImageButton
                         android:layout_width="70dp"
@@ -292,36 +307,38 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textView8">
+
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:src="@mipmap/big_minus_button"/>
+                        android:src="@mipmap/big_minus_button" />
+
                     <TextView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginHorizontal="20dp"
-                        android:textAlignment="center"
-                        android:text="1"
                         android:background="@drawable/round_circle_background"
-                        android:textSize="50sp"
-                        android:fontFamily="@font/maruburi"/>
+                        android:fontFamily="@font/maruburi"
+                        android:text="1"
+                        android:textAlignment="center"
+                        android:textSize="50sp" />
+
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/white"
-                        android:src="@mipmap/big_plus_button"/>
+                        android:src="@mipmap/big_plus_button" />
                 </LinearLayout>
 
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <!-- 스크롤 안잘리게 만들기 -->
+
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -336,7 +353,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/basket_background"
         android:src="@mipmap/ediya_basketicon"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
@@ -345,37 +362,27 @@
 
     </ImageButton>
 
-    <View
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@drawable/upper_shadow"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        >
-
-    </View>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="30dp"
         android:paddingBottom="30dp"
-        android:paddingTop="10dp"
-        android:background="@color/white"
+        android:background="@drawable/top_blueline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1">
+        >
 
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:background="@null"
+            android:background="@android:color/transparent"
             android:src="@mipmap/minus_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="@+id/textView2">
+            app:layout_constraintTop_toTopOf="parent">
 
         </ImageButton>
 
@@ -385,9 +392,10 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/maruburi"
             android:text="2"
-            android:textSize="30sp"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/imageButton3"
-            app:layout_constraintTop_toTopOf="@+id/imageButton3">
+            app:layout_constraintTop_toTopOf="parent">
 
         </TextView>
 
@@ -396,13 +404,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:background="@null"
+            android:background="@android:color/transparent"
             android:src="@mipmap/plus_button"
 
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView2"
-            app:layout_constraintHorizontal_bias="0.95">
+            app:layout_constraintTop_toTopOf="parent">
 
         </ImageButton>
 
@@ -416,10 +423,8 @@
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7">
+            app:layout_constraintTop_toTopOf="parent">
 
         </TextView>
 
@@ -427,16 +432,15 @@
             android:id="@+id/selectmenu_add_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:background="@drawable/white_rounded_button"
             android:fontFamily="@font/maruburi"
             android:paddingHorizontal="30dp"
             android:text="담기"
             android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="@+id/textView2"
-            app:layout_constraintHorizontal_bias="0.05">
+            app:layout_constraintTop_toTopOf="parent">
 
         </Button>
     </androidx.constraintlayout.widget.ConstraintLayout>

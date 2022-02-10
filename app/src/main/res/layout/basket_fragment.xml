@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -404,6 +405,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- 스크롤 안잘리게 만들기 -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -503,8 +505,8 @@
 
                 <ImageButton
                     android:id="@+id/cimageButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="52dp"
+                    android:layout_height="47dp"
                     android:layout_marginLeft="20dp"
                     android:background="@null"
                     android:src="@mipmap/minus_button"
@@ -569,8 +571,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="20dp"
-                android:background="@drawable/basket_border">
+                android:background="@drawable/basket_border"
+                android:paddingVertical="20dp">
 
                 <ImageView
                     android:id="@+id/dimageView2"
@@ -651,8 +653,8 @@
 
                 <Button
                     android:id="@+id/dbutton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="87dp"
+                    android:layout_height="53dp"
                     android:layout_marginLeft="20dp"
                     android:background="@null"
                     android:fontFamily="@font/maruburi"
@@ -667,9 +669,9 @@
                     android:id="@+id/dimageButton4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:background="@null"
                     android:src="@mipmap/minus_button"
-                    android:layout_marginLeft="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0."
@@ -727,7 +729,7 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <!-- 스크롤 안잘리게 만들기 -->
+
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="130dp"
@@ -735,17 +737,12 @@
         </LinearLayout>
     </ScrollView>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@drawable/upper_shadow"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="20dp"
-        android:background="@color/white"
+        android:paddingVertical="30dp"
+        android:background="@drawable/top_blueline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -760,11 +757,9 @@
             android:text="총"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView4">
 
         </TextView>
 
@@ -772,16 +767,13 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:fontFamily="@font/maruburi"
             android:text="2"
             android:textColor="@color/black"
             android:textSize="30sp"
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="@+id/textView3">
+            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/textView5">
 
         </TextView>
 
@@ -793,10 +785,9 @@
             android:text="개"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/textView3">
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2">
 
         </TextView>
 
@@ -809,10 +800,11 @@
             android:text="10,000원"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintEnd_toStartOf="@+id/basket_payment_button"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/textView3">
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         </TextView>
 
@@ -822,13 +814,13 @@
             android:layout_height="wrap_content"
             android:background="@drawable/white_rounded_button"
             android:fontFamily="@font/maruburi"
-            android:paddingHorizontal="50dp"
+            android:paddingHorizontal="40dp"
             android:text="결제"
             android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView3">
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textView2"
+            app:layout_constraintTop_toTopOf="parent">
 
         </Button>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -80,21 +80,20 @@
     </RadioGroup>
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="20dp"
         android:background="@drawable/down_shadow"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"/>
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
     <!-- 세부 카테고리 -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        >
+        app:layout_constraintBottom_toBottomOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,6 +101,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/category_list1"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp">
@@ -113,9 +113,9 @@
                     android:background="@drawable/category_background"
                     android:src="@mipmap/americano"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/atextView12"
@@ -127,10 +127,10 @@
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toEndOf="@+id/aimageView2"
                     app:layout_constraintTop_toTopOf="@+id/aimageView2"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintVertical_bias="0.3"/>
+                    app:layout_constraintVertical_bias="0.3" />
 
                 <TextView
                     android:id="@+id/atextView11"
@@ -158,24 +158,24 @@
                     android:background="@drawable/category_background"
                     android:src="@mipmap/americano"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/btextView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/maruburi"
-                    android:text="커피"
+                    android:text="베버리지"
                     android:textColor="@color/black"
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toEndOf="@+id/bimageView2"
                     app:layout_constraintTop_toTopOf="@+id/bimageView2"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintVertical_bias="0.3"/>
+                    app:layout_constraintVertical_bias="0.3" />
 
                 <TextView
                     android:id="@+id/btextView11"
@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/maruburi"
-                    android:text="coffee"
+                    android:text="beverage"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="@+id/btextView12"
@@ -203,24 +203,24 @@
                     android:background="@drawable/category_background"
                     android:src="@mipmap/americano"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/ctextView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/maruburi"
-                    android:text="커피"
+                    android:text="차"
                     android:textColor="@color/black"
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toEndOf="@+id/cimageView2"
                     app:layout_constraintTop_toTopOf="@+id/cimageView2"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintVertical_bias="0.3"/>
+                    app:layout_constraintVertical_bias="0.3" />
 
                 <TextView
                     android:id="@+id/ctextView11"
@@ -228,7 +228,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/maruburi"
-                    android:text="coffee"
+                    android:text="blending tea"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="@+id/ctextView12"
@@ -248,24 +248,24 @@
                     android:background="@drawable/category_background"
                     android:src="@mipmap/americano"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/dtextView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/maruburi"
-                    android:text="커피"
+                    android:text="플랫치노"
                     android:textColor="@color/black"
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toEndOf="@+id/dimageView2"
                     app:layout_constraintTop_toTopOf="@+id/dimageView2"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintVertical_bias="0.3"/>
+                    app:layout_constraintVertical_bias="0.3" />
 
                 <TextView
                     android:id="@+id/dtextView11"
@@ -273,7 +273,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/maruburi"
-                    android:text="coffee"
+                    android:text="flatccino"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="@+id/dtextView12"
@@ -293,9 +293,9 @@
                     android:background="@drawable/category_background"
                     android:src="@mipmap/americano"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/etextView12"
@@ -307,10 +307,10 @@
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toEndOf="@+id/eimageView2"
                     app:layout_constraintTop_toTopOf="@+id/eimageView2"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintVertical_bias="0.3"/>
+                    app:layout_constraintVertical_bias="0.3" />
 
                 <TextView
                     android:id="@+id/etextView11"
@@ -338,9 +338,9 @@
                     android:background="@drawable/category_background"
                     android:src="@mipmap/americano"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/ftextView12"
@@ -352,10 +352,10 @@
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toEndOf="@+id/fimageView2"
                     app:layout_constraintTop_toTopOf="@+id/fimageView2"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintVertical_bias="0.3"/>
+                    app:layout_constraintVertical_bias="0.3" />
 
                 <TextView
                     android:id="@+id/ftextView11"

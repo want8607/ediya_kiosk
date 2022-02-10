@@ -25,7 +25,7 @@ class CategoryFragment : Fragment(){
         var categoryList1 = view.findViewById<ConstraintLayout>(R.id.category_list1)
 
         categoryList1.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,MenuFragment()).commit()
+            parentFragmentManager.beginTransaction().add(R.id.mainpage_fragment_container_view,MenuFragment()).addToBackStack(null).commit()
         }
 
         //장바구니 보여주기

@@ -26,13 +26,13 @@ class LoginFragment: Fragment() {
         //뒤로가기버튼
         startBackBtn.setOnClickListener{
             startBackBtn.visibility = View.INVISIBLE
-            transaction.replace(R.id.start_fragment_container_view,StartFragment()).commit()
+            transaction.remove(this).commit()
         }
 
         //로그인 버튼
         logInBtn.setOnClickListener{
             //엑티비티 바꿔줘야함
-            var intent = Intent(activity,SecondActivity::class.java)//여기 유지보수
+            var intent = Intent(activity,SecondActivity::class.java)
             startActivity(intent)
         }
 

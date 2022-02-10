@@ -20,13 +20,13 @@ class MenuFragment : Fragment(){
         //메뉴선택시 세부선택 창으로 넘어가기
         var menuList1 = view.findViewById<ConstraintLayout>(R.id.menu_list1)
         menuList1.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,SelectMenuFragment()).commit()
+            parentFragmentManager.beginTransaction().add(R.id.mainpage_fragment_container_view,SelectMenuFragment()).addToBackStack(null).commit()
         }
 
         //뒤로가기 버튼
         var menuBackBtn = view.findViewById<ImageButton>(R.id.menu_back_button)
         menuBackBtn.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,CategoryFragment()).commit()
+            parentFragmentManager.beginTransaction().remove(this).commit()
         }
 
         //장바구니 버튼

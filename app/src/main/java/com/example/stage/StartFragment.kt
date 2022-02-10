@@ -25,15 +25,15 @@ class StartFragment: Fragment() {
         var startLoginBtn = view.findViewById<Button>(R.id.start_login_button)
         val startConstraintLayout by lazy{requireActivity().findViewById<ConstraintLayout>(R.id.start_constraintlayout)}
         val startBackBtn by lazy { startConstraintLayout.findViewById<ImageButton>(R.id.start_back_btn) }
-        var transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+
 
         startLoginBtn!!.setOnClickListener {
             startBackBtn.visibility = View.VISIBLE
-            transaction.replace(R.id.start_fragment_container_view, LoginFragment()).commit()
+            parentFragmentManager.beginTransaction().add(R.id.start_fragment_container_view, LoginFragment()).addToBackStack(null).commit()
         }
         startRegistBtn!!.setOnClickListener {
             startBackBtn.visibility = View.VISIBLE
-            transaction.replace(R.id.start_fragment_container_view, RegistFragment()).commit()
+            parentFragmentManager.beginTransaction().add(R.id.start_fragment_container_view, RegistFragment()).addToBackStack(null).commit()
         }
 
     }

@@ -49,7 +49,7 @@ class RegistFragment: Fragment() {
                 .setPositiveButton("확인",DialogInterface.OnClickListener{
                     dialogInterface, i ->
                     startBackBtn.visibility = View.INVISIBLE
-                    transaction.replace(R.id.start_fragment_container_view,StartFragment()).commit()
+                    transaction.remove(this ).commit()
                 })
             builder.show()
         }
