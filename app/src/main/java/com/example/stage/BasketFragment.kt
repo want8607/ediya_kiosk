@@ -37,7 +37,7 @@ class BasketFragment: Fragment() {
 
         menuPlusBtn.setOnClickListener {
             var menuNum = Integer.parseInt(menuNumTextView.text.toString())
-            if(menuNum < 99){
+            if(menuNum < 20){
                 menuNumTextView.text = (menuNum+1).toString()
             }
         }

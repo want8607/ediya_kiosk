@@ -32,7 +32,7 @@ class LoginFragment: Fragment() {
         //로그인 버튼
         logInBtn.setOnClickListener{
             //엑티비티 바꿔줘야함
-            var intent = Intent(activity,SecondActivity::class.java)
+            var intent = Intent(activity,MainActivity::class.java)
             startActivity(intent)
         }
 

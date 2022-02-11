@@ -3,64 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable-v24/top_shadow.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable-xhdpi/ic_minus_icon_small.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable-xhdpi/ic_plus_icon_small.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/alter_dialog_background.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/basket_background.xml" value="0.1962962962962963" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/basket_border.xml" value="0.1962962962962963" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/blue_rounded_button.xml" value="0.1962962962962963" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/bottom_shadow.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/category_button.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/category_checked.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/cold_radiobutton_checked.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/cold_radiobutton_unchecked.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/cup_radiobutton_background.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/cup_radiobutton_checked.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/cup_radiobutton_unchecked.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/dash_line.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/down_shadow.xml" value="0.31574074074074077" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/hot_cold_radiobutton_text.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/hot_radiobutton_background.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/hot_radiobutton_checked.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/hot_radiobutton_unchecked.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/ic_arrow_blue.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/ic_launcher_background.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/ic_minus_icon.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/ic_x_mark.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/payment_border.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/recipe_background.xml" value="0.1962962962962963" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/recipe_border.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/rounded_rectangle.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/size_radiobutton_background.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/startpage_background.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/top_blueline.xml" value="0.31574074074074077" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/under_blueline.xml" value="0.31574074074074077" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/upper_shadow.xml" value="0.31574074074074077" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/drawable/white_rounded_button.xml" value="0.33515981735159817" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_basket.xml" value="0.33" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_category.xml" value="0.25" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_login.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_mainpage.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_menu.xml" value="0.33" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_payment.xml" value="0.33" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_registpage.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_selectmenu.xml" value="0.33" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_startpage.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/alter_dialog.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/basket_fragment.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/category_fragment.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/login_fragment.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/menu_fragment.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/payment_fragment.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/paymentfragment.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/recipe_dialog.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/registration_fragment.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/selectmenu_fragment.xml" value="0.32546296296296295" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/start_fragment.xml" value="0.32546296296296295" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-v24/top_shadow.xml" value="0.21856540084388185" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xhdpi/drawa.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xhdpi/ic_minus_icon_small.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xhdpi/ic_plus_icon_small.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xxhdpi/sa.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xxxhdpi/s.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/basket_background.xml" value="0.23333333333333334" />
@@ -91,6 +37,8 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_arrow_gray.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_arrow_white.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_launcher_background.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_minus_icon.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_plus_icon.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/round_circle_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/rounded_button.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/rounded_rectangle.xml" value="0.23333333333333334" />
@@ -110,13 +58,21 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_category.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_main.xml" value="0.20199275362318841" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_mainpage.xml" value="0.15046296296296297" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_menu.xml" value="0.2" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_payment.xml" value="0.21157407407407408" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_registpage.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_selectmenu.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_startpage.xml" value="0.264" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/alter_dialog.xml" value="0.22546296296296298" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/basket_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/category_fragment.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/login_fragment.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/menu_fragment.xml" value="0.22546296296296298" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/payment_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/recipe_dialog.xml" value="0.15046296296296297" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/registration_fragment.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/selectmenu_fragment.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/start_fragment.xml" value="0.32546296296296295" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/test.xml" value="0.22546296296296298" />
       </map>
@@ -131,7 +87,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.32546296296296295" />
+        <option name="scale" value="0.2222222222222222" />
       </ProjectState>
     </option>
   </component>

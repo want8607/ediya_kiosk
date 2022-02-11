@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:src="@mipmap/myinfoicon"
+        android:src="@drawable/myinfoicon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
@@ -25,7 +25,7 @@
         android:id="@+id/imageView"
         android:layout_width="271dp"
         android:layout_height="50dp"
-        android:src="@mipmap/ediya_letter_logo"
+        android:src="@drawable/ediya_letter_logo"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,281 +95,55 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
+            android:id="@+id/category_list_scroll_linearlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/category_list1"
-                android:layout_marginTop="10dp"
+            <LinearLayout
+                android:id="@+id/category_list_out_wraper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp">
 
                 <ImageView
-                    android:id="@+id/aimageView2"
+                    android:id="@+id/category_image"
                     android:layout_width="@dimen/category_picture_width"
                     android:layout_height="@dimen/category_picture_height"
+                    android:layout_marginStart="20dp"
                     android:background="@drawable/category_background"
-                    android:src="@mipmap/americano"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:src="@drawable/americano" />
 
-                <TextView
-                    android:id="@+id/atextView12"
+                <LinearLayout
+                    android:id="@+id/category_list_inner_wraper"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/maruburi"
-                    android:text="커피"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
-                    app:layout_constraintTop_toTopOf="@+id/aimageView2"
-                    app:layout_constraintVertical_bias="0.3" />
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/category_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/maruburi"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="30dp"
+                        android:text="커피"
+                        android:textColor="@color/black"
+                        android:textSize="26sp" />
 
-                <TextView
-                    android:id="@+id/atextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="coffee"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/atextView12"
-                    app:layout_constraintTop_toBottomOf="@+id/atextView12" />
+                    <TextView
+                        android:id="@+id/category_english_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/maruburi"
+                        android:text="coffee"
+                        android:textColor="@color/gray"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
-
-                <ImageView
-                    android:id="@+id/bimageView2"
-                    android:layout_width="@dimen/category_picture_width"
-                    android:layout_height="@dimen/category_picture_height"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/btextView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maruburi"
-                    android:text="베버리지"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toEndOf="@+id/bimageView2"
-                    app:layout_constraintTop_toTopOf="@+id/bimageView2"
-                    app:layout_constraintVertical_bias="0.3" />
-
-                <TextView
-                    android:id="@+id/btextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="beverage"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/btextView12"
-                    app:layout_constraintTop_toBottomOf="@+id/btextView12" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
-
-                <ImageView
-                    android:id="@+id/cimageView2"
-                    android:layout_width="@dimen/category_picture_width"
-                    android:layout_height="@dimen/category_picture_height"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/ctextView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maruburi"
-                    android:text="차"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toEndOf="@+id/cimageView2"
-                    app:layout_constraintTop_toTopOf="@+id/cimageView2"
-                    app:layout_constraintVertical_bias="0.3" />
-
-                <TextView
-                    android:id="@+id/ctextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="blending tea"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/ctextView12"
-                    app:layout_constraintTop_toBottomOf="@+id/ctextView12" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
-
-                <ImageView
-                    android:id="@+id/dimageView2"
-                    android:layout_width="@dimen/category_picture_width"
-                    android:layout_height="@dimen/category_picture_height"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/dtextView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maruburi"
-                    android:text="플랫치노"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toEndOf="@+id/dimageView2"
-                    app:layout_constraintTop_toTopOf="@+id/dimageView2"
-                    app:layout_constraintVertical_bias="0.3" />
-
-                <TextView
-                    android:id="@+id/dtextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="flatccino"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/dtextView12"
-                    app:layout_constraintTop_toBottomOf="@+id/dtextView12" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
-
-                <ImageView
-                    android:id="@+id/eimageView2"
-                    android:layout_width="@dimen/category_picture_width"
-                    android:layout_height="@dimen/category_picture_height"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/etextView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maruburi"
-                    android:text="커피"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toEndOf="@+id/eimageView2"
-                    app:layout_constraintTop_toTopOf="@+id/eimageView2"
-                    app:layout_constraintVertical_bias="0.3" />
-
-                <TextView
-                    android:id="@+id/etextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="coffee"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/etextView12"
-                    app:layout_constraintTop_toBottomOf="@+id/etextView12" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
-
-                <ImageView
-                    android:id="@+id/fimageView2"
-                    android:layout_width="@dimen/category_picture_width"
-                    android:layout_height="@dimen/category_picture_height"
-                    android:background="@drawable/category_background"
-                    android:src="@mipmap/americano"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/ftextView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maruburi"
-                    android:text="커피"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toEndOf="@+id/fimageView2"
-                    app:layout_constraintTop_toTopOf="@+id/fimageView2"
-                    app:layout_constraintVertical_bias="0.3" />
-
-                <TextView
-                    android:id="@+id/ftextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="coffee"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp"
-                    app:layout_constraintStart_toStartOf="@+id/ftextView12"
-                    app:layout_constraintTop_toBottomOf="@+id/ftextView12" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
     <ImageButton
@@ -377,7 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/basket_background"
-        android:src="@mipmap/ediya_basketicon"
+        android:src="@drawable/ediya_basketicon"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

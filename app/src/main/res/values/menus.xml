@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="Americano">
+        <item>아메리카노</item>
+        <item>Americano</item>
+        <item>5,000</item>
+        <item>@drawable/americano</item>
+    </array>
+    <array name="drink">
+        <item>@array/Americano</item>
+    </array>
+</resources>
