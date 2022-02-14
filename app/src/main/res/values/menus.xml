@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="Americano">
-        <item>아메리카노</item>
-        <item>Americano</item>
-        <item>5,000</item>
+    <string-array name="drinkCategoryNames">
+        <item>커피</item>
+        <item>베버리지</item>
+        <item>차</item>
+        <item>플랫치노</item>
+        <item>팥빙수</item>
+        <item>쉐이크&amp;에이드</item>
+    </string-array>
+    <string-array name="drinkCategoryEnglishNames">
+        <item>coffee</item>
+        <item>beverage</item>
+        <item>blending tea</item>
+        <item>flatccino</item>
+        <item>ice flake</item>
+        <item>shake&amp;ade</item>
+    </string-array>
+    <string-array name="drinkCategoryImags">
         <item>@drawable/americano</item>
-    </array>
-    <array name="drink">
-        <item>@array/Americano</item>
-    </array>
+        <item>@drawable/menu_beverage_chocolate</item>
+        <item>@drawable/menu_blending_tea_bokbunja_vin_chaud</item>
+        <item>@drawable/menu_flatchino_blueberry_yogurt_flatccino</item>
+        <item>@drawable/menu_ice_flake_mango_sherbet_snow_flake</item>
+        <item>@drawable/menu_shake_ade_chocolate_cookie_shake</item>
+    </string-array>
 </resources>

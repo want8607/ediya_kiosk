@@ -101,49 +101,13 @@
             android:paddingTop="10dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/category_list_out_wraper"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/category_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp">
-
-                <ImageView
-                    android:id="@+id/category_image"
-                    android:layout_width="@dimen/category_picture_width"
-                    android:layout_height="@dimen/category_picture_height"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/category_background"
-                    android:src="@drawable/americano" />
-
-                <LinearLayout
-                    android:id="@+id/category_list_inner_wraper"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/category_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/maruburi"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="30dp"
-                        android:text="커피"
-                        android:textColor="@color/black"
-                        android:textSize="26sp" />
-
-                    <TextView
-                        android:id="@+id/category_english_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="coffee"
-                        android:textColor="@color/gray"
-                        android:textSize="15sp" />
-                </LinearLayout>
-            </LinearLayout>
-
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/category_recycler_view_item"
+            />
         </LinearLayout>
     </ScrollView>
     <ImageButton
