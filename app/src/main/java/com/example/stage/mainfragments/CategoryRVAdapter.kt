@@ -1,15 +1,19 @@
-package com.example.stage
+package com.example.stage.mainfragments
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.stage.MainActivity
+import com.example.stage.R
 
-class CategoryRVAdapter(var context: Context, var categoryList : ArrayList<Category>) :
+class CategoryRVAdapter(var context: Context, categoryList : MutableList<Category>):
+
     RecyclerView.Adapter<CategoryRVAdapter.Holder>() {
+    var myCategoryList = categoryList
+    var isChecked = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.category_recycler_view_item, parent, false)
@@ -17,30 +21,17 @@ class CategoryRVAdapter(var context: Context, var categoryList : ArrayList<Categ
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(categoryList[position])
+        holder.bind(myCategoryList,position)
     }
 
     override fun getItemCount(): Int {
-        return categoryList.size
+        return myCategoryList.size
     }
 
-    fun listChanged(newCategoryList: ArrayList<Category>){
-
-        for (i in newCategoryList.indices){
-            Log.d("start", newCategoryList[i].categoryName)
-        }
-        categoryList.clear()
-        categoryList.addAll(newCategoryList)
-        for (i in newCategoryList.indices){
-            Log.d("addAll", newCategoryList[i].categoryName)
-        }
+    fun listChanged(newCategoryList: MutableList<Category>){
+        myCategoryList.clear()
+        myCategoryList.addAll(newCategoryList)
         notifyDataSetChanged()
-        for (i in newCategoryList.indices){
-            Log.d("changedNew", newCategoryList[i].categoryName)
-        }
-        for (i in newCategoryList.indices){
-            Log.d("chageedOri", categoryList[i].categoryName)
-        }
     }
 
 
@@ -51,12 +42,19 @@ class CategoryRVAdapter(var context: Context, var categoryList : ArrayList<Categ
         var categoryEnglishName = itemView?.findViewById<TextView>(R.id.category_english_name)
         var categoryImg = itemView?.findViewById<ImageView>(R.id.category_image)
 
-        fun bind (category: Category){
+        fun bind (category: MutableList<Category>, position: Int){
 
-            categoryName?.text = category.categoryName
-            categoryEnglishName?.text = category.categoryEnglishName
-            val resourceId = context.resources.getIdentifier(category.photo, "drawable", context.packageName)
+            categoryName?.text = category[position].categoryName
+            categoryEnglishName?.text = category[position].categoryEnglishName
+            val resourceId = context.resources.getIdentifier(category[position].photo, "drawable", context.packageName)
             categoryImg?.setImageResource(resourceId)
+
+            itemView.setOnClickListener {
+                // 아이템 위치를 전달
+                var mainActivity = context as MainActivity
+                mainActivity.setDataAtFragment(MenuFragment(),position,isChecked)
+                mainActivity.addFragment(MenuFragment())
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
-package com.example.stage
+package com.example.stage.week1
 
-class Manager(menu:Menu) {
+class Manager(menu: Menu) {
     var password: Int = 1111
     var menu: Menu = menu
     var managerMenuList: List<String> = listOf("메뉴수정","매출현황조회","관리자모드 종료")

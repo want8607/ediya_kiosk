@@ -1,4 +1,4 @@
-package com.example.stage
+package com.example.stage.week1
 
 
 class Basket {

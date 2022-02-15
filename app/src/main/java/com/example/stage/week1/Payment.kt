@@ -1,13 +1,13 @@
-package com.example.stage
+package com.example.stage.week1
 
 import java.util.concurrent.TimeUnit
 
-class Payment(basket: Basket,manager: Manager) {
+class Payment(basket: Basket, manager: Manager) {
 
     var cashOrCard: Int? = 0
     var inputMoney: Int = 0
-    var basket: Basket= basket
-    var manager: Manager= manager
+    var basket: Basket = basket
+    var manager: Manager = manager
     var orderNum: Int = 1
 
 

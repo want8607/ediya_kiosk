@@ -1,10 +1,10 @@
-package com.example.stage
+package com.example.stage.week1
 
 import java.lang.NumberFormatException
 import kotlin.IndexOutOfBoundsException
 
 class Menu(basket: Basket) {
-    var basket:Basket = basket
+    var basket: Basket = basket
     var coffee: MutableList<MutableList<String?>> = mutableListOf( //커피카테고리
         mutableListOf("아메리카노","3200"),
         mutableListOf("카페라떼","3700"),

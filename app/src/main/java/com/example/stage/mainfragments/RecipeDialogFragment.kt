@@ -1,10 +1,11 @@
-package com.example.stage
+package com.example.stage.mainfragments
 
 
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
 import androidx.fragment.app.DialogFragment
+import com.example.stage.R
 
 class RecipeDialogFragment: DialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -26,7 +27,10 @@ class RecipeDialogFragment: DialogFragment() {
         var recipeExitBtn = view.findViewById<ImageButton>(R.id.recipe_exit_button)
         recipeExitBtn.setOnClickListener {
             dismiss()
-            parentFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,CategoryFragment()).commit()
+            parentFragmentManager.beginTransaction().replace(
+                R.id.mainpage_fragment_container_view,
+                CategoryFragment()
+            ).commit()
         }
     }
 }

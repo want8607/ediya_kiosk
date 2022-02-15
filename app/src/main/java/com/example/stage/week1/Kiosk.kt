@@ -1,10 +1,10 @@
-package com.example.stage
+package com.example.stage.week1
 
 class Kiosk() {
-    var basket :Basket = Basket()
-    var menu :Menu= Menu(basket)
-    var manager :Manager= Manager(menu)
-    var payment :Payment= Payment(basket,manager)
+    var basket : Basket = Basket()
+    var menu : Menu = Menu(basket)
+    var manager : Manager = Manager(menu)
+    var payment : Payment = Payment(basket,manager)
 
 
     init {
