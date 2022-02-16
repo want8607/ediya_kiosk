@@ -1,5 +1,6 @@
 package com.example.stage.mainfragments
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,8 +53,11 @@ class CategoryRVAdapter(var context: Context, categoryList : MutableList<Categor
             itemView.setOnClickListener {
                 // 아이템 위치를 전달
                 var mainActivity = context as MainActivity
-                mainActivity.setDataAtFragment(MenuFragment(),position,isChecked)
-                mainActivity.addFragment(MenuFragment())
+                var bundle = Bundle()
+                bundle.putInt("title",position)
+                bundle.putBoolean("isChecked",isChecked)
+                bundle.putString("categoryName",category[position].categoryName)
+                mainActivity.setDataAtFragment(MenuFragment(),bundle)
             }
         }
     }

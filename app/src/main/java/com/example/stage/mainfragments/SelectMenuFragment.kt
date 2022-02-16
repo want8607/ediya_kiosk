@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.stage.MainActivity
 import com.example.stage.R
-
+//해야할것 1. 샷 500원 추가 2.컵 사이즈 커지면 1000원 1500원 추가, 3. 장바구니 리사이클 뷰 만들어서 값 전달, 값 유지 되도록 액티비티에서 값을 저장해야함, 또 결제창에서 리사이클 뷰 써야함, 다이얼로그에 값 전달
 class SelectMenuFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.selectmenu_fragment,container,false)
@@ -20,12 +22,22 @@ class SelectMenuFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var mainActivity = activity as MainActivity
 
         //뒤로가기
         var selectMenuBackBtn = view.findViewById<ImageButton>(R.id.selectmenu_back_button)
         selectMenuBackBtn.setOnClickListener {
             parentFragmentManager.beginTransaction().remove(this).commit()
         }
+
+        //선택된 메뉴 값에 따라 바인드
+        view.findViewById<TextView>(R.id.selectedmenu_menu_name).text = arguments?.getString("menuName")
+        view.findViewById<TextView>(R.id.selectedmenu_menu_english_name).text = arguments?.getString("menuEnglishName")
+        view.findViewById<TextView>(R.id.selectedmenu_menu_cost).text = arguments?.getString("menuCost")
+        val resourceId = mainActivity.resources.getIdentifier(arguments?.getString("menuImg"), "drawable", mainActivity.packageName)
+        view.findViewById<ImageView>(R.id.selectedmenu_menu_img).setImageResource(resourceId)
+
+
         //샷 플러스마이너스 버튼 클릭이벤트
         var shotMinusBtn = view.findViewById<ImageButton>(R.id.selectemenu_shot_minus_button)
         var shotPlusBtn = view.findViewById<ImageButton>(R.id.selectemenu_shot_plus_button)

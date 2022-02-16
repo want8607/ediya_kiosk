@@ -14,7 +14,7 @@
         android:background="@drawable/category_background"
         android:src="@drawable/americano"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,12 +26,10 @@
         android:text="아메리카노"
         android:textColor="@color/black"
         android:textSize="@dimen/menu_korean_name_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        android:layout_marginTop="23dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@+id/menu_image"
-        app:layout_constraintTop_toTopOf="@+id/menu_image"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toTopOf="@+id/menu_image" />
 
     <TextView
         android:id="@+id/menu_english_name"
