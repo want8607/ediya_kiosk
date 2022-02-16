@@ -18,10 +18,7 @@ class CategoryFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //초기 카테고리 선택
-        var categoryRadioGroup = view.findViewById<RadioGroup>(R.id.radioGroup)
-        var categoryRadioBtn1 = view.findViewById<RadioButton>(R.id.category_button1)
-        categoryRadioBtn1.isChecked = true
+
         var mainActivity = activity as MainActivity
 
         // 리사이클러 뷰 설정
@@ -45,11 +42,14 @@ class CategoryFragment : Fragment(){
 
         //카테고리 선택 이벤트
         var categoryAdapter = CategoryRVAdapter(mainActivity,categoryDrinkList)
-
         var categoryRecyclerView = view.findViewById<RecyclerView>(R.id.category_recyclerview)
         categoryRecyclerView.adapter = categoryAdapter
         categoryRecyclerView.setHasFixedSize(true)
 
+        //카테고리 선택
+        var categoryRadioGroup = view.findViewById<RadioGroup>(R.id.radioGroup)
+        var categoryRadioBtn1 = view.findViewById<RadioButton>(R.id.category_button1)
+        categoryRadioBtn1.isChecked = true
         categoryRadioGroup.setOnCheckedChangeListener { _, checkedId ->
 
             when (checkedId) {

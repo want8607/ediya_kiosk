@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 
-class MenuRVAdapter(var context: Context, menuList : MutableList<Menu>) :
+class MenuRVAdapter(var context: Context, var menuList : MutableList<Menu>) :
     RecyclerView.Adapter<MenuRVAdapter.Holder>() {
-    var myMenuList = menuList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.menu_recycler_view_item, parent, false)
@@ -21,11 +20,11 @@ class MenuRVAdapter(var context: Context, menuList : MutableList<Menu>) :
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(myMenuList,position)
+        holder.bind(menuList,position)
     }
 
     override fun getItemCount(): Int {
-        return myMenuList.size
+        return menuList.size
     }
 
 

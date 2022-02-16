@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -87,154 +88,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/basket_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="20dp"
-                android:background="@drawable/basket_border">
-
-                <ImageView
-                    android:id="@+id/aimageView2"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="@drawable/category_background"
-                    android:src="@drawable/americano"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.05"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0">
-
-                </ImageView>
-
-                <TextView
-                    android:id="@+id/atextView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="커피"
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/atextView12"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0" />
-
-                <TextView
-                    android:id="@+id/atextView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="coffee"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/atextView12"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/atextView9"
-                    app:layout_constraintVertical_bias="0" />
-
-                <TextView
-                    android:id="@+id/atextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/maruburi"
-                    android:text="ICED|Tall|매장컵\n샷2 | 휘핑크림 3"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/atextView4"/>
-
-                <TextView
-                    android:id="@+id/atextView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maruburi"
-                    android:text="5,000원"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.9"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/atextView11" />
-
-                <Button
-                    android:id="@+id/abutton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:background="@null"
-                    android:fontFamily="@font/maruburi"
-                    android:textSize="20sp"
-                    android:text="옵션변경"
-                    android:textColor="@color/chageoption"
-                    app:layout_constraintEnd_toStartOf="@+id/atextView12"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@+id/aimageView2"
-                    app:layout_constraintTop_toBottomOf="@+id/atextView11" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    app:layout_constraintStart_toStartOf="@+id/abutton2"
-                    app:layout_constraintTop_toBottomOf="@+id/abutton2">
-
-                    <ImageButton
-                        android:id="@+id/basket_menu_minus_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:src="@drawable/ic_minus_icon_small" />
-
-                    <TextView
-                        android:id="@+id/basket_menu_num_textview"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/maruburi"
-                        android:text="1"
-                        android:textSize="30sp" />
-
-                    <ImageButton
-                        android:id="@+id/basket_menu_plus_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:src="@drawable/ic_plus_icon_small" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/atextView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maruburi"
-                    android:text="10,000원"
-                    android:textColor="@color/black"
-                    android:textSize="30sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.9"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/basket_recycler_view_item"
+                />
             <TextView
-                android:layout_width="150dp"
-                android:layout_height="130dp"
-                android:text=""/>
+                android:layout_width="match_parent"
+                android:layout_height="105dp"
+                android:text="1"/>
         </LinearLayout>
     </ScrollView>
 

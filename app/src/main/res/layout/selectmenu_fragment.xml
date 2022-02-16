@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content">
                 <!--  온도 선택 -->
                 <RadioGroup
-                    android:id="@+id/radioGroup2"
+                    android:id="@+id/hot_ice_radio_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
@@ -74,6 +74,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <RadioButton
+                        android:id="@+id/hot_radio_button"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="2dp"
@@ -89,6 +90,7 @@
 
 
                     <RadioButton
+                        android:id="@+id/ice_radio_button"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
@@ -119,13 +121,13 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.05"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup2"
+                    app:layout_constraintTop_toBottomOf="@+id/hot_ice_radio_group"
                     app:layout_constraintVertical_bias="0">
 
                 </TextView>
 
                 <RadioGroup
-                    android:id="@+id/radioGroup3"
+                    android:id="@+id/selectmenu_size_radio_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -138,6 +140,7 @@
                     app:layout_constraintVertical_bias="0">
 
                     <RadioButton
+                        android:id="@+id/selectmenu_tall_radio_button"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:background="@drawable/size_radiobutton_background"
@@ -150,6 +153,7 @@
                         android:textStyle="bold" />
 
                     <RadioButton
+                        android:id="@+id/selectmenu_grande_radio_button"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:layout_marginHorizontal="20dp"
@@ -163,6 +167,7 @@
                         android:textStyle="bold" />
 
                     <RadioButton
+                        android:id="@+id/selectmenu_Venti_radio_button"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:background="@drawable/size_radiobutton_background"
@@ -187,12 +192,12 @@
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="@+id/textView5"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup3">
+                    app:layout_constraintTop_toBottomOf="@+id/selectmenu_size_radio_group">
 
                 </TextView>
 
                 <RadioGroup
-                    android:id="@+id/radioGroup4"
+                    android:id="@+id/selectmenu_cup_choice_radio_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -203,6 +208,7 @@
                     app:layout_constraintTop_toBottomOf="@id/textView6">
 
                     <RadioButton
+                        android:id="@+id/selectmenu_store_cup"
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
@@ -219,6 +225,7 @@
                     </RadioButton>
 
                     <RadioButton
+                        android:id="@+id/selectmenu_personal_cup"
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="4dp"
@@ -235,6 +242,7 @@
 
 
                     <RadioButton
+                        android:id="@+id/selectmenu_disposable_cup"
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/cup_radiobutton_background"
@@ -261,7 +269,7 @@
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     app:layout_constraintStart_toStartOf="@+id/textView6"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup4" />
+                    app:layout_constraintTop_toBottomOf="@+id/selectmenu_cup_choice_radio_group" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout4"
@@ -274,7 +282,7 @@
                     app:layout_constraintTop_toBottomOf="@id/textView7">
 
                     <ImageButton
-                        android:id="@+id/selectemenu_shot_minus_button"
+                        android:id="@+id/selectmenu_shot_minus_button"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
@@ -287,12 +295,12 @@
                         android:layout_marginHorizontal="20dp"
                         android:background="@drawable/round_circle_background"
                         android:fontFamily="@font/maruburi"
-                        android:text="1"
+                        android:text="0"
                         android:textAlignment="center"
                         android:textSize="50sp" />
 
                     <ImageButton
-                        android:id="@+id/selectemenu_shot_plus_button"
+                        android:id="@+id/selectmenu_shot_plus_button"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
@@ -322,7 +330,7 @@
                     app:layout_constraintTop_toBottomOf="@id/textView8">
 
                     <ImageButton
-                        android:id="@+id/selectemenu_syrup_minus_button"
+                        android:id="@+id/selectmenu_syrup_minus_button"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
@@ -335,12 +343,12 @@
                         android:layout_marginHorizontal="20dp"
                         android:background="@drawable/round_circle_background"
                         android:fontFamily="@font/maruburi"
-                        android:text="1"
+                        android:text="0"
                         android:textAlignment="center"
                         android:textSize="50sp" />
 
                     <ImageButton
-                        android:id="@+id/selectemenu_syrup_plus_button"
+                        android:id="@+id/selectmenu_syrup_plus_button"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@color/white"
@@ -390,9 +398,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/textView2"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="20dp">
+            app:layout_constraintEnd_toStartOf="@+id/selectedmenu_menu_total_cost"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
                 android:id="@+id/selectmenu_menu_minus_button"
@@ -424,11 +432,11 @@
             </ImageButton>
         </LinearLayout>
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/selectedmenu_menu_total_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/maruburi"
-            android:text="10,000원"
+            android:text="10,000"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -441,14 +449,15 @@
             android:id="@+id/selectmenu_add_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:background="@drawable/white_rounded_button"
             android:fontFamily="@font/maruburi"
             android:paddingHorizontal="30dp"
             android:text="담기"
             android:textSize="25sp"
-            android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/selectedmenu_menu_total_cost"
             app:layout_constraintTop_toTopOf="parent">
 
         </Button>

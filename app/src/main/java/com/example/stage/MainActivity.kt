@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
+import com.example.stage.mainfragments.BasketFragment
 import com.example.stage.mainfragments.MenuFragment
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +12,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainpage)
+    }
+
+    fun sendDataToBasket(bundle: Bundle){
+        var basket = BasketFragment()
+        basket.arguments = bundle
     }
 
     fun setDataAtFragment(fragment: Fragment, bundle: Bundle){
