@@ -8,15 +8,23 @@ import com.example.stage.mainfragments.BasketFragment
 import com.example.stage.mainfragments.MenuFragment
 
 class MainActivity : AppCompatActivity() {
+    var basketList : ArrayList<Bundle> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainpage)
     }
 
-    fun sendDataToBasket(bundle: Bundle){
-        var basket = BasketFragment()
+    fun addBasketList(bundle: Bundle){
+        basketList.add(bundle)
+    }
+
+    fun openBasket(){
+        var basket =BasketFragment()
+        var bundle = Bundle()
+        bundle.putParcelableArrayList("basketlist",basketList)
         basket.arguments = bundle
+        addFragment(basket)
     }
 
     fun setDataAtFragment(fragment: Fragment, bundle: Bundle){

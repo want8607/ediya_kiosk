@@ -11,7 +11,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.stage.MainActivity
 import com.example.stage.R
-//해야할것  3. 장바구니 리사이클 뷰 만들어서 값 전달, 값 유지 되도록 액티비티에서 값을 저장해야함, 또 결제창에서 리사이클 뷰 써야함, 다이얼로그에 값 전달
+//해야할것  값 유지 되도록 액티비티에서 값을 저장해야함, 또 결제창에서 리사이클 뷰 써야함, 다이얼로그에 값 전달
 class SelectMenuFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.selectmenu_fragment,container,false)
@@ -186,7 +186,7 @@ class SelectMenuFragment : Fragment(){
             bundle.putString("basketMenuCost",menuCost.toString())
             bundle.putString("basketTotalCost", totalCostTextView.text.toString())
             bundle.putString("photo",arguments?.getString("menuImg"))
-            mainActivity.sendDataToBasket(bundle)
+            mainActivity.addBasketList(bundle)
             bundle.getString("photo")?.let { it1 -> Log.d("messeage", it1) }
             //알림 표시
             var builder = AlertDialog.Builder(activity)
@@ -200,7 +200,7 @@ class SelectMenuFragment : Fragment(){
         //장바구니 버튼
         var selectMenuBasketBtn = view.findViewById<ImageButton>(R.id.selectmenu_basket_button)
         selectMenuBasketBtn.setOnClickListener {
-            mainActivity.addFragment(BasketFragment())
+            mainActivity.openBasket()
         }
 
     }

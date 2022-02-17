@@ -66,7 +66,7 @@ class CategoryFragment : Fragment(){
         //장바구니 보여주기
         var categoryBasketBtn = view.findViewById<ImageButton>(R.id.category_basket_button)
         categoryBasketBtn.setOnClickListener {
-            mainActivity.addFragment(BasketFragment())
+            mainActivity.openBasket()
         }
 
     }

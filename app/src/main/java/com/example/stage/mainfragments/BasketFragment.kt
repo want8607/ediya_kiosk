@@ -24,24 +24,24 @@ class BasketFragment: Fragment() {
 
         var mainActivity = activity as MainActivity
 
-        var basketList : MutableList<MutableList<String?>> = mutableListOf()
-        var basketItem = mutableListOf(
-            arguments?.getString("basketName"),
-            arguments?.getString("basketEnglishName"),
-            arguments?.getString("basketHotOrIce"),
-            arguments?.getString("basketSize"),
-            arguments?.getString("basketCup"),
-            arguments?.getString("basketShotNum"),
-            arguments?.getString("basketSyrupNum"),
-            arguments?.getString("basketMenuNum"),
-            arguments?.getString("basketMenuCost"),
-            arguments?.getString("basketTotalCost"),
-            arguments?.getString("photo")
-            )
-        basketList.add(basketItem)
-        for (i in basketList[0].indices) {
-            basketList[0][i]?.let { Log.d("message", it) }
-        }
+        var basketList : ArrayList<Bundle> = arguments?.getParcelableArrayList("basketlist")!!
+//        var basketItem = mutableListOf(
+//            arguments?.getString("basketName"),
+//            arguments?.getString("basketEnglishName"),
+//            arguments?.getString("basketHotOrIce"),
+//            arguments?.getString("basketSize"),
+//            arguments?.getString("basketCup"),
+//            arguments?.getString("basketShotNum"),
+//            arguments?.getString("basketSyrupNum"),
+//            arguments?.getString("basketMenuNum"),
+//            arguments?.getString("basketMenuCost"),
+//            arguments?.getString("basketTotalCost"),
+//            arguments?.getString("photo")
+//            )
+//        basketList.add(basketItem)
+//        for (i in basketList[0].indices) {
+//            basketList[0][i]?.let { Log.d("message", it) }
+//        }
         //리사이클 뷰 생성
         var basketRVAdapter = BasketRVAdapter(mainActivity,basketList)
         var basketRecyclerView = view.findViewById<RecyclerView>(R.id.basket_recyclerview)
