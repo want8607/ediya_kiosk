@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
+import java.lang.Integer.parseInt
 
 class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
     RecyclerView.Adapter<BasketRVAdapter.Holder>() {
@@ -39,9 +41,10 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
         var basketMenuCost = itemView?.findViewById<TextView>(R.id.basket_menu_cost)
         var basketTotalCost = itemView?.findViewById<TextView>(R.id.basket_total_cost)
         var basketImg = itemView?.findViewById<ImageView>(R.id.basket_image)
+        var basketMenuMinusBtn = itemView?.findViewById<ImageButton>(R.id.basket_menu_minus_button)
+        var basketMenuPlusBtn = itemView?.findViewById<ImageButton>(R.id.basket_menu_plus_button)
 
         fun bind (basketList:ArrayList<Bundle>, position: Int){
-
             basketName?.text = basketList[position].getString("basketName")
             basketEnglishName?.text = basketList[position].getString("basketEnglishName")
             var optionText = "${basketList[position].getString("basketHotOrIce")}|" +
@@ -55,6 +58,23 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
             basketTotalCost?.text = basketList[position].getString("basketTotalCost")
             val resourceId = context.resources.getIdentifier(basketList[position].getString("photo"), "drawable", context.packageName)
             basketImg?.setImageResource(resourceId)
+
+            //마이너스 버튼
+            basketMenuMinusBtn?.setOnClickListener {
+                var basketMenuNumber = parseInt(basketMenuNum?.text.toString())
+                if(basketMenuNumber > 1){
+                    basketMenuNum?.text = (basketMenuNumber-1).toString()
+                    basketTotalCost?.text = ((basketMenuNumber-1) * parseInt(basketMenuCost?.text.toString())).toString()
+                }
+            }
+            //플러스 버튼
+            basketMenuPlusBtn?.setOnClickListener {
+                var basketMenuNumber = parseInt(basketMenuNum?.text.toString())
+                if(basketMenuNumber < 20){
+                    basketMenuNum?.text = (basketMenuNumber+1).toString()
+                    basketTotalCost?.text = ((basketMenuNumber+1) * parseInt(basketMenuCost?.text.toString())).toString()
+                }
+            }
 
             basketOptionChangeButton?.setOnClickListener {
                 // 옵션변경사항 전달

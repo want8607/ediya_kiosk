@@ -39,7 +39,7 @@ class SelectMenuFragment : Fragment(){
         //뒤로가기
         var selectMenuBackBtn = view.findViewById<ImageButton>(R.id.selectmenu_back_button)
         selectMenuBackBtn.setOnClickListener {
-            parentFragmentManager.beginTransaction().remove(this).commit()
+            mainActivity.removeFragment(this)
         }
 
         //핫 아이스
