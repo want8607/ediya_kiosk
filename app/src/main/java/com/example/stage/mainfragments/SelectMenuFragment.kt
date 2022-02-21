@@ -186,7 +186,7 @@ class SelectMenuFragment : Fragment(){
             bundle.putString("basketMenuCost",menuCost.toString())
             bundle.putString("basketTotalCost", totalCostTextView.text.toString())
             bundle.putString("photo",arguments?.getString("menuImg"))
-            mainActivity.addBasketList(bundle)
+            mainActivity.setBasket(bundle)
             bundle.getString("photo")?.let { it1 -> Log.d("messeage", it1) }
             //알림 표시
             var builder = AlertDialog.Builder(activity)
@@ -200,7 +200,7 @@ class SelectMenuFragment : Fragment(){
         //장바구니 버튼
         var selectMenuBasketBtn = view.findViewById<ImageButton>(R.id.selectmenu_basket_button)
         selectMenuBasketBtn.setOnClickListener {
-            mainActivity.openBasket()
+            mainActivity.addFragment(mainActivity.basket)
         }
 
     }

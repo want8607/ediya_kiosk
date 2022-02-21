@@ -39,6 +39,8 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_launcher_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_minus_icon.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_plus_icon.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/option_change_border.xml" value="0.2365296803652968" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/recipe_border.xml" value="0.1" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/round_circle_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/rounded_button.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/rounded_rectangle.xml" value="0.23333333333333334" />
@@ -66,6 +68,7 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_startpage.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/alter_dialog.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/basket_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/basket_option_change_dialog.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/basket_recycler_view_item.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/category_fragment.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/category_recycler_view_item.xml" value="0.22546296296296298" />

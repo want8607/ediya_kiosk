@@ -11,9 +11,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
+import com.example.stage.mainInterface.OnItemClick
 import java.lang.Integer.parseInt
 
-class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
+class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, var onItemClick: OnItemClick):
     RecyclerView.Adapter<BasketRVAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -28,7 +29,6 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
     override fun getItemCount(): Int {
         return basketList.size
     }
-
 
     //이너 클래스로 홀더 생성후 변수 연결
 
@@ -63,22 +63,37 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
             basketMenuMinusBtn?.setOnClickListener {
                 var basketMenuNumber = parseInt(basketMenuNum?.text.toString())
                 if(basketMenuNumber > 1){
-                    basketMenuNum?.text = (basketMenuNumber-1).toString()
-                    basketTotalCost?.text = ((basketMenuNumber-1) * parseInt(basketMenuCost?.text.toString())).toString()
+                    var newNum = (basketMenuNumber-1).toString()
+                    var newTotalCost = ((basketMenuNumber-1) * parseInt(basketMenuCost?.text.toString())).toString()
+                    basketMenuNum?.text = newNum
+                    basketTotalCost?.text = newTotalCost
+                    onItemClick.onClick(position,newNum,newTotalCost)
                 }
             }
+
             //플러스 버튼
             basketMenuPlusBtn?.setOnClickListener {
                 var basketMenuNumber = parseInt(basketMenuNum?.text.toString())
                 if(basketMenuNumber < 20){
-                    basketMenuNum?.text = (basketMenuNumber+1).toString()
-                    basketTotalCost?.text = ((basketMenuNumber+1) * parseInt(basketMenuCost?.text.toString())).toString()
+                    var newNum = (basketMenuNumber+1).toString()
+                    var newTotalCost = ((basketMenuNumber+1) * parseInt(basketMenuCost?.text.toString())).toString()
+                    basketMenuNum?.text = newNum
+                    basketTotalCost?.text = newTotalCost
+                    onItemClick.onClick(position,newNum,newTotalCost)
                 }
             }
 
             basketOptionChangeButton?.setOnClickListener {
                 // 옵션변경사항 전달
                 var bundle = Bundle()
+                bundle.putString("basketHotOrIce",basketList[position].getString("basketHotOrIce"))
+                bundle.putString("basketSize",basketList[position].getString("basketSize"))
+                bundle.putString("basketCup",basketList[position].getString("basketCup"))
+                bundle.putString("basketShotNum",basketList[position].getString("basketShotNum"))
+                bundle.putString("basketSyrupNum",basketList[position].getString("basketSyrupNum"))
+                var optionChangeDialogFragment = BasketOptionDialogFragment()
+                optionChangeDialogFragment.arguments = bundle
+                onItemClick.onOptionClick(optionChangeDialogFragment)
             }
         }
     }

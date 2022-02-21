@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/basket_option_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@drawable/option_change_border">
+
+        <TextView
+            android:id="@+id/basket_option_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/nanumsquareroundotfr"
+            android:text="옵션변경"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/basket_option_exit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_x_mark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/basket_option_textview" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/basket_option_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--  온도 선택 -->
+
+                <RadioGroup
+                    android:id="@+id/basket_option_hot_ice_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/basket_option_hot_radio_button"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:background="@drawable/hot_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="Hot"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/hot_cold_radiobutton_text"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+
+                    <RadioButton
+                        android:id="@+id/basket_option_ice_radio_button"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:background="@drawable/cold_radiobutton_background"
+                        android:button="@null"
+                        android:checked="false"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="Ice"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/hot_cold_radiobutton_text"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+
+                </RadioGroup>
+                <!--  사이즈 선택-->
+                <TextView
+                    android:id="@+id/basket_option_textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="사이즈"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/basket_option_hot_ice_radio_group"
+                    app:layout_constraintVertical_bias="0">
+
+                </TextView>
+
+                <RadioGroup
+                    android:id="@+id/basket_option_size_radio_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/basket_option_textView5"
+                    app:layout_constraintVertical_bias="0">
+
+                    <RadioButton
+                        android:id="@+id/basket_option_tall_radio_button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/size_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:text="Tall"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/size_radiobutton_text"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/basket_option_grande_radio_button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@drawable/size_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:text="Grande"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/size_radiobutton_text"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/basket_option_Venti_radio_button"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/size_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:text="Venti"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/size_radiobutton_text"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                </RadioGroup>
+
+                <!--  컵선택-->
+                <TextView
+                    android:id="@+id/basket_option_textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="컵 선택"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="@+id/basket_option_textView5"
+                    app:layout_constraintTop_toBottomOf="@+id/basket_option_size_radio_group">
+
+                </TextView>
+
+                <RadioGroup
+                    android:id="@+id/basket_option_cup_choice_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/basket_option_textView6">
+
+                    <RadioButton
+                        android:id="@+id/basket_option_store_cup"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/cup_radiobutton_background"
+                        android:button="@null"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="매장컵"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/cup_radiobutton_text"
+                        android:textSize="22sp"
+                        android:textStyle="bold">
+
+                    </RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/basket_option_personal_cup"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/cup_radiobutton_background"
+                        android:button="@null"
+                        android:checked="false"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="개인컵"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/cup_radiobutton_text"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+
+                    <RadioButton
+                        android:id="@+id/basket_option_disposable_cup"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cup_radiobutton_background"
+                        android:button="@null"
+                        android:checked="false"
+                        android:fontFamily="@font/maruburi"
+                        android:padding="20dp"
+                        android:text="일회용컵"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/cup_radiobutton_text"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+
+                </RadioGroup>
+                <!--샷 추가-->
+                <TextView
+                    android:id="@+id/basket_option_textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="샷 추가"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="@+id/basket_option_textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/basket_option_cup_choice_radio_group" />
+
+                <LinearLayout
+                    android:id="@+id/basket_option_linearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/basket_option_textView7">
+
+                    <ImageButton
+                        android:id="@+id/basket_option_shot_minus_button"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@color/white"
+                        android:src="@drawable/ic_minus_icon" />
+
+                    <TextView
+                        android:id="@+id/basket_option_shot_num_textview"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@drawable/round_circle_background"
+                        android:fontFamily="@font/maruburi"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textSize="50sp" />
+
+                    <ImageButton
+                        android:id="@+id/basket_option_shot_plus_button"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@color/white"
+                        android:src="@drawable/ic_plus_icon" />
+                </LinearLayout>
+
+                <!--시럽추가 -->
+                <TextView
+                    android:id="@+id/basket_option_textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="시럽 추가"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:layout_constraintStart_toStartOf="@+id/basket_option_textView7"
+                    app:layout_constraintTop_toBottomOf="@+id/basket_option_linearLayout4" />
+
+                <LinearLayout
+                    android:id="@+id/basket_option_syrup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/basket_option_textView8">
+
+                    <ImageButton
+                        android:id="@+id/basket_option_syrup_minus_button"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@color/white"
+                        android:src="@drawable/ic_minus_icon" />
+
+                    <TextView
+                        android:id="@+id/basket_option_syrup_num_textview"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:background="@drawable/round_circle_background"
+                        android:fontFamily="@font/maruburi"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textSize="50sp" />
+
+                    <ImageButton
+                        android:id="@+id/basket_option_syrup_plus_button"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@color/white"
+                        android:src="@drawable/ic_plus_icon" />
+                </LinearLayout>
+                <TextView
+                    app:layout_constraintTop_toBottomOf="@id/basket_option_syrup"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:text=""/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
