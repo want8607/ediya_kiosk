@@ -1,6 +1,7 @@
 package com.example.stage.mainfragments
 
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,25 +20,29 @@ import com.example.stage.mainInterface.OnItemClick
 class BasketFragment: Fragment(), OnItemClick {
     lateinit var mainActivity : MainActivity
     var basketList: ArrayList<Bundle> = arrayListOf()
+    lateinit var basketRVAdapter: BasketRVAdapter
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mainActivity = activity as MainActivity
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.basket_fragment,container,false)
+        if (arguments != null){
+            basketList = arguments?.getParcelableArrayList("basketlist")!!
+        }
+        //리사이클 뷰 생성
+        basketRVAdapter = BasketRVAdapter(mainActivity, basketList,this)
+        var basketRecyclerView = view.findViewById<RecyclerView>(R.id.basket_recyclerview)
+        basketRecyclerView.adapter = basketRVAdapter
+        basketRecyclerView.setHasFixedSize(true)
+
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainActivity = activity as MainActivity
-
-        if (arguments != null){
-            basketList = arguments?.getParcelableArrayList("basketlist")!!
-        }
-
-        //리사이클 뷰 생성
-        var basketRVAdapter = BasketRVAdapter(mainActivity, basketList,this)
-        var basketRecyclerView = view.findViewById<RecyclerView>(R.id.basket_recyclerview)
-        basketRecyclerView.adapter = basketRVAdapter
-        basketRecyclerView.setHasFixedSize(true)
 
         //뒤로가기
         var basketBackBtn = view.findViewById<ImageButton>(R.id.basket_back_button)
@@ -51,6 +56,40 @@ class BasketFragment: Fragment(), OnItemClick {
             mainActivity.addFragment(PaymentFragment())
         }
     }
+    //옵션 변경
+    fun changeOption(bundle: Bundle){
+        var position = bundle.getInt("position")
+        var basketHotOrIce = bundle.getString("basketHotOrIce")
+        var basketSize = bundle.getString("basketSize")
+        var basketCup = bundle.getString("basketCup")
+        var basketShotNum = bundle.getString("basketShotNum")
+        var basketSyrupNum = bundle.getString("basketSyrupNum")
+        var optionChangCost = bundle.getString("optionChangCost")?.toInt()
+        var newMenuCost = (basketList[position].getString("basketMenuCost")?.toInt()?.plus(optionChangCost!!)).toString()
+        var newTotalCost = (basketList[position].getString( "basketMenuNum")?.toInt()?.times(newMenuCost.toInt())).toString()
+        basketList[position].putString(
+            "basketHotOrIce",basketHotOrIce
+        )
+        basketList[position].putString(
+            "basketSize",basketSize
+        )
+        basketList[position].putString(
+            "basketCup",basketCup
+        )
+        basketList[position].putString(
+            "basketShotNum",basketShotNum
+        )
+        basketList[position].putString(
+            "basketSyrupNum",basketSyrupNum
+        )
+        basketList[position].putString(
+            "basketMenuCost",newMenuCost
+        )
+        basketList[position].putString(
+            "basketTotalCost",newTotalCost
+        )
+        basketRVAdapter.notifyItemChanged(position)
+    }
     
     //아이템 클릭 이벤트
     override fun onClick(position: Int, value: String, totalCost: String) {
@@ -59,7 +98,7 @@ class BasketFragment: Fragment(), OnItemClick {
         basketList[position].putString(
             "basketTotalCost",totalCost)
     }
-
+    // 옵션변경버튼 클릭
     override fun onOptionClick(fragment: DialogFragment) {
         fragment.show(mainActivity.supportFragmentManager,"option")
     }

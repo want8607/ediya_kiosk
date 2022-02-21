@@ -38,7 +38,8 @@
     <ScrollView
         android:id="@+id/basket_option_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -348,5 +349,19 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@drawable/top_blueline"
+        android:gravity="center">
+        <Button
+            android:id="@+id/basket_option_change_complete_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:textSize="23sp"
+            android:text="수정완료"
+            android:background="@drawable/white_rounded_button"
+            android:fontFamily="@font/nanumsquareroundotfr"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.ImageButton
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.DialogFragment
+import com.example.stage.MainActivity
 import com.example.stage.R
 
 class BasketOptionDialogFragment: DialogFragment() {
@@ -29,6 +27,8 @@ class BasketOptionDialogFragment: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var mainActivity = activity as MainActivity
+        var position = arguments?.getInt("position")
         var basketHotOrIce = arguments?.getString("basketHotOrIce")
         var basketSize = arguments?.getString("basketSize")
         var basketCup = arguments?.getString("basketCup")
@@ -52,11 +52,14 @@ class BasketOptionDialogFragment: DialogFragment() {
         var syrupPlusBtn = view.findViewById<ImageButton>(R.id.basket_option_syrup_plus_button)
         var syrupMinusBtn = view.findViewById<ImageButton>(R.id.basket_option_syrup_minus_button)
         var syrupNumTextView = view.findViewById<TextView>(R.id.basket_option_syrup_num_textview)
-        lateinit var isHotOrIce : String
-        lateinit var size : String
-        lateinit var cup : String
-        lateinit var shotNum : String
-        lateinit var syrupNum : String
+        var completeBtn = view.findViewById<Button>(R.id.basket_option_change_complete_button)
+        var isHotOrIce = basketHotOrIce
+        var cup = basketCup
+        var size = basketSize
+        var shotNum = basketShotNum?.toInt()
+        var syrupNum = basketSyrupNum?.toInt()
+        var optionChangCost = 0
+
         //뒤로가기
         backBtn.setOnClickListener {
             this.dismiss()
@@ -85,9 +88,30 @@ class BasketOptionDialogFragment: DialogFragment() {
 
         sizeGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
             when(checkedId){
-                R.id.basket_option_tall_radio_button->{size = "Tall"}
-                R.id.basket_option_grande_radio_button->{size = "Grande"}
-                R.id.basket_option_Venti_radio_button->{size = "Venti"}
+                R.id.basket_option_tall_radio_button->{
+                    if (size == "Grande"){
+                        optionChangCost = optionChangCost.minus(1000)
+                    }else if (size == "Venti"){
+                        optionChangCost = optionChangCost.minus(1500)
+                    }
+                    size = "Tall"
+                }
+                R.id.basket_option_grande_radio_button->{
+                    if (size == "Tall"){
+                        optionChangCost = optionChangCost.plus(1000)
+                    }else if (size == "Venti"){
+                        optionChangCost = optionChangCost.minus(500)
+                    }
+                    size = "Grande"
+                }
+                R.id.basket_option_Venti_radio_button->{
+                    if (size == "Tall"){
+                        optionChangCost = optionChangCost.plus(1500)
+                    }else if (size == "Grande") {
+                        optionChangCost = optionChangCost?.plus(500)
+                    }
+                    size = "Venti"
+                }
             }
         }
 
@@ -99,30 +123,55 @@ class BasketOptionDialogFragment: DialogFragment() {
         }
         cupGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
             when(checkedId){
-                R.id.basket_option_store_cup->{size = "매장컵"}
-                R.id.basket_option_personal_cup->{size = "개인컵"}
-                R.id.basket_option_disposable_cup->{size = "일회용컵"}
+                R.id.basket_option_store_cup->{cup = "매장컵"}
+                R.id.basket_option_personal_cup->{cup = "개인컵"}
+                R.id.basket_option_disposable_cup->{cup = "일회용컵"}
             }
         }
 
         //shotNum
         shotNumTextView.text = basketShotNum
-
         shotMinusBtn.setOnClickListener {
-            var oriShotNum = (shotNumTextView.text.toString()).toInt()
-            if(oriShotNum > 0){
-                shotNum = (oriShotNum - 1).toString()
-                shotNumTextView.text = shotNum
+            if(shotNum!! > 0){
+                shotNum = shotNum?.minus(1)
+                optionChangCost =optionChangCost.minus(500)
+                shotNumTextView.text = shotNum.toString()
             }
         }
         shotPlusBtn.setOnClickListener {
-            var oriShotNum = (shotNumTextView.text.toString()).toInt()
-            if(oriShotNum < 9){
-                shotNum = (oriShotNum + 1).toString()
-                shotNumTextView.text = shotNum
+            if(shotNum!! < 9){
+                shotNum = shotNum?.plus(1)
+                optionChangCost =optionChangCost.plus(500)
+                shotNumTextView.text = shotNum.toString()
             }
         }
         //syrupNum
         syrupNumTextView.text = basketSyrupNum
+        syrupMinusBtn.setOnClickListener {
+            if(syrupNum!! > 0){
+                syrupNum -= 1
+                syrupNumTextView.text = syrupNum.toString()
+            }
+        }
+        syrupPlusBtn.setOnClickListener {
+            if(syrupNum!! < 9){
+                syrupNum += 1
+                syrupNumTextView.text = syrupNum.toString()
+            }
+        }
+
+        //수정완료
+        completeBtn.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putInt("position",position!!)
+            bundle.putString("basketHotOrIce",isHotOrIce)
+            bundle.putString("basketSize",size)
+            bundle.putString("basketCup",cup)
+            bundle.putString("basketShotNum", shotNum.toString())
+            bundle.putString("basketSyrupNum",syrupNum.toString())
+            bundle.putString("optionChangCost", optionChangCost.toString())
+            mainActivity.basket.changeOption(bundle)
+            this.dismiss()
+        }
     }
 }

@@ -86,6 +86,7 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
             basketOptionChangeButton?.setOnClickListener {
                 // 옵션변경사항 전달
                 var bundle = Bundle()
+                bundle.putInt("position",position)
                 bundle.putString("basketHotOrIce",basketList[position].getString("basketHotOrIce"))
                 bundle.putString("basketSize",basketList[position].getString("basketSize"))
                 bundle.putString("basketCup",basketList[position].getString("basketCup"))

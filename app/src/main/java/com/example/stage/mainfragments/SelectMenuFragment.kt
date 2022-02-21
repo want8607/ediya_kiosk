@@ -22,6 +22,31 @@ class SelectMenuFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var mainActivity = activity as MainActivity
+        var menuCost: Int? = arguments?.getString("menuCost")?.toInt()
+        var menuNum = 1
+        var size  = "Tall"
+        var selectedCup = "매장컵"
+        var shotNum = 0
+        var syrupNum = 0
+        lateinit var isHotOrIce : String
+        var shotMinusBtn = view.findViewById<ImageButton>(R.id.selectmenu_shot_minus_button)
+        var shotPlusBtn = view.findViewById<ImageButton>(R.id.selectmenu_shot_plus_button)
+        var shotNumTextView = view.findViewById<TextView>(R.id.selectmenu_shot_num_textview)
+        var hotIceRadioGroup = view.findViewById<RadioGroup>(R.id.hot_ice_radio_group)
+        var selectMenuBackBtn = view.findViewById<ImageButton>(R.id.selectmenu_back_button)
+        var totalCostTextView = view.findViewById<TextView>(R.id.selectedmenu_menu_total_cost)
+        var sizeRadioGroup = view.findViewById<RadioGroup>(R.id.selectmenu_size_radio_group)
+        var tallSizeButton = view.findViewById<RadioButton>(R.id.selectmenu_tall_radio_button)
+        var cupRadioGroup = view.findViewById<RadioGroup>(R.id.selectmenu_cup_choice_radio_group)
+        var storeCupBtn = view.findViewById<RadioButton>(R.id.selectmenu_store_cup)
+        var syrupMinusBtn = view.findViewById<ImageButton>(R.id.selectmenu_syrup_minus_button)
+        var syrupPlusBtn = view.findViewById<ImageButton>(R.id.selectmenu_syrup_plus_button)
+        var syrupNumTextView = view.findViewById<TextView>(R.id.selectmenu_syrup_num_textview)
+        var menuMinusBtn = view.findViewById<ImageButton>(R.id.selectmenu_menu_minus_button)
+        var menuPlusBtn = view.findViewById<ImageButton>(R.id.selectmenu_menu_plus_button)
+        var menuNumTextView = view.findViewById<TextView>(R.id.selectmenu_menu_num_textview)
+        var selectMenuAddBtn = view.findViewById<Button>(R.id.selectmenu_add_button)
+        var selectMenuBasketBtn = view.findViewById<ImageButton>(R.id.selectmenu_basket_button)
 
         //선택된 메뉴 값에 따라 바인드
         view.findViewById<TextView>(R.id.selectedmenu_menu_name).text = arguments?.getString("menuName")
@@ -31,20 +56,15 @@ class SelectMenuFragment : Fragment(){
         view.findViewById<ImageView>(R.id.selectedmenu_menu_img).setImageResource(resourceId)
 
         //총금액 설정
-        var menuCost: Int? = arguments?.getString("menuCost")?.toInt()
-        var menuNum : Int= 1
-        var totalCostTextView = view.findViewById<TextView>(R.id.selectedmenu_menu_total_cost)
+
         totalCostTextView.text = menuCost.toString()
 
         //뒤로가기
-        var selectMenuBackBtn = view.findViewById<ImageButton>(R.id.selectmenu_back_button)
         selectMenuBackBtn.setOnClickListener {
             mainActivity.removeFragment(this)
         }
 
         //핫 아이스
-        var hotIceRadioGroup = view.findViewById<RadioGroup>(R.id.hot_ice_radio_group)
-        lateinit var isHotOrIce : String
         hotIceRadioGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
             when(checkedId){
                 R.id.hot_radio_button-> {isHotOrIce = "Hot"}
@@ -53,11 +73,7 @@ class SelectMenuFragment : Fragment(){
         }
 
         //사이즈 변경 버튼 이벤트
-        var sizeRadioGroup = view.findViewById<RadioGroup>(R.id.selectmenu_size_radio_group)
-        var tallSizeButton = view.findViewById<RadioButton>(R.id.selectmenu_tall_radio_button)
         tallSizeButton.isChecked = true
-        var size : String = "Tall"
-        lateinit var lastselected : String
         sizeRadioGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
             when(checkedId){
                 R.id.selectmenu_tall_radio_button->{
@@ -91,24 +107,16 @@ class SelectMenuFragment : Fragment(){
         }
 
         //컵선택
-        var cupRadioGroup = view.findViewById<RadioGroup>(R.id.selectmenu_cup_choice_radio_group)
-        var storeCupBtn = view.findViewById<RadioButton>(R.id.selectmenu_store_cup)
-        lateinit var selectedCup : String
+        storeCupBtn.isChecked = true
         cupRadioGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
             when(checkedId){
                 R.id.selectmenu_store_cup->{selectedCup = "매장컵"}
                 R.id.selectmenu_personal_cup->{selectedCup = "개인컵"}
                 R.id.selectmenu_disposable_cup->{selectedCup = "일회용컵"}
             }
-            Log.d("message",selectedCup)
         }
 
         //샷 플러스마이너스 버튼 클릭이벤트
-        var shotMinusBtn = view.findViewById<ImageButton>(R.id.selectmenu_shot_minus_button)
-        var shotPlusBtn = view.findViewById<ImageButton>(R.id.selectmenu_shot_plus_button)
-        var shotNumTextView = view.findViewById<TextView>(R.id.selectmenu_shot_num_textview)
-        var shotNum: Int = 0
-
         shotMinusBtn.setOnClickListener {
 
             if(shotNum > 0){
@@ -118,7 +126,6 @@ class SelectMenuFragment : Fragment(){
                 totalCostTextView.text = (menuCost?.times(menuNum)).toString()
             }
         }
-
         shotPlusBtn.setOnClickListener {
             if(shotNum < 9){
                 shotNum += 1
@@ -129,11 +136,6 @@ class SelectMenuFragment : Fragment(){
         }
 
         //시럽 플러스 마이너스 버튼 클릭이벤트
-        var syrupMinusBtn = view.findViewById<ImageButton>(R.id.selectmenu_syrup_minus_button)
-        var syrupPlusBtn = view.findViewById<ImageButton>(R.id.selectmenu_syrup_plus_button)
-        var syrupNumTextView = view.findViewById<TextView>(R.id.selectmenu_syrup_num_textview)
-        var syrupNum = 0
-
         syrupMinusBtn.setOnClickListener {
             if(syrupNum > 0){
                 syrupNum -= 1
@@ -149,10 +151,6 @@ class SelectMenuFragment : Fragment(){
         }
 
         //메뉴 플러스 마이너스 버튼 클릭이벤트
-        var menuMinusBtn = view.findViewById<ImageButton>(R.id.selectmenu_menu_minus_button)
-        var menuPlusBtn = view.findViewById<ImageButton>(R.id.selectmenu_menu_plus_button)
-        var menuNumTextView = view.findViewById<TextView>(R.id.selectmenu_menu_num_textview)
-
         menuMinusBtn.setOnClickListener {
             if(menuNum > 1){
                 menuNum-=1
@@ -170,7 +168,6 @@ class SelectMenuFragment : Fragment(){
         }
 
         //장바구니에 추가
-        var selectMenuAddBtn = view.findViewById<Button>(R.id.selectmenu_add_button)
         selectMenuAddBtn.setOnClickListener {
 
             // 설정들을 장바구니에 보내야함
@@ -187,7 +184,6 @@ class SelectMenuFragment : Fragment(){
             bundle.putString("basketTotalCost", totalCostTextView.text.toString())
             bundle.putString("photo",arguments?.getString("menuImg"))
             mainActivity.setBasket(bundle)
-            bundle.getString("photo")?.let { it1 -> Log.d("messeage", it1) }
             //알림 표시
             var builder = AlertDialog.Builder(activity)
             builder.setMessage("장바구니에 추가 되었습니다.")
@@ -198,7 +194,6 @@ class SelectMenuFragment : Fragment(){
         }
 
         //장바구니 버튼
-        var selectMenuBasketBtn = view.findViewById<ImageButton>(R.id.selectmenu_basket_button)
         selectMenuBasketBtn.setOnClickListener {
             mainActivity.addFragment(mainActivity.basket)
         }
