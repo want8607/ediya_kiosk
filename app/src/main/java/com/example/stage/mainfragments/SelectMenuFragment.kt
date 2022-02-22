@@ -28,11 +28,12 @@ class SelectMenuFragment : Fragment(){
         var selectedCup = "매장컵"
         var shotNum = 0
         var syrupNum = 0
-        lateinit var isHotOrIce : String
+        var isHotOrIce = "Hot"
         var shotMinusBtn = view.findViewById<ImageButton>(R.id.selectmenu_shot_minus_button)
         var shotPlusBtn = view.findViewById<ImageButton>(R.id.selectmenu_shot_plus_button)
         var shotNumTextView = view.findViewById<TextView>(R.id.selectmenu_shot_num_textview)
         var hotIceRadioGroup = view.findViewById<RadioGroup>(R.id.hot_ice_radio_group)
+        var hotRadioBtn = view.findViewById<RadioButton>(R.id.hot_radio_button)
         var selectMenuBackBtn = view.findViewById<ImageButton>(R.id.selectmenu_back_button)
         var totalCostTextView = view.findViewById<TextView>(R.id.selectedmenu_menu_total_cost)
         var sizeRadioGroup = view.findViewById<RadioGroup>(R.id.selectmenu_size_radio_group)
@@ -65,6 +66,7 @@ class SelectMenuFragment : Fragment(){
         }
 
         //핫 아이스
+        hotRadioBtn.isChecked = true
         hotIceRadioGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
             when(checkedId){
                 R.id.hot_radio_button-> {isHotOrIce = "Hot"}

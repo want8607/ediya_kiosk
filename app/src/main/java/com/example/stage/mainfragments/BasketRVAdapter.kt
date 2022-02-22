@@ -43,15 +43,15 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
         var basketImg = itemView?.findViewById<ImageView>(R.id.basket_image)
         var basketMenuMinusBtn = itemView?.findViewById<ImageButton>(R.id.basket_menu_minus_button)
         var basketMenuPlusBtn = itemView?.findViewById<ImageButton>(R.id.basket_menu_plus_button)
-
+        var basketSelectDeleteBtn = itemView?.findViewById<ImageButton>(R.id.basket_select_delete_button)
         fun bind (basketList:ArrayList<Bundle>, position: Int){
             basketName?.text = basketList[position].getString("basketName")
             basketEnglishName?.text = basketList[position].getString("basketEnglishName")
-            var optionText = "${basketList[position].getString("basketHotOrIce")}|" +
-                    "${basketList[position].getString("basketSize")}|" +
+            var optionText = "${basketList[position].getString("basketHotOrIce")} | " +
+                    "${basketList[position].getString("basketSize")} | " +
                     "${basketList[position].getString("basketCup")}\n" +
-                    "${basketList[position].getString("basketShotNum")}|" +
-                    "${basketList[position].getString("basketSyrupNum")}"
+                    "샷${basketList[position].getString("basketShotNum")} | " +
+                    "시럽${basketList[position].getString("basketSyrupNum")}"
             basketOptions?.text = optionText
             basketMenuNum?.text = basketList[position].getString("basketMenuNum")
             basketMenuCost?.text = basketList[position].getString("basketMenuCost")
@@ -83,8 +83,13 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
                 }
             }
 
+            // 선택삭제 버튼
+            basketSelectDeleteBtn?.setOnClickListener {
+                onItemClick.onDeleteClick(position)
+            }
+            // 옵션변경사항 전달
             basketOptionChangeButton?.setOnClickListener {
-                // 옵션변경사항 전달
+
                 var bundle = Bundle()
                 bundle.putInt("position",position)
                 bundle.putString("basketHotOrIce",basketList[position].getString("basketHotOrIce"))

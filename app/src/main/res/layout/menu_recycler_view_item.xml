@@ -49,9 +49,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/maruburi"
-        android:text="5,000원"
+        android:text="5,000"
         android:textSize="@dimen/menu_cost_size"
         app:layout_constraintStart_toStartOf="@+id/menu_english_name"
+        app:layout_constraintTop_toBottomOf="@+id/menu_english_name" />
+
+    <TextView
+        android:id="@+id/menu_cost_won_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/maruburi"
+        android:text="원"
+        android:textSize="@dimen/menu_cost_size"
+        app:layout_constraintStart_toEndOf="@+id/menu_cost"
         app:layout_constraintTop_toBottomOf="@+id/menu_english_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
