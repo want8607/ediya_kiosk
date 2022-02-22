@@ -43,21 +43,22 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/payment_border"
-                app:layout_constraintTop_toTopOf="parent"
-                >
+                android:background="@drawable/payment_border">
 
                 <TextView
                     android:id="@+id/textView9"
@@ -80,12 +81,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/white"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_creditcard"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="@+id/textView9"
                     app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -98,10 +95,12 @@
                     android:text="신한카드"
                     android:textColor="@color/black"
                     android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toEndOf="@+id/imageButton5"
-                    app:layout_constraintTop_toTopOf="@+id/imageButton5" />
+                    app:layout_constraintTop_toTopOf="@+id/imageButton5"
+                    app:layout_constraintVertical_bias="0.2" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -115,70 +114,36 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/maruburi"
-                android:text="주문 내역"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-                app:layout_constraintVertical_bias="0" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/payment_border"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/textView15">
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/maruburi"
+                    android:text="주문 내역"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/menu_background"
-                    android:paddingVertical="10dp">
-
-                    <ImageView
-                        android:id="@+id/aimageView2"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="@drawable/category_background"
-                        android:src="@drawable/americano"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/atextView9"
-                        android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/payment_border"
+                    android:orientation="vertical">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/payment_recyclerview"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:fontFamily="@font/maruburi"
-                        android:text="커피"
-                        android:textColor="@color/black"
-                        android:textSize="26sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0"
-                        app:layout_constraintStart_toEndOf="@+id/aimageView2"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:text="" />
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/payment_recycler_view_item" />
+                </LinearLayout>
             </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -198,7 +163,7 @@
             android:background="@drawable/white_rounded_button"
             android:fontFamily="@font/maruburi"
             android:paddingHorizontal="50dp"
-            android:text="5,000원 결제하기"
+            android:text="155,000원 결제하기"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

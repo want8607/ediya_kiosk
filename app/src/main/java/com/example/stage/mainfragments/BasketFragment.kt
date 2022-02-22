@@ -22,18 +22,19 @@ class BasketFragment: Fragment(), OnItemClick {
     lateinit var basketRVAdapter: BasketRVAdapter
     lateinit var menuNumView: TextView
     lateinit var totalCostView: TextView
-
     var basketList: ArrayList<Bundle> = arrayListOf()
+    var totalCost = 0
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
+        if (arguments != null){
+            basketList = arguments?.getParcelableArrayList("basketList")!!
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.basket_fragment,container,false)
-        if (arguments != null){
-            basketList = arguments?.getParcelableArrayList("basketlist")!!
-        }
         //리사이클 뷰 생성
         basketRVAdapter = BasketRVAdapter(mainActivity, basketList,this)
         basketRecyclerView = view.findViewById<RecyclerView>(R.id.basket_recyclerview)
@@ -57,18 +58,22 @@ class BasketFragment: Fragment(), OnItemClick {
             mainActivity.removeFragment(this)
         }
 
-        //결제버튼 눌렀을 때
-        var basketPayBtn = view.findViewById<Button>(R.id.basket_payment_button)
-        basketPayBtn.setOnClickListener {
-            mainActivity.addFragment(PaymentFragment())
-        }
-
         //전체삭제
         var basketAllDelete = view.findViewById<Button>(R.id.basket_delete_all_button)
         basketAllDelete.setOnClickListener {
             basketList.clear()
             basketRVAdapter.notifyDataSetChanged()
             updateTotalMenuNum(menuNumView,totalCostView)
+        }
+
+        //결제버튼 눌렀을 때
+        var basketPayBtn = view.findViewById<Button>(R.id.basket_payment_button)
+        basketPayBtn.setOnClickListener {
+            var paymentFragment = PaymentFragment()
+            var bundle = Bundle()
+            bundle.putParcelableArrayList("basketList",basketList)
+            bundle.putInt("totalCost",totalCost)
+            mainActivity.setDataAtFragment(paymentFragment,bundle)
         }
     }
     //옵션 변경
@@ -110,7 +115,7 @@ class BasketFragment: Fragment(), OnItemClick {
     //총 개수및 가격 업데이트
     fun updateTotalMenuNum(menuNumView: TextView,totalCostView: TextView){
         var totalMenuNum = 0
-        var totalCost = 0
+        totalCost = 0
         for (i in basketList.indices) {
             totalMenuNum += basketList[i].getString("basketMenuNum")?.toInt()!!
         }
@@ -119,6 +124,7 @@ class BasketFragment: Fragment(), OnItemClick {
         }
         menuNumView.text = totalMenuNum.toString()
         totalCostView.text = totalCost.toString()
+
     }
     //메뉴 개수 변경 이벤트
     override fun onClick(position: Int, value: String, totalCost: String) {

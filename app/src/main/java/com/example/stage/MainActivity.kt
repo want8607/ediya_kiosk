@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setBasket(bundle: Bundle){
         basketList.add(bundle)
-        bundle.putParcelableArrayList("basketlist",basketList)
+        bundle.putParcelableArrayList("basketList",basketList)
         basket.arguments = bundle
         Log.d("setBasket","실행됨")
     }

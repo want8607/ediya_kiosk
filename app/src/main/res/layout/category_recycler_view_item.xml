@@ -28,7 +28,7 @@
             android:layout_marginTop="30dp"
             android:text="커피"
             android:textColor="@color/black"
-            android:textSize="26sp" />
+            android:textSize="@dimen/menu_korean_name_size" />
 
         <TextView
             android:id="@+id/category_english_name"
@@ -39,6 +39,6 @@
             android:fontFamily="@font/maruburi"
             android:text="coffee"
             android:textColor="@color/gray"
-            android:textSize="15sp" />
+            android:textSize="@dimen/menu_english_name_size" />
     </LinearLayout>
 </LinearLayout>

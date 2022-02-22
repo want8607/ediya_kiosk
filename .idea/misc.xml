@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/basket_fragment.xml" value="0.15876242095754292" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/basket_option_change_dialog.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/category_fragment.xml" value="0.15876242095754292" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/category_recycler_view_item.xml" value="0.33" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/menu_recycler_view_item.xml" value="0.15876242095754292" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/payment_fragment.xml" value="0.33" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/payment_recycler_view_item.xml" value="0.32546296296296295" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/selectmenu_fragment.xml" value="0.15876242095754292" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-v24/top_shadow.xml" value="0.21856540084388185" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xhdpi/drawa.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xhdpi/ic_minus_icon_small.xml" value="0.23981481481481481" />
@@ -36,12 +44,9 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_arrow_blue.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_arrow_gray.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_arrow_white.xml" value="0.23333333333333334" />
-        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_basket_select_delete_button.xml" value="0.1388888888888889" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_launcher_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_minus_icon.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_plus_icon.xml" value="0.23981481481481481" />
-        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/option_change_border.xml" value="0.2365296803652968" />
-        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/recipe_border.xml" value="0.1" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/round_circle_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/rounded_button.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/rounded_rectangle.xml" value="0.23333333333333334" />
@@ -69,7 +74,6 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_startpage.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/alter_dialog.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/basket_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/basket_option_change_dialog.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/basket_recycler_view_item.xml" value="0.22546296296296298" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/category_fragment.xml" value="0.264" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/category_recycler_view_item.xml" value="0.22546296296296298" />
@@ -94,7 +98,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.2222222222222222" />
+        <option name="scale" value="0.32546296296296295" />
       </ProjectState>
     </option>
   </component>

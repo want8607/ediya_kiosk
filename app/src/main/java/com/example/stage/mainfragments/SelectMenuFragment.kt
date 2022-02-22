@@ -188,6 +188,7 @@ class SelectMenuFragment : Fragment(){
             mainActivity.setBasket(bundle)
             //알림 표시
             var builder = AlertDialog.Builder(activity)
+            builder.setCancelable(false)
             builder.setMessage("장바구니에 추가 되었습니다.")
                 .setPositiveButton("확인", DialogInterface.OnClickListener{
                         dialogInterface, i-> mainActivity.replaceFragment(CategoryFragment())

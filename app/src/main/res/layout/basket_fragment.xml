@@ -33,16 +33,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
        >
 
-<!--        <Button-->
-<!--            android:id="@+id/basket_select_delete_button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="선택삭제"-->
-<!--            android:fontFamily="@font/maruburi"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textColor="@color/ediya_blue"-->
-<!--            style="?android:attr/borderlessButtonStyle"/>-->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,8 +70,9 @@
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
@@ -90,17 +81,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/basket_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/basket_recycler_view_item"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="105dp"
-                android:text=""/>
+                tools:listitem="@layout/basket_recycler_view_item" />
         </LinearLayout>
     </ScrollView>
 
