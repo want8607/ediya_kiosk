@@ -52,12 +52,14 @@ class CategoryRVAdapter(var context: Context, categoryList : MutableList<Categor
 
             itemView.setOnClickListener {
                 // 아이템 위치를 전달
-                var mainActivity = context as MainActivity
                 var bundle = Bundle()
+                var menuFragment = MenuFragment()
                 bundle.putInt("title",position)
                 bundle.putBoolean("isChecked",isChecked)
                 bundle.putString("categoryName",category[position].categoryName)
-                mainActivity.setDataAtFragment(MenuFragment(),bundle)
+                menuFragment.arguments = bundle
+                var mainActivity = context as MainActivity
+                mainActivity.addFragment(menuFragment)
             }
         }
     }

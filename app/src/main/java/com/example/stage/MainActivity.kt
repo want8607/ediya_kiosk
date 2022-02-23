@@ -8,7 +8,9 @@ import com.example.stage.mainfragments.BasketFragment
 
 
 class MainActivity : AppCompatActivity() {
+
     var basketList : ArrayList<Bundle> = arrayListOf()
+    var orderStorage : ArrayList<Bundle> = arrayListOf()
     lateinit var basket : BasketFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +26,8 @@ class MainActivity : AppCompatActivity() {
         Log.d("setBasket","실행됨")
     }
 
-    fun setDataAtFragment(fragment: Fragment, bundle: Bundle){
-        fragment.arguments = bundle
-        addFragment(fragment)
+    fun resetBasket(){
+        basketList.clear()
     }
 
     fun removeFragment(fragment: Fragment){
@@ -40,6 +41,10 @@ class MainActivity : AppCompatActivity() {
 
     fun replaceFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,fragment).commit()
+    }
+
+    fun addOrderInfo(bundle: Bundle){
+        orderStorage.add(bundle)
     }
 
     override fun onStart() {

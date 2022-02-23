@@ -1,6 +1,8 @@
 package com.example.stage.mainfragments
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -69,11 +71,22 @@ class BasketFragment: Fragment(), OnItemClick {
         //결제버튼 눌렀을 때
         var basketPayBtn = view.findViewById<Button>(R.id.basket_payment_button)
         basketPayBtn.setOnClickListener {
-            var paymentFragment = PaymentFragment()
-            var bundle = Bundle()
-            bundle.putParcelableArrayList("basketList",basketList)
-            bundle.putInt("totalCost",totalCost)
-            mainActivity.setDataAtFragment(paymentFragment,bundle)
+            if(basketList.isNotEmpty()) {
+                var paymentFragment = PaymentFragment()
+                var bundle = Bundle()
+                bundle.putParcelableArrayList("basketList", basketList)
+                bundle.putInt("totalCost", totalCost)
+                paymentFragment.arguments = bundle
+                mainActivity.addFragment(paymentFragment)
+            }else{
+                var builder = AlertDialog.Builder(activity)
+                builder.setCancelable(false)
+                builder.setMessage("메뉴를 담아주세요.")
+                    .setPositiveButton("확인", DialogInterface.OnClickListener{
+                            dialogInterface, i->
+                    })
+                builder.show()
+            }
         }
     }
     //옵션 변경

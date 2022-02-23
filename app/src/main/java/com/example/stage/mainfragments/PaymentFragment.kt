@@ -17,11 +17,13 @@ class PaymentFragment : Fragment() {
     lateinit var basketList: ArrayList<Bundle>
     lateinit var paymentRecyclerView: RecyclerView
     lateinit var paymentRVAdapter: PaymentRVAdapter
+    var totalCost = 0
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
         basketList = arguments?.getParcelableArrayList("basketList")!!
+        totalCost = arguments?.getInt("totalCost")!!
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -46,9 +48,19 @@ class PaymentFragment : Fragment() {
 
         //결제하기
         var paymentPayBtn = view.findViewById<Button>(R.id.payment_pay_button)
-        paymentPayBtn.text = (arguments?.getInt("totalCost").toString()+"원 결제하기")
+        paymentPayBtn.text = (totalCost.toString()+"원 결제하기")
         paymentPayBtn.setOnClickListener {
+
+            //주문 내역 메인엑티비티에 저장
+            var orderInfo = Bundle()
+            orderInfo.putParcelableArrayList("basketList",basketList)
+            mainActivity.addOrderInfo(orderInfo)
+            //영수증 띄우기
             var recipeDialog = RecipeDialogFragment()
+            var bundle = Bundle()
+            bundle.putParcelableArrayList("basketList",basketList)
+            bundle.putInt("totalCost",totalCost)
+            recipeDialog.arguments = bundle
             recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
         }
     }

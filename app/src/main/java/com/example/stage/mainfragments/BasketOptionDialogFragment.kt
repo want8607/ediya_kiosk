@@ -15,7 +15,7 @@ class BasketOptionDialogFragment: DialogFragment() {
         var view: View = inflater.inflate(R.layout.basket_option_change_dialog,container,false)
 
         //크기설정
-        dialog?.setContentView(R.layout.recipe_dialog)
+        dialog?.setContentView(R.layout.basket_option_change_dialog)
         dialog?.window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT)

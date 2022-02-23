@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -108,7 +110,7 @@
                     android:textSize="25sp" />
             </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/constraintLayout4"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
@@ -118,112 +120,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout3"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recipe_recyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/recipe_recycler_view_item" />
 
-                    <TextView
-                        android:id="@+id/atextView17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="아메리카노"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/atextView18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="40dp"
-                        android:gravity="end"
-                        android:text="4500"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toStartOf="@+id/atextView19"
-                        app:layout_constraintTop_toTopOf="@+id/atextView17" />
-
-                    <TextView
-                        android:id="@+id/atextView19"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
-                        android:text="2"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toStartOf="@+id/atextView20"
-                        app:layout_constraintTop_toTopOf="@+id/atextView18" />
-
-                    <TextView
-                        android:id="@+id/atextView20"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="9,000"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/atextView19" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-                    <TextView
-                        android:id="@+id/textView17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="카페라떼"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="40dp"
-                        android:gravity="end"
-                        android:text="5000"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView19"
-                        app:layout_constraintTop_toTopOf="@+id/textView17" />
-
-                    <TextView
-                        android:id="@+id/textView19"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
-                        android:text="2"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView20"
-                        app:layout_constraintTop_toTopOf="@+id/textView18" />
-
-                    <TextView
-                        android:id="@+id/textView20"
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="10,000"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView19" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout5"
@@ -253,11 +157,11 @@
                     android:text="->"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    app:layout_constraintEnd_toStartOf="@+id/textView22"
+                    app:layout_constraintEnd_toStartOf="@+id/recipe_total_cost"
                     app:layout_constraintTop_toTopOf="@+id/text_total" />
 
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/recipe_total_cost"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:gravity="end"
@@ -289,7 +193,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/btextView22"
+                    android:id="@+id/recipe_payment_cost"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:gravity="end"

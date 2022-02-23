@@ -45,13 +45,15 @@ class MenuRVAdapter(var context: Context, var menuList : MutableList<Menu>) :
             menuImg?.setImageResource(resourceId)
             itemView.setOnClickListener {
                 var mainActivity = context as MainActivity
+                var selectMenuFragment = SelectMenuFragment()
                 var bundle = Bundle()
                 //클래스를 넘겨야함
                 bundle.putString("menuName",menu[position].menuName)
                 bundle.putString("menuEnglishName",menu[position].menuEnglishName)
                 bundle.putString("menuCost",menu[position].cost)
                 bundle.putString("menuImg",menu[position].photo)
-                mainActivity.setDataAtFragment(SelectMenuFragment(),bundle)
+                selectMenuFragment.arguments = bundle
+                mainActivity.addFragment(selectMenuFragment)
             }
         }
     }
