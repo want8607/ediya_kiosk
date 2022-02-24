@@ -38,7 +38,7 @@ class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<Bundle>
             orderInfoNum?.text = orderInfo[position].getString("orderNum")
             orderInfoDate?.text = orderInfo[position].getString("orderDate")
             orderInfoItem?.setOnClickListener {
-                orderInfoItemClick.onclick(RecipeDialogFragment())
+                orderInfoItemClick.onclick(RecipeDialogFragment(),position)
             }
         }
     }

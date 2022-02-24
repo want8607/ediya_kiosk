@@ -55,10 +55,14 @@ class RecipeDialogFragment: DialogFragment() {
 
         // X버튼
         recipeExitBtn.setOnClickListener {
-            dismiss()
-            mainActivity.replaceFragment(CategoryFragment())
-            mainActivity.resetBasket()
-        }
+            if(arguments?.getString("flag") == "orderInfo"){
+                dismiss()
+            }else{
+                dismiss()
+                mainActivity.replaceFragment(CategoryFragment())
+                mainActivity.resetBasket()
+            }
 
+        }
     }
 }

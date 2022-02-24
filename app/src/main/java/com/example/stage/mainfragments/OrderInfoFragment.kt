@@ -14,24 +14,25 @@ import com.example.stage.mainInterface.OrderInfoItemClick
 
 class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     lateinit var mainActivity: MainActivity
-    lateinit var orderList: ArrayList<Bundle>
+    lateinit var orderList: ArrayList<ArrayList<Bundle>>
     lateinit var orderInfoRecyclerView: RecyclerView
     lateinit var orderInfoRVAdapter: OrderInfoRVAdapter
     lateinit var totalCost: ArrayList<Int>
     lateinit var paymentTime: ArrayList<String>
-    lateinit var orderInfo: ArrayList<Bundle>
+    lateinit var orderInfo: ArrayList<Bundle> // 여기에 주문번호,시간넣어야함
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
         orderList = arguments?.getParcelableArrayList("orderList")!!
+        arguments?.getParcelableArrayList()
         totalCost = arguments?.getIntegerArrayList("totalCost")!!
         paymentTime = arguments?.getStringArrayList("paymentTime")!!
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.order_info_fragment,container,false)
-        orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,orderList,this)
+        orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,orderInfo,this)
         orderInfoRecyclerView = view.findViewById<RecyclerView>(R.id.payment_recyclerview)
         orderInfoRecyclerView.adapter = orderInfoRVAdapter
         orderInfoRecyclerView.setHasFixedSize(true)
@@ -52,9 +53,9 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     override fun onclick(fragment: RecipeDialogFragment,position:Int) {
         var recipeDialog = fragment
         var bundle = Bundle()
-        bundle.putParcelableArrayList("basketList",orderList[position])
+        bundle.putBundle("basketList",orderList[position])
         bundle.putInt("totalCost",totalCost[position])
-        bundle.putString("flag","orderInfo")
+        bundle.putString("flag","orderInfo")//ok
         recipeDialog.arguments = bundle
         recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
     }
