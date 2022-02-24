@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 
-class CategoryRVAdapter(var context: Context, categoryList : MutableList<Category>):
+class CategoryRVAdapter(var context: Context, categoryList : ArrayList<Category>):
 
     RecyclerView.Adapter<CategoryRVAdapter.Holder>() {
     var myCategoryList = categoryList
@@ -29,7 +29,7 @@ class CategoryRVAdapter(var context: Context, categoryList : MutableList<Categor
         return myCategoryList.size
     }
 
-    fun listChanged(newCategoryList: MutableList<Category>){
+    fun listChanged(newCategoryList: ArrayList<Category>){
         myCategoryList.clear()
         myCategoryList.addAll(newCategoryList)
         notifyDataSetChanged()
@@ -43,7 +43,7 @@ class CategoryRVAdapter(var context: Context, categoryList : MutableList<Categor
         var categoryEnglishName = itemView?.findViewById<TextView>(R.id.category_english_name)
         var categoryImg = itemView?.findViewById<ImageView>(R.id.category_image)
 
-        fun bind (category: MutableList<Category>, position: Int){
+        fun bind (category: ArrayList<Category>, position: Int){
 
             categoryName?.text = category[position].categoryName
             categoryEnglishName?.text = category[position].categoryEnglishName

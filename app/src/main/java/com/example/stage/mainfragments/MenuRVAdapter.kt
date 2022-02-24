@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 
-class MenuRVAdapter(var context: Context, var menuList : MutableList<Menu>) :
+class MenuRVAdapter(var context: Context, var menuList : ArrayList<Menu>) :
     RecyclerView.Adapter<MenuRVAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -36,7 +36,7 @@ class MenuRVAdapter(var context: Context, var menuList : MutableList<Menu>) :
         var menuCost = itemView?.findViewById<TextView>(R.id.menu_cost)
         var menuImg = itemView?.findViewById<ImageView>(R.id.menu_image)
 
-        fun bind (menu: MutableList<Menu>,position: Int){
+        fun bind (menu: ArrayList<Menu>,position: Int){
 
             menuName?.text = menu[position].menuName
             menuEnglishName?.text = menu[position].menuEnglishName

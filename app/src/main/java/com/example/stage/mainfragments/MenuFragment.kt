@@ -14,7 +14,7 @@ import com.example.stage.MainActivity
 import com.example.stage.R
 
 class MenuFragment : Fragment(){
-    var coffeeMenuList : MutableList<Menu> = mutableListOf(
+    var coffeeMenuList : ArrayList<Menu> = arrayListOf(
         Menu("아메리카노","Americano","3200","americano"),
         Menu("아포가토","Affogato","4500","menu_coffee_affogato_original"),
         Menu("카페라떼","Caffe Latte","3700","menu_coffee_cafe_latte"),
@@ -25,7 +25,7 @@ class MenuFragment : Fragment(){
         Menu("바닐라 라떼","VanillaLatte","4000","menu_coffee_vanilla_latte")
 
     )
-    var beverageMenuList : MutableList<Menu> = mutableListOf(
+    var beverageMenuList : ArrayList<Menu> = arrayListOf(
         Menu("초콜렛","Chocolate","3200","menu_beverage_chocolate"),
         Menu("생강차","Ginger Tea","4500","menu_beverage_ginger_tea"),
         Menu("녹차라떼","Green Tea Latte","3700","menu_beverage_greantea_latte"),
@@ -35,7 +35,7 @@ class MenuFragment : Fragment(){
         Menu("토피넛라떼","Topeanut Latte","4200","menu_beverage_topeanut_latte")
     )
 
-    var blendingTeaMenuList : MutableList<Menu> = mutableListOf(
+    var blendingTeaMenuList : ArrayList<Menu> = arrayListOf(
         Menu("복분자 뱅쇼","BokBunJa Vin Chaud","3800","menu_blending_tea_bokbunja_vin_chaud"),
         Menu("유자차","Citron Tea","3800","menu_blending_tea_citron_tea"),
         Menu("생딸기 히비스커스","Strawberry Hibiscus","4500","menu_blending_tea_fresh_strawberry_peach_hibiscuss"),
@@ -45,7 +45,7 @@ class MenuFragment : Fragment(){
         Menu("석류 오리지널","Pomegranate Tea","3900","menu_blending_tea_pomegranate_tea")
     )
 
-    var flatchinoMenuList : MutableList<Menu> = mutableListOf(
+    var flatchinoMenuList : ArrayList<Menu> = arrayListOf(
         Menu("블루베리요거트 플랫치노","Blueberry Yogurt Flatccino","4800","menu_flatchino_blueberry_yogurt_flatccino"),
         Menu("커피 플랫치노","Coffee Flatccino","4500","menu_flatchino_coffe_flatccino"),
         Menu("자몽 플랫치노","Grapefruit Flatccino","3700","menu_flatchino_grapefruit_flatccino"),
@@ -56,7 +56,7 @@ class MenuFragment : Fragment(){
         Menu("딸기 요거트 플랫치노","Strawberry Yogurt Flatccino","3800","menu_flatchino_strawberry_yogurt_flatchino")
     )
 
-    var iceFlakeMenuList : MutableList<Menu> = mutableListOf(
+    var iceFlakeMenuList : ArrayList<Menu> = arrayListOf(
         Menu("망고샤베트 빙수","Mango Sherbet Flake","3200","menu_ice_flake_mango_sherbet_snow_flake"),
         Menu("망고요거트 빙수","Mango Yogurt Flake","4500","menu_ice_flake_mango_yogurt_ice_flake"),
         Menu("팥빙수","Redbean Ice Flake","3700","menu_ice_flake_redbean_ice_flakes"),
@@ -64,7 +64,7 @@ class MenuFragment : Fragment(){
         Menu("딸기 치즈 빙수","Strawberry Cheese flake","3200","menu_ice_flake_strawberry_cheese_flake")
     )
 
-    var shakeAndAdeMenuList : MutableList<Menu> = mutableListOf(
+    var shakeAndAdeMenuList : ArrayList<Menu> = arrayListOf(
         Menu("초콜렛 쿠키 쉐이크","Chocolate Cookie Shake","3200","menu_shake_ade_chocolate_cookie_shake"),
         Menu("석류 에이드","Grapefruit Ade","4500","menu_shake_ade_grapefruit_ade"),
         Menu("청포도 에이드","Green Grape Ade","3700","menu_shake_ade_green_grape_ade"),
@@ -74,7 +74,7 @@ class MenuFragment : Fragment(){
     )
 
     //베이커리 메뉴
-    var breadMenuList : MutableList<Menu> = mutableListOf(
+    var breadMenuList : ArrayList<Menu> = arrayListOf(
         Menu("초코렛 브라우니","Chocolate Brownie","3200","menu_bread_chocolate_brownie"),
         Menu("크로아상","Croissant","4500","menu_bread_croissant"),
         Menu("생딸기 연유 브레드","Strawberry Condensed Milk Bread","3700","menu_bread_fresh_strawberry_condenced_milk_bread"),
@@ -82,7 +82,7 @@ class MenuFragment : Fragment(){
         Menu("딸기 와플","Strawberry Waffle","3200","menu_bread_fresh_strawberry_waffle"),
         Menu("햄치즈 샌드위치","Ham Cheese Sandwich","3200","menu_bread_ham_cheese_sandwich")
     )
-    var cookieAndEtcMenuList : MutableList<Menu> = mutableListOf(
+    var cookieAndEtcMenuList : ArrayList<Menu> = arrayListOf(
         Menu("까르보나라 구운 주먹밥","Carbonara Grilled Riceball","3200","menu_cookie_etc_carbonara_grilled_riceball"),
         Menu("매콤로제 주먹밥","Spicy Rose Riceball","3200","menu_cookie_etc_spicy_rose_riceball"),
         Menu("초콜렛청크 쿠키","Chocolate Chunk Cookie","4500","menu_cookie_etc_chocolate_chunk_cookie"),
@@ -90,7 +90,7 @@ class MenuFragment : Fragment(){
         Menu("콘 수프","Corn Soup","3700","menu_cookie_etc_corn_soup"),
         Menu("양송이 수프","Mushroom Soup","3900","menu_cookie_etc_mushroom_soup")
     )
-    var dessertMenuList : MutableList<Menu> = mutableListOf(
+    var dessertMenuList : ArrayList<Menu> = arrayListOf(
         Menu("크림치즈 머핀","Cream Cheese Muffin","3200","menu_dessert_cream_cheese_muffin"),
         Menu("꿀호떡","Honey Hotteok","4500","menu_dessert_honey_hotteok"),
         Menu("마스카포네 티라미수","Mascarpone Tiramisu","3700","menu_dessert_mascarpone_tiramisu"),

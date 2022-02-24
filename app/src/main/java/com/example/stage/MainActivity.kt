@@ -6,6 +6,7 @@ import android.os.Parcelable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.stage.mainfragments.BasketFragment
+import com.example.stage.mainfragments.CategoryFragment
 import com.example.stage.mainfragments.OrderInfoFragment
 
 
@@ -20,6 +21,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainpage)
         basket = BasketFragment()
+
+        if(savedInstanceState != null){
+            basketList = savedInstanceState.getParcelableArrayList("basketList")!!
+            orderStorage = savedInstanceState.getParcelableArrayList("orderStorage")!!
+            orderNumber = savedInstanceState.getInt("orderNumber")
+            basket = supportFragmentManager.getFragment(savedInstanceState,"basketFragment") as BasketFragment
+        }
     }
 
     fun setBasket(bundle: Bundle){
@@ -56,9 +64,26 @@ class MainActivity : AppCompatActivity() {
         orderStorage.add(bundle) //2
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList("basketList",basketList)
+        outState.putParcelableArrayList("orderStorage",orderStorage)
+        outState.putInt("orderNumber",orderNumber)
+//        supportFragmentManager.putFragment(outState,"basketFragment",basket)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+    }
+    
     override fun onStart() {
         super.onStart()
         Log.d("message","액티비티 실행")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("message","액티비티 재실행")
     }
 
     override fun onStop() {
