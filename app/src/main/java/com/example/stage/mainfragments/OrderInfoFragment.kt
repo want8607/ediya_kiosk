@@ -24,8 +24,6 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
         super.onAttach(context)
         mainActivity = activity as MainActivity
         orderStorage = arguments?.getParcelableArrayList("orderStorage")!! //4
-
-        Log.d("orderNum",(orderStorage[0].getInt("orderNumber").toString()))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -51,7 +49,9 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     override fun onclick(fragment: RecipeDialogFragment,position:Int) {
         var recipeDialog = fragment
         var bundle = Bundle()
-        bundle.putParcelableArrayList("basketList",orderStorage[position].getParcelableArrayList("orderList")) //5
+        var basketList : ArrayList<Bundle> = orderStorage[position].getParcelableArrayList("orderList")!!
+        bundle.putParcelableArrayList("basketList",basketList)
+        bundle.putInt("orderNumber",orderStorage[position].getInt("orderNumber"))
         bundle.putInt("totalCost",orderStorage[position].getInt("totalCost"))
         bundle.putString("flag","orderInfo")//ok
         recipeDialog.arguments = bundle

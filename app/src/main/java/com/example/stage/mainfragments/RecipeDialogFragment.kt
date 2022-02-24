@@ -18,12 +18,13 @@ class RecipeDialogFragment: DialogFragment() {
     lateinit var mainActivity: MainActivity
     lateinit var basketList : ArrayList<Bundle>
     var totalCost = 0
-
+    var orderNum = 0
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
         basketList = arguments?.getParcelableArrayList("basketList")!!
         totalCost = arguments?.getInt("totalCost")!!
+        orderNum = arguments?.getInt("orderNumber")!!
         if (basketList.isNullOrEmpty()){
             Log.d("empty","true")
         }else{
@@ -55,10 +56,11 @@ class RecipeDialogFragment: DialogFragment() {
         var recipeExitBtn = view.findViewById<ImageButton>(R.id.recipe_exit_button)
         var recipeTotalCostView = view.findViewById<TextView>(R.id.recipe_total_cost)
         var recipePaymentCostView = view.findViewById<TextView>(R.id.recipe_payment_cost)
+        var recipeOrderNumView = view.findViewById<TextView>(R.id.recipe_order_num)
 
         recipeTotalCostView.text = totalCost.toString()
         recipePaymentCostView.text = totalCost.toString()
-
+        recipeOrderNumView.text = orderNum.toString()
         // X버튼
         recipeExitBtn.setOnClickListener {
             var flag = arguments?.getString("flag")

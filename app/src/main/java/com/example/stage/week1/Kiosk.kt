@@ -1,5 +1,7 @@
 package com.example.stage.week1
 
+import android.os.Bundle
+
 class Kiosk() {
     var basket : Basket = Basket()
     var menu : Menu = Menu(basket)
@@ -50,5 +52,14 @@ class Kiosk() {
 
 
 fun main(){
-    var kiosk= Kiosk()
+    dd()
+    //var kiosk= Kiosk()
+}
+
+fun dd(){
+    var orderBasket : ArrayList<ArrayList<Bundle>> = arrayListOf()
+    var bundle = Bundle()
+    bundle.putString("dd","sibal")
+    bundle.putString("cc","v")
+
 }

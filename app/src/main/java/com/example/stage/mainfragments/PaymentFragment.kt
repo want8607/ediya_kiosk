@@ -24,9 +24,11 @@ class PaymentFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+
         mainActivity = activity as MainActivity
         basketList = arguments?.getParcelableArrayList("basketList")!!
         totalCost = arguments?.getInt("totalCost")!!
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -53,7 +55,6 @@ class PaymentFragment : Fragment() {
         var paymentPayBtn = view.findViewById<Button>(R.id.payment_pay_button)
         paymentPayBtn.text = (totalCost.toString()+"원 결제하기")
         paymentPayBtn.setOnClickListener {
-
             //주문 내역 메인엑티비티에 저장
             var orderInfo = Bundle()
             val dateFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")
@@ -63,14 +64,15 @@ class PaymentFragment : Fragment() {
             orderInfo.putInt("orderNumber",mainActivity.orderNumber)
             orderInfo.putString("paymentTime",currentDate.format(dateFormat))
             mainActivity.addOrderInfo(orderInfo)
-            mainActivity.orderNumber += 1
             //영수증 띄우기
             var recipeDialog = RecipeDialogFragment()
             var bundle = Bundle()
             bundle.putParcelableArrayList("basketList",basketList)
             bundle.putInt("totalCost",totalCost)
+            bundle.putInt("orderNumber",mainActivity.orderNumber)
             recipeDialog.arguments = bundle
             recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
+            mainActivity.orderNumber += 1
         }
     }
 }
