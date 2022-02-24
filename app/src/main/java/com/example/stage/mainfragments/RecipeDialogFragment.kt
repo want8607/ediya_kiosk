@@ -3,6 +3,7 @@ package com.example.stage.mainfragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.view.WindowManager
 import android.widget.ImageButton
@@ -23,6 +24,11 @@ class RecipeDialogFragment: DialogFragment() {
         mainActivity = activity as MainActivity
         basketList = arguments?.getParcelableArrayList("basketList")!!
         totalCost = arguments?.getInt("totalCost")!!
+        if (basketList.isNullOrEmpty()){
+            Log.d("empty","true")
+        }else{
+            Log.d("empty","false")
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -55,12 +61,18 @@ class RecipeDialogFragment: DialogFragment() {
 
         // X버튼
         recipeExitBtn.setOnClickListener {
-            if(arguments?.getString("flag") == "orderInfo"){
+            var flag = arguments?.getString("flag")
+            if(flag == "orderInfo"){
                 dismiss()
             }else{
                 dismiss()
                 mainActivity.replaceFragment(CategoryFragment())
                 mainActivity.resetBasket()
+                if (basketList.isNullOrEmpty()){
+                    Log.d("empty","true")
+                }else{
+                    Log.d("empty","false")
+                }
             }
 
         }

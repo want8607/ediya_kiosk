@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.stage.mainfragments.BasketFragment
+import com.example.stage.mainfragments.OrderInfoFragment
 
 
 class MainActivity : AppCompatActivity() {
 
     var basketList : ArrayList<Bundle> = arrayListOf()
-    var orderStorage : ArrayList<Bundle> = arrayListOf()
+    var orderStorage : ArrayList<Bundle> = arrayListOf() // 주문번호, 주문시간, 장바구니정보 3
+    var orderNumber = 1
     lateinit var basket : BasketFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +25,14 @@ class MainActivity : AppCompatActivity() {
         basketList.add(bundle)
         bundle.putParcelableArrayList("basketList",basketList)
         basket.arguments = bundle
-        Log.d("setBasket","실행됨")
+    }
+
+    fun openOrderInfo(){
+        var orderInfoFragment = OrderInfoFragment()
+        var bundle = Bundle()
+        bundle.putParcelableArrayList("orderStorage",orderStorage)
+        orderInfoFragment.arguments = bundle
+        addFragment(orderInfoFragment)
     }
 
     fun resetBasket(){
@@ -36,7 +45,6 @@ class MainActivity : AppCompatActivity() {
 
     fun addFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction().add(R.id.mainpage_fragment_container_view,fragment).addToBackStack(null).commit()
-        Log.d("addfragment","실행됨")
     }
 
     fun replaceFragment(fragment: Fragment){
@@ -44,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun addOrderInfo(bundle: Bundle){
-        orderStorage.add(bundle)
+        orderStorage.add(bundle) //2
     }
 
     override fun onStart() {

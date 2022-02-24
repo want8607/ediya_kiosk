@@ -2,6 +2,7 @@ package com.example.stage.mainfragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,29 +12,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.mainInterface.OrderInfoItemClick
+import kotlin.math.log
 
 class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     lateinit var mainActivity: MainActivity
-    lateinit var orderList: ArrayList<ArrayList<Bundle>>
+    lateinit var orderStorage: ArrayList<Bundle> //[bundle]->"orderList"parcelable/"totalCost"Int/"paymentTime"String/"orderNumber"Int
     lateinit var orderInfoRecyclerView: RecyclerView
     lateinit var orderInfoRVAdapter: OrderInfoRVAdapter
-    lateinit var totalCost: ArrayList<Int>
-    lateinit var paymentTime: ArrayList<String>
-    lateinit var orderInfo: ArrayList<Bundle> // 여기에 주문번호,시간넣어야함
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
-        orderList = arguments?.getParcelableArrayList("orderList")!!
-        arguments?.getParcelableArrayList()
-        totalCost = arguments?.getIntegerArrayList("totalCost")!!
-        paymentTime = arguments?.getStringArrayList("paymentTime")!!
+        orderStorage = arguments?.getParcelableArrayList("orderStorage")!! //4
+
+        Log.d("orderNum",(orderStorage[0].getInt("orderNumber").toString()))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.order_info_fragment,container,false)
-        orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,orderInfo,this)
-        orderInfoRecyclerView = view.findViewById<RecyclerView>(R.id.payment_recyclerview)
+        orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,orderStorage,this)
+        orderInfoRecyclerView = view.findViewById<RecyclerView>(R.id.order_info_recyclerview)
         orderInfoRecyclerView.adapter = orderInfoRVAdapter
         orderInfoRecyclerView.setHasFixedSize(true)
 
@@ -53,8 +51,8 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     override fun onclick(fragment: RecipeDialogFragment,position:Int) {
         var recipeDialog = fragment
         var bundle = Bundle()
-        bundle.putBundle("basketList",orderList[position])
-        bundle.putInt("totalCost",totalCost[position])
+        bundle.putParcelableArrayList("basketList",orderStorage[position].getParcelableArrayList("orderList")) //5
+        bundle.putInt("totalCost",orderStorage[position].getInt("totalCost"))
         bundle.putString("flag","orderInfo")//ok
         recipeDialog.arguments = bundle
         recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")

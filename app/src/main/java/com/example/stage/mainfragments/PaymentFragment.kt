@@ -2,6 +2,7 @@ package com.example.stage.mainfragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class PaymentFragment : Fragment() {
     lateinit var mainActivity: MainActivity
@@ -53,8 +56,14 @@ class PaymentFragment : Fragment() {
 
             //주문 내역 메인엑티비티에 저장
             var orderInfo = Bundle()
-            orderInfo.putParcelableArrayList("basketList",basketList)
+            val dateFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")
+            val currentDate = LocalDateTime.now()
+            orderInfo.putParcelableArrayList("orderList",basketList)//1
+            orderInfo.putInt("totalCost",totalCost)
+            orderInfo.putInt("orderNumber",mainActivity.orderNumber)
+            orderInfo.putString("paymentTime",currentDate.format(dateFormat))
             mainActivity.addOrderInfo(orderInfo)
+            mainActivity.orderNumber += 1
             //영수증 띄우기
             var recipeDialog = RecipeDialogFragment()
             var bundle = Bundle()

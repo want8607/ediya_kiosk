@@ -1,5 +1,6 @@
 package com.example.stage.mainfragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,12 @@ import com.example.stage.MainActivity
 import com.example.stage.R
 
 class CategoryFragment : Fragment(){
+    lateinit var mainActivity: MainActivity
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mainActivity = activity as MainActivity
+    }
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.category_fragment,container,false)
         return view
@@ -19,7 +26,13 @@ class CategoryFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var mainActivity = activity as MainActivity
+
+        var orderInfoBtn = view.findViewById<ImageButton>(R.id.category_order_info_button)
+
+        //주문정보 보기
+        orderInfoBtn.setOnClickListener {
+            mainActivity.openOrderInfo()
+        }
 
         // 리사이클러 뷰 설정
         var categoryDrinkList : MutableList<Category> = mutableListOf(
