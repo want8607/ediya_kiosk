@@ -14,8 +14,8 @@
     <dimen name="menu_english_name_size">16sp</dimen>
     <dimen name="menu_cost_size">20sp</dimen>
     <dimen name="hot_btn_width">120dp</dimen>
-    <dimen name="size_radio_btn_width">80dp</dimen>
-    <dimen name="size_radio_btn_height">80dp</dimen>
-    <dimen name="cup_radio_btn_width">90dp</dimen>
+    <dimen name="size_radio_btn_width">96dp</dimen>
+    <dimen name="size_radio_btn_height">96dp</dimen>
+    <dimen name="cup_radio_btn_width">96dp</dimen>
     <dimen name="option_btn_text_size">20sp</dimen>
 </resources>

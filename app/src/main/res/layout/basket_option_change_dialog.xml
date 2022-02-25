@@ -9,7 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/basket_option_constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp"
         android:background="@drawable/option_change_border">
 
         <TextView
@@ -17,10 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:fontFamily="@font/nanumsquareroundotfr"
+            android:fontFamily="@font/maruburi"
             android:text="옵션변경"
             android:textColor="@color/black"
-            android:textSize="23sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,6 +33,7 @@
             android:layout_marginEnd="20dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_x_mark"
+            app:layout_constraintBottom_toBottomOf="@+id/basket_option_textview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/basket_option_textview" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -56,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="30dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -144,7 +146,7 @@
                         android:id="@+id/basket_option_grande_radio_button"
                         android:layout_width="@dimen/size_radio_btn_width"
                         android:layout_height="@dimen/size_radio_btn_height"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginHorizontal="10dp"
                         android:background="@drawable/size_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
@@ -346,7 +348,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="30dp"
+        android:paddingVertical="20dp"
         android:background="@drawable/top_blueline"
         android:gravity="center">
         <Button
@@ -358,7 +360,7 @@
             android:text="수정완료"
             android:background="@drawable/blue_rounded_button"
             android:textColor="@color/white"
-            android:fontFamily="@font/nanumsquareroundotfr"/>
+            android:fontFamily="@font/maruburi"/>
     </LinearLayout>
 
 </LinearLayout>

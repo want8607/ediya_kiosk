@@ -11,7 +11,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp"
         android:background="@drawable/recipe_border">
 
         <TextView
@@ -22,7 +23,7 @@
             android:fontFamily="@font/nanumsquareroundotfr"
             android:text="전자영수증"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -49,8 +50,9 @@
             android:gravity="center">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/recipe_logo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
@@ -60,7 +62,7 @@
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="15dp"
                     android:text="EDIYA COFFEE"
                     android:textColor="@color/black"
                     android:textSize="30sp"
@@ -76,16 +78,17 @@
                     android:text="(카드결제)"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
                 <LinearLayout
                     android:id="@+id/linearLayout6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
                     android:background="@drawable/dash_line"
                     android:gravity="center"
                     android:orientation="horizontal"
@@ -113,8 +116,9 @@
 
             <LinearLayout
                 android:id="@+id/constraintLayout4"
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
                 android:background="@drawable/dash_line"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -132,8 +136,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout5"
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
                 android:background="@drawable/dash_line"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -146,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:text="합계"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -155,27 +160,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="50dp"
-                    android:text="->"
+                    android:text="-->"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toStartOf="@+id/recipe_total_cost"
                     app:layout_constraintTop_toTopOf="@+id/text_total" />
 
                 <TextView
                     android:id="@+id/recipe_total_cost"
-                    android:layout_width="70dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="19,000"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView21" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
                 android:background="@drawable/dash_line"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -189,25 +195,26 @@
                     android:text="결제금액"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/recipe_payment_cost"
-                    android:layout_width="70dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="19,000"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/btext_total" />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="25dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/barcode"/>
         </LinearLayout>

@@ -20,13 +20,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainpage)
-
-//        if(savedInstanceState != null){
-//            basketList = savedInstanceState.getParcelableArrayList("basketList")!!
-//            orderStorage = savedInstanceState.getParcelableArrayList("orderStorage")!!
-//            orderNumber = savedInstanceState.getInt("orderNumber")
-//            basket = supportFragmentManager.getFragment(savedInstanceState,"basketFragment") as BasketFragment
-//        }
     }
 
     fun setBasket(bundle: Bundle){
@@ -74,7 +67,6 @@ class MainActivity : AppCompatActivity() {
         outState.putParcelableArrayList("basketList",basketList)
         outState.putParcelableArrayList("orderStorage",orderStorage)
         outState.putInt("orderNumber",orderNumber)
-//        supportFragmentManager.putFragment(outState,"basketFragment",basket)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -89,12 +81,6 @@ class MainActivity : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
         Log.d("message","액티비티 onRestart")
-//        var oriBasketList : ArrayList<Bundle> = basketList
-//        var oriOrderStorage : ArrayList<Bundle> = orderStorage
-//        var oriBasketFragment : BasketFragment = basket
-//        basketList = oriBasketList
-//        orderStorage = oriOrderStorage
-//        basket = oriBasketFragment
     }
 
     override fun onStop() {
