@@ -19,8 +19,8 @@
 
             <ImageView
                 android:id="@+id/ediya_logo"
-                android:layout_width="@dimen/ediya_main_logo_width"
-                android:layout_height="@dimen/ediya_main_logo_height"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginTop="50dp"
                 android:src="@drawable/ediya_main_logo"
                 app:layout_constraintEnd_toEndOf="parent"

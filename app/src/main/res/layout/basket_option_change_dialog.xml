@@ -44,6 +44,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
             android:orientation="vertical">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -62,35 +63,36 @@
 
                     <RadioButton
                         android:id="@+id/basket_option_hot_radio_button"
-                        android:layout_width="150dp"
+                        android:layout_width="@dimen/hot_btn_width"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="2dp"
                         android:background="@drawable/hot_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
-                        android:padding="20dp"
+                        android:paddingVertical="10dp"
+
                         android:text="Hot"
                         android:textAlignment="center"
                         android:textColor="@drawable/hot_cold_radiobutton_text"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/option_btn_text_size"
+                        />
 
 
                     <RadioButton
                         android:id="@+id/basket_option_ice_radio_button"
-                        android:layout_width="150dp"
+                        android:layout_width="@dimen/hot_btn_width"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
                         android:background="@drawable/cold_radiobutton_background"
                         android:button="@null"
-                        android:checked="false"
                         android:fontFamily="@font/maruburi"
-                        android:padding="20dp"
+                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="40dp"
                         android:text="Ice"
                         android:textAlignment="center"
                         android:textColor="@drawable/hot_cold_radiobutton_text"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/option_btn_text_size"
+                        />
 
 
                 </RadioGroup>
@@ -103,7 +105,7 @@
                     android:fontFamily="@font/maruburi"
                     android:text="사이즈"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.05"
@@ -128,21 +130,20 @@
 
                     <RadioButton
                         android:id="@+id/basket_option_tall_radio_button"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/size_radio_btn_width"
+                        android:layout_height="@dimen/size_radio_btn_height"
                         android:background="@drawable/size_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
                         android:text="Tall"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/option_btn_text_size"/>
 
                     <RadioButton
                         android:id="@+id/basket_option_grande_radio_button"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/size_radio_btn_width"
+                        android:layout_height="@dimen/size_radio_btn_height"
                         android:layout_marginHorizontal="20dp"
                         android:background="@drawable/size_radiobutton_background"
                         android:button="@null"
@@ -150,21 +151,20 @@
                         android:text="Grande"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/option_btn_text_size" />
 
                     <RadioButton
                         android:id="@+id/basket_option_Venti_radio_button"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/size_radio_btn_width"
+                        android:layout_height="@dimen/size_radio_btn_height"
                         android:background="@drawable/size_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
                         android:text="Venti"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/option_btn_text_size"
+                        />
 
                 </RadioGroup>
 
@@ -177,7 +177,7 @@
                     android:fontFamily="@font/maruburi"
                     android:text="컵 선택"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/option_btn_text_size"
                     app:layout_constraintStart_toStartOf="@+id/basket_option_textView5"
                     app:layout_constraintTop_toBottomOf="@+id/basket_option_size_radio_group">
 
@@ -196,52 +196,48 @@
 
                     <RadioButton
                         android:id="@+id/basket_option_store_cup"
-                        android:layout_width="130dp"
+                        android:layout_width="@dimen/cup_radio_btn_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
                         android:background="@drawable/cup_radiobutton_background"
+                        android:paddingVertical="10dp"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
-                        android:padding="20dp"
                         android:text="매장컵"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
-                        android:textSize="22sp"
-                        android:textStyle="bold">
+                        android:textSize="@dimen/option_btn_text_size">
 
                     </RadioButton>
 
                     <RadioButton
                         android:id="@+id/basket_option_personal_cup"
-                        android:layout_width="130dp"
+                        android:layout_width="@dimen/cup_radio_btn_width"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:paddingVertical="10dp"
                         android:background="@drawable/cup_radiobutton_background"
                         android:button="@null"
                         android:checked="false"
                         android:fontFamily="@font/maruburi"
-                        android:padding="20dp"
                         android:text="개인컵"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/option_btn_text_size" />
 
 
                     <RadioButton
                         android:id="@+id/basket_option_disposable_cup"
-                        android:layout_width="130dp"
+                        android:layout_width="@dimen/cup_radio_btn_width"
                         android:layout_height="wrap_content"
                         android:background="@drawable/cup_radiobutton_background"
+                        android:paddingVertical="10dp"
                         android:button="@null"
                         android:checked="false"
                         android:fontFamily="@font/maruburi"
-                        android:padding="20dp"
                         android:text="일회용컵"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/option_btn_text_size" />
 
 
                 </RadioGroup>
@@ -254,7 +250,7 @@
                     android:fontFamily="@font/maruburi"
                     android:text="샷 추가"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/basket_option_textView6"
                     app:layout_constraintTop_toBottomOf="@+id/basket_option_cup_choice_radio_group" />
 
@@ -270,26 +266,26 @@
 
                     <ImageButton
                         android:id="@+id/basket_option_shot_minus_button"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:src="@drawable/ic_minus_icon" />
 
                     <TextView
                         android:id="@+id/basket_option_shot_num_textview"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_marginHorizontal="20dp"
                         android:background="@drawable/round_circle_background"
                         android:fontFamily="@font/maruburi"
+                        android:gravity="center"
                         android:text="0"
-                        android:textAlignment="center"
-                        android:textSize="50sp" />
+                        android:textSize="36sp" />
 
                     <ImageButton
                         android:id="@+id/basket_option_shot_plus_button"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:src="@drawable/ic_plus_icon" />
                 </LinearLayout>
@@ -303,7 +299,7 @@
                     android:fontFamily="@font/maruburi"
                     android:text="시럽 추가"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/basket_option_textView7"
                     app:layout_constraintTop_toBottomOf="@+id/basket_option_linearLayout4" />
 
@@ -319,49 +315,49 @@
 
                     <ImageButton
                         android:id="@+id/basket_option_syrup_minus_button"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:src="@drawable/ic_minus_icon" />
 
                     <TextView
                         android:id="@+id/basket_option_syrup_num_textview"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:layout_marginHorizontal="20dp"
                         android:background="@drawable/round_circle_background"
                         android:fontFamily="@font/maruburi"
                         android:text="0"
-                        android:textAlignment="center"
-                        android:textSize="50sp" />
+                        android:gravity="center"
+                        android:textSize="36sp" />
 
                     <ImageButton
                         android:id="@+id/basket_option_syrup_plus_button"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:background="@color/white"
                         android:src="@drawable/ic_plus_icon" />
                 </LinearLayout>
-                <TextView
-                    app:layout_constraintTop_toBottomOf="@id/basket_option_syrup"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:text=""/>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="30dp"
         android:background="@drawable/top_blueline"
         android:gravity="center">
         <Button
             android:id="@+id/basket_option_change_complete_button"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:textSize="23sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:textSize="20sp"
             android:text="수정완료"
-            android:background="@drawable/white_rounded_button"
+            android:background="@drawable/blue_rounded_button"
+            android:textColor="@color/white"
             android:fontFamily="@font/nanumsquareroundotfr"/>
     </LinearLayout>
 

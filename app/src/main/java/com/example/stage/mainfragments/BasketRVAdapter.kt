@@ -14,7 +14,7 @@ import com.example.stage.R
 import com.example.stage.mainInterface.OnItemClick
 import java.lang.Integer.parseInt
 
-class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, var onItemClick: OnItemClick):
+class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, var onItemClick: OnItemClick, var basketFragment: BasketFragment):
     RecyclerView.Adapter<BasketRVAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -36,7 +36,7 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
         var basketName = itemView?.findViewById<TextView>(R.id.basket_name)
         var basketEnglishName = itemView?.findViewById<TextView>(R.id.basket_english_name)
         var basketOptions = itemView?.findViewById<TextView>(R.id.basket_option_textview)
-        var basketOptionChangeButton = itemView?.findViewById<Button>(R.id.basket_option_change_button)
+        var basketOptionChangeButton = itemView?.findViewById<TextView>(R.id.basket_option_change_button)
         var basketMenuNum = itemView?.findViewById<TextView>(R.id.basket_menu_num_textview)
         var basketMenuCost = itemView?.findViewById<TextView>(R.id.basket_menu_cost)
         var basketTotalCost = itemView?.findViewById<TextView>(R.id.basket_total_cost)
@@ -97,7 +97,7 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
                 bundle.putString("basketCup",basketList[position].getString("basketCup"))
                 bundle.putString("basketShotNum",basketList[position].getString("basketShotNum"))
                 bundle.putString("basketSyrupNum",basketList[position].getString("basketSyrupNum"))
-                var optionChangeDialogFragment = BasketOptionDialogFragment()
+                var optionChangeDialogFragment = BasketOptionDialogFragment(basketFragment)
                 optionChangeDialogFragment.arguments = bundle
                 onItemClick.onOptionClick(optionChangeDialogFragment)
             }

@@ -148,7 +148,7 @@ class MenuFragment : Fragment(){
         //장바구니 버튼
         var menuBasketBtn = view.findViewById<ImageButton>(R.id.menu_basket_button)
         menuBasketBtn.setOnClickListener {
-            mainActivity.addFragment(mainActivity.basket)
+            mainActivity.openBasket()
         }
     }
 

@@ -10,7 +10,7 @@ import androidx.fragment.app.DialogFragment
 import com.example.stage.MainActivity
 import com.example.stage.R
 
-class BasketOptionDialogFragment: DialogFragment() {
+class BasketOptionDialogFragment(var basketFragment: BasketFragment): DialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view: View = inflater.inflate(R.layout.basket_option_change_dialog,container,false)
 
@@ -170,7 +170,7 @@ class BasketOptionDialogFragment: DialogFragment() {
             bundle.putString("basketShotNum", shotNum.toString())
             bundle.putString("basketSyrupNum",syrupNum.toString())
             bundle.putString("optionChangCost", optionChangCost.toString())
-            mainActivity.basket.changeOption(bundle)
+            basketFragment.changeOption(bundle)
             this.dismiss()
         }
     }

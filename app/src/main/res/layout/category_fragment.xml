@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:src="@drawable/myinfoicon"
+        android:src="@drawable/ic_myinfo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
@@ -23,10 +23,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="271dp"
+        android:layout_width="230dp"
         android:layout_height="50dp"
         android:src="@drawable/ediya_letter_logo"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -41,7 +41,6 @@
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:background="@color/white"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +60,7 @@
             android:text="음료"
             android:textAlignment="center"
             android:textColor="@drawable/category_text"
-            android:textSize="26sp"
+            android:textSize="20sp"
             tools:checked="true"
             />
 
@@ -76,7 +75,7 @@
             android:text="베이커리"
             android:textAlignment="center"
             android:textColor="@drawable/category_text"
-            android:textSize="26sp" />
+            android:textSize="20sp" />
     </RadioGroup>
 
     <View
@@ -114,8 +113,8 @@
         android:id="@+id/category_basket_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/basket_background"
-        android:src="@drawable/ediya_basketicon"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_basketicon"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

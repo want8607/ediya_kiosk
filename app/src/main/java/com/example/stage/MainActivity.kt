@@ -15,25 +15,30 @@ class MainActivity : AppCompatActivity() {
     var basketList : ArrayList<Bundle> = arrayListOf()
     var orderStorage : ArrayList<Bundle> = arrayListOf() // 주문번호, 주문시간, 장바구니정보 3
     var orderNumber = 1
-    lateinit var basket : BasketFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainpage)
-        basket = BasketFragment()
 
-        if(savedInstanceState != null){
-            basketList = savedInstanceState.getParcelableArrayList("basketList")!!
-            orderStorage = savedInstanceState.getParcelableArrayList("orderStorage")!!
-            orderNumber = savedInstanceState.getInt("orderNumber")
-            basket = supportFragmentManager.getFragment(savedInstanceState,"basketFragment") as BasketFragment
-        }
+//        if(savedInstanceState != null){
+//            basketList = savedInstanceState.getParcelableArrayList("basketList")!!
+//            orderStorage = savedInstanceState.getParcelableArrayList("orderStorage")!!
+//            orderNumber = savedInstanceState.getInt("orderNumber")
+//            basket = supportFragmentManager.getFragment(savedInstanceState,"basketFragment") as BasketFragment
+//        }
     }
 
     fun setBasket(bundle: Bundle){
         basketList.add(bundle)
+
+    }
+    fun openBasket(){
+        var basketFragment = BasketFragment()
+        var bundle = Bundle()
         bundle.putParcelableArrayList("basketList",basketList)
-        basket.arguments = bundle
+        basketFragment.arguments = bundle
+        addFragment(basketFragment)
     }
 
     fun openOrderInfo(){
@@ -64,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         orderStorage.add(bundle) //2
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
+    override fun onSaveInstanceState(outState: Bundle) { //destroy될때 불러짐
         super.onSaveInstanceState(outState)
         outState.putParcelableArrayList("basketList",basketList)
         outState.putParcelableArrayList("orderStorage",orderStorage)
@@ -78,21 +83,27 @@ class MainActivity : AppCompatActivity() {
     
     override fun onStart() {
         super.onStart()
-        Log.d("message","액티비티 실행")
+        Log.d("message","액티비티 onStart")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.d("message","액티비티 재실행")
+        Log.d("message","액티비티 onRestart")
+//        var oriBasketList : ArrayList<Bundle> = basketList
+//        var oriOrderStorage : ArrayList<Bundle> = orderStorage
+//        var oriBasketFragment : BasketFragment = basket
+//        basketList = oriBasketList
+//        orderStorage = oriOrderStorage
+//        basket = oriBasketFragment
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("message","액티비티 멈춤")
+        Log.d("message","액티비티 onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("message","액티비티 파괴")
+        Log.d("message","액티비티 onDestroy")
     }
 }

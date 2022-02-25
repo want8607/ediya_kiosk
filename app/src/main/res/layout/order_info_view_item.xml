@@ -25,11 +25,11 @@
         android:fontFamily="@font/maruburi"
         android:text="13번째 메뉴로 준비중입니다.\n전자영수증을 확인할 수 있습니다."
         android:textColor="@color/black"
-        android:textSize="17sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/payment_recyclerview_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/payment_recyclerview_img"
         app:layout_constraintTop_toTopOf="@+id/payment_recyclerview_img" />
 

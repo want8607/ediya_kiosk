@@ -2,6 +2,7 @@ package com.example.stage.mainfragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +16,13 @@ class CategoryFragment : Fragment(){
     lateinit var mainActivity: MainActivity
     lateinit var categoryBakeryList : ArrayList<Category>
     lateinit var categoryDrinkList : ArrayList<Category>
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mainActivity = activity as MainActivity
+        Log.d("message_category","onAttach")
     }
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        mainActivity = activity as MainActivity
         var view: View = inflater.inflate(R.layout.category_fragment,container,false)
         categoryDrinkList= arrayListOf(
             Category("커피","coffee","americano") ,
@@ -36,9 +39,7 @@ class CategoryFragment : Fragment(){
             Category("쿠키&기타","cookie&etc","menu_cookie_etc_carbonara_grilled_riceball")
         )
 
-        if(savedInstanceState != null){
-
-        }
+        Log.d("message_category","onCreateView")
 
         return view
     }
@@ -88,7 +89,7 @@ class CategoryFragment : Fragment(){
         //장바구니 보여주기
         var categoryBasketBtn = view.findViewById<ImageButton>(R.id.category_basket_button)
         categoryBasketBtn.setOnClickListener {
-            mainActivity.addFragment(mainActivity.basket)
+            mainActivity.openBasket()
         }
 
     }

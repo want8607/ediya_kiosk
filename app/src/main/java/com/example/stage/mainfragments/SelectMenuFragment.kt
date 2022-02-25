@@ -198,7 +198,7 @@ class SelectMenuFragment : Fragment(){
 
         //장바구니 버튼
         selectMenuBasketBtn.setOnClickListener {
-            mainActivity.addFragment(mainActivity.basket)
+            mainActivity.openBasket()
         }
 
     }

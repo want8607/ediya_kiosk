@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/payment_recyclerview_img"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="@drawable/category_background"
         android:src="@drawable/americano"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:fontFamily="@font/maruburi"
         android:text="커피"
         android:textColor="@color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -40,7 +40,7 @@
         android:fontFamily="@font/maruburi"
         android:text="X"
         android:textColor="@color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/payment_recyclerview_menu_num"
         app:layout_constraintTop_toTopOf="@+id/payment_recyclerview_menu_name" />
 
@@ -52,7 +52,7 @@
         android:fontFamily="@font/maruburi"
         android:text="2"
         android:textColor="@color/black"
-        android:textSize="26sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/payment_recyclerview_menu_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.mainInterface.OnItemClick
+import kotlin.properties.Delegates
 
 class BasketFragment: Fragment(), OnItemClick {
     lateinit var mainActivity : MainActivity
@@ -28,20 +29,21 @@ class BasketFragment: Fragment(), OnItemClick {
     lateinit var menuNumView: TextView
     lateinit var totalCostView: TextView
     var basketList: ArrayList<Bundle> = arrayListOf()
-    var totalCost = 0
+    var totalCost by Delegates.notNull<Int>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mainActivity = activity as MainActivity
         if (arguments != null){
             basketList = arguments?.getParcelableArrayList("basketList")!!
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        totalCost = 0
+        mainActivity = activity as MainActivity
         var view: View = inflater.inflate(R.layout.basket_fragment,container,false)
         //리사이클 뷰 생성
-        basketRVAdapter = BasketRVAdapter(mainActivity, basketList,this)
+        basketRVAdapter = BasketRVAdapter(mainActivity, basketList,this,this)
         basketRecyclerView = view.findViewById<RecyclerView>(R.id.basket_recyclerview)
         basketRecyclerView.adapter = basketRVAdapter
         basketRecyclerView.setHasFixedSize(true)
