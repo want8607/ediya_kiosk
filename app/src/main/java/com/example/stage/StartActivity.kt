@@ -3,6 +3,7 @@ package com.example.stage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
 import com.example.stage.startfragments.StartFragment
 
 
@@ -10,6 +11,8 @@ class StartActivity : AppCompatActivity() {
      var start : String = "1"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_startpage)
         supportFragmentManager.beginTransaction().replace(R.id.start_fragment_container_view,
             StartFragment()
