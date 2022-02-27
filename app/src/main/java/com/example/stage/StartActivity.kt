@@ -9,6 +9,7 @@ import com.example.stage.startfragments.StartFragment
 
 class StartActivity : AppCompatActivity() {
      var start : String = "1"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -19,11 +20,6 @@ class StartActivity : AppCompatActivity() {
         ).commit()
         Log.d("스타트", start)
 
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString("스타트","2")
     }
 
     override fun onRestart() {
@@ -47,13 +43,11 @@ class StartActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Log.d("message", "onStop")
-//        if(savedInstanceState != null){
-//            start = savedInstanceState.getString("스타트")!!
-//        }
     }
     override fun onDestroy() {
         super.onDestroy()
         Log.d("message", "onDestroy")
     }
+
 }
 

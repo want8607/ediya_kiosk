@@ -1,7 +1,12 @@
 package com.example.stage
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.IBinder
 import android.os.Parcelable
 import android.util.Log
 import android.view.Window
@@ -13,27 +18,33 @@ import com.example.stage.mainfragments.OrderInfoFragment
 
 class MainActivity : AppCompatActivity() {
 
-    var basketList : ArrayList<Bundle> = arrayListOf()
+    lateinit var  basketService: BasketService
     var orderStorage : ArrayList<Bundle> = arrayListOf() // 주문번호, 주문시간, 장바구니정보 3
     var orderNumber = 1
 
+    val connection = object : ServiceConnection{
 
+        override fun onServiceConnected(className: ComponentName?, service: IBinder?) {
+            var binder = service as BasketService.LocalBinder
+            basketService = binder.getService()
+        }
+
+        override fun onServiceDisconnected(p0: ComponentName?) {
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         setContentView(R.layout.activity_mainpage)
-
     }
 
-    fun setBasket(bundle: Bundle){
-        basketList.add(bundle)
 
-    }
+
     fun openBasket(){
         var basketFragment = BasketFragment()
         var bundle = Bundle()
-        bundle.putParcelableArrayList("basketList",basketList)
+        bundle.putParcelableArrayList("basketList",basketService.basketList)
         basketFragment.arguments = bundle
         addFragment(basketFragment)
     }
@@ -46,9 +57,7 @@ class MainActivity : AppCompatActivity() {
         addFragment(orderInfoFragment)
     }
 
-    fun resetBasket(){
-        basketList.clear()
-    }
+
 
     fun removeFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction().remove(fragment).commit()
@@ -66,20 +75,12 @@ class MainActivity : AppCompatActivity() {
         orderStorage.add(bundle) //2
     }
 
-    override fun onSaveInstanceState(outState: Bundle) { //destroy될때 불러짐
-        super.onSaveInstanceState(outState)
-        outState.putParcelableArrayList("basketList",basketList)
-        outState.putParcelableArrayList("orderStorage",orderStorage)
-        outState.putInt("orderNumber",orderNumber)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-    }
-    
     override fun onStart() {
         super.onStart()
         Log.d("message","액티비티 onStart")
+        Intent(this,BasketService::class.java).also { intent ->
+            bindService(intent, connection, Context.BIND_AUTO_CREATE)
+        }
     }
 
     override fun onRestart() {
@@ -90,10 +91,12 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Log.d("message","액티비티 onStop")
+//        unbindService(connection)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         Log.d("message","액티비티 onDestroy")
+        unbindService(connection)
     }
 }

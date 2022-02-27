@@ -163,6 +163,10 @@ class BasketFragment: Fragment(), OnItemClick {
     //아이템 삭제버튼클릭
     override fun onDeleteClick(position: Int) {
         basketList.removeAt(position)
+        for (i in basketList.indices){
+
+            basketList[i].getString("basketName")?.let { Log.d("basket", it) }
+        }
         basketRVAdapter.notifyItemRemoved(position)
         updateTotalMenuNum(menuNumView,totalCostView)
     }
@@ -181,7 +185,5 @@ class BasketFragment: Fragment(), OnItemClick {
         super.onDestroy()
         Log.d("message","파괴됨")
     }
-
-
 
 }

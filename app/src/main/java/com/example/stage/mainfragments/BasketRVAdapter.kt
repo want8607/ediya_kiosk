@@ -23,7 +23,7 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(basketList,position)
+        holder.bind(basketList[position])
     }
 
     override fun getItemCount(): Int {
@@ -44,19 +44,19 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
         var basketMenuMinusBtn = itemView?.findViewById<ImageButton>(R.id.basket_menu_minus_button)
         var basketMenuPlusBtn = itemView?.findViewById<ImageButton>(R.id.basket_menu_plus_button)
         var basketSelectDeleteBtn = itemView?.findViewById<ImageButton>(R.id.basket_select_delete_button)
-        fun bind (basketList:ArrayList<Bundle>, position: Int){
-            basketName?.text = basketList[position].getString("basketName")
-            basketEnglishName?.text = basketList[position].getString("basketEnglishName")
-            var optionText = "${basketList[position].getString("basketHotOrIce")} | " +
-                    "${basketList[position].getString("basketSize")} | " +
-                    "${basketList[position].getString("basketCup")}\n" +
-                    "샷${basketList[position].getString("basketShotNum")} | " +
-                    "시럽${basketList[position].getString("basketSyrupNum")}"
+        fun bind (basketList: Bundle){
+            basketName?.text = basketList.getString("basketName")
+            basketEnglishName?.text = basketList.getString("basketEnglishName")
+            var optionText = "${basketList.getString("basketHotOrIce")} | " +
+                    "${basketList.getString("basketSize")} | " +
+                    "${basketList.getString("basketCup")}\n" +
+                    "샷${basketList.getString("basketShotNum")} | " +
+                    "시럽${basketList.getString("basketSyrupNum")}"
             basketOptions?.text = optionText
-            basketMenuNum?.text = basketList[position].getString("basketMenuNum")
-            basketMenuCost?.text = basketList[position].getString("basketMenuCost")
-            basketTotalCost?.text = basketList[position].getString("basketTotalCost")
-            val resourceId = context.resources.getIdentifier(basketList[position].getString("photo"), "drawable", context.packageName)
+            basketMenuNum?.text = basketList.getString("basketMenuNum")
+            basketMenuCost?.text = basketList.getString("basketMenuCost")
+            basketTotalCost?.text = basketList.getString("basketTotalCost")
+            val resourceId = context.resources.getIdentifier(basketList.getString("photo"), "drawable", context.packageName)
             basketImg?.setImageResource(resourceId)
 
             //마이너스 버튼
@@ -67,7 +67,7 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
                     var newTotalCost = ((basketMenuNumber-1) * parseInt(basketMenuCost?.text.toString())).toString()
                     basketMenuNum?.text = newNum
                     basketTotalCost?.text = newTotalCost
-                    onItemClick.onClick(position,newNum,newTotalCost)
+                    onItemClick.onClick(adapterPosition,newNum,newTotalCost)
                 }
             }
 
@@ -79,24 +79,24 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
                     var newTotalCost = ((basketMenuNumber+1) * parseInt(basketMenuCost?.text.toString())).toString()
                     basketMenuNum?.text = newNum
                     basketTotalCost?.text = newTotalCost
-                    onItemClick.onClick(position,newNum,newTotalCost)
+                    onItemClick.onClick(adapterPosition,newNum,newTotalCost)
                 }
             }
 
             // 선택삭제 버튼
             basketSelectDeleteBtn?.setOnClickListener {
-                onItemClick.onDeleteClick(position)
+                onItemClick.onDeleteClick(adapterPosition)
             }
             // 옵션변경사항 전달
             basketOptionChangeButton?.setOnClickListener {
 
                 var bundle = Bundle()
-                bundle.putInt("position",position)
-                bundle.putString("basketHotOrIce",basketList[position].getString("basketHotOrIce"))
-                bundle.putString("basketSize",basketList[position].getString("basketSize"))
-                bundle.putString("basketCup",basketList[position].getString("basketCup"))
-                bundle.putString("basketShotNum",basketList[position].getString("basketShotNum"))
-                bundle.putString("basketSyrupNum",basketList[position].getString("basketSyrupNum"))
+                bundle.putInt("position",adapterPosition)
+                bundle.putString("basketHotOrIce",basketList.getString("basketHotOrIce"))
+                bundle.putString("basketSize",basketList.getString("basketSize"))
+                bundle.putString("basketCup",basketList.getString("basketCup"))
+                bundle.putString("basketShotNum",basketList.getString("basketShotNum"))
+                bundle.putString("basketSyrupNum",basketList.getString("basketSyrupNum"))
                 var optionChangeDialogFragment = BasketOptionDialogFragment(basketFragment)
                 optionChangeDialogFragment.arguments = bundle
                 onItemClick.onOptionClick(optionChangeDialogFragment)

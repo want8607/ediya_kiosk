@@ -185,7 +185,7 @@ class SelectMenuFragment : Fragment(){
             bundle.putString("basketMenuCost",menuCost.toString())
             bundle.putString("basketTotalCost", totalCostTextView.text.toString())
             bundle.putString("photo",arguments?.getString("menuImg"))
-            mainActivity.setBasket(bundle)
+            mainActivity.basketService.setBasket(bundle)  //서비스에 값 전달
             //알림 표시
             var builder = AlertDialog.Builder(activity)
             builder.setCancelable(false)
