@@ -90,8 +90,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStop() {
         super.onStop()
+        var intent = Intent(this,BasketService::class.java)
+        startForegroundService(intent)
         Log.d("message","액티비티 onStop")
-//        unbindService(connection)
+
     }
 
     override fun onDestroy() {
