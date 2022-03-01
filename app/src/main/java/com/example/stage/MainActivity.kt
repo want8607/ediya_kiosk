@@ -5,13 +5,16 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.os.Parcelable
 import android.util.Log
 import android.view.Window
+import android.view.WindowManager
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import com.example.stage.mainfragments.BasketFragment
 import com.example.stage.mainfragments.CategoryFragment
@@ -35,11 +38,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         setContentView(R.layout.activity_mainpage)
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.statusBarColor = getColor(R.color.white)
+    }
+
+    fun statusBarHeight(): Int {
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+
+        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId)
+        else 0
+    }
+
+    fun navigationHeight(): Int {
+        val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+
+        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId)
+        else 0
     }
 
     fun openBasket(){

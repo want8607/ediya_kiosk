@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.example.stage.MainActivity
 import com.example.stage.R
@@ -48,6 +49,12 @@ class SelectMenuFragment : Fragment(){
         var menuNumTextView = view.findViewById<TextView>(R.id.selectmenu_menu_num_textview)
         var selectMenuAddBtn = view.findViewById<Button>(R.id.selectmenu_add_button)
         var selectMenuBasketBtn = view.findViewById<ImageButton>(R.id.selectmenu_basket_button)
+        var selectedMenuConstraintLayout = view.findViewById<ConstraintLayout>(R.id.selectedmenu_constraint)
+
+        selectedMenuConstraintLayout.setPadding(0,0,0,mainActivity.navigationHeight())
+
+
+
 
         //선택된 메뉴 값에 따라 바인드
         view.findViewById<TextView>(R.id.selectedmenu_menu_name).text = arguments?.getString("menuName")
