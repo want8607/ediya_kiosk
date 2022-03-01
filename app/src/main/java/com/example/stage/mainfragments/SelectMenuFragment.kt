@@ -186,6 +186,7 @@ class SelectMenuFragment : Fragment(){
             bundle.putString("basketTotalCost", totalCostTextView.text.toString())
             bundle.putString("photo",arguments?.getString("menuImg"))
             mainActivity.basketService.setBasket(bundle)  //서비스에 값 전달
+            mainActivity.basketService.updateTotalMenuNum()//총 메뉴 개수,액수 변경
             //알림 표시
             var builder = AlertDialog.Builder(activity)
             builder.setCancelable(false)

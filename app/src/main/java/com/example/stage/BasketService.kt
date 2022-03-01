@@ -11,17 +11,28 @@ import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
+import android.widget.TextView
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.NotificationManagerCompat.from
 import java.util.Date.from
 
 class BasketService :Service() {
+    lateinit var notificationManager: NotificationManager
     var basketList : ArrayList<Bundle> = arrayListOf()
     val binder = LocalBinder()
+    var totalCost = 0
+    var totalMenuNum = 0
 
-    inner class LocalBinder: Binder(){
-        fun getService() : BasketService = this@BasketService
+    fun updateTotalMenuNum() {
+        totalMenuNum = 0
+        totalCost = 0
+        for (i in basketList.indices) {
+            totalMenuNum += basketList[i].getString("basketMenuNum")?.toInt()!!
+        }
+        for (j in basketList.indices) {
+            totalCost += basketList[j].getString("basketTotalCost")?.toInt()!!
+        }
     }
 
     fun setBasket(bundle: Bundle){
@@ -31,11 +42,13 @@ class BasketService :Service() {
     fun resetBasket(){
         basketList.clear()
     }
-
+    
+    //알림창 설정
     var channelId = "my_channel"
-    lateinit var notificationManager: NotificationManager
-    lateinit var notificationChannel: NotificationChannel
-    lateinit var builder: NotificationCompat.Builder
+
+    inner class LocalBinder: Binder(){
+        fun getService() : BasketService = this@BasketService
+    }
     fun createNotificationChannel(){
             val name = "MyNotification"
             val descriptionText = "Notification"
@@ -44,19 +57,35 @@ class BasketService :Service() {
                 description = descriptionText
             }
             // Register the channel with the system
-            notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager= getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
     }
 
     fun notifyBasket(){
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
             createNotificationChannel()
-            builder = NotificationCompat.Builder(this,channelId)
+
+            var context = "총 "+"$totalMenuNum"+"개 "+"$totalCost"+"원"
+            var style = NotificationCompat.InboxStyle()
+
+            for (i in basketList.indices){
+                style.addLine(
+                    basketList[i].getString("basketName")+" "+basketList[i].getString("basketMenuNum")+"개 "
+                            +basketList[i].getString("basketTotalCost")+"원"
+                )
+            }
+            style.addLine(context)
+
+            var builder: NotificationCompat.Builder = NotificationCompat.Builder(this,channelId)
                 .setSmallIcon(R.drawable.ic_order_coffee_icon)
-                .setContentTitle("장바구니")
-                .setContentText("성공")
+                .setContentTitle("이디야 장바구니")
+                .setContentText(context)
+                .setStyle(style)
+                .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            startForeground(1,builder.build())
+            startForeground(100,builder.build())
         }
     }
 
@@ -77,7 +106,8 @@ class BasketService :Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d("service","onStartCommand")
-        return super.onStartCommand(intent, flags, startId)
+        notifyBasket()
+        return START_NOT_STICKY
     }
 
     override fun onDestroy() {

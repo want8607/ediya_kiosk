@@ -57,7 +57,7 @@ class BasketFragment: Fragment(), OnItemClick {
         //초기 UI 설정
         menuNumView = view.findViewById(R.id.basket_menu_total_num_textview)
         totalCostView = view.findViewById(R.id.basket_total_cost_textview)
-        updateTotalMenuNum(menuNumView,totalCostView)
+        updateTotalUi(menuNumView,totalCostView)
 
         //뒤로가기
         var basketBackBtn = view.findViewById<ImageButton>(R.id.basket_back_button)
@@ -70,7 +70,7 @@ class BasketFragment: Fragment(), OnItemClick {
         basketAllDelete.setOnClickListener {
             basketList.clear()
             basketRVAdapter.notifyDataSetChanged()
-            updateTotalMenuNum(menuNumView,totalCostView)
+            updateTotalUi(menuNumView,totalCostView)
         }
 
         //결제버튼 눌렀을 때
@@ -131,21 +131,14 @@ class BasketFragment: Fragment(), OnItemClick {
             "basketTotalCost",newTotalCost
         )
         basketRVAdapter.notifyItemChanged(position)
-        updateTotalMenuNum(menuNumView,totalCostView)
+        updateTotalUi(menuNumView,totalCostView)
     }
 
     //총 개수및 가격 업데이트
-    fun updateTotalMenuNum(menuNumView: TextView,totalCostView: TextView){
-        var totalMenuNum = 0
-        totalCost = 0
-        for (i in basketList.indices) {
-            totalMenuNum += basketList[i].getString("basketMenuNum")?.toInt()!!
-        }
-        for (j in basketList.indices) {
-            totalCost += basketList[j].getString("basketTotalCost")?.toInt()!!
-        }
-        menuNumView.text = totalMenuNum.toString()
-        totalCostView.text = totalCost.toString()
+    fun updateTotalUi(menuNumView: TextView,totalCostView: TextView){
+        mainActivity.basketService.updateTotalMenuNum()
+        menuNumView.text = mainActivity.basketService.totalMenuNum.toString()
+        totalCostView.text = mainActivity.basketService.totalCost.toString()
 
     }
     //메뉴 개수 변경 이벤트
@@ -154,7 +147,7 @@ class BasketFragment: Fragment(), OnItemClick {
             "basketMenuNum",value)
         basketList[position].putString(
             "basketTotalCost",totalCost)
-        updateTotalMenuNum(menuNumView,totalCostView)
+        updateTotalUi(menuNumView,totalCostView)
     }
     // 옵션변경버튼 클릭
     override fun onOptionClick(fragment: DialogFragment) {
@@ -163,12 +156,8 @@ class BasketFragment: Fragment(), OnItemClick {
     //아이템 삭제버튼클릭
     override fun onDeleteClick(position: Int) {
         basketList.removeAt(position)
-        for (i in basketList.indices){
-
-            basketList[i].getString("basketName")?.let { Log.d("basket", it) }
-        }
         basketRVAdapter.notifyItemRemoved(position)
-        updateTotalMenuNum(menuNumView,totalCostView)
+        updateTotalUi(menuNumView,totalCostView)
     }
 
     override fun onStart() {
