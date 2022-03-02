@@ -16,7 +16,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.NotificationManagerCompat.from
 import java.util.Date.from
-
+//날리지 않으면 onStop불러짐
 class BasketService :Service() {
     lateinit var notificationManager: NotificationManager
     var basketList : ArrayList<Bundle> = arrayListOf()
@@ -97,6 +97,7 @@ class BasketService :Service() {
     override fun onUnbind(intent: Intent?): Boolean {
         Log.d("service","onUnbind")
         return super.onUnbind(intent)
+        stopForeground(STOP_FOREGROUND_REMOVE)
     }
 
     override fun onCreate() {

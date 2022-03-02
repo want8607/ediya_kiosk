@@ -73,6 +73,8 @@ class PaymentFragment : Fragment() {
             recipeDialog.arguments = bundle
             recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
             mainActivity.orderNumber += 1
+            mainActivity.basketService.resetBasket()
+            mainActivity.basketService.updateTotalMenuNum()
         }
     }
 }

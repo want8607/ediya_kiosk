@@ -71,7 +71,7 @@ class RecipeDialogFragment: DialogFragment() {
                 while (mainActivity.supportFragmentManager.backStackEntryCount != 0) {
                     mainActivity.supportFragmentManager.popBackStackImmediate();
                 }
-                mainActivity.basketService.resetBasket()
+
             }
 
         }

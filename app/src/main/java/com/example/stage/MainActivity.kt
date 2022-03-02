@@ -123,6 +123,5 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Log.d("message","액티비티 onDestroy")
         unbindService(connection)
-        basketService.stopForeground(STOP_FOREGROUND_REMOVE)
     }
 }
