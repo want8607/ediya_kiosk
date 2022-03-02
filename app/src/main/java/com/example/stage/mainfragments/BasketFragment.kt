@@ -84,7 +84,7 @@ class BasketFragment: Fragment(), OnItemClick {
                     orderList.add(basketList[i])
                 }
                 bundle.putParcelableArrayList("basketList", orderList)
-                bundle.putInt("totalCost", totalCost)
+                bundle.putInt("totalCost", mainActivity.basketService.totalCost)
                 paymentFragment.arguments = bundle
                 mainActivity.addFragment(paymentFragment)
             }else{

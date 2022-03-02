@@ -50,12 +50,9 @@ class SelectMenuFragment : Fragment(){
         var selectMenuAddBtn = view.findViewById<Button>(R.id.selectmenu_add_button)
         var selectMenuBasketBtn = view.findViewById<ImageButton>(R.id.selectmenu_basket_button)
         var selectedMenuConstraintLayout = view.findViewById<ConstraintLayout>(R.id.selectedmenu_constraint)
-
-        selectedMenuConstraintLayout.setPadding(0,0,0,mainActivity.navigationHeight())
-
-
-
-
+//
+//        selectedMenuConstraintLayout.setPadding(0,0,0,mainActivity.navigationHeight())
+//
         //선택된 메뉴 값에 따라 바인드
         view.findViewById<TextView>(R.id.selectedmenu_menu_name).text = arguments?.getString("menuName")
         view.findViewById<TextView>(R.id.selectedmenu_menu_english_name).text = arguments?.getString("menuEnglishName")
@@ -199,7 +196,10 @@ class SelectMenuFragment : Fragment(){
             builder.setCancelable(false)
             builder.setMessage("장바구니에 추가 되었습니다.")
                 .setPositiveButton("확인", DialogInterface.OnClickListener{
-                        dialogInterface, i-> mainActivity.replaceFragment(CategoryFragment())
+                        dialogInterface, i->
+                    while (mainActivity.supportFragmentManager.backStackEntryCount != 0) {
+                        mainActivity.supportFragmentManager.popBackStackImmediate();
+                    }
                 })
             builder.show()
         }

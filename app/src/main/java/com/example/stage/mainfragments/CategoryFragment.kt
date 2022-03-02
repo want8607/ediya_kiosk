@@ -1,6 +1,7 @@
 package com.example.stage.mainfragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.StartActivity
 
 class CategoryFragment : Fragment(){
     lateinit var mainActivity: MainActivity
@@ -47,12 +49,23 @@ class CategoryFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        var orderInfoBtn = view.findViewById<ImageButton>(R.id.category_order_info_button)
-
+        //팝업메뉴 설정
+        var myInfoBtn = view.findViewById<ImageButton>(R.id.category_order_info_button)
+        var popupMenuFlag = false
+        var popupMenu = PopupMenu(mainActivity, myInfoBtn)
+        mainActivity.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.order_info -> {mainActivity.openOrderInfo()}
+                R.id.logOut -> {
+                    var intent = Intent(activity, StartActivity::class.java)
+                    startActivity(intent)}
+            }
+            false
+        })
         //주문정보 보기
-        orderInfoBtn.setOnClickListener {
-            mainActivity.openOrderInfo()
+        myInfoBtn.setOnClickListener {
+                popupMenu.show()
         }
 
         var innerCategoryDrinkList : ArrayList<Category> = arrayListOf()

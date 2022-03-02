@@ -68,13 +68,10 @@ class RecipeDialogFragment: DialogFragment() {
                 dismiss()
             }else{
                 dismiss()
-                mainActivity.replaceFragment(CategoryFragment())
-                mainActivity.basketService.resetBasket()
-                if (basketList.isNullOrEmpty()){
-                    Log.d("empty","true")
-                }else{
-                    Log.d("empty","false")
+                while (mainActivity.supportFragmentManager.backStackEntryCount != 0) {
+                    mainActivity.supportFragmentManager.popBackStackImmediate();
                 }
+                mainActivity.basketService.resetBasket()
             }
 
         }

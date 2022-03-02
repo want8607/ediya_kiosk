@@ -1,13 +1,9 @@
 package com.example.stage
 
-import android.graphics.Color
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.view.Window
-import android.view.WindowInsets
 import android.view.WindowManager
 import com.example.stage.startfragments.StartFragment
 
@@ -19,25 +15,18 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
-        window.apply {
-            setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-            )
-        }
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.statusBarColor = getColor(R.color.ediya_blue)
         setContentView(R.layout.activity_startpage)
         supportFragmentManager.beginTransaction().replace(R.id.start_fragment_container_view,
             StartFragment()
         ).commit()
-        Log.d("스타트", start)
 
     }
 
     override fun onRestart() {
         super.onRestart()
         Log.d("message", "onRestart")
-        start = "2"
-        Log.d("스타트", start)
     }
     override fun onStart() {
         super.onStart()
@@ -61,5 +50,4 @@ class StartActivity : AppCompatActivity() {
     }
 
 }
-
 

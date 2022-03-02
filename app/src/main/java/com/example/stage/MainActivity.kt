@@ -88,10 +88,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().add(R.id.mainpage_fragment_container_view,fragment).addToBackStack(null).commit()
     }
 
-    fun replaceFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,fragment).commit()
-    }
-
     fun addOrderInfo(bundle: Bundle){
         orderStorage.add(bundle) //2
     }
@@ -127,5 +123,6 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Log.d("message","액티비티 onDestroy")
         unbindService(connection)
+        basketService.stopForeground(STOP_FOREGROUND_REMOVE)
     }
 }
