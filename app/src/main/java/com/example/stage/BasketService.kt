@@ -96,8 +96,9 @@ class BasketService :Service() {
 
     override fun onUnbind(intent: Intent?): Boolean {
         Log.d("service","onUnbind")
-        return super.onUnbind(intent)
         stopForeground(STOP_FOREGROUND_REMOVE)
+        stopSelf()
+        return super.onUnbind(intent)
     }
 
     override fun onCreate() {

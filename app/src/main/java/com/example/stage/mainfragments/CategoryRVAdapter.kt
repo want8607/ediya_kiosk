@@ -59,7 +59,7 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<Category>
                 bundle.putString("categoryName",category[position].categoryName)
                 menuFragment.arguments = bundle
                 var mainActivity = context as MainActivity
-                mainActivity.addFragment(menuFragment)
+                mainActivity.addFragment(menuFragment,"menu")
             }
         }
     }

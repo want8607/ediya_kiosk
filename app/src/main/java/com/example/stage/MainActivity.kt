@@ -16,6 +16,7 @@ import android.view.WindowManager
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.stage.mainfragments.BasketFragment
 import com.example.stage.mainfragments.CategoryFragment
 import com.example.stage.mainfragments.OrderInfoFragment
@@ -38,8 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -50,26 +49,13 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = getColor(R.color.white)
     }
 
-    fun statusBarHeight(): Int {
-        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
-
-        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId)
-        else 0
-    }
-
-    fun navigationHeight(): Int {
-        val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
-
-        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId)
-        else 0
-    }
 
     fun openBasket(){
         var basketFragment = BasketFragment()
         var bundle = Bundle()
         bundle.putParcelableArrayList("basketList",basketService.basketList)
         basketFragment.arguments = bundle
-        addFragment(basketFragment)
+        addFragment(basketFragment,"basket")
     }
 
     fun openOrderInfo(){
@@ -77,15 +63,16 @@ class MainActivity : AppCompatActivity() {
         var bundle = Bundle()
         bundle.putParcelableArrayList("orderStorage",orderStorage)
         orderInfoFragment.arguments = bundle
-        addFragment(orderInfoFragment)
+        addFragment(orderInfoFragment,"orderInfo")
     }
 
-    fun removeFragment(fragment: Fragment){
+    fun removeFragment(fragment: Fragment,flag: String){
         supportFragmentManager.beginTransaction().remove(fragment).commit()
+        supportFragmentManager.popBackStack(flag,FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
-    fun addFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction().add(R.id.mainpage_fragment_container_view,fragment).addToBackStack(null).commit()
+    fun addFragment(fragment: Fragment,flag:String){
+        supportFragmentManager.beginTransaction().add(R.id.mainpage_fragment_container_view,fragment).addToBackStack(flag).commit()
     }
 
     fun addOrderInfo(bundle: Bundle){

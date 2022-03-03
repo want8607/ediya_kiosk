@@ -62,7 +62,7 @@ class BasketFragment: Fragment(), OnItemClick {
         //뒤로가기
         var basketBackBtn = view.findViewById<ImageButton>(R.id.basket_back_button)
         basketBackBtn.setOnClickListener {
-            mainActivity.removeFragment(this)
+            mainActivity.removeFragment(this,"basket")
         }
 
         //전체삭제
@@ -86,7 +86,7 @@ class BasketFragment: Fragment(), OnItemClick {
                 bundle.putParcelableArrayList("basketList", orderList)
                 bundle.putInt("totalCost", mainActivity.basketService.totalCost)
                 paymentFragment.arguments = bundle
-                mainActivity.addFragment(paymentFragment)
+                mainActivity.addFragment(paymentFragment,"payment")
             }else{
                 var builder = AlertDialog.Builder(activity)
                 builder.setCancelable(false)

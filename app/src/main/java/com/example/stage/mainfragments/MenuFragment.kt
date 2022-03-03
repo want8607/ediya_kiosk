@@ -140,7 +140,7 @@ class MenuFragment : Fragment(){
         //뒤로가기 버튼
         var menuBackBtn = view.findViewById<ImageButton>(R.id.menu_back_button)
         menuBackBtn.setOnClickListener {
-            mainActivity.removeFragment(this)
+            mainActivity.removeFragment(this,"menu")
         }
 
         //장바구니 버튼

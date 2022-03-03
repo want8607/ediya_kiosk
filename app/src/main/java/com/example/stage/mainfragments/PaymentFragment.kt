@@ -48,7 +48,7 @@ class PaymentFragment : Fragment() {
         //뒤로가기
         var paymentBackBtn = view.findViewById<ImageButton>(R.id.payment_back_button)
         paymentBackBtn.setOnClickListener {
-            mainActivity.removeFragment(this)
+            mainActivity.removeFragment(this,"payment")
         }
 
         //결제하기

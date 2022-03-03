@@ -9,7 +9,6 @@ import com.example.stage.startfragments.StartFragment
 
 
 class StartActivity : AppCompatActivity() {
-     var start : String = "1"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +20,6 @@ class StartActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.start_fragment_container_view,
             StartFragment()
         ).commit()
-
     }
 
     override fun onRestart() {

@@ -42,7 +42,7 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
         //뒤로가기
         var orderInfoBackBtn = view.findViewById<ImageButton>(R.id.order_info_back_button)
         orderInfoBackBtn.setOnClickListener {
-            mainActivity.removeFragment(this)
+            mainActivity.removeFragment(this,"orderInfo")
         }
     }
 

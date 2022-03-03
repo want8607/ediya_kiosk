@@ -2,8 +2,10 @@ package com.example.stage.mainfragments
 
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.*
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,16 +52,18 @@ class CategoryFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         //팝업메뉴 설정
+        var wrapper = ContextThemeWrapper(mainActivity,R.style.PopupMenu)
         var myInfoBtn = view.findViewById<ImageButton>(R.id.category_order_info_button)
-        var popupMenuFlag = false
-        var popupMenu = PopupMenu(mainActivity, myInfoBtn)
+        var popupMenu = PopupMenu(wrapper, myInfoBtn)
         mainActivity.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
         popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.order_info -> {mainActivity.openOrderInfo()}
                 R.id.logOut -> {
                     var intent = Intent(activity, StartActivity::class.java)
-                    startActivity(intent)}
+                    startActivity(intent)
+                    mainActivity.finish()}
+
             }
             false
         })

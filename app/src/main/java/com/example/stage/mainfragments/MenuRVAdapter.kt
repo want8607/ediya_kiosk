@@ -53,7 +53,7 @@ class MenuRVAdapter(var context: Context, var menuList : ArrayList<Menu>) :
                 bundle.putString("menuCost",menu[position].cost)
                 bundle.putString("menuImg",menu[position].photo)
                 selectMenuFragment.arguments = bundle
-                mainActivity.addFragment(selectMenuFragment)
+                mainActivity.addFragment(selectMenuFragment,"selectMenu")
             }
         }
     }

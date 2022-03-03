@@ -8,8 +8,10 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.StartActivity
 
 class LoginFragment: Fragment() {
 
@@ -29,6 +31,7 @@ class LoginFragment: Fragment() {
         startBackBtn.setOnClickListener{
             startBackBtn.visibility = View.INVISIBLE
             transaction.remove(this).commit()
+            parentFragmentManager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
 
         //로그인 버튼
@@ -36,6 +39,8 @@ class LoginFragment: Fragment() {
             //엑티비티 바꿔줘야함
             var intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
+            var startActivity = activity as StartActivity
+            startActivity.finish()
         }
 
     }

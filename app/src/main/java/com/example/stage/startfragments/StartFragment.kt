@@ -28,11 +28,11 @@ class StartFragment: Fragment() {
 
         startLoginBtn!!.setOnClickListener {
             startBackBtn.visibility = View.VISIBLE
-            parentFragmentManager.beginTransaction().add(R.id.start_fragment_container_view, LoginFragment()).addToBackStack(null).commit()
+            parentFragmentManager.beginTransaction().add(R.id.start_fragment_container_view, LoginFragment()).addToBackStack("login").commit()
         }
         startRegistBtn!!.setOnClickListener {
             startBackBtn.visibility = View.VISIBLE
-            parentFragmentManager.beginTransaction().add(R.id.start_fragment_container_view, RegistFragment()).addToBackStack(null).commit()
+            parentFragmentManager.beginTransaction().add(R.id.start_fragment_container_view, RegistFragment()).addToBackStack("regist").commit()
         }
 
     }

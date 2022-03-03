@@ -66,7 +66,7 @@ class SelectMenuFragment : Fragment(){
 
         //뒤로가기
         selectMenuBackBtn.setOnClickListener {
-            mainActivity.removeFragment(this)
+            mainActivity.removeFragment(this,"selectMenu")
         }
 
         //핫 아이스

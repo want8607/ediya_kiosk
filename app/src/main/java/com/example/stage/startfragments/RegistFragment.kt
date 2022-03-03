@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.stage.R
 
 class RegistFragment: Fragment() {
@@ -51,6 +52,7 @@ class RegistFragment: Fragment() {
                     dialogInterface, i ->
                     startBackBtn.visibility = View.INVISIBLE
                     transaction.remove(this ).commit()
+                    parentFragmentManager.popBackStack("regist", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 })
             builder.show()
         }
