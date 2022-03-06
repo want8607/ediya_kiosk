@@ -59,6 +59,7 @@ class CategoryFragment : Fragment(){
         popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.order_info -> {mainActivity.openOrderInfo()}
+                R.id.setting ->{mainActivity.addFragment(SettingFragment(),"setting")}
                 R.id.logOut -> {
                     var intent = Intent(activity, StartActivity::class.java)
                     startActivity(intent)

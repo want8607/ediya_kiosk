@@ -28,22 +28,26 @@ class MainActivity : AppCompatActivity() {
     var notificationFlag = false
     var orderStorage : ArrayList<Bundle> = arrayListOf() // 주문번호, 주문시간, 장바구니정보 3
     var orderNumber = 1
-    val connection = object : ServiceConnection{
-
-        override fun onServiceConnected(className: ComponentName?, service: IBinder?) {
-            var binder = service as BasketService.LocalBinder
-            basketService = binder.getService()
-        }
-
-        override fun onServiceDisconnected(p0: ComponentName?) {
-        }
-    }
+    lateinit var connection : ServiceConnection
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         setContentView(R.layout.activity_mainpage)
+        connection = object : ServiceConnection{
+
+            override fun onServiceConnected(className: ComponentName?, service: IBinder?) {
+                var binder = service as BasketService.LocalBinder
+                basketService = binder.getService()
+            }
+            override fun onServiceDisconnected(p0: ComponentName?) {
+            }
+        }
+
+        Intent(this, BasketService::class.java).also { intent ->
+            bindService(intent, connection, Context.BIND_AUTO_CREATE)
+        }
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.statusBarColor = getColor(R.color.white)
@@ -82,9 +86,6 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.d("message", "액티비티 onStart")
-        Intent(this, BasketService::class.java).also { intent ->
-            bindService(intent, connection, Context.BIND_AUTO_CREATE)
-        }
         if (notificationFlag) {
             basketService.stopForeground(STOP_FOREGROUND_REMOVE)
             notificationFlag = false
@@ -103,7 +104,6 @@ class MainActivity : AppCompatActivity() {
             notificationFlag = true
         }
         Log.d("message","액티비티 onStop")
-
     }
 
     override fun onDestroy() {

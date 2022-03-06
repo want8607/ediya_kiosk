@@ -6,6 +6,16 @@
     <string name="login">로그인</string>
     <string name="registration">회원가입</string>
     <string name="regist_id_check">중복체크</string>
+    
+    <string-array name="app_mode">
+        <item>기본 모드</item>
+        <item>다크 모드</item>
+        <item>시스템 기본값</item>
+    </string-array>
 
+    <string-array name="app_language">
+        <item>한국어</item>
+        <item>영어</item>
+    </string-array>
 
 </resources>

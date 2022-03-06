@@ -1,6 +1,5 @@
 package com.example.stage
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
@@ -11,12 +10,9 @@ import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
-import android.widget.TextView
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.app.NotificationManagerCompat.from
-import java.util.Date.from
-//날리지 않으면 onStop불러짐
+
+
 class BasketService :Service() {
     lateinit var notificationManager: NotificationManager
     var basketList : ArrayList<Bundle> = arrayListOf()
@@ -56,7 +52,7 @@ class BasketService :Service() {
             val channel = NotificationChannel(channelId, name, importance).apply {
                 description = descriptionText
             }
-            // Register the channel with the system
+
             notificationManager= getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
     }
