@@ -1,5 +1,6 @@
 package com.example.stage.mainfragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,32 +15,18 @@ import androidx.preference.PreferenceManager
 import com.example.stage.MainActivity
 import com.example.stage.R
 
-class SettingFragment : PreferenceFragmentCompat(),Preference.OnPreferenceChangeListener{
+class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPreferenceChangeListener {
 
-    lateinit var mainActivity : MainActivity
-    //리스너 설정
-    var preferenceListener = Preference.OnPreferenceChangeListener { preference, any ->
-        var stringValue = any.toString()
-        if (preference is ListPreference) {
-            val listPreference = preference
-            val index = listPreference.findIndexOfValue(stringValue)
-            preference.setSummary(
-                if (index>=0){
-                    listPreference.entries[index]
-                }else{
-                    null
-                }
-            )
-        }
-        true
-    }
+    lateinit var mainActivity: MainActivity
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.setting,rootKey)
-        bindPreferenceSummary(findPreference<ListPreference>("app_mode")!!)
-        bindPreferenceSummary(findPreference<ListPreference>("app_language")!!)
-    }
+        setPreferencesFromResource(R.xml.setting, rootKey)
+        var appModePref = findPreference<ListPreference>("app_mode")
+        var appLanguagePref = findPreference<ListPreference>("app_language")
 
+        appModePref?.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
+        appLanguagePref?.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = super.onCreateView(inflater, container, savedInstanceState)
         mainActivity = activity as MainActivity
@@ -48,32 +35,33 @@ class SettingFragment : PreferenceFragmentCompat(),Preference.OnPreferenceChange
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         //뒤로가기
         var settingBackBtn = view.findViewById<ImageButton>(R.id.setting_back_button)
         settingBackBtn.setOnClickListener {
-            mainActivity.removeFragment(this,"setting")
+            mainActivity.removeFragment(this, "setting")
         }
     }
 
-    override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
-        var prefs = PreferenceManager.getDefaultSharedPreferences(mainActivity)
-        var d = prefs.getString("app_mode","")
-        if (d == "기본 모드"){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }else if (d=="다크 모드"){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else if (d=="시스템 기본값"){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
+        when(sharedPreferences.getString(key,"")){
+            "기본 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                Log.d("app_mode","기본 모드")}
+            "다크 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                Log.d("app_mode","다크 모드")}
+            "시스템 기본값"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                Log.d("app_mode","시스템 기본값")}
         }
-        Log.d("sis",d!!)
-        return true
     }
 
-    fun bindPreferenceSummary(preference: Preference){
-        preference.onPreferenceChangeListener = preferenceListener
-        preferenceListener.onPreferenceChange(preference,PreferenceManager
-            .getDefaultSharedPreferences(preference.context)
-            .getString(preference.key, ""))
+    override fun onResume() {
+        super.onResume()
+        preferenceManager.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
     }
+
+    override fun onPause() {
+        super.onPause()
+        preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
+    }
+
 }
