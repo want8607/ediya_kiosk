@@ -3,13 +3,13 @@
     android:id="@+id/order_info_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/main_background_color"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
         android:id="@+id/payment_recyclerview_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingVertical="30dp"
-
         android:background="@android:color/transparent"
         android:src="@drawable/ic_order_coffee_icon"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
         android:layout_marginStart="20dp"
         android:fontFamily="@font/maruburi"
         android:text="13번째 메뉴로 준비중입니다.\n전자영수증을 확인할 수 있습니다."
-        android:textColor="@color/black"
+        android:textColor="@color/main_text_color"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/payment_recyclerview_img"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/maruburi"
         android:text="2022.02.04 12:38:50"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/third_text_color"
         android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"

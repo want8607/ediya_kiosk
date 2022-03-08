@@ -28,12 +28,17 @@
     </style>
 
     <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
-        <item name="android:popupBackground">@color/white</item>
+        <item name="android:popupBackground">@color/main_background_color</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/maruburi</item>
     </style>
 
     <style name="SettingTheme" parent="@style/PreferenceThemeOverlay">
         <item name="android:layout">@layout/setting_layout</item>
+    </style>
+
+    <style name="AlertDialog" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/gray</item>
     </style>
 </resources>

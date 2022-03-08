@@ -8,7 +8,7 @@
         <shape android:shape="rectangle">
             <stroke android:color="@color/ediya_blue"
                 android:width="2.5dp"/>
-            <solid android:color="@color/white"/>
+            <solid android:color="@color/title_background_color"/>
         </shape>
     </item>
 </layer-list>

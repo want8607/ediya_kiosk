@@ -16,7 +16,7 @@
         android:paddingBottom="30dp"
         android:text="결제하기"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/main_text_color"
         android:textSize="27sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +52,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/main_background_color"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,7 +68,7 @@
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/maruburi"
                     android:text="결제 수단"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +94,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/maruburi"
                     android:text="신한카드"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -108,7 +109,7 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/maruburi"
                     android:text="XXXX-XXXX-XXXX-XXXX"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="@+id/textView10"
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -126,7 +127,7 @@
                     android:layout_marginStart="20dp"
                     android:fontFamily="@font/maruburi"
                     android:text="주문 내역"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="20sp" />
 
                 <LinearLayout

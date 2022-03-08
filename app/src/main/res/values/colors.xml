@@ -5,15 +5,22 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="ediya_blue">#043B72</color>
+
     <color name="black">#FF000000</color>
     <color name="dark_gray">#585858</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#AFABAB</color>
-    <color name="categoru_background">#E6E6E6</color>
-    <color name="menu_background">#FBF7E5</color>
+
     <color name="hot">#D62420</color>
     <color name="cold">#2559FF</color>
-    <color name="chageoption">#C78E39</color>
+    <color name="change_option">#C78E39</color>
+    <color name="main_background_color">#FFFFFFFF</color>
+    <color name="title_background_color">#FFFFFFFF</color>
+    <color name="category_background">#E6E6E6</color>
+    <color name="menu_background">#FBF7E5</color>
+    <color name="ediya_blue">#043B72</color>
 
+    <color name="main_text_color">@color/black</color>
+    <color name="second_text_color">#AFABAB</color>
+    <color name="third_text_color">#585858</color>
 </resources>

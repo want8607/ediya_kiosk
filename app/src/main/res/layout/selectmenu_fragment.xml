@@ -2,23 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/main_background_color"
             android:paddingBottom="20dp"
             android:orientation="vertical">
             <!-- 메뉴사진 -->
-            <!--메뉴이름 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="270dp"
@@ -30,6 +28,7 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/americano" />
             </LinearLayout>
+            <!--메뉴이름 -->
             <TextView
                 android:id="@+id/selectedmenu_menu_name"
                 android:layout_width="wrap_content"
@@ -39,7 +38,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="5dp"
                 android:text="아메리카노"
-                android:textColor="@color/black"
+                android:textColor="@color/main_text_color"
                 android:textSize="25sp" />
 
 
@@ -52,7 +51,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginBottom="5dp"
                 android:text="Americano"
-                android:textColor="@color/gray"
+                android:textColor="@color/second_text_color"
                 android:textSize="20sp" />
             <!--  가격-->
             <LinearLayout
@@ -66,7 +65,7 @@
                     android:fontFamily="@font/maruburi"
                     android:layout_marginStart="25dp"
                     android:text="5,000"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="25sp" />
                 <TextView
                     android:id="@+id/selectedmenu_menu_cost_won_view"
@@ -74,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/maruburi"
                     android:text="원"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="25sp" />
             </LinearLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -133,7 +132,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
                     android:text="사이즈"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -204,7 +203,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
                     android:text="컵 선택"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/textView5"
                     app:layout_constraintTop_toBottomOf="@+id/selectmenu_size_radio_group">
@@ -275,7 +274,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
                     android:text="샷 추가"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="@dimen/option_btn_text_size"
                     app:layout_constraintStart_toStartOf="@+id/textView6"
                     app:layout_constraintTop_toBottomOf="@+id/selectmenu_cup_choice_radio_group" />
@@ -324,7 +323,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
                     android:text="시럽 추가"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/textView7"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
@@ -434,6 +433,7 @@
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/maruburi"
+                    android:textColor="@color/main_text_color"
                     android:text="1"
                     android:textAlignment="center"
                     android:textSize="20sp">
@@ -456,19 +456,19 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/maruburi"
                 android:text="10,000"
-                android:textColor="@color/black"
+                android:textColor="@color/main_text_color"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toStartOf="@id/selectedmenu_menu_total_cost_won_view"
-                app:layout_constraintTop_toTopOf="@+id/selectedmenu_menu_total_cost_won_view" />
+                app:layout_constraintEnd_toStartOf="@id/selected_menu_total_cost_won_view"
+                app:layout_constraintTop_toTopOf="@+id/selected_menu_total_cost_won_view" />
 
             <TextView
-                android:id="@+id/selectedmenu_menu_total_cost_won_view"
+                android:id="@+id/selected_menu_total_cost_won_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/maruburi"
                 android:text="원"
-                android:textColor="@color/black"
+                android:textColor="@color/main_text_color"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/linearLayout7">
@@ -476,7 +476,7 @@
             </TextView>
 
             <Button
-                android:id="@+id/selectmenu_add_button"
+                android:id="@+id/select_menu_add_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -496,7 +496,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!--  뒤로가기-->
         <ImageButton
-            android:id="@+id/selectmenu_back_button"
+            android:id="@+id/select_menu_back_button"
             android:layout_width="@dimen/arrow_width"
             android:layout_height="@dimen/arrow_height"
             android:background="@null"

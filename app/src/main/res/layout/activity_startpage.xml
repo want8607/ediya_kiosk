@@ -33,11 +33,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/ediya_logo">
-                <!--프래그먼트 시작-->
-                <!--                <fragment-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content" />-->
-
             </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

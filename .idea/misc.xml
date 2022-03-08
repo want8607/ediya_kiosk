@@ -28,6 +28,8 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xhdpi/ic_minus_icon_small.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xhdpi/ic_plus_icon_small.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xxhdpi/sa.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xxxhdpi/ic_basket_minus_icon.xml" value="0.22136752136752136" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xxxhdpi/ic_basket_plus_icon.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable-xxxhdpi/s.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/basket_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/basket_blue_underline.xml" value="0.2228310502283105" />
@@ -42,27 +44,42 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/category_unchecked.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cold_checked.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cold_radiobutton.xml" value="0.2365296803652968" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cold_radiobutton_background.xml" value="0.22136752136752136" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cold_radiobutton_checked.xml" value="0.22136752136752136" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cold_radiobutton_unchecked.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cold_unchecked.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cup_radiobutton.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cup_radiobutton_background.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cup_radiobutton_checked.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cup_radiobutton_text.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/cup_radiobutton_unchecked.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/down_shadow.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_checked.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_cold_radiobutton.xml" value="0.2365296803652968" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_cold_radiobutton_text.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_cold_text.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_radiobutton.xml" value="0.2365296803652968" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_radiobutton_background.xml" value="0.22136752136752136" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_radiobutton_checked.xml" value="0.22136752136752136" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_radiobutton_unchecked.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hot_unchecked.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/hotchecked.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_arrow_blue.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_arrow_gray.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_arrow_white.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_basket_select_delete_button.xml" value="0.1388888888888889" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_basketicon.xml" value="0.22136752136752136" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_creditcard.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_launcher_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_minus_icon.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_myinfo.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_order_coffee_icon.xml" value="0.3398148148148148" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_order_info_enter_arrow.xml" value="0.3398148148148148" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_plus_icon.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/ic_x_mark.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/option_change_border.xml" value="0.2365296803652968" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/payment_border.xml" value="0.22136752136752136" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/recipe_background.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/recipe_border.xml" value="0.1" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/round_circle_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/rounded_button.xml" value="0.23333333333333334" />
@@ -72,11 +89,15 @@
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/size_radiobutton.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/size_radiobutton_background.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/size_radiobutton_checked.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/size_radiobutton_text.xml" value="0.22136752136752136" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/size_radiobutton_unchecked.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/size_tall_checked.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/size_unchecked.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/start_fragment.xml" value="0.3398148148148148" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/test.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/top_blueline.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/under_blueline.xml" value="0.2365296803652968" />
+        <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/upper_shadow.xml" value="0.22136752136752136" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/drawable/white_rounded_button.xml" value="0.2365296803652968" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/font/marufont.xml" value="0.24549549549549549" />
         <entry key="..\:/Users/phil/Desktop/stage/app/src/main/res/layout/activity_basket.xml" value="0.2222222222222222" />

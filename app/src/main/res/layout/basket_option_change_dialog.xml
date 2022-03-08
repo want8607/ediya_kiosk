@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/main_background_color"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
             android:layout_marginStart="20dp"
             android:fontFamily="@font/maruburi"
             android:text="옵션변경"
-            android:textColor="@color/black"
+            android:textColor="@color/main_text_color"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +106,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
                     android:text="사이즈"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -178,7 +178,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
                     android:text="컵 선택"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="@dimen/option_btn_text_size"
                     app:layout_constraintStart_toStartOf="@+id/basket_option_textView5"
                     app:layout_constraintTop_toBottomOf="@+id/basket_option_size_radio_group">
@@ -251,7 +251,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
                     android:text="샷 추가"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/basket_option_textView6"
                     app:layout_constraintTop_toBottomOf="@+id/basket_option_cup_choice_radio_group" />
@@ -300,7 +300,7 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
                     android:text="시럽 추가"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/basket_option_textView7"
                     app:layout_constraintTop_toBottomOf="@+id/basket_option_linearLayout4" />

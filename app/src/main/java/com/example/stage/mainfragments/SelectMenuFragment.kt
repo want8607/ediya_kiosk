@@ -3,7 +3,6 @@ package com.example.stage.mainfragments
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +34,7 @@ class SelectMenuFragment : Fragment(){
         var shotNumTextView = view.findViewById<TextView>(R.id.selectmenu_shot_num_textview)
         var hotIceRadioGroup = view.findViewById<RadioGroup>(R.id.hot_ice_radio_group)
         var hotRadioBtn = view.findViewById<RadioButton>(R.id.hot_radio_button)
-        var selectMenuBackBtn = view.findViewById<ImageButton>(R.id.selectmenu_back_button)
+        var selectMenuBackBtn = view.findViewById<ImageButton>(R.id.select_menu_back_button)
         var totalCostTextView = view.findViewById<TextView>(R.id.selectedmenu_menu_total_cost)
         var sizeRadioGroup = view.findViewById<RadioGroup>(R.id.selectmenu_size_radio_group)
         var tallSizeButton = view.findViewById<RadioButton>(R.id.selectmenu_tall_radio_button)
@@ -47,7 +46,7 @@ class SelectMenuFragment : Fragment(){
         var menuMinusBtn = view.findViewById<ImageButton>(R.id.selectmenu_menu_minus_button)
         var menuPlusBtn = view.findViewById<ImageButton>(R.id.selectmenu_menu_plus_button)
         var menuNumTextView = view.findViewById<TextView>(R.id.selectmenu_menu_num_textview)
-        var selectMenuAddBtn = view.findViewById<Button>(R.id.selectmenu_add_button)
+        var selectMenuAddBtn = view.findViewById<Button>(R.id.select_menu_add_button)
         var selectMenuBasketBtn = view.findViewById<ImageButton>(R.id.selectmenu_basket_button)
         var selectedMenuConstraintLayout = view.findViewById<ConstraintLayout>(R.id.selectedmenu_constraint)
 //

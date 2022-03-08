@@ -22,7 +22,7 @@
             android:layout_marginStart="20dp"
             android:fontFamily="@font/nanumsquareroundotfr"
             android:text="전자영수증"
-            android:textColor="@color/black"
+            android:textColor="@color/main_text_color"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

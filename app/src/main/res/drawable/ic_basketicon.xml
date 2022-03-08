@@ -2,7 +2,7 @@
     android:viewportWidth="161" android:width="50dp" xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
         <clip-path android:pathData="M0,0h161v161h-161z"/>
-        <path android:fillColor="#FFFFFF" android:fillType="evenOdd"
+        <path android:fillColor="@color/main_background_color" android:fillType="evenOdd"
             android:pathData="M2.5,80.5C2.5,37.42 37.42,2.5 80.5,2.5 123.58,2.5 158.5,37.42 158.5,80.5 158.5,123.58 123.58,158.5 80.5,158.5 37.42,158.5 2.5,123.58 2.5,80.5Z"
             android:strokeColor="#043B72" android:strokeWidth="4.58333"/>
         <path android:fillColor="#043B72" android:fillType="evenOdd" android:pathData="M41,59C41,51.27 47.27,45 55,45L111,45C118.73,45 125,51.27 125,59L125,115C125,122.73 118.73,129 111,129L55,129C47.27,129 41,122.73 41,115Z"/>

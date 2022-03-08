@@ -36,7 +36,7 @@ class RegistFragment: Fragment() {
 
         //중복체크 버튼
         registIdCheckBtn.setOnClickListener{
-            var builder = AlertDialog.Builder(activity, R.style.AlertDialogTheme)
+            var builder = AlertDialog.Builder(activity, R.style.AlertDialog)
             builder.setMessage("사용가능한 아이디입니다.")
                 .setPositiveButton("확인",DialogInterface.OnClickListener{
                         dialogInterface, i ->
@@ -46,7 +46,7 @@ class RegistFragment: Fragment() {
         
         //회원가입 버튼
         registBtn.setOnClickListener{
-            var builder = AlertDialog.Builder(activity, R.style.AlertDialogTheme)
+            var builder = AlertDialog.Builder(activity, R.style.AlertDialog)
             builder.setMessage("회원가입 완료")
                 .setPositiveButton("확인",DialogInterface.OnClickListener{
                     dialogInterface, i ->
