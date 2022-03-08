@@ -293,7 +293,7 @@
                         android:id="@+id/selectmenu_shot_minus_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/main_background_color"
                         android:src="@drawable/ic_minus_icon" />
 
                     <TextView
@@ -311,7 +311,7 @@
                         android:id="@+id/selectmenu_shot_plus_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/main_background_color"
                         android:src="@drawable/ic_plus_icon" />
                 </LinearLayout>
 
@@ -342,7 +342,7 @@
                         android:id="@+id/selectmenu_syrup_minus_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/main_background_color"
                         android:src="@drawable/ic_minus_icon" />
 
                     <TextView
@@ -360,7 +360,7 @@
                         android:id="@+id/selectmenu_syrup_plus_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/main_background_color"
                         android:src="@drawable/ic_plus_icon" />
                 </LinearLayout>
 

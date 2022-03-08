@@ -4,110 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/title_background_color"
+    android:background="@color/main_background_color"
     >
 
-    <ImageButton
-        android:id="@+id/category_order_info_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_myinfo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02"/>
-
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="230dp"
-        android:layout_height="50dp"
-        android:src="@drawable/ediya_letter_logo"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_order_info_button"
-        app:layout_constraintVertical_bias="0">
-
-    </ImageView>
-
-    <!--  큰 카테고리  -->
-    <RadioGroup
-        android:id="@+id/radioGroup"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/category_title"
+        android:background="@color/title_background_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/category_button1"
-            android:layout_width="@dimen/category_buttonsize"
+        <ImageButton
+            android:id="@+id/category_order_info_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/category_button"
-            android:button="@null"
-            android:fontFamily="@font/maruburi"
-            android:padding="10dp"
-            android:text="음료"
-            android:textAlignment="center"
-            android:textColor="@drawable/category_text"
-            android:textSize="20sp"
-            tools:checked="true"
-            />
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_myinfo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.02" />
 
-        <RadioButton
-            android:id="@+id/category_button2"
-            android:layout_width="@dimen/category_buttonsize"
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ediya_letter_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category_order_info_button"
+            app:layout_constraintVertical_bias="0">
+
+        </ImageView>
+
+        <!--  큰 카테고리  -->
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/category_button"
-            android:button="@null"
-            android:fontFamily="@font/maruburi"
-            android:padding="10dp"
-            android:text="베이커리"
-            android:textAlignment="center"
-            android:textColor="@drawable/category_text"
-            android:textSize="20sp" />
-    </RadioGroup>
+            android:background="@color/title_background_color"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@drawable/down_shadow"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            <RadioButton
+                android:id="@+id/category_button1"
+                android:layout_width="@dimen/category_buttonsize"
+                android:layout_height="wrap_content"
+                android:background="@drawable/category_button"
+                android:button="@null"
+                android:fontFamily="@font/maruburi"
+                android:padding="10dp"
+                android:text="음료"
+                android:textAlignment="center"
+                android:textColor="@drawable/category_text"
+                android:textSize="20sp"
+                tools:checked="true" />
+
+            <RadioButton
+                android:id="@+id/category_button2"
+                android:layout_width="@dimen/category_buttonsize"
+                android:layout_height="wrap_content"
+                android:background="@drawable/category_button"
+                android:button="@null"
+                android:fontFamily="@font/maruburi"
+                android:padding="10dp"
+                android:text="베이커리"
+                android:textAlignment="center"
+                android:textColor="@drawable/category_text"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <!-- 세부 카테고리 -->
     <ScrollView
+        android:id="@+id/scrollView6"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/category_title">
 
         <LinearLayout
             android:id="@+id/category_list_scroll_linearlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/main_background_color"
-            android:paddingTop="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/category_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/category_recycler_view_item"
-            />
+                tools:listitem="@layout/category_recycler_view_item" />
         </LinearLayout>
     </ScrollView>
     <ImageButton

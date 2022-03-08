@@ -5,13 +5,13 @@
     android:id="@+id/basket_out_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/title_background_color">
+    android:background="@color/main_background_color">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/title_background_color"
         android:fontFamily="@font/maruburi"
         android:paddingTop="30dp"
         android:text="장바구니"
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="|"
-            android:textColor="@color/ediya_blue"
+            android:textColor="@color/basket_delete_all_btn_color"
             android:textSize="15sp" />
 
         <Button
@@ -48,7 +48,8 @@
             android:text="전체삭제"
             android:fontFamily="@font/maruburi"
             android:textSize="15sp"
-            android:textColor="@color/ediya_blue"
+            android:textColor="@color/basket_delete_all_btn_color"
+            android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 

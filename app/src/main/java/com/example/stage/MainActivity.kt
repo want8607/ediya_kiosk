@@ -22,6 +22,7 @@ import com.example.stage.mainfragments.CategoryFragment
 import com.example.stage.mainfragments.OrderInfoFragment
 
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var  basketService: BasketService
@@ -35,6 +36,13 @@ class MainActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         setContentView(R.layout.activity_mainpage)
+        Log.d("main,Oncreate","재생성")
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,CategoryFragment()).commit()
+            }
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.statusBarColor = getColor(R.color.title_background_color)
         connection = object : ServiceConnection{
 
             override fun onServiceConnected(className: ComponentName?, service: IBinder?) {
@@ -46,11 +54,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         Intent(this, BasketService::class.java).also { intent ->
-            bindService(intent, connection, Context.BIND_AUTO_CREATE)
+            bindService(intent, connection, BIND_AUTO_CREATE)
         }
-        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.statusBarColor = getColor(R.color.white)
+
     }
 
 

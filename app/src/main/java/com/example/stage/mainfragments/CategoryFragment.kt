@@ -20,13 +20,14 @@ class CategoryFragment : Fragment(){
     lateinit var mainActivity: MainActivity
     lateinit var categoryBakeryList : ArrayList<Category>
     lateinit var categoryDrinkList : ArrayList<Category>
-
+    lateinit var newView :View
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        mainActivity = activity as MainActivity
         Log.d("message_category","onAttach")
     }
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        mainActivity = activity as MainActivity
+
         var view: View = inflater.inflate(R.layout.category_fragment,container,false)
         categoryDrinkList= arrayListOf(
             Category("커피","coffee","americano") ,

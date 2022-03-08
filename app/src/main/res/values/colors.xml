@@ -18,7 +18,11 @@
     <color name="title_background_color">#FFFFFFFF</color>
     <color name="category_background">#E6E6E6</color>
     <color name="menu_background">#FBF7E5</color>
+    <color name="payment_recycler_view_background">#FBF7E5</color>
     <color name="ediya_blue">#043B72</color>
+
+    <color name="basket_delete_all_btn_color">#043B72</color>
+    <color name="payment_border_color">#AFABAB</color>
 
     <color name="main_text_color">@color/black</color>
     <color name="second_text_color">#AFABAB</color>

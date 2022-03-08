@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/menu_background"
+    android:background="@color/payment_recycler_view_background"
     android:paddingVertical="10dp">
 
     <ImageView
@@ -25,7 +25,7 @@
         android:layout_marginStart="20dp"
         android:fontFamily="@font/maruburi"
         android:text="커피"
-        android:textColor="@color/black"
+        android:textColor="@color/main_text_color"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.25"
@@ -41,7 +41,7 @@
         android:fontFamily="@font/maruburi"
         android:layout_marginTop="5dp"
         android:text="X"
-        android:textColor="@color/black"
+        android:textColor="@color/main_text_color"
         android:textSize="17sp"
         app:layout_constraintEnd_toStartOf="@+id/payment_recyclerview_menu_num"
         app:layout_constraintStart_toStartOf="@+id/payment_recyclerview_menu_name"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/maruburi"
         android:text="2"
-        android:textColor="@color/black"
+        android:textColor="@color/main_text_color"
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />

@@ -16,11 +16,14 @@
     <color name="change_option">#C78E39</color>
     <color name="main_background_color">#202020</color>
     <color name="title_background_color">#2c2d30</color>
-    <color name="category_background">#E6E6E6</color>
-    <color name="menu_background">#202020</color>
+    <color name="category_background">#2c2d30</color>
+    <color name="menu_background">#2c2d30</color>
+    <color name="payment_recycler_view_background">#2c2d30</color>
     <color name="ediya_blue">#05479F</color>
 
-    <color name="main_text_color">#ECECEC</color>
-    <color name="second_text_color">#C6C4C4</color>
-    <color name="third_text_color">#585858</color>
+    <color name="basket_delete_all_btn_color">#FFFFFF</color>
+    <color name="payment_border_color">#585858</color>
+    <color name="main_text_color">#FFFFFF</color>
+    <color name="second_text_color">#9B9797</color>
+    <color name="third_text_color">#C8C6C6</color>
 </resources>

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/main_background_color">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/under_blueline"
+        android:background="@drawable/under_blue_line"
         android:fontFamily="@font/maruburi"
         android:paddingTop="30dp"
         android:paddingBottom="30dp"
@@ -118,6 +118,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/main_background_color"
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/textView15"
