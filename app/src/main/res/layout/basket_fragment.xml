@@ -49,7 +49,6 @@
             android:fontFamily="@font/maruburi"
             android:textSize="15sp"
             android:textColor="@color/basket_delete_all_btn_color"
-            android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 

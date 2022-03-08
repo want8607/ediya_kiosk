@@ -304,6 +304,7 @@
                         android:background="@drawable/round_circle_background"
                         android:fontFamily="@font/maruburi"
                         android:gravity="center"
+                        android:textColor="@color/main_text_color"
                         android:text="0"
                         android:textSize="36sp" />
 
@@ -353,6 +354,7 @@
                         android:background="@drawable/round_circle_background"
                         android:fontFamily="@font/maruburi"
                         android:text="0"
+                        android:textColor="@color/main_text_color"
                         android:gravity="center"
                         android:textSize="36sp" />
 

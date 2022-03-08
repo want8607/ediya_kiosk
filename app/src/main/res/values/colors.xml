@@ -21,10 +21,14 @@
     <color name="payment_recycler_view_background">#FBF7E5</color>
     <color name="ediya_blue">#043B72</color>
 
+    <color name="my_info_color">#043B72</color>
+    <color name="title_line_color">#043B72</color>
     <color name="basket_delete_all_btn_color">#043B72</color>
     <color name="payment_border_color">#AFABAB</color>
-
+    <color name="arrow_blue_white">#043B72</color>
     <color name="main_text_color">@color/black</color>
     <color name="second_text_color">#AFABAB</color>
     <color name="third_text_color">#585858</color>
+    <color name="option_checked_text_color">#FFFFFF</color>
+    <color name="option_unchecked_text_color">#AFABAB</color>
 </resources>

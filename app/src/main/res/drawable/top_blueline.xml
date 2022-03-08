@@ -6,7 +6,7 @@
         android:right="-2.5dp"
         android:top="2.5dp"    >
         <shape android:shape="rectangle">
-            <stroke android:color="@color/ediya_blue"
+            <stroke android:color="@color/title_line_color"
                 android:width="2.5dp"/>
             <solid android:color="@color/title_background_color"/>
         </shape>

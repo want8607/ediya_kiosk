@@ -54,6 +54,7 @@ class RecipeDialogFragment: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var recipeExitBtn = view.findViewById<ImageButton>(R.id.recipe_exit_button)
+
         var recipeTotalCostView = view.findViewById<TextView>(R.id.recipe_total_cost)
         var recipePaymentCostView = view.findViewById<TextView>(R.id.recipe_payment_cost)
         var recipeOrderNumView = view.findViewById<TextView>(R.id.recipe_order_num)

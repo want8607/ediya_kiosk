@@ -33,7 +33,7 @@
         <item name="android:fontFamily">@font/maruburi</item>
     </style>
 
-    <style name="SettingTheme" parent="@style/PreferenceThemeOverlay">
+    <style name="SettingTheme">
         <item name="android:layout">@layout/setting_layout</item>
     </style>
 
