@@ -13,7 +13,7 @@
         android:fontFamily="@font/maruburi"
         android:paddingTop="30dp"
         android:paddingBottom="30dp"
-        android:text="주문내역"
+        android:text="@string/order_history"
         android:textAlignment="center"
         android:textColor="@color/main_text_color"
         android:textSize="27sp"

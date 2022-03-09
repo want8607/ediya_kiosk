@@ -1,6 +1,7 @@
 package com.example.stage.mainfragments
 
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.example.stage.MainActivity
 import com.example.stage.R
+import java.util.*
 
 class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -44,13 +46,26 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
+
         when(sharedPreferences.getString(key,"")){
+            //다크모드설정
             "기본 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 Log.d("app_mode","기본 모드")}
             "다크 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 Log.d("app_mode","다크 모드")}
             "시스템 기본값"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                 Log.d("app_mode","시스템 기본값")}
+            "Light Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                Log.d("app_mode","기본 모드")}
+            "Dark Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                Log.d("app_mode","다크 모드")}
+            "System Default"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                Log.d("app_mode","시스템 기본값")}
+            //언어설정
+            "한국어" ->{}
+            "영어" ->{}
+            "Korean"->{}
+            "English" ->{}
         }
     }
 
@@ -62,6 +77,14 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
     override fun onPause() {
         super.onPause()
         preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    fun setLocale(lang:String){
+        var locale = Locale(lang)
+        Locale.setDefault(locale)
+        var configuration : Configuration = mainActivity.resources.configuration
+        configuration.setLocale(locale)
+        mainActivity.createConfigurationContext(configuration)
     }
 
 }

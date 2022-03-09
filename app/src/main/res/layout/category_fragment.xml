@@ -64,7 +64,7 @@
                 android:button="@null"
                 android:fontFamily="@font/maruburi"
                 android:padding="10dp"
-                android:text="음료"
+                android:text="@string/drink"
                 android:textAlignment="center"
                 android:textColor="@drawable/category_text"
                 android:textSize="20sp"
@@ -78,7 +78,7 @@
                 android:button="@null"
                 android:fontFamily="@font/maruburi"
                 android:padding="10dp"
-                android:text="베이커리"
+                android:text="@string/bakery"
                 android:textAlignment="center"
                 android:textColor="@drawable/category_text"
                 android:textSize="20sp" />

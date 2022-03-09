@@ -38,18 +38,19 @@
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/activity_startpage.xml" value="0.33" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/basket_fragment.xml" value="0.25" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/basket_option_change_dialog.xml" value="0.25" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/basket_recycler_view_item.xml" value="0.204296875" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/basket_recycler_view_item.xml" value="0.5" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/category_fragment.xml" value="0.33" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/category_recycler_view_item.xml" value="0.13446824789594491" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/login_fragment.xml" value="0.36328125" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/menu_fragment.xml" value="0.25" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/menu_recycler_view_item.xml" value="0.15876242095754292" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/order_info_fragment.xml" value="0.204296875" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/payment_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/order_info_fragment.xml" value="0.5" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/order_info_view_item.xml" value="0.5" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/payment_fragment.xml" value="0.33" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/payment_recycler_view_item.xml" value="0.33" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/recipe_dialog.xml" value="0.2" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/recipe_dialog.xml" value="0.33" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/recipe_recycler_view_item.xml" value="0.204296875" />
-        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/registration_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/registration_fragment.xml" value="0.33" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/selectmenu_fragment.xml" value="0.22" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/setting_layout.xml" value="0.274609375" />
         <entry key="..\:/Users/gotjd/Desktop/stage/ediya_kiosk/app/src/main/res/layout/start_fragment.xml" value="0.36328125" />

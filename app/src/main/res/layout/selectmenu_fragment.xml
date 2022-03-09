@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/maruburi"
-                    android:text="원"
+                    android:text="@string/won"
                     android:textColor="@color/main_text_color"
                     android:textSize="25sp" />
             </LinearLayout>
@@ -99,7 +99,7 @@
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
                         android:paddingVertical="10dp"
-                        android:text="Hot"
+                        android:text="@string/hot"
                         android:textAlignment="center"
                         android:textColor="@drawable/hot_cold_radiobutton_text"
                         android:textSize="@dimen/option_btn_text_size"
@@ -115,12 +115,10 @@
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
                         android:paddingVertical="10dp"
-                        android:paddingHorizontal="40dp"
-                        android:text="Ice"
+                        android:text="@string/ice"
                         android:textAlignment="center"
                         android:textColor="@drawable/hot_cold_radiobutton_text"
-                        android:textSize="@dimen/option_btn_text_size"
-                        />
+                        android:textSize="@dimen/option_btn_text_size" />
 
 
                 </RadioGroup>
@@ -131,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
-                    android:text="사이즈"
+                    android:text="@string/size"
                     android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -163,7 +161,7 @@
                         android:background="@drawable/size_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
-                        android:text="Tall"
+                        android:text="@string/tall"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
                         android:textSize="@dimen/option_btn_text_size" />
@@ -176,7 +174,7 @@
                         android:background="@drawable/size_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
-                        android:text="Grande"
+                        android:text="@string/grande"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
                         android:textSize="@dimen/option_btn_text_size" />
@@ -188,7 +186,7 @@
                         android:background="@drawable/size_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
-                        android:text="Venti"
+                        android:text="@string/venti"
                         android:textAlignment="center"
                         android:textColor="@drawable/size_radiobutton_text"
                         android:textSize="@dimen/option_btn_text_size" />
@@ -202,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
-                    android:text="컵 선택"
+                    android:text="@string/cup"
                     android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/textView5"
@@ -229,7 +227,7 @@
                         android:paddingVertical="10dp"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
-                        android:text="매장컵"
+                        android:text="@string/store"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
                         android:textSize="@dimen/option_btn_text_size">
@@ -245,7 +243,7 @@
                         android:background="@drawable/cup_radiobutton_background"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
-                        android:text="개인컵"
+                        android:text="@string/personal"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
                         android:textSize="@dimen/option_btn_text_size" />
@@ -259,7 +257,7 @@
                         android:paddingVertical="10dp"
                         android:button="@null"
                         android:fontFamily="@font/maruburi"
-                        android:text="일회용컵"
+                        android:text="@string/disposable"
                         android:textAlignment="center"
                         android:textColor="@drawable/cup_radiobutton_text"
                         android:textSize="@dimen/option_btn_text_size" />
@@ -273,7 +271,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
-                    android:text="샷 추가"
+                    android:text="@string/shot"
                     android:textColor="@color/main_text_color"
                     android:textSize="@dimen/option_btn_text_size"
                     app:layout_constraintStart_toStartOf="@+id/textView6"
@@ -323,7 +321,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/maruburi"
-                    android:text="시럽 추가"
+                    android:text="@string/syrup"
                     android:textColor="@color/main_text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/textView7"
@@ -469,7 +467,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/maruburi"
-                android:text="원"
+                android:text="@string/won"
                 android:textColor="@color/main_text_color"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
