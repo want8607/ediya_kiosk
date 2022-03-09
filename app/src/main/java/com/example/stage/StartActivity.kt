@@ -15,7 +15,7 @@ class StartActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.statusBarColor = getColor(R.color.ediya_blue)
+        window.statusBarColor = getColor(R.color.start_page_blue_color)
         setContentView(R.layout.activity_startpage)
         supportFragmentManager.beginTransaction().replace(R.id.start_fragment_container_view,
             StartFragment()

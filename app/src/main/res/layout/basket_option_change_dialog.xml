@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_x_mark"
+            android:src="@drawable/ic_option_change_x_mark"
             app:layout_constraintBottom_toBottomOf="@+id/basket_option_textview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/basket_option_textview" />
@@ -270,7 +270,7 @@
                         android:id="@+id/basket_option_shot_minus_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/main_background_color"
                         android:src="@drawable/ic_minus_icon" />
 
                     <TextView
@@ -282,13 +282,14 @@
                         android:fontFamily="@font/maruburi"
                         android:gravity="center"
                         android:text="0"
+                        android:textColor="@color/main_text_color"
                         android:textSize="36sp" />
 
                     <ImageButton
                         android:id="@+id/basket_option_shot_plus_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/main_background_color"
                         android:src="@drawable/ic_plus_icon" />
                 </LinearLayout>
 
@@ -319,7 +320,7 @@
                         android:id="@+id/basket_option_syrup_minus_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/main_background_color"
                         android:src="@drawable/ic_minus_icon" />
 
                     <TextView
@@ -330,6 +331,7 @@
                         android:background="@drawable/round_circle_background"
                         android:fontFamily="@font/maruburi"
                         android:text="0"
+                        android:textColor="@color/main_text_color"
                         android:gravity="center"
                         android:textSize="36sp" />
 
@@ -337,7 +339,7 @@
                         android:id="@+id/basket_option_syrup_plus_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
+                        android:background="@color/main_background_color"
                         android:src="@drawable/ic_plus_icon" />
                 </LinearLayout>
 

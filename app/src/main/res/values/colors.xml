@@ -14,6 +14,7 @@
     <color name="hot">#D62420</color>
     <color name="cold">#2559FF</color>
     <color name="change_option">#C78E39</color>
+    <color name="start_page_blue_color">#043B72</color>
     <color name="main_background_color">#FFFFFFFF</color>
     <color name="title_background_color">#FFFFFFFF</color>
     <color name="category_background">#E6E6E6</color>
@@ -21,11 +22,12 @@
     <color name="payment_recycler_view_background">#FBF7E5</color>
     <color name="ediya_blue">#043B72</color>
 
+    <color name="basket_color">#043B72</color>
     <color name="my_info_color">#043B72</color>
     <color name="title_line_color">#043B72</color>
     <color name="basket_delete_all_btn_color">#043B72</color>
     <color name="payment_border_color">#AFABAB</color>
-    <color name="arrow_blue_white">#043B72</color>
+    <color name="arrow_blue_gray">#043B72</color>
     <color name="main_text_color">@color/black</color>
     <color name="second_text_color">#AFABAB</color>
     <color name="third_text_color">#585858</color>

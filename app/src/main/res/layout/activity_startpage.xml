@@ -5,7 +5,7 @@
     android:id="@+id/start_constraintlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ediya_blue">
+    android:background="@color/start_page_blue_color">
 
     <!--초기페이지 이디야 로고-->
     <ScrollView
