@@ -31,13 +31,21 @@ class MainActivity : AppCompatActivity() {
     var orderStorage : ArrayList<Bundle> = arrayListOf() // 주문번호, 주문시간, 장바구니정보 3
     var orderNumber = 1
     lateinit var connection : ServiceConnection
+    lateinit var databaseHelper: DatabaseHelper
+    lateinit var databaseControl: DatabaseControl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //db설정
+        databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
+        databaseControl = DatabaseControl()
+        val readableDb = databaseHelper.readableDatabase
+        val writableDb = databaseHelper.writableDatabase
+
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         setContentView(R.layout.activity_mainpage)
-        Log.d("main,Oncreate","재생성")
+        
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,CategoryFragment()).commit()
             }

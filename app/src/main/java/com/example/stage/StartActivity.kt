@@ -1,5 +1,6 @@
 package com.example.stage
 
+import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +10,17 @@ import com.example.stage.startfragments.StartFragment
 
 
 class StartActivity : AppCompatActivity() {
+    lateinit var readableDb: SQLiteDatabase
+    lateinit var writableDb: SQLiteDatabase
+    lateinit var databaseControl: DatabaseControl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //db설정
+        val databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
+        readableDb = databaseHelper.readableDatabase
+        writableDb = databaseHelper.writableDatabase
+        databaseControl = DatabaseControl()
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

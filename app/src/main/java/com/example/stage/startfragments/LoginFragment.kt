@@ -1,10 +1,14 @@
 package com.example.stage.startfragments
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
@@ -14,10 +18,12 @@ import com.example.stage.R
 import com.example.stage.StartActivity
 
 class LoginFragment: Fragment() {
+    lateinit var startActivity: StartActivity
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         var view: View = inflater.inflate(R.layout.login_fragment,container,false)
+        startActivity = activity as StartActivity
         return view
     }
 
@@ -25,8 +31,11 @@ class LoginFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var logInBtn = view.findViewById<Button>(R.id.login_login_button)
         var transaction = parentFragmentManager.beginTransaction()
+        var loginEditTextView = view.findViewById<EditText>(R.id.login_input_id)
+        var pwdEditTextView = view.findViewById<EditText>(R.id.login_input_password)
         val startConstraintLayout by lazy{requireActivity().findViewById<ConstraintLayout>(R.id.start_constraintlayout)}
         val startBackBtn by lazy { startConstraintLayout.findViewById<ImageButton>(R.id.start_back_btn) }
+
         //뒤로가기버튼
         startBackBtn.setOnClickListener{
             startBackBtn.visibility = View.INVISIBLE
@@ -36,12 +45,24 @@ class LoginFragment: Fragment() {
 
         //로그인 버튼
         logInBtn.setOnClickListener{
-            //엑티비티 바꿔줘야함
-            var intent = Intent(activity, MainActivity::class.java)
-            startActivity(intent)
-            var startActivity = activity as StartActivity
-            startActivity.finish()
+            if(startActivity.databaseControl.readData(startActivity.readableDb,"account",loginEditTextView.text.toString(),pwdEditTextView.text.toString()).size != 0){
+                //엑티비티 바꿔줘야함
+                var intent = Intent(activity, MainActivity::class.java)
+                startActivity(intent)
+                startActivity.finish()
+            }else{
+                var builder = AlertDialog.Builder(activity, R.style.AlertDialog)
+                builder.setMessage("아이디, 비밀번호를 다시 입력하세요.")
+                    .setPositiveButton("확인", DialogInterface.OnClickListener{
+                            dialogInterface, i ->
+                    })
+                builder.show()
+            }
+
+
         }
 
     }
+
+
 }

@@ -41,13 +41,13 @@
     <string name="credit_card">신용카드</string>
     <string name="order_info">주문 내역</string>
 
-
 <!--    영수증-->
     <string name="recipe">전자영수증</string>
     <string name="recipe_payment_method">카드결제</string>
     <string name="order_number">주문번호</string>
     <string name="recipe_total">합계</string>
     <string name="recipe_totalcost">결제금액</string>
+
 <!--    주문내역-->
     <string name="order_history">주문내역</string>
     <string name="order_history_comment">번째 메뉴로 준비중입니다.</string>

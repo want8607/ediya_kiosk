@@ -53,7 +53,7 @@ class PaymentFragment : Fragment() {
 
         //결제하기
         var paymentPayBtn = view.findViewById<Button>(R.id.payment_pay_button)
-        paymentPayBtn.text = (totalCost.toString()+"￦ "+R.string.pay)
+        paymentPayBtn.text = (totalCost.toString()+"￦ "+getString(R.string.pay))
         paymentPayBtn.setOnClickListener {
             //주문 내역 메인엑티비티에 저장
             var orderInfo = Bundle()

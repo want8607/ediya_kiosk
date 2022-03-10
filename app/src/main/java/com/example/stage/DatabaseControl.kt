@@ -2,6 +2,7 @@ package com.example.stage
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 
 class DatabaseControl{
     fun readData(database: SQLiteDatabase,table:String, id: String, pw: String): ArrayList<ArrayList<String>> {
@@ -18,6 +19,7 @@ class DatabaseControl{
         }
 
         result.close()
+        Log.d("message",dataList.toString())
         return dataList
     }
 
