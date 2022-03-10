@@ -62,10 +62,10 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
             "System Default"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                 Log.d("app_mode","시스템 기본값")}
             //언어설정
-            "한국어" ->{}
-            "영어" ->{}
-            "Korean"->{}
-            "English" ->{}
+            "한국어" ->{setLocale("ko")}
+            "영어" ->{setLocale("en")}
+            "Korean"->{setLocale("ko")}
+            "English" ->{setLocale("en")}
         }
     }
 
