@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -45,21 +46,20 @@ class LoginFragment: Fragment() {
 
         //로그인 버튼
         logInBtn.setOnClickListener{
-            if(startActivity.databaseControl.readData(startActivity.readableDb,"account",loginEditTextView.text.toString(),pwdEditTextView.text.toString()).size != 0){
+            var value = arrayListOf<ArrayList<String>>(
+                arrayListOf("id",loginEditTextView.text.toString()),
+                arrayListOf("pw",pwdEditTextView.text.toString())
+            )
+            if(startActivity.databaseControl.readData(startActivity.readableDb,"account",value).size != 0){
                 //엑티비티 바꿔줘야함
                 var intent = Intent(activity, MainActivity::class.java)
+                intent.putExtra("id",loginEditTextView.text.toString())
                 startActivity(intent)
                 startActivity.finish()
             }else{
-                var builder = AlertDialog.Builder(activity, R.style.AlertDialog)
-                builder.setMessage("아이디, 비밀번호를 다시 입력하세요.")
-                    .setPositiveButton("확인", DialogInterface.OnClickListener{
-                            dialogInterface, i ->
-                    })
-                builder.show()
+                var text = "아이디 비밀번호를 다시 입력하세요."
+                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }
-
-
         }
 
     }

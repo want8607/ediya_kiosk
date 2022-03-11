@@ -484,7 +484,7 @@
                 android:background="@drawable/blue_rounded_button"
                 android:fontFamily="@font/maruburi"
                 android:paddingVertical="10dp"
-                android:text="담기"
+                android:text="@string/add_to_basket"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"

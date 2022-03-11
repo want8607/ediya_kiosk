@@ -5,6 +5,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -33,15 +34,20 @@ class MainActivity : AppCompatActivity() {
     lateinit var connection : ServiceConnection
     lateinit var databaseHelper: DatabaseHelper
     lateinit var databaseControl: DatabaseControl
+    lateinit var readableDb: SQLiteDatabase
+    lateinit var writableDb: SQLiteDatabase
+    lateinit var userId : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //db설정
+        userId = intent.getStringExtra("id").toString()
         databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
         databaseControl = DatabaseControl()
-        val readableDb = databaseHelper.readableDatabase
-        val writableDb = databaseHelper.writableDatabase
+        readableDb = databaseHelper.readableDatabase
+        writableDb = databaseHelper.writableDatabase
 
+        //window설정
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         setContentView(R.layout.activity_mainpage)
@@ -72,7 +78,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
 
     fun openBasket(){
         var basketFragment = BasketFragment()

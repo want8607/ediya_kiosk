@@ -34,7 +34,7 @@ class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<Bundle>
         var orderInfoDate = itemView?.findViewById<TextView>(R.id.order_info_date)
         var orderInfoItem = itemView?.findViewById<ConstraintLayout>(R.id.order_info_item)
         fun bind(orderInfo: ArrayList<Bundle>, position: Int) {
-            orderInfoNum?.text = (orderInfo[position].getInt("orderNumber").toString()+context.getString(R.string.order_history_comment)+"\n"+context.getString(R.string.order_history_comment2))
+            orderInfoNum?.text = (orderInfo[position].getInt("orderNumber").toString()+" "+context.getString(R.string.order_history_comment)+"\n"+context.getString(R.string.order_history_comment2))
             orderInfoDate?.text = orderInfo[position].getString("paymentTime")
             orderInfoItem?.setOnClickListener {
                 orderInfoItemClick.onclick(RecipeDialogFragment(),position)

@@ -5,19 +5,33 @@ import android.database.sqlite.SQLiteDatabase
 import android.util.Log
 
 class DatabaseControl{
-    fun readData(database: SQLiteDatabase,table:String, id: String, pw: String): ArrayList<ArrayList<String>> {
-        val sql = "SELECT * FROM $table WHERE id='${id}' and pw='${pw}'"
+    //[[condition,value],[condition,value],[condition,value],[condition,value]]
+    fun readData(database: SQLiteDatabase,table:String, value:ArrayList<ArrayList<String>>): ArrayList<ArrayList<String>> {
+
+        var sql = if(value.isNullOrEmpty()){
+            "SELECT * FROM $table"
+        }else {
+            "SELECT * FROM $table WHERE"
+        }
+
+        for( i in value.indices){
+            sql += " ${value[i][0]}= '${value[i][1]}'"
+            if(i != value.size-1){
+                sql+=" AND"
+            }
+        }
+        Log.d("text",sql)
+
         var result : Cursor = database.rawQuery(sql,null)
 
         val dataList = ArrayList<ArrayList<String>>()
 
         while (result.moveToNext()) {
-            val id = result.getString(0)
-            val pw = result.getString(1)
-            val row = arrayListOf(id,pw)
+            val row = arrayListOf<String>()
+            for(j in value[0].indices)
+                row.add(result.getString(j))
             dataList.add(row)
         }
-
         result.close()
         Log.d("message",dataList.toString())
         return dataList

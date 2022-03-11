@@ -20,15 +20,18 @@ class CategoryFragment : Fragment(){
     lateinit var mainActivity: MainActivity
     lateinit var categoryBakeryList : ArrayList<Category>
     lateinit var categoryDrinkList : ArrayList<Category>
-    lateinit var newView :View
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
-        Log.d("message_category","onAttach")
     }
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         var view: View = inflater.inflate(R.layout.category_fragment,container,false)
+
+        var d = mainActivity.databaseControl.readData(mainActivity.readableDb,"category",
+            arrayListOf(arrayListOf("drinkOrBakery","drink")))
+
         categoryDrinkList= arrayListOf(
             Category("커피","coffee","americano") ,
             Category("베버리지","beverage","menu_beverage_chocolate"),
@@ -43,9 +46,6 @@ class CategoryFragment : Fragment(){
             Category("디저트","dessert", "menu_dessert_cream_cheese_muffin"),
             Category("쿠키&기타","cookie&etc","menu_cookie_etc_carbonara_grilled_riceball")
         )
-
-        Log.d("message_category","onCreateView")
-
         return view
     }
 
