@@ -18,8 +18,8 @@ import com.example.stage.StartActivity
 
 class CategoryFragment : Fragment(){
     lateinit var mainActivity: MainActivity
-    lateinit var categoryBakeryList : ArrayList<Category>
-    lateinit var categoryDrinkList : ArrayList<Category>
+    lateinit var categoryBakeryList : ArrayList<ArrayList<String>>
+    lateinit var categoryDrinkList : ArrayList<ArrayList<String>>
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -29,23 +29,12 @@ class CategoryFragment : Fragment(){
 
         var view: View = inflater.inflate(R.layout.category_fragment,container,false)
 
-        var d = mainActivity.databaseControl.readData(mainActivity.readableDb,"category",
+        categoryDrinkList= mainActivity.databaseControl.readData(mainActivity.readableDb,"category",
             arrayListOf(arrayListOf("drinkOrBakery","drink")))
 
-        categoryDrinkList= arrayListOf(
-            Category("커피","coffee","americano") ,
-            Category("베버리지","beverage","menu_beverage_chocolate"),
-            Category("차","blending tea", "menu_blending_tea_bokbunja_vin_chaud"),
-            Category("플랫치노","flatccino", "menu_flatchino_blueberry_yogurt_flatccino"),
-            Category("팥빙수","ice flake", "menu_ice_flake_mango_sherbet_snow_flake"),
-            Category("쉐이크&에이드","shake&ade","menu_shake_ade_chocolate_cookie_shake")
-        )
+        categoryBakeryList = mainActivity.databaseControl.readData(mainActivity.readableDb,"category",
+            arrayListOf(arrayListOf("drinkOrBakery","bakery")))
 
-        categoryBakeryList = arrayListOf(
-            Category("빵","bread","menu_bread_chocolate_brownie") ,
-            Category("디저트","dessert", "menu_dessert_cream_cheese_muffin"),
-            Category("쿠키&기타","cookie&etc","menu_cookie_etc_carbonara_grilled_riceball")
-        )
         return view
     }
 
@@ -74,11 +63,11 @@ class CategoryFragment : Fragment(){
                 popupMenu.show()
         }
 
-        var innerCategoryDrinkList : ArrayList<Category> = arrayListOf()
+        var innerCategoryDrinkList : ArrayList<ArrayList<String>> = arrayListOf()
         for ( i in categoryDrinkList.indices){
             innerCategoryDrinkList.add(categoryDrinkList[i])
         }
-        var innerCategoryBakeryList : ArrayList<Category> = arrayListOf()
+        var innerCategoryBakeryList : ArrayList<ArrayList<String>> = arrayListOf()
         for ( i in categoryBakeryList.indices){
             innerCategoryBakeryList.add(categoryBakeryList[i])
         }

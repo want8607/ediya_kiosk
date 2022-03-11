@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 
-class CategoryRVAdapter(var context: Context, categoryList : ArrayList<Category>):
+class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList<String>>):
 
     RecyclerView.Adapter<CategoryRVAdapter.Holder>() {
     var myCategoryList = categoryList
@@ -29,7 +29,7 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<Category>
         return myCategoryList.size
     }
 
-    fun listChanged(newCategoryList: ArrayList<Category>){
+    fun listChanged(newCategoryList: ArrayList<ArrayList<String>>){
         myCategoryList.clear()
         myCategoryList.addAll(newCategoryList)
         notifyDataSetChanged()
@@ -43,11 +43,11 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<Category>
         var categoryEnglishName = itemView?.findViewById<TextView>(R.id.category_english_name)
         var categoryImg = itemView?.findViewById<ImageView>(R.id.category_image)
 
-        fun bind (category: ArrayList<Category>, position: Int){
+        fun bind (category: ArrayList<ArrayList<String>>, position: Int){
 
-            categoryName?.text = category[position].categoryName
-            categoryEnglishName?.text = category[position].categoryEnglishName
-            val resourceId = context.resources.getIdentifier(category[position].photo, "drawable", context.packageName)
+            categoryName?.text = category[position][1]
+            categoryEnglishName?.text = category[position][2]
+            val resourceId = context.resources.getIdentifier(category[position][3], "drawable", context.packageName)
             categoryImg?.setImageResource(resourceId)
 
             itemView.setOnClickListener {
@@ -56,7 +56,7 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<Category>
                 var menuFragment = MenuFragment()
                 bundle.putInt("title",position)
                 bundle.putBoolean("isChecked",isChecked)
-                bundle.putString("categoryName",category[position].categoryName)
+                bundle.putString("categoryName",category[position][1])
                 menuFragment.arguments = bundle
                 var mainActivity = context as MainActivity
                 mainActivity.addFragment(menuFragment,"menu")

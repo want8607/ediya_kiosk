@@ -23,13 +23,14 @@ class DatabaseControl{
         Log.d("text",sql)
 
         var result : Cursor = database.rawQuery(sql,null)
-
+        var columnSize = result.columnCount-1
         val dataList = ArrayList<ArrayList<String>>()
 
         while (result.moveToNext()) {
             val row = arrayListOf<String>()
-            for(j in value[0].indices)
+            for(j in 0..columnSize){
                 row.add(result.getString(j))
+            }
             dataList.add(row)
         }
         result.close()
@@ -52,3 +53,5 @@ class DatabaseControl{
         database.execSQL(sql)
     }
 }
+
+
