@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">stage</string>
+    <string name="id">아이디</string>
+    <string name="password">비밀번호</string>
+    <string name="repassword">비밀번호 확인</string>
+    <string name="login">로그인</string>
+    <string name="registration">회원가입</string>
+    <string name="regist_id_check">중복체크</string>
+    <string name="won">￦</string>
+    <string name="drink">음료</string>
+    <string name="bakery">베이커리</string>
+    <string name="hot">따듯한</string>
+    <string name="ice">차가운</string>
+    <string name="size">사이즈</string>
+    <string name="tall">작은</string>
+    <string name="grande">중간</string>
+    <string name="venti">큰</string>
+    <string name="cup">컵 선택</string>
+    <string name="store">매장컵</string>
+    <string name="personal">개인컵</string>
+    <string name="disposable">일회용컵</string>
+    <string name="shot">샷 추가</string>
+    <string name="syrup">시럽 추가</string>
+    <string name="add_to_basket">담기</string>
+    <string name="basket">장바구니</string>
+    <string name="delete_all">전체삭제</string>
+    <string name="count">개</string>
+    <string name="total">총</string>
+    <string name="order">주문하기</string>
+    <string name="option_change">옵션변경</string>
+    <string name="change_complete">수정완료</string>
+    <string name="pay">결제하기</string>
+    <string name="payment_method">결제수단</string>
+    <string name="credit_card">신용카드</string>
+    <string name="order_info">주문 내역</string>
+    <string name="recipe">전자영수증</string>
+    <string name="recipe_payment_method">카드결제</string>
+    <string name="order_number">주문번호</string>
+    <string name="recipe_total">합계</string>
+    <string name="recipe_totalcost">결제금액</string>
+    <string name="order_history">주문내역</string>
+    <string name="order_history_comment">번째 메뉴로 준비중입니다.</string>
+    <string name="order_history_comment2">전자영수증을 확인할 수 있습니다.</string>
+</resources>

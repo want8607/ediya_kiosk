@@ -1,5 +1,6 @@
 package com.example.stage.mainfragments
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
@@ -46,7 +47,7 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
-
+        mainActivity.settingFlag = "true"
         when(sharedPreferences.getString(key,"")){
             //다크모드설정
             "기본 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -61,11 +62,18 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
                 Log.d("app_mode","다크 모드")}
             "System Default"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                 Log.d("app_mode","시스템 기본값")}
-            //언어설정
-            "한국어" ->{setLocale("ko")}
-            "영어" ->{setLocale("en")}
-            "Korean"->{setLocale("ko")}
-            "English" ->{setLocale("en")}
+            "한국어" ->{
+                mainActivity.recreate()
+                Log.d("app_language","한국어")}
+            "영어" ->{
+                mainActivity.recreate()
+                Log.d("app_language","영어")}
+            "Korean" ->{
+                mainActivity.recreate()
+                Log.d("app_language","ko")}
+            "English" ->{
+                mainActivity.recreate()
+                Log.d("app_language","en")}
         }
     }
 
@@ -82,9 +90,9 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
     fun setLocale(lang:String){
         var locale = Locale(lang)
         Locale.setDefault(locale)
-        var configuration : Configuration = mainActivity.resources.configuration
+        var configuration : Configuration = resources.configuration
         configuration.setLocale(locale)
-        mainActivity.createConfigurationContext(configuration)
+        context?.createConfigurationContext(configuration)
     }
 
 }

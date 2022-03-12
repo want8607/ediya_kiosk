@@ -66,11 +66,14 @@ class RegistFragment: Fragment() {
                 arrayListOf("id",registInputId.text.toString())
             )
             //비번 입력 오류
-            if (!(registInputPwd.text.toString()).equals(registReInputPwd.text.toString())){
-                text = "비밀번호 확인을 다시 해주세요"
+            if(registInputPwd.text.isBlank()){
+                text = "비밀번호를 입력해 주세요."
+                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
+            }else if(!(registInputPwd.text.toString()).equals(registReInputPwd.text.toString())){
+                text = "비밀번호 확인을 다시해 주세요."
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }else if(startActivity.databaseControl.readData(startActivity.readableDb,"account",value).size != 0){
-                text = "아이디를 다시 입력해주세요."
+                text = "아이디를 다시 입력해 주세요."
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }else {
                 //데이터 베이스에 등록

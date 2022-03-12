@@ -56,10 +56,8 @@ class PaymentFragment : Fragment() {
         paymentPayBtn.text = (totalCost.toString()+"￦ "+getString(R.string.pay))
         paymentPayBtn.setOnClickListener {
             //주문 내역 orders에 저장
-            var orderInfo = Bundle()
             val dateFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")
             val currentDate = LocalDateTime.now()
-            mainActivity.addOrderInfo(orderInfo)
             var value = arrayListOf(
                 arrayListOf("id",mainActivity.userId,"TEXT"),
                 arrayListOf("orderTime",currentDate.format(dateFormat),"TEXT")

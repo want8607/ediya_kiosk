@@ -48,9 +48,10 @@ class CategoryFragment : Fragment(){
         mainActivity.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
         popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.order_info -> {mainActivity.openOrderInfo()}
+                R.id.order_info -> {mainActivity.addFragment(OrderInfoFragment(),"orderInfo")}
                 R.id.setting ->{mainActivity.addFragment(SettingFragment(),"setting")}
                 R.id.logOut -> {
+                    mainActivity.loginFlag = "true"
                     var intent = Intent(activity, StartActivity::class.java)
                     startActivity(intent)
                     mainActivity.finish()}
@@ -100,9 +101,5 @@ class CategoryFragment : Fragment(){
             mainActivity.openBasket()
         }
 
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
     }
 }

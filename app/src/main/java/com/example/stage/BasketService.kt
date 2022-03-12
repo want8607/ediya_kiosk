@@ -15,6 +15,7 @@ import androidx.core.app.NotificationCompat
 
 class BasketService :Service() {
     lateinit var notificationManager: NotificationManager
+    lateinit var notificationFlag :String
     var basketList : ArrayList<Bundle> = arrayListOf()
     val binder = LocalBinder()
     var totalCost = 0
@@ -100,11 +101,13 @@ class BasketService :Service() {
     override fun onCreate() {
         super.onCreate()
         Log.d("service","onCreate")
+        notificationFlag = "false"
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d("service","onStartCommand")
         notifyBasket()
+        notificationFlag = "true"
         return START_NOT_STICKY
     }
 

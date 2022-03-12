@@ -5,7 +5,7 @@
     <string name="repassword">Confirm PW</string>
     <string name="login">Sign in</string>
     <string name="registration">Sing up</string>
-    <string name="regist_id_check">중복체크</string>
+    <string name="regist_id_check">Id check</string>
     <string name="won">￦</string>
     <string name="drink">Drink</string>
     <string name="bakery">Bakery</string>

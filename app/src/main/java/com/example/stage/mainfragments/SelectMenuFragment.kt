@@ -191,7 +191,7 @@ class SelectMenuFragment : Fragment(){
             mainActivity.basketService.setBasket(bundle)  //서비스에 값 전달
             mainActivity.basketService.updateTotalMenuNum()//총 메뉴 개수,액수 변경
             //알림 표시
-            var text = "아이디 비밀번호를 다시 입력하세요."
+            var text = "장바구니에 담겼습니다."
             Toast.makeText(mainActivity, text, Toast.LENGTH_SHORT).show()
             while (mainActivity.supportFragmentManager.backStackEntryCount != 0) {
                 mainActivity.supportFragmentManager.popBackStackImmediate()
