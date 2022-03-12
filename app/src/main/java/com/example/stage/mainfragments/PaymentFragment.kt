@@ -55,24 +55,42 @@ class PaymentFragment : Fragment() {
         var paymentPayBtn = view.findViewById<Button>(R.id.payment_pay_button)
         paymentPayBtn.text = (totalCost.toString()+"￦ "+getString(R.string.pay))
         paymentPayBtn.setOnClickListener {
-            //주문 내역 메인엑티비티에 저장
+            //주문 내역 orders에 저장
             var orderInfo = Bundle()
             val dateFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")
             val currentDate = LocalDateTime.now()
-            orderInfo.putParcelableArrayList("orderList",basketList)//1
-            orderInfo.putInt("totalCost",totalCost)
-            orderInfo.putInt("orderNumber",mainActivity.orderNumber)
-            orderInfo.putString("paymentTime",currentDate.format(dateFormat))
             mainActivity.addOrderInfo(orderInfo)
+            var value = arrayListOf(
+                arrayListOf("id",mainActivity.userId,"TEXT"),
+                arrayListOf("orderTime",currentDate.format(dateFormat),"TEXT")
+            )
+            mainActivity.databaseControl.createData(mainActivity.writableDb,"orders",value)
+
+            //orders에서 seq가져오기
+            var seq =mainActivity.databaseControl.readData(mainActivity.readableDb,"orders",
+                arrayListOf(
+                    arrayListOf("id",mainActivity.userId),
+                    arrayListOf("orderTime",currentDate.format(dateFormat))
+                )
+            )[0][0]
+
+            //orderMenus에 추가
+            for( i in basketList.indices){
+                value = arrayListOf(
+                    arrayListOf("seq",seq,"INTEGER"),
+                    arrayListOf("menuName",basketList[i].getString("basketName")!!,"TEXT"),
+                    arrayListOf("menuCost",basketList[i].getString("basketMenuCost")!!,"INTEGER"),
+                    arrayListOf("menuNum",basketList[i].getString("basketMenuNum")!!,"INTEGER")
+                )
+                mainActivity.databaseControl.createData(mainActivity.writableDb,"orderMenus",value)
+            }
+
             //영수증 띄우기
             var recipeDialog = RecipeDialogFragment()
             var bundle = Bundle()
-            bundle.putParcelableArrayList("basketList",basketList)
-            bundle.putInt("totalCost",totalCost)
-            bundle.putInt("orderNumber",mainActivity.orderNumber)
+            bundle.putInt("seq",seq.toInt())
             recipeDialog.arguments = bundle
             recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
-            mainActivity.orderNumber += 1
             mainActivity.basketService.resetBasket()
             mainActivity.basketService.updateTotalMenuNum()
         }

@@ -1,19 +1,15 @@
 package com.example.stage.mainfragments
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -41,7 +37,7 @@ class BasketFragment: Fragment(), OnItemClick {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         totalCost = 0
         mainActivity = activity as MainActivity
-        var view: View = inflater.inflate(R.layout.basket_fragment,container,false)
+        val view: View = inflater.inflate(R.layout.basket_fragment,container,false)
         //리사이클 뷰 생성
         basketRVAdapter = BasketRVAdapter(mainActivity, basketList,this,this)
         basketRecyclerView = view.findViewById<RecyclerView>(R.id.basket_recyclerview)
@@ -60,13 +56,13 @@ class BasketFragment: Fragment(), OnItemClick {
         updateTotalUi(menuNumView,totalCostView)
 
         //뒤로가기
-        var basketBackBtn = view.findViewById<ImageButton>(R.id.basket_back_button)
+        val basketBackBtn = view.findViewById<ImageButton>(R.id.basket_back_button)
         basketBackBtn.setOnClickListener {
             mainActivity.removeFragment(this,"basket")
         }
 
         //전체삭제
-        var basketAllDelete = view.findViewById<Button>(R.id.basket_delete_all_button)
+        val basketAllDelete = view.findViewById<Button>(R.id.basket_delete_all_button)
         basketAllDelete.setOnClickListener {
             basketList.clear()
             basketRVAdapter.notifyDataSetChanged()
@@ -74,12 +70,12 @@ class BasketFragment: Fragment(), OnItemClick {
         }
 
         //결제버튼 눌렀을 때
-        var basketPayBtn = view.findViewById<Button>(R.id.basket_payment_button)
+        val basketPayBtn = view.findViewById<Button>(R.id.basket_payment_button)
         basketPayBtn.setOnClickListener {
             if(basketList.isNotEmpty()) {
-                var paymentFragment = PaymentFragment()
-                var bundle = Bundle()
-                var orderList :ArrayList<Bundle> = arrayListOf()
+                val paymentFragment = PaymentFragment()
+                val bundle = Bundle()
+                val orderList :ArrayList<Bundle> = arrayListOf()
                 for (i in basketList.indices){
                     orderList.add(basketList[i])
                 }
@@ -88,27 +84,26 @@ class BasketFragment: Fragment(), OnItemClick {
                 paymentFragment.arguments = bundle
                 mainActivity.addFragment(paymentFragment,"payment")
             }else{
-                var builder = AlertDialog.Builder(activity)
+                val builder = AlertDialog.Builder(activity)
                 builder.setCancelable(false)
                 builder.setMessage("메뉴를 담아주세요.")
-                    .setPositiveButton("확인", DialogInterface.OnClickListener{
-                            dialogInterface, i->
-                    })
+                    .setPositiveButton("확인") { _, _ ->
+                    }
                 builder.show()
             }
         }
     }
     //옵션 변경
     fun changeOption(bundle: Bundle){
-        var position = bundle.getInt("position")
-        var basketHotOrIce = bundle.getString("basketHotOrIce")
-        var basketSize = bundle.getString("basketSize")
-        var basketCup = bundle.getString("basketCup")
-        var basketShotNum = bundle.getString("basketShotNum")
-        var basketSyrupNum = bundle.getString("basketSyrupNum")
-        var optionChangCost = bundle.getString("optionChangCost")?.toInt()
-        var newMenuCost = (basketList[position].getString("basketMenuCost")?.toInt()?.plus(optionChangCost!!)).toString()
-        var newTotalCost = (basketList[position].getString( "basketMenuNum")?.toInt()?.times(newMenuCost.toInt())).toString()
+        val position = bundle.getInt("position")
+        val basketHotOrIce = bundle.getString("basketHotOrIce")
+        val basketSize = bundle.getString("basketSize")
+        val basketCup = bundle.getString("basketCup")
+        val basketShotNum = bundle.getString("basketShotNum")
+        val basketSyrupNum = bundle.getString("basketSyrupNum")
+        val optionChangCost = bundle.getString("optionChangCost")?.toInt()
+        val newMenuCost = (basketList[position].getString("basketMenuCost")?.toInt()?.plus(optionChangCost!!)).toString()
+        val newTotalCost = (basketList[position].getString( "basketMenuNum")?.toInt()?.times(newMenuCost.toInt())).toString()
         basketList[position].putString(
             "basketHotOrIce",basketHotOrIce
         )

@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var  basketService: BasketService
     var notificationFlag = false
     var orderStorage : ArrayList<Bundle> = arrayListOf() // 주문번호, 주문시간, 장바구니정보 3
-    var orderNumber = 1
     lateinit var connection : ServiceConnection
     lateinit var databaseHelper: DatabaseHelper
     lateinit var databaseControl: DatabaseControl

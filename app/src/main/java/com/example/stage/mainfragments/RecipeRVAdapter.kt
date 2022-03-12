@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
 
 
-class RecipeRVAdapter (var context: Context, var basketList: ArrayList<Bundle>):
+class RecipeRVAdapter (var context: Context, var basketList: ArrayList<ArrayList<String>>):
     RecyclerView.Adapter<RecipeRVAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeRVAdapter.Holder {
@@ -19,7 +19,7 @@ class RecipeRVAdapter (var context: Context, var basketList: ArrayList<Bundle>):
     }
 
     override fun onBindViewHolder(holder: RecipeRVAdapter.Holder, position: Int) {
-        holder.bind(basketList,position)
+        holder.bind(basketList[position])
     }
 
     override fun getItemCount(): Int {
@@ -34,11 +34,11 @@ class RecipeRVAdapter (var context: Context, var basketList: ArrayList<Bundle>):
         var recipeMenuCost = itemView?.findViewById<TextView>(R.id.recipe_menu_cost)
         var recipeTotalCost = itemView?.findViewById<TextView>(R.id.recipe_menu_totalcost)
 
-        fun bind(basketList: ArrayList<Bundle>, position: Int) {
-            recipeMenuName?.text = basketList[position].getString("basketName")
-            recipeMenuNum?.text = basketList[position].getString("basketMenuNum")
-            recipeMenuCost?.text = basketList[position].getString("basketMenuCost")
-            recipeTotalCost?.text = basketList[position].getString("basketTotalCost")
+        fun bind(basketList: ArrayList<String>) {
+            recipeMenuName?.text = basketList[1]
+            recipeMenuNum?.text = basketList[3]
+            recipeMenuCost?.text = basketList[2]
+            recipeTotalCost?.text = (basketList[2].toInt() * basketList[3].toInt()).toString()
         }
     }
 }

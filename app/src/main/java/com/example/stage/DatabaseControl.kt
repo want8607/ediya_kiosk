@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.util.Log
 
 class DatabaseControl{
-    //[[condition,value],[condition,value],[condition,value],[condition,value]]
+    //[[condition,value],[TEXT,condition,value]]
     fun readData(database: SQLiteDatabase,table:String, value:ArrayList<ArrayList<String>>): ArrayList<ArrayList<String>> {
 
         var sql = if(value.isNullOrEmpty()){
@@ -29,7 +29,14 @@ class DatabaseControl{
         while (result.moveToNext()) {
             val row = arrayListOf<String>()
             for(j in 0..columnSize){
-                row.add(result.getString(j))
+                var type = result.getType(j)
+                if(type == Cursor.FIELD_TYPE_INTEGER){
+                    row.add(result.getInt(j).toString())
+                }else if(type == Cursor.FIELD_TYPE_STRING){
+                    row.add(result.getString(j))
+                }else if(type == Cursor.FIELD_TYPE_FLOAT){
+                    row.add(result.getFloat(j).toString())
+                }
             }
             dataList.add(row)
         }
@@ -37,9 +44,31 @@ class DatabaseControl{
         Log.d("message",dataList.toString())
         return dataList
     }
+//    [[menuname,"아메리카노","TEXT"],[menuCost,3500,"INTEGER"]]
+    fun createData(database: SQLiteDatabase, table:String, value: ArrayList<ArrayList<String>>){
+        var sql = "INSERT INTO $table("
 
-    fun createData(database: SQLiteDatabase, table:String, id: String, pw: String){
-        val sql = "INSERT INTO $table('id','pw') VALUES('${id}','${pw}')"
+        for( i in value.indices){
+            sql += value[i][0]
+            if(i != value.size-1){
+                sql+=","
+            }
+        }
+        sql += ") VALUES ("
+
+        for( j in value.indices){
+            if(value[j][2]=="TEXT"){
+                sql += "'${value[j][1]}'"
+            }else if(value[j][2]=="INTEGER"){
+                sql += value[j][1]
+            }
+
+            if(j != value.size-1){
+                sql+=","
+            }
+        }
+        sql +=")"
+
         database.execSQL(sql)
     }
 

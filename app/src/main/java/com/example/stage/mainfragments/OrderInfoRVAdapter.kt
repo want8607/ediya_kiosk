@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
 import com.example.stage.mainInterface.OrderInfoItemClick
 
-class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<Bundle>, var orderInfoItemClick: OrderInfoItemClick):
+class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<ArrayList<String>>, var orderInfoItemClick: OrderInfoItemClick):
     RecyclerView.Adapter<OrderInfoRVAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderInfoRVAdapter.Holder {
@@ -20,7 +20,7 @@ class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<Bundle>
     }
 
     override fun onBindViewHolder(holder: OrderInfoRVAdapter.Holder, position: Int) {
-        holder.bind(orderInfo,position)
+        holder.bind(orderInfo[position])
     }
 
     override fun getItemCount(): Int {
@@ -33,11 +33,11 @@ class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<Bundle>
         var orderInfoNum = itemView?.findViewById<TextView>(R.id.order_info_order_num)
         var orderInfoDate = itemView?.findViewById<TextView>(R.id.order_info_date)
         var orderInfoItem = itemView?.findViewById<ConstraintLayout>(R.id.order_info_item)
-        fun bind(orderInfo: ArrayList<Bundle>, position: Int) {
-            orderInfoNum?.text = (orderInfo[position].getInt("orderNumber").toString()+" "+context.getString(R.string.order_history_comment)+"\n"+context.getString(R.string.order_history_comment2))
-            orderInfoDate?.text = orderInfo[position].getString("paymentTime")
+        fun bind(orderInfo: ArrayList<String>) {
+            orderInfoNum?.text = (orderInfo[0]+" "+context.getString(R.string.order_history_comment)+"\n"+context.getString(R.string.order_history_comment2))
+            orderInfoDate?.text = orderInfo[2]
             orderInfoItem?.setOnClickListener {
-                orderInfoItemClick.onclick(RecipeDialogFragment(),position)
+                orderInfoItemClick.onclick(RecipeDialogFragment(),orderInfo[0].toInt())
             }
         }
     }

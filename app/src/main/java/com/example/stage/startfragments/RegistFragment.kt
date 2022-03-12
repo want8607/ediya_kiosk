@@ -62,7 +62,7 @@ class RegistFragment: Fragment() {
         //회원가입 버튼
         registBtn.setOnClickListener{
             var text = ""
-            var value = arrayListOf<ArrayList<String>>(
+            var value = arrayListOf(
                 arrayListOf("id",registInputId.text.toString())
             )
             //비번 입력 오류
@@ -74,8 +74,11 @@ class RegistFragment: Fragment() {
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }else {
                 //데이터 베이스에 등록
+                val data = arrayListOf(
+                    arrayListOf("id",registInputId.text.toString(),"TEXT"),
+                    arrayListOf("pw",registInputPwd.text.toString(),"TEXT"))
                 startActivity.databaseControl.createData(
-                    startActivity.writableDb,"account",registInputId.text.toString(),registInputPwd.text.toString()
+                    startActivity.writableDb,"account",data
                 )
                 startBackBtn.visibility = View.INVISIBLE
                 transaction.remove(this ).commit()

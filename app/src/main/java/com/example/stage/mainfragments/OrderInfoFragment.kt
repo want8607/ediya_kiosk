@@ -16,14 +16,18 @@ import kotlin.math.log
 
 class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     lateinit var mainActivity: MainActivity
-    lateinit var orderStorage: ArrayList<Bundle> //[bundle]->"orderList"parcelable/"totalCost"Int/"paymentTime"String/"orderNumber"Int
+    lateinit var orderStorage: ArrayList<ArrayList<String>>
     lateinit var orderInfoRecyclerView: RecyclerView
     lateinit var orderInfoRVAdapter: OrderInfoRVAdapter
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
-        orderStorage = arguments?.getParcelableArrayList("orderStorage")!! //4
+        orderStorage = mainActivity.databaseControl.readData(mainActivity.readableDb,"orders",
+            arrayListOf(
+                arrayListOf("id",mainActivity.userId),
+            )
+        )
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -46,15 +50,11 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
         }
     }
 
-    override fun onclick(fragment: RecipeDialogFragment,position:Int) {
-        var recipeDialog = fragment
+    override fun onclick(fragment: RecipeDialogFragment,seq:Int) {
         var bundle = Bundle()
-        var basketList : ArrayList<Bundle> = orderStorage[position].getParcelableArrayList("orderList")!!
-        bundle.putParcelableArrayList("basketList",basketList)
-        bundle.putInt("orderNumber",orderStorage[position].getInt("orderNumber"))
-        bundle.putInt("totalCost",orderStorage[position].getInt("totalCost"))
+        bundle.putInt("seq",seq)
         bundle.putString("flag","orderInfo")//ok
-        recipeDialog.arguments = bundle
-        recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
+        fragment.arguments = bundle
+        fragment.show(mainActivity.supportFragmentManager,"recipeDialog")
     }
 }

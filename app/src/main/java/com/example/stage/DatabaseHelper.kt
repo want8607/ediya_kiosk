@@ -12,13 +12,13 @@ class DatabaseHelper(context: Context?, name: String, factory: SQLiteDatabase.Cu
 
         var accountSql = "CREATE TABLE IF NOT EXISTS account(id TEXT PRIMARY KEY, pw TEXT)"
         database.execSQL(accountSql)
-        var categorySql = "CREATE TABLE IF NOT EXISTS category(categoryName TEXT PRIMARY KEY, categoryEnglishName TEXT, photo TEXT)"
+        var categorySql = "CREATE TABLE IF NOT EXISTS category(drinkOrBakery TEXT,categoryName TEXT PRIMARY KEY, categoryEnglishName TEXT, photo TEXT)"
         database.execSQL(categorySql)
-        var menuSql = "CREATE TABLE IF NOT EXISTS menu(categoryName TEXT, menuName TEXT ,menuEnglishName TEXT, photo TEXT)"
+        var menuSql = "CREATE TABLE IF NOT EXISTS menu(categoryName TEXT, menuName TEXT ,menuEnglishName TEXT,cost INTEGER, photo TEXT)"
         database.execSQL(menuSql)
-        var ordersSql = "CREATE TABLE IF NOT EXISTS orders(seq INTEGER PRIMARY KEY , id TEXT,orderNumber INT, orderTime TEXT)"
+        var ordersSql = "CREATE TABLE IF NOT EXISTS orders(seq INTEGER PRIMARY KEY AUTOINCREMENT, id TEXT, orderTime TEXT)"
         database.execSQL(ordersSql)
-        var orderMenusSql = "CREATE TABLE IF NOT EXISTS orderMenus(seq INTEGER, menuName TEXT,menuCost INT, menuNum INT)"
+        var orderMenusSql = "CREATE TABLE IF NOT EXISTS orderMenus(seq INTEGER, menuName TEXT,menuCost INTEGER, menuNum INTEGER)"
         database.execSQL(orderMenusSql)
     }
 
