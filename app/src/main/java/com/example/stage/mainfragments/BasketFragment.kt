@@ -10,12 +10,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
-import com.example.stage.mainInterface.OnItemClick
+import com.example.stage.mainfragments.mainInterface.OnItemClick
+import com.example.stage.mainfragments.mainRVAdapter.BasketRVAdapter
 import kotlin.properties.Delegates
 
 class BasketFragment: Fragment(), OnItemClick {
@@ -84,12 +86,8 @@ class BasketFragment: Fragment(), OnItemClick {
                 paymentFragment.arguments = bundle
                 mainActivity.addFragment(paymentFragment,"payment")
             }else{
-                val builder = AlertDialog.Builder(activity)
-                builder.setCancelable(false)
-                builder.setMessage("메뉴를 담아주세요.")
-                    .setPositiveButton("확인") { _, _ ->
-                    }
-                builder.show()
+                var text = getString(R.string.toast_add_menu)
+                Toast.makeText(mainActivity, text, Toast.LENGTH_SHORT).show()
             }
         }
     }

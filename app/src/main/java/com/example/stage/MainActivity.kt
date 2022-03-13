@@ -6,25 +6,21 @@ import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
 import android.database.sqlite.SQLiteDatabase
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
-import android.os.Parcelable
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.preference.Preference
 import androidx.preference.PreferenceManager
+import com.example.stage.database.DatabaseControl
+import com.example.stage.database.DatabaseHelper
 import com.example.stage.mainfragments.BasketFragment
 import com.example.stage.mainfragments.CategoryFragment
-import com.example.stage.mainfragments.OrderInfoFragment
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var loginFlag : String
     lateinit var settingFlag :String
     lateinit var localeHelper: LocaleHelper
+    lateinit var applang : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginFlag = "false"
@@ -105,6 +102,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         Log.d("message", "액티비티 onStart")
     }
+
     override fun onRestart() {
         super.onRestart()
         if(basketService.notificationFlag=="true") {
@@ -133,12 +131,12 @@ class MainActivity : AppCompatActivity() {
         var pref = newBase.getSharedPreferences("com.example.stage_preferences",MODE_PRIVATE)
         var lang = pref.getString("app_language","ko")!!
         localeHelper = LocaleHelper()
-        Log.d("시작",lang)
         if(lang.equals("Korean") || lang.equals("한국어")){
-            Log.d("시작","ㅇ")
             super.attachBaseContext(localeHelper.updateLocale(newBase,"ko"))
+            applang = "ko"
         }else{
             super.attachBaseContext(localeHelper.updateLocale(newBase,"en"))
+            applang = "en"
         }
     }
 }

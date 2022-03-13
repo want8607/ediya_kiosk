@@ -1,4 +1,4 @@
-package com.example.stage
+package com.example.stage.database
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase

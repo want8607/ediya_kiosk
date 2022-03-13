@@ -1,7 +1,6 @@
-package com.example.stage.mainfragments
+package com.example.stage.mainfragments.mainRVAdapter
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,17 +8,18 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
-import com.example.stage.mainInterface.OrderInfoItemClick
+import com.example.stage.mainfragments.mainInterface.OrderInfoItemClick
+import com.example.stage.mainfragments.maindialog.RecipeDialogFragment
 
 class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<ArrayList<String>>, var orderInfoItemClick: OrderInfoItemClick):
     RecyclerView.Adapter<OrderInfoRVAdapter.Holder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderInfoRVAdapter.Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.order_info_view_item, parent, false)
         return Holder(view)
     }
 
-    override fun onBindViewHolder(holder: OrderInfoRVAdapter.Holder, position: Int) {
+    override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(orderInfo[position])
     }
 

@@ -1,4 +1,4 @@
-package com.example.stage.mainfragments
+package com.example.stage.mainfragments.mainRVAdapter
 
 import android.content.Context
 import android.os.Bundle
@@ -13,12 +13,12 @@ import com.example.stage.R
 class PaymentRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
     RecyclerView.Adapter<PaymentRVAdapter.Holder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentRVAdapter.Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.payment_recycler_view_item, parent, false)
         return Holder(view)
     }
 
-    override fun onBindViewHolder(holder: PaymentRVAdapter.Holder, position: Int) {
+    override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(basketList,position)
     }
 

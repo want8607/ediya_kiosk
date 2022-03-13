@@ -1,17 +1,18 @@
-package com.example.stage.mainfragments
+package com.example.stage.mainfragments.mainRVAdapter
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
-import com.example.stage.mainInterface.OnItemClick
+import com.example.stage.mainfragments.mainInterface.OnItemClick
+import com.example.stage.mainfragments.maindialog.BasketOptionDialogFragment
+import com.example.stage.mainfragments.BasketFragment
 import java.lang.Integer.parseInt
 
 class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, var onItemClick: OnItemClick, var basketFragment: BasketFragment):

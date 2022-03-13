@@ -1,4 +1,4 @@
-package com.example.stage.mainfragments
+package com.example.stage.mainfragments.maindialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.mainfragments.BasketFragment
 
 class BasketOptionDialogFragment(var basketFragment: BasketFragment): DialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

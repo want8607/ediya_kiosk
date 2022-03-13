@@ -1,4 +1,4 @@
-package com.example.stage.mainfragments
+package com.example.stage.mainfragments.mainRVAdapter
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.mainfragments.MenuFragment
 
 class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList<String>>):
 
@@ -53,12 +54,16 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList
             itemView.setOnClickListener {
                 // 아이템 위치를 전달
                 var bundle = Bundle()
+                var mainActivity = context as MainActivity
                 var menuFragment = MenuFragment()
                 bundle.putInt("title",position)
                 bundle.putBoolean("isChecked",isChecked)
-                bundle.putString("categoryName",category[position][1])
+                if(mainActivity.applang == "ko") {
+                    bundle.putString("categoryName", category[position][1])
+                }else if (mainActivity.applang == "en"){
+                    bundle.putString("categoryName", category[position][2])
+                }
                 menuFragment.arguments = bundle
-                var mainActivity = context as MainActivity
                 mainActivity.addFragment(menuFragment,"menu")
             }
         }

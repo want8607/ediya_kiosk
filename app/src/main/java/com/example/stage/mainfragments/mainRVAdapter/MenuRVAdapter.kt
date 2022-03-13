@@ -1,4 +1,4 @@
-package com.example.stage.mainfragments
+package com.example.stage.mainfragments.mainRVAdapter
 
 import android.content.Context
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.mainfragments.SelectMenuFragment
 
 class MenuRVAdapter(var context: Context, var menuList : ArrayList<ArrayList<String>>) :
     RecyclerView.Adapter<MenuRVAdapter.Holder>() {

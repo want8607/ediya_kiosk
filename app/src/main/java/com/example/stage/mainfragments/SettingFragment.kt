@@ -50,30 +50,16 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
         mainActivity.settingFlag = "true"
         when(sharedPreferences.getString(key,"")){
             //다크모드설정
-            "기본 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                Log.d("app_mode","기본 모드")}
-            "다크 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                Log.d("app_mode","다크 모드")}
-            "시스템 기본값"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                Log.d("app_mode","시스템 기본값")}
-            "Light Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                Log.d("app_mode","기본 모드")}
-            "Dark Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                Log.d("app_mode","다크 모드")}
-            "System Default"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                Log.d("app_mode","시스템 기본값")}
-            "한국어" ->{
-                mainActivity.recreate()
-                Log.d("app_language","한국어")}
-            "영어" ->{
-                mainActivity.recreate()
-                Log.d("app_language","영어")}
-            "Korean" ->{
-                mainActivity.recreate()
-                Log.d("app_language","ko")}
-            "English" ->{
-                mainActivity.recreate()
-                Log.d("app_language","en")}
+            "기본 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
+            "다크 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)}
+            "시스템 기본값"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)}
+            "Light Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
+            "Dark Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)}
+            "System Default"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)}
+            "한국어" ->{mainActivity.recreate()}
+            "영어" ->{mainActivity.recreate()}
+            "Korean" ->{mainActivity.recreate()}
+            "English" ->{mainActivity.recreate()}
         }
     }
 
@@ -85,14 +71,6 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
     override fun onPause() {
         super.onPause()
         preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
-    }
-
-    fun setLocale(lang:String){
-        var locale = Locale(lang)
-        Locale.setDefault(locale)
-        var configuration : Configuration = resources.configuration
-        configuration.setLocale(locale)
-        context?.createConfigurationContext(configuration)
     }
 
 }

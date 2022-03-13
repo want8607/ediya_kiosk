@@ -52,4 +52,20 @@
         <item>Korean</item>
         <item>English</item>
     </string-array>
+    <string name="setting_mode">Dark mode setting</string>
+    <string name="setting_lang">Language setting</string>
+    <string name="setting">Setting</string>
+    <string name="toast_basket">Items have been added to the shopping cart.</string>
+    <string name="toast_login_error">Please enter your ID,password again.</string>
+    <string name="toast_put_id_on">Please enter your ID.</string>
+    <string name="toast_available_id">ID is available.</string>
+    <string name="toast_not_available_id">This ID is already taken.</string>
+    <string name="toast_put_pw_on">" Please enter a password."</string>
+    <string name="toast_check_pw">" Please confirm your password again."</string>
+    <string name="toast_check_id">Please re-enter your ID.</string>
+    <string name="toast_complete_regist">Membership registration completed</string>
+    <string name="popup_menu_order_history">Order Histroy</string>
+    <string name="popup_menu_setting">Setting</string>
+    <string name="popup_menu_logout">Logout</string>
+    <string name="toast_add_menu">Please add a menu.</string>
 </resources>

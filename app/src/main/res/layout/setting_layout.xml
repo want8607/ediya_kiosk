@@ -15,7 +15,7 @@
         android:paddingTop="30dp"
         android:paddingBottom="30dp"
         android:textColor="@color/main_text_color"
-        android:text="설정"
+        android:text="@string/setting"
         android:textAlignment="center"
         android:textSize="27sp"
         app:layout_constraintEnd_toEndOf="parent"

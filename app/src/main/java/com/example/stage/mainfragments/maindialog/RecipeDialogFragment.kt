@@ -1,9 +1,8 @@
-package com.example.stage.mainfragments
+package com.example.stage.mainfragments.maindialog
 
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.view.WindowManager
 import android.widget.ImageButton
@@ -12,6 +11,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.mainfragments.mainRVAdapter.RecipeRVAdapter
 
 
 class RecipeDialogFragment: DialogFragment() {

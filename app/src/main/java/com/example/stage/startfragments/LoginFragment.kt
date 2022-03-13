@@ -1,9 +1,6 @@
 package com.example.stage.startfragments
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,7 +54,7 @@ class LoginFragment: Fragment() {
                 startActivity(intent)
                 startActivity.finish()
             }else{
-                var text = "아이디 비밀번호를 다시 입력하세요."
+                var text = getString(R.string.toast_login_error)
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }
         }

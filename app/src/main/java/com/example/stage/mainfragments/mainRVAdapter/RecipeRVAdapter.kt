@@ -1,7 +1,6 @@
-package com.example.stage.mainfragments
+package com.example.stage.mainfragments.mainRVAdapter
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +12,12 @@ import com.example.stage.R
 class RecipeRVAdapter (var context: Context, var basketList: ArrayList<ArrayList<String>>):
     RecyclerView.Adapter<RecipeRVAdapter.Holder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeRVAdapter.Holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.recipe_recycler_view_item, parent, false)
         return Holder(view)
     }
 
-    override fun onBindViewHolder(holder: RecipeRVAdapter.Holder, position: Int) {
+    override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(basketList[position])
     }
 

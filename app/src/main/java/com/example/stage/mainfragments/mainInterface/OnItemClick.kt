@@ -1,4 +1,4 @@
-package com.example.stage.mainInterface
+package com.example.stage.mainfragments.mainInterface
 
 import androidx.fragment.app.DialogFragment
 

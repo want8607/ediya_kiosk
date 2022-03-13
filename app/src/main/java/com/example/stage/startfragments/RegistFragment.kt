@@ -1,8 +1,5 @@
 package com.example.stage.startfragments
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,13 +45,13 @@ class RegistFragment: Fragment() {
                 arrayListOf("id",registInputId.text.toString())
             )
             if (registInputId.text.toString()==""){
-                text = "아이디를 입력해 주세요."
+                text = getString(R.string.toast_put_id_on)
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }else if(startActivity.databaseControl.readData(startActivity.readableDb,"account",value).size == 0){
-                text = "사용가능한 아이디 입니다."
+                text = getString(R.string.toast_available_id)
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }else{
-                text = "이미 사용중인 아이디 입니다."
+                text = getString(R.string.toast_not_available_id)
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }
         }
@@ -67,13 +64,13 @@ class RegistFragment: Fragment() {
             )
             //비번 입력 오류
             if(registInputPwd.text.isBlank()){
-                text = "비밀번호를 입력해 주세요."
+                text = getString(R.string.toast_put_pw_on)
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }else if(!(registInputPwd.text.toString()).equals(registReInputPwd.text.toString())){
-                text = "비밀번호 확인을 다시해 주세요."
+                text = getString(R.string.toast_check_pw)
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }else if(startActivity.databaseControl.readData(startActivity.readableDb,"account",value).size != 0){
-                text = "아이디를 다시 입력해 주세요."
+                text = getString(R.string.toast_check_id)
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }else {
                 //데이터 베이스에 등록
@@ -86,7 +83,7 @@ class RegistFragment: Fragment() {
                 startBackBtn.visibility = View.INVISIBLE
                 transaction.remove(this ).commit()
                 parentFragmentManager.popBackStack("regist", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                text = "회원가입 완료"
+                text = getString(R.string.toast_complete_regist)
                 Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
             }
         }

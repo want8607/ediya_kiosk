@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
+import com.example.stage.database.DatabaseControl
+import com.example.stage.database.DatabaseHelper
 import com.example.stage.startfragments.StartFragment
 
 

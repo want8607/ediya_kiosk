@@ -2,9 +2,7 @@ package com.example.stage.mainfragments
 
 import android.content.Context
 import android.content.Intent
-import android.content.Intent.*
 import android.os.Bundle
-import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.StartActivity
+import com.example.stage.mainfragments.mainRVAdapter.CategoryRVAdapter
 
 class CategoryFragment : Fragment(){
     lateinit var mainActivity: MainActivity

@@ -2,7 +2,6 @@ package com.example.stage.mainfragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.mainfragments.mainRVAdapter.PaymentRVAdapter
+import com.example.stage.mainfragments.maindialog.RecipeDialogFragment
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.mainfragments.mainRVAdapter.MenuRVAdapter
 
 class MenuFragment : Fragment(){
     lateinit var mainActivity : MainActivity
