@@ -52,6 +52,7 @@
         <item>Korean</item>
         <item>English</item>
     </string-array>
+
     <string name="setting_mode">Dark mode setting</string>
     <string name="setting_lang">Language setting</string>
     <string name="setting">Setting</string>

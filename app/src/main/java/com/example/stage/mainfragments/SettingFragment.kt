@@ -24,11 +24,6 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.setting, rootKey)
-        var appModePref = findPreference<ListPreference>("app_mode")
-        var appLanguagePref = findPreference<ListPreference>("app_language")
-
-        appModePref?.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
-        appLanguagePref?.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = super.onCreateView(inflater, container, savedInstanceState)
@@ -38,7 +33,7 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        writeSummary()
         //뒤로가기
         var settingBackBtn = view.findViewById<ImageButton>(R.id.setting_back_button)
         settingBackBtn.setOnClickListener {
@@ -48,18 +43,52 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
         mainActivity.settingFlag = "true"
+        val pref = PreferenceManager.getDefaultSharedPreferences(mainActivity)
+        val edit = pref.edit()
+        //다크모드 설정
+        if(AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_NO){
+            when(sharedPreferences.getString(key,"")){
+                "기본 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
+                "Light Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
+            }
+        }else if(AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_YES){
+            when(sharedPreferences.getString(key,"")){
+                "Dark Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)}
+                "다크 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)}
+            }
+        }else if(AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM){
+            when(sharedPreferences.getString(key,"")){
+                "시스템 기본값"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)}
+                "System Default"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)}
+            }
+        }
         when(sharedPreferences.getString(key,"")){
-            //다크모드설정
-            "기본 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
-            "다크 모드" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)}
-            "시스템 기본값"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)}
-            "Light Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)}
-            "Dark Mode" ->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)}
-            "System Default"->{AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)}
-            "한국어" ->{mainActivity.recreate()}
-            "영어" ->{mainActivity.recreate()}
-            "Korean" ->{mainActivity.recreate()}
-            "English" ->{mainActivity.recreate()}
+            //언어 설정
+            "영어" ->{
+                if(pref.getString("app_mode","") == "기본 모드"){
+                    edit.putString("app_mode","Light Mode").apply()
+                }else if(pref.getString("app_mode","") == "다크 모드"){
+                    edit.putString("app_mode","Dark Mode").apply()
+                }else if(pref.getString("app_mode","") == "시스템 기본값"){
+                    edit.putString("app_mode","System Default").apply()
+                }
+                edit.putString(key,"English").apply()
+                mainActivity.recreate()
+                writeSummary()
+
+            }
+            "Korean" ->{
+                if(pref.getString("app_mode","") == "Light Mode"){
+                    edit.putString("app_mode","기본 모드").apply()
+                }else if(pref.getString("app_mode","") == "Dark Mode"){
+                    edit.putString("app_mode","다크 모드").apply()
+                }else if(pref.getString("app_mode","") == "System Default"){
+                    edit.putString("app_mode","시스템 기본값").apply()
+                }
+                edit.putString(key,"한국어").apply()
+                mainActivity.recreate()
+                writeSummary()
+            }
         }
     }
 
@@ -73,4 +102,11 @@ class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPre
         preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
     }
 
+    fun writeSummary(){
+        var appModePref = findPreference<ListPreference>("app_mode")
+        var appLanguagePref = findPreference<ListPreference>("app_language")
+        appModePref?.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
+        appLanguagePref?.summaryProvider = ListPreference.SimpleSummaryProvider.getInstance()
+//
+    }
 }
