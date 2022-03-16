@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.mainfragments.SelectMenuFragment
@@ -43,7 +44,9 @@ class MenuRVAdapter(var context: Context, var menuList : ArrayList<ArrayList<Str
             menuEnglishName?.text = menu[position][2]
             menuCost?.text = menu[position][3]
             var resourceId = context.resources.getIdentifier(menu[position][4], "drawable", context.packageName)
-            menuImg?.setImageResource(resourceId)
+            Glide.with(context)
+                .load(resourceId)
+                .into(menuImg!!)
             itemView.setOnClickListener {
                 var mainActivity = context as MainActivity
                 var selectMenuFragment = SelectMenuFragment()

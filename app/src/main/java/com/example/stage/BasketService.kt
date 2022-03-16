@@ -53,7 +53,6 @@ class BasketService :Service() {
             val channel = NotificationChannel(channelId, name, importance).apply {
                 description = descriptionText
             }
-
             notificationManager= getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
     }
@@ -94,7 +93,6 @@ class BasketService :Service() {
     override fun onUnbind(intent: Intent?): Boolean {
         Log.d("service","onUnbind")
         stopForeground(STOP_FOREGROUND_REMOVE)
-        stopSelf()
         return super.onUnbind(intent)
     }
 
@@ -115,4 +113,5 @@ class BasketService :Service() {
         Log.d("service","onDestroy")
         super.onDestroy()
     }
+
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.mainfragments.MenuFragment
@@ -49,8 +50,9 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList
             categoryName?.text = category[position][1]
             categoryEnglishName?.text = category[position][2]
             val resourceId = context.resources.getIdentifier(category[position][3], "drawable", context.packageName)
-            categoryImg?.setImageResource(resourceId)
-
+            Glide.with(context)
+                .load(resourceId)
+                .into(categoryImg!!)
             itemView.setOnClickListener {
                 // 아이템 위치를 전달
                 var bundle = Bundle()

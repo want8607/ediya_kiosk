@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
@@ -36,10 +37,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var settingFlag :String
     lateinit var localeHelper: LocaleHelper
     lateinit var applang : String
+    lateinit var appMode : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginFlag = "false"
         settingFlag = "false"
+
         //db설정
         userId = intent.getStringExtra("id").toString()
         databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
@@ -53,8 +57,8 @@ class MainActivity : AppCompatActivity() {
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.statusBarColor = getColor(R.color.title_background_color)
+
         //상태바 설정
-        var sharedPrf = PreferenceManager.getDefaultSharedPreferences(this)
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
             WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = true
         }else if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
@@ -65,8 +69,9 @@ class MainActivity : AppCompatActivity() {
         //초기 프래그먼트 설정
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().replace(R.id.mainpage_fragment_container_view,CategoryFragment()).commit()
-            //서비스 연결
         }
+
+        //서비스 연결
         connection = object : ServiceConnection{
 
                 override fun onServiceConnected(className: ComponentName?, service: IBinder?) {
@@ -76,9 +81,9 @@ class MainActivity : AppCompatActivity() {
                 override fun onServiceDisconnected(p0: ComponentName?) {
                 }
             }
-            Intent(this, BasketService::class.java).also { intent ->
-                bindService(intent, connection, BIND_AUTO_CREATE)
-            }
+        Intent(this, BasketService::class.java).also { intent ->
+            bindService(intent, connection, BIND_AUTO_CREATE)
+        }
     }
 
     fun openBasket(){
@@ -127,8 +132,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        var pref = newBase.getSharedPreferences("com.example.stage_preferences",MODE_PRIVATE)
-        var lang = pref.getString("app_language","ko")!!
+        var pref = PreferenceManager.getDefaultSharedPreferences(newBase)
+        var lang = pref.getString("app_language","한국어")
+        var mode = pref.getString("app_mode","기본 모드")
+        Log.d("dd",lang!!)
         localeHelper = LocaleHelper()
         if(lang.equals("Korean") || lang.equals("한국어")){
             super.attachBaseContext(localeHelper.updateLocale(newBase,"ko"))
@@ -137,5 +144,14 @@ class MainActivity : AppCompatActivity() {
             super.attachBaseContext(localeHelper.updateLocale(newBase,"en"))
             applang = "en"
         }
+
+        if(mode.equals("기본 모드") || mode.equals("Light Mode")){
+            appMode = "기본 모드"
+        }else if(mode.equals("다크 모드") || mode.equals("Dark Mode")){
+            appMode = "다크 모드"
+        }else{
+            appMode = "시스템 기본값"
+        }
+
     }
 }
