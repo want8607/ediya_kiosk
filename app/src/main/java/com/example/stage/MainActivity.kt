@@ -124,7 +124,6 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d("message","액티비티 onDestroy")
-        unbindService(connection)
     }
 
     override fun attachBaseContext(newBase: Context) {

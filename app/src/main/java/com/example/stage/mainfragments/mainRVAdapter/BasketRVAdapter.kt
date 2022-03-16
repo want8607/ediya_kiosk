@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
 import com.example.stage.mainfragments.mainInterface.OnItemClick
@@ -45,15 +46,50 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
         var basketMenuMinusBtn = itemView?.findViewById<ImageButton>(R.id.basket_menu_minus_button)
         var basketMenuPlusBtn = itemView?.findViewById<ImageButton>(R.id.basket_menu_plus_button)
         var basketSelectDeleteBtn = itemView?.findViewById<ImageButton>(R.id.basket_select_delete_button)
+
+        fun changeOptionBtnLan(basketList: Bundle): String {
+            var pref = PreferenceManager.getDefaultSharedPreferences(context)
+            var appLang = pref.getString("app_language","")
+
+            if(appLang.equals("영어") || appLang.equals("English")){
+                var cup = ""
+                when(basketList.getString("basketCup")) {
+                    "매장컵"->{cup = "Store"}
+                    "일회용컵" ->{cup = "Disposable"}
+                    "개인컵"->{cup = "Personal"}
+                }
+                return "${basketList.getString("basketHotOrIce")} | " +
+                        "${basketList.getString("basketSize")} | " +
+                        "${cup}\n" +
+                        "Shot${basketList.getString("basketShotNum")} | " +
+                        "Syrup${basketList.getString("basketSyrupNum")}"
+            }else{
+                var hotOrIce = ""
+                var size =""
+                when(basketList.getString("basketHotOrIce")){
+                    "Hot"->{hotOrIce = "뜨거운"}
+                    "Ice"->{hotOrIce = "차가운"}
+                }
+                when(basketList.getString("basketSize")){
+                    "Tall"->{size = "작은"}
+                    "Venti"->{size = "중간"}
+                    "Grande"->{size = "큰"}
+                }
+
+
+                return "$hotOrIce | " +
+                        "$size | " +
+                        "${basketList.getString("basketCup")}\n" +
+                        "샷${basketList.getString("basketShotNum")} | " +
+                        "시럽${basketList.getString("basketSyrupNum")}"
+            }
+
+        }
+
         fun bind (basketList: Bundle){
             basketName?.text = basketList.getString("basketName")
             basketEnglishName?.text = basketList.getString("basketEnglishName")
-            var optionText = "${basketList.getString("basketHotOrIce")} | " +
-                    "${basketList.getString("basketSize")} | " +
-                    "${basketList.getString("basketCup")}\n" +
-                    "샷${basketList.getString("basketShotNum")} | " +
-                    "시럽${basketList.getString("basketSyrupNum")}"
-            basketOptions?.text = optionText
+            basketOptions?.text = changeOptionBtnLan(basketList)
             basketMenuNum?.text = basketList.getString("basketMenuNum")
             basketMenuCost?.text = basketList.getString("basketMenuCost")
             basketTotalCost?.text = basketList.getString("basketTotalCost")
