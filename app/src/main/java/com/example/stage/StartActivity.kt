@@ -11,7 +11,6 @@ import com.example.stage.database.DatabaseControl
 import com.example.stage.database.DatabaseHelper
 import com.example.stage.startfragments.StartFragment
 
-
 class StartActivity : AppCompatActivity() {
     lateinit var readableDb: SQLiteDatabase
     lateinit var writableDb: SQLiteDatabase
@@ -20,6 +19,7 @@ class StartActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("message", "onCreate")
         //db설정
         val databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
         readableDb = databaseHelper.readableDatabase
