@@ -1,8 +1,6 @@
 package com.example.stage.mainfragments
 
-import android.content.Context
 import android.content.SharedPreferences
-import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -12,12 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.ListPreference
-import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.example.stage.MainActivity
 import com.example.stage.R
-import java.util.*
 
 class SettingFragment : PreferenceFragmentCompat(),SharedPreferences.OnSharedPreferenceChangeListener {
 

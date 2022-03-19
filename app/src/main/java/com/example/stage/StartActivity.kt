@@ -1,30 +1,35 @@
 package com.example.stage
 
 import android.content.Context
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
+import com.example.stage.ServerConnection.LoginApi
+import com.example.stage.ServerConnection.LoginData
+import com.example.stage.ServerConnection.RetrofitClient
 import com.example.stage.database.DatabaseControl
 import com.example.stage.database.DatabaseHelper
 import com.example.stage.startfragments.StartFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 
 class StartActivity : AppCompatActivity() {
     lateinit var readableDb: SQLiteDatabase
     lateinit var writableDb: SQLiteDatabase
     lateinit var localeHelper: LocaleHelper
     lateinit var databaseControl: DatabaseControl
+    lateinit var retrofit: Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("message", "onCreate")
-        //db설정
-        val databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
-        readableDb = databaseHelper.readableDatabase
-        writableDb = databaseHelper.writableDatabase
-        databaseControl = DatabaseControl()
+
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -33,6 +38,15 @@ class StartActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.start_fragment_container_view,
             StartFragment()
         ).commit()
+
+        //레트로핏
+        retrofit = RetrofitClient.initRetrofit()
+
+//db설정
+//        val databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
+//        readableDb = databaseHelper.readableDatabase
+//        writableDb = databaseHelper.writableDatabase
+//        databaseControl = DatabaseControl()
     }
 
     override fun attachBaseContext(newBase: Context) {
