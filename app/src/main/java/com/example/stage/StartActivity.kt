@@ -8,27 +8,22 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
-import com.example.stage.ServerConnection.LoginApi
-import com.example.stage.ServerConnection.LoginData
+import com.example.stage.ServerConnection.AccountApi
 import com.example.stage.ServerConnection.RetrofitClient
 import com.example.stage.database.DatabaseControl
-import com.example.stage.database.DatabaseHelper
 import com.example.stage.startfragments.StartFragment
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 
 class StartActivity : AppCompatActivity() {
+
     lateinit var readableDb: SQLiteDatabase
     lateinit var writableDb: SQLiteDatabase
     lateinit var localeHelper: LocaleHelper
     lateinit var databaseControl: DatabaseControl
     lateinit var retrofit: Retrofit
-
+    lateinit var requestAccountApi : AccountApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("message", "onCreate")
 
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
@@ -41,21 +36,14 @@ class StartActivity : AppCompatActivity() {
 
         //레트로핏
         retrofit = RetrofitClient.initRetrofit()
-
-//db설정
-//        val databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
-//        readableDb = databaseHelper.readableDatabase
-//        writableDb = databaseHelper.writableDatabase
-//        databaseControl = DatabaseControl()
+        requestAccountApi = retrofit.create(AccountApi::class.java)
     }
 
     override fun attachBaseContext(newBase: Context) {
         var pref = newBase.getSharedPreferences("com.example.stage_preferences",MODE_PRIVATE)
         var lang = pref.getString("app_language","Korean")!!
         localeHelper = LocaleHelper()
-        Log.d("시작",lang)
         if(lang.equals("Korean") || lang.equals("한국어")){
-            Log.d("시작","ㅇ")
             super.attachBaseContext(localeHelper.updateLocale(newBase,"ko"))
         }else{
             super.attachBaseContext(localeHelper.updateLocale(newBase,"en"))

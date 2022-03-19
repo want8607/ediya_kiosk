@@ -6,6 +6,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 //무조건 리턴값 가져야하고 객체여야함
@@ -26,12 +27,38 @@ object RetrofitClient{
     }
 }
 //받아온 데이터를 저장할 객체
-data class  RegistData(val message: String, val success: Boolean)
-data class  LoginData(val message: String, val success: Boolean)
-data class  CategoryData(val message: String, val success: Boolean, val data : List<String>)
-data class  MenuData(val message: String, val success: Boolean, val data: List<category_name<String>>)
+data class  SignUp(val message: String, val success: Boolean)
+data class  IdDuplicate(val message: String, val success: Boolean)
+data class  Login(val message: String, val success: Boolean)
+data class  Category(val message: String, val success: Boolean, val data : List<CategoryData>)
+data class  CategoryData( val category_name : String)
+data class  Menu(val message: String, val success: Boolean, val data: List<MenuData>)
+data class  MenuData(val menu_name : String, val menu_price : Int, val menu_image : String )
+data class  Order(val message: String, val success: Boolean)
+data class  OrderHistory(val message: String, val success: Boolean, val data: List<OrderHistoryData>, val total_price : Int)
+data class  OrderHistoryData(val name : String, val count : Int, val sum_price : Int)
+
 //API로 요청을 보내는 함수
-interface LoginApi {
+interface AccountApi{
+
+    //아이디 중복체크
     @GET("/account/login")
-    fun getLogin(@Query("id") id: String, @Query("pw") pw: String): Call<LoginData> //이게 enqueue로 들어감
+    fun idDuplicateCheck(@Query("id") id: String) : Call<IdDuplicate>
+
+    //회원가입 정보 주입
+    @POST("/account")
+    fun postSignUp(@Query("id") id: String, @Query("pw") pw: String,
+                   @Query("name") name: String, @Query("contact") contact: String) : Call<SignUp>
+
+    //로그인 값 비교
+    @GET("/account/login")
+    fun getLogin(@Query("id") id: String, @Query("pw") pw: String): Call<Login>
+
+}
+
+interface CategoryApi{
+    //카테고리 가져오기
+    @GET("/category")
+    fun getCategory(@Query("lang") lang : String) : Call<Category>
+
 }

@@ -29,8 +29,7 @@ class RegistFragment: Fragment() {
         val registBtn = view.findViewById<Button>(R.id.registration_regist_button)
         val registInputPwd = view.findViewById<EditText>(R.id.registration_password)
         val registReInputPwd = view.findViewById<EditText>(R.id.reigstration_repassword)
-        val startConstraintLayout by lazy{requireActivity().findViewById<ConstraintLayout>(R.id.start_constraintlayout)}
-        val startBackBtn by lazy { startConstraintLayout.findViewById<ImageButton>(R.id.start_back_btn) }
+        val startBackBtn = startActivity.findViewById<ImageButton>(R.id.start_back_btn)
 
         //뒤로가기버튼
         startBackBtn.setOnClickListener{
@@ -40,20 +39,21 @@ class RegistFragment: Fragment() {
 
         //중복체크 버튼
         registIdCheckBtn.setOnClickListener{
-            var text = ""
-            var value = arrayListOf<ArrayList<String>>(
-                arrayListOf("id",registInputId.text.toString())
-            )
-            if (registInputId.text.toString()==""){
-                text = getString(R.string.toast_put_id_on)
-                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-            }else if(startActivity.databaseControl.readData(startActivity.readableDb,"account",value).size == 0){
-                text = getString(R.string.toast_available_id)
-                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-            }else{
-                text = getString(R.string.toast_not_available_id)
-                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-            }
+            startActivity.requestAccountApi.idDuplicateCheck()
+//            var text = ""
+//            var value = arrayListOf<ArrayList<String>>(
+//                arrayListOf("id",registInputId.text.toString())
+//            )
+//            if (registInputId.text.toString()==""){
+//                text = getString(R.string.toast_put_id_on)
+//                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
+//            }else if(startActivity.databaseControl.readData(startActivity.readableDb,"account",value).size == 0){
+//                text = getString(R.string.toast_available_id)
+//                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
+//            }else{
+//                text = getString(R.string.toast_not_available_id)
+//                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
+//            }
         }
         
         //회원가입 버튼
