@@ -23,33 +23,33 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
-        orderStorage = mainActivity.databaseControl.readData(mainActivity.readableDb,"orders",
-            arrayListOf(
-                arrayListOf("id",mainActivity.userId),
-            )
-        )
+//        orderStorage = mainActivity.databaseControl.readData(mainActivity.readableDb,"orders",
+//            arrayListOf(
+//                arrayListOf("id",mainActivity.userId),
+//            )
+//        )
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.order_info_fragment,container,false)
-        orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,orderStorage,this)
-        orderInfoRecyclerView = view.findViewById<RecyclerView>(R.id.order_info_recyclerview)
-        orderInfoRecyclerView.adapter = orderInfoRVAdapter
-        orderInfoRecyclerView.setHasFixedSize(true)
+//        orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,orderStorage,this)
+//        orderInfoRecyclerView = view.findViewById<RecyclerView>(R.id.order_info_recyclerview)
+//        orderInfoRecyclerView.adapter = orderInfoRVAdapter
+//        orderInfoRecyclerView.setHasFixedSize(true)
 
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        //뒤로가기
-        var orderInfoBackBtn = view.findViewById<ImageButton>(R.id.order_info_back_button)
-        orderInfoBackBtn.setOnClickListener {
-            mainActivity.removeFragment(this,"orderInfo")
-        }
-    }
-
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        //뒤로가기
+//        var orderInfoBackBtn = view.findViewById<ImageButton>(R.id.order_info_back_button)
+//        orderInfoBackBtn.setOnClickListener {
+//            mainActivity.removeFragment(this,"orderInfo")
+//        }
+//    }
+//
     override fun onclick(fragment: RecipeDialogFragment, seq:Int) {
         var bundle = Bundle()
         bundle.putInt("seq",seq)

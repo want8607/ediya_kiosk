@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
@@ -18,39 +17,45 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
+import com.example.stage.ServerConnection.AccountApi
+import com.example.stage.ServerConnection.CategoryApi
+import com.example.stage.ServerConnection.RetrofitClient
 import com.example.stage.database.DatabaseControl
 import com.example.stage.database.DatabaseHelper
 import com.example.stage.mainfragments.BasketFragment
 import com.example.stage.mainfragments.CategoryFragment
+import retrofit2.Retrofit
 
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var basketService: BasketService
     lateinit var connection : ServiceConnection
-    lateinit var databaseHelper: DatabaseHelper
-    lateinit var databaseControl: DatabaseControl
-    lateinit var readableDb: SQLiteDatabase
-    lateinit var writableDb: SQLiteDatabase
     lateinit var userId : String
     lateinit var loginFlag : String
     lateinit var settingFlag :String
     lateinit var localeHelper: LocaleHelper
     lateinit var applang : String
     lateinit var appMode : String
+    lateinit var retrofit : Retrofit
+    lateinit var requestCategoryApi : CategoryApi
+    lateinit var databaseHelper: DatabaseHelper
+    lateinit var databaseControl: DatabaseControl
+    lateinit var readableDb: SQLiteDatabase
+    lateinit var writableDb: SQLiteDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginFlag = "false"
         settingFlag = "false"
-
-        //db설정
         userId = intent.getStringExtra("id").toString()
+        //레트로핏
+        retrofit = RetrofitClient.initRetrofit()
+        requestCategoryApi = retrofit.create(CategoryApi::class.java)
         databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
         databaseControl = DatabaseControl()
         readableDb = databaseHelper.readableDatabase
         writableDb = databaseHelper.writableDatabase
-
         //window설정
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()

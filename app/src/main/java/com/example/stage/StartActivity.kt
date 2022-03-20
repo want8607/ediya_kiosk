@@ -16,12 +16,11 @@ import retrofit2.Retrofit
 
 class StartActivity : AppCompatActivity() {
 
-    lateinit var readableDb: SQLiteDatabase
-    lateinit var writableDb: SQLiteDatabase
+
     lateinit var localeHelper: LocaleHelper
-    lateinit var databaseControl: DatabaseControl
     lateinit var retrofit: Retrofit
     lateinit var requestAccountApi : AccountApi
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

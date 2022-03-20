@@ -1,5 +1,6 @@
 package com.example.stage.startfragments
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,11 +8,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.stage.R
+import com.example.stage.ServerConnection.IdDuplicate
+import com.example.stage.ServerConnection.SignUp
+import com.example.stage.ServerConnection.UserData
 import com.example.stage.StartActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegistFragment: Fragment() {
     lateinit var startActivity: StartActivity
@@ -28,8 +34,11 @@ class RegistFragment: Fragment() {
         val registIdCheckBtn = view.findViewById<Button>(R.id.registration_id_check)
         val registBtn = view.findViewById<Button>(R.id.registration_regist_button)
         val registInputPwd = view.findViewById<EditText>(R.id.registration_password)
-        val registReInputPwd = view.findViewById<EditText>(R.id.reigstration_repassword)
+        val registReInputPwd = view.findViewById<EditText>(R.id.registration_repassword)
+        val registInputName = view.findViewById<EditText>(R.id.registration_name)
+        val registInputContact = view.findViewById<EditText>(R.id.registration_contact)
         val startBackBtn = startActivity.findViewById<ImageButton>(R.id.start_back_btn)
+
 
         //뒤로가기버튼
         startBackBtn.setOnClickListener{
@@ -39,53 +48,52 @@ class RegistFragment: Fragment() {
 
         //중복체크 버튼
         registIdCheckBtn.setOnClickListener{
-            startActivity.requestAccountApi.idDuplicateCheck()
-//            var text = ""
-//            var value = arrayListOf<ArrayList<String>>(
-//                arrayListOf("id",registInputId.text.toString())
-//            )
-//            if (registInputId.text.toString()==""){
-//                text = getString(R.string.toast_put_id_on)
-//                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-//            }else if(startActivity.databaseControl.readData(startActivity.readableDb,"account",value).size == 0){
-//                text = getString(R.string.toast_available_id)
-//                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-//            }else{
-//                text = getString(R.string.toast_not_available_id)
-//                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-//            }
+            startActivity.requestAccountApi.idDuplicateCheck(registInputId.text.toString()).enqueue(object : Callback<IdDuplicate> {
+                override fun onResponse(call: Call<IdDuplicate>, response: Response<IdDuplicate>) {
+                    var text = ""
+                    val body = response.body()!!
+                    if (registInputId.text.toString()==""){//공백
+                        text = getString(R.string.toast_put_id_on)
+                        Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
+                    }else if(body.success){  //성공
+                        text = getString(R.string.toast_available_id)
+                        Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
+                    }else if(!body.success){   //중복
+                        text = getString(R.string.toast_not_available_id)
+                        Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                override fun onFailure(call: Call<IdDuplicate>, t: Throwable) {
+                }
+            })
         }
         
         //회원가입 버튼
         registBtn.setOnClickListener{
-            var text = ""
-            var value = arrayListOf(
-                arrayListOf("id",registInputId.text.toString())
-            )
-            //비번 입력 오류
-            if(registInputPwd.text.isBlank()){
-                text = getString(R.string.toast_put_pw_on)
-                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-            }else if(!(registInputPwd.text.toString()).equals(registReInputPwd.text.toString())){
-                text = getString(R.string.toast_check_pw)
-                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-            }else if(startActivity.databaseControl.readData(startActivity.readableDb,"account",value).size != 0){
-                text = getString(R.string.toast_check_id)
-                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-            }else {
-                //데이터 베이스에 등록
-                val data = arrayListOf(
-                    arrayListOf("id",registInputId.text.toString(),"TEXT"),
-                    arrayListOf("pw",registInputPwd.text.toString(),"TEXT"))
-                startActivity.databaseControl.createData(
-                    startActivity.writableDb,"account",data
-                )
-                startBackBtn.visibility = View.INVISIBLE
-                transaction.remove(this ).commit()
-                parentFragmentManager.popBackStack("regist", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                text = getString(R.string.toast_complete_regist)
-                Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
-            }
+            startActivity.requestAccountApi.postSignUp(
+                UserData(registInputId.text.toString(),
+                registInputPwd.text.toString(),
+                registInputName.text.toString(),
+                registInputContact.text.toString())).enqueue(object : Callback<SignUp>{
+
+                override fun onResponse(call: Call<SignUp>, response: Response<SignUp>) {
+                    var text = ""
+                    val body = response.body()!!
+                    //타입체커 넣어야함
+                    if(body.success){ //성공
+                        startBackBtn.visibility = View.INVISIBLE
+                        transaction.remove(this@RegistFragment ).commit()
+                        parentFragmentManager.popBackStack("regist", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                        text = getString(R.string.toast_complete_regist)
+                        Toast.makeText(startActivity, text, Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<SignUp>, t: Throwable) {
+                    Log.d("regist","fail")
+                }
+
+            })
         }
     }
 }

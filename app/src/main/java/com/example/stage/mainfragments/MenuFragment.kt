@@ -28,24 +28,7 @@ class MenuFragment : Fragment(){
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         var view: View = inflater.inflate(R.layout.menu_fragment,container,false)
         mainActivity = activity as MainActivity
-        coffeeMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","커피")))
-        beverageMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","베버리지")))
-        blendingTeaMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","차")))
-        flatchinoMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","플랫치노")))
-        iceFlakeMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","팥빙수")))
-        shakeAndAdeMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","쉐이크&에이드")))
-        breadMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","빵")))
-        cookieAndEtcMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","쿠키&기타")))
-        dessertMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"menu",
-            arrayListOf(arrayListOf("categoryName","디저트")))
+
         return view
     }
 

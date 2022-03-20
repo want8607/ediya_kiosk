@@ -69,4 +69,6 @@
     <string name="popup_menu_setting">Setting</string>
     <string name="popup_menu_logout">Logout</string>
     <string name="toast_add_menu">Please add a menu.</string>
+    <string name="regist_name">Name</string>
+    <string name="regist_contact">Contact</string>
 </resources>

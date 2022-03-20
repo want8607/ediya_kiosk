@@ -69,4 +69,6 @@
         <item>한국어</item>
         <item>영어</item>
     </string-array>
+    <string name="regist_name">이름</string>
+    <string name="regist_contact">연락처</string>
 </resources>

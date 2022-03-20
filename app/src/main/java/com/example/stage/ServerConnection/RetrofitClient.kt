@@ -1,5 +1,6 @@
 package com.example.stage.ServerConnection
 
+
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -8,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
+import retrofit2.http.Body
 
 //무조건 리턴값 가져야하고 객체여야함
 object RetrofitClient{
@@ -26,6 +28,8 @@ object RetrofitClient{
         return  connection
     }
 }
+//post 할때 정보를 담을 객체
+data class UserData(val id: String, val pw: String, val name: String, val contact : String )
 //받아온 데이터를 저장할 객체
 data class  SignUp(val message: String, val success: Boolean)
 data class  IdDuplicate(val message: String, val success: Boolean)
@@ -42,13 +46,12 @@ data class  OrderHistoryData(val name : String, val count : Int, val sum_price :
 interface AccountApi{
 
     //아이디 중복체크
-    @GET("/account/login")
+    @GET("/account/overlap")
     fun idDuplicateCheck(@Query("id") id: String) : Call<IdDuplicate>
 
     //회원가입 정보 주입
     @POST("/account")
-    fun postSignUp(@Query("id") id: String, @Query("pw") pw: String,
-                   @Query("name") name: String, @Query("contact") contact: String) : Call<SignUp>
+    fun postSignUp(@Body userData : UserData) : Call<SignUp>
 
     //로그인 값 비교
     @GET("/account/login")
