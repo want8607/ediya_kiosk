@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.ServerConnection.RetrofitClient
 import com.example.stage.mainfragments.MenuFragment
 
 class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList<String>>):
@@ -31,13 +32,6 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList
         return myCategoryList.size
     }
 
-    fun listChanged(newCategoryList: ArrayList<ArrayList<String>>){
-        myCategoryList.clear()
-        myCategoryList.addAll(newCategoryList)
-        notifyDataSetChanged()
-    }
-
-
     //이너 클래스로 홀더 생성후 변수 연결
 
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!){
@@ -47,11 +41,10 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList
 
         fun bind (category: ArrayList<ArrayList<String>>, position: Int){
 
-            categoryName?.text = category[position][1]
-            categoryEnglishName?.text = category[position][2]
-            val resourceId = context.resources.getIdentifier(category[position][3], "drawable", context.packageName)
+            categoryName?.text = category[position][0]
+            categoryEnglishName?.text = category[position][1]
             Glide.with(context)
-                .load(resourceId)
+                .load(RetrofitClient.initRetrofit().baseUrl().toString()+category[position][2])
                 .into(categoryImg!!)
             itemView.setOnClickListener {
                 // 아이템 위치를 전달

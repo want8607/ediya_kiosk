@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/category_title"
-        android:background="@color/title_background_color"
+        android:background="@drawable/under_blue_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
@@ -44,45 +44,7 @@
         </ImageView>
 
         <!--  큰 카테고리  -->
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/title_background_color"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0">
 
-            <RadioButton
-                android:id="@+id/category_button1"
-                android:layout_width="@dimen/category_buttonsize"
-                android:layout_height="wrap_content"
-                android:background="@drawable/category_button"
-                android:button="@null"
-                android:fontFamily="@font/maruburi"
-                android:padding="10dp"
-                android:text="@string/drink"
-                android:textAlignment="center"
-                android:textColor="@drawable/category_text"
-                android:textSize="20sp"
-                tools:checked="true" />
-
-            <RadioButton
-                android:id="@+id/category_button2"
-                android:layout_width="@dimen/category_buttonsize"
-                android:layout_height="wrap_content"
-                android:background="@drawable/category_button"
-                android:button="@null"
-                android:fontFamily="@font/maruburi"
-                android:padding="10dp"
-                android:text="@string/bakery"
-                android:textAlignment="center"
-                android:textColor="@drawable/category_text"
-                android:textSize="20sp" />
-        </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
