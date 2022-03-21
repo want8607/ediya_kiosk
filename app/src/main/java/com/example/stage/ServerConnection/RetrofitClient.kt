@@ -15,7 +15,7 @@ import retrofit2.http.Body
 object RetrofitClient{
     fun initRetrofit(): Retrofit{
 
-        val url = "http://3.35.214.92:3000" // 서버주소
+        val url = "http://52.79.157.214:3000" // 서버주소
         val gson = Gson()                   // 서버와 주고받을 형식
         val clientBuilder = OkHttpClient.Builder().build()//http통신 규약을 사용
 
@@ -63,5 +63,8 @@ interface CategoryApi{
     //카테고리 가져오기
     @GET("/category")
     fun getCategory(@Query("lang") lang : String) : Call<Category>
-
+    
+    //메뉴 가져오기
+    @GET("/category/menu")
+    fun getMenu(@Query("category_name") category_name: String, @Query("lang") lang: String ) : Call<Menu>
 }

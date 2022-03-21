@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.ServerConnection.Category
+import com.example.stage.ServerConnection.CategoryData
+import com.example.stage.ServerConnection.Menu
 import com.example.stage.StartActivity
 import com.example.stage.mainfragments.mainRVAdapter.CategoryRVAdapter
 import retrofit2.Call
@@ -23,7 +25,8 @@ import retrofit2.Response
 
 class CategoryFragment : Fragment(){
     lateinit var mainActivity: MainActivity
-
+    lateinit var categoryList : ArrayList<ArrayList<String>>
+    lateinit var menuList : ArrayList<ArrayList<String>>
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -36,8 +39,55 @@ class CategoryFragment : Fragment(){
         mainActivity.requestCategoryApi.getCategory("kr").enqueue(object : Callback<Category> {
 
             override fun onResponse(call: Call<Category>, response: Response<Category>) {
-                Log.d("category",response.body()!!.data.toString())
+                categoryList = arrayListOf()
+                var categoryEngName = listOf<CategoryData>()
+                var categoryKorName = listOf<CategoryData>()
+                
+                //한글 카테고리 이름 가져오기
+                categoryKorName = response.body()!!.data
+                
+                //영어 카테고리 이름 가져오기
+                mainActivity.requestCategoryApi.getCategory("en").enqueue(object : Callback<Category>{
+                    override fun onResponse(call: Call<Category>, response: Response<Category>) {
+                        categoryEngName = response.body()!!.data
+                        Log.d("categoryEng",categoryEngName.toString())
+                        //메뉴 가져오기
+                        for(i in categoryEngName.indices) {
+                            mainActivity.requestCategoryApi.getMenu(categoryKorName[i].category_name, "kr")
+                                .enqueue(object : Callback<Menu> {
+                                    override fun onResponse(call: Call<Menu>, response: Response<Menu>) {
+                                        Log.d("menu",response.body()!!.data.toString())
+                                    }
 
+                                    override fun onFailure(call: Call<Menu>, t: Throwable) {
+                                    }
+                                })
+
+                            mainActivity.requestCategoryApi.getMenu(categoryEngName[i].category_name, "en")
+                                .enqueue(object : Callback<Menu> {
+                                    override fun onResponse(call: Call<Menu>, response: Response<Menu>) {
+                                        Log.d("menu",response.body()!!.data.toString())
+                                    }
+
+                                    override fun onFailure(call: Call<Menu>, t: Throwable) {
+                                    }
+                                })
+                        }
+                        //데이터 파싱
+                        for(i in categoryKorName.indices){
+                            var getList = arrayListOf<String>()
+                            getList.add(categoryKorName[i].category_name)
+                            getList.add(categoryEngName[i].category_name)
+                            categoryList.add(getList)
+                        }
+                        Log.d("category",categoryList.toString())
+
+                    }
+
+                    override fun onFailure(call: Call<Category>, t: Throwable) {
+                    }
+                }
+                )
             }
 
             override fun onFailure(call: Call<Category>, t: Throwable) {
