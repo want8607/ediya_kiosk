@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.ServerConnection.RetrofitClient
+
 //해야할것  값 유지 되도록 액티비티에서 값을 저장해야함, 또 결제창에서 리사이클 뷰 써야함, 다이얼로그에 값 전달
 class SelectMenuFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -48,19 +51,18 @@ class SelectMenuFragment : Fragment(){
         var menuNumTextView = view.findViewById<TextView>(R.id.selectmenu_menu_num_textview)
         var selectMenuAddBtn = view.findViewById<Button>(R.id.select_menu_add_button)
         var selectMenuBasketBtn = view.findViewById<ImageButton>(R.id.selectmenu_basket_button)
-        var selectedMenuConstraintLayout = view.findViewById<ConstraintLayout>(R.id.selectedmenu_constraint)
-//
-//        selectedMenuConstraintLayout.setPadding(0,0,0,mainActivity.navigationHeight())
-//
+
         //선택된 메뉴 값에 따라 바인드
+        var imageView = view.findViewById<ImageView>(R.id.selectedmenu_menu_img)
         view.findViewById<TextView>(R.id.selectedmenu_menu_name).text = arguments?.getString("menuName")
         view.findViewById<TextView>(R.id.selectedmenu_menu_english_name).text = arguments?.getString("menuEnglishName")
         view.findViewById<TextView>(R.id.selectedmenu_menu_cost).text = arguments?.getString("menuCost")
-        val resourceId = mainActivity.resources.getIdentifier(arguments?.getString("menuImg"), "drawable", mainActivity.packageName)
-        view.findViewById<ImageView>(R.id.selectedmenu_menu_img).setImageResource(resourceId)
+
+        Glide.with(this)
+            .load(RetrofitClient.initRetrofit().baseUrl().toString()+arguments?.getString("menuImg"))
+            .into(imageView!!)
 
         //총금액 설정
-
         totalCostTextView.text = menuCost.toString()
 
         //뒤로가기

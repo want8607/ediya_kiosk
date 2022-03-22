@@ -11,21 +11,14 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
-import com.example.stage.ServerConnection.Category
 import com.example.stage.ServerConnection.CategoryData
-import com.example.stage.ServerConnection.Menu
 import com.example.stage.ServerConnection.MenuData
 import com.example.stage.StartActivity
 import com.example.stage.mainfragments.mainRVAdapter.CategoryRVAdapter
 import kotlinx.coroutines.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-
 
 class CategoryFragment : Fragment(){
     lateinit var mainActivity: MainActivity
@@ -37,21 +30,51 @@ class CategoryFragment : Fragment(){
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         var view: View = inflater.inflate(R.layout.category_fragment,container,false)
+
+        //쓰레드
         CoroutineScope(Dispatchers.Main).launch {
-            var categoryKorName: List<CategoryData> = getCategoryKr()
-            var categoryEngName: List<CategoryData> = getCategoryEng()
-            var menuLists : ArrayList<ArrayList<ArrayList<String>>> = getMenu()
-            var categoryList = makeCategoryList(categoryKorName,categoryEngName,menuLists)
-            Log.d("제발",categoryKorName.toString())
-            Log.d("제발",categoryEngName.toString())
-            Log.d("제발",menuLists.toString())
-            Log.d("제발",categoryList.toString())
+            //카테고리 값 가져오기
+            val categoryKorName: List<CategoryData> = mainActivity.requestCategoryApi.getCategorySuspend("kr").data
+            val categoryEngName : List<CategoryData> = mainActivity.requestCategoryApi.getCategorySuspend("en").data
+
+            //카테고리 정보로 메뉴만들기
+
+            for (i in categoryKorName.indices) {
+                val menuListKr: List<MenuData> = mainActivity.requestCategoryApi.getMenuSuspend(
+                    categoryKorName[i].category_name,
+                    "kr"
+                ).data
+
+                val menuListEng: List<MenuData> = mainActivity.requestCategoryApi.getMenuSuspend(
+                    categoryEngName[i].category_name,
+                    "en"
+                ).data
+                val menuList: ArrayList<ArrayList<String>> = arrayListOf()
+                for (j in menuListKr.indices) {
+                    var menu: ArrayList<String> = arrayListOf()
+                    menu.add(0, menuListKr[j].menu_name)
+                    menu.add(1, menuListEng[j].menu_name)
+                    menu.add(2, menuListKr[j].menu_price.toString())
+                    menu.add(3, menuListKr[j].menu_image)
+                    menuList.add(menu)
+                    Log.d("ekwqlel", menuList.toString())
+                }
+                mainActivity.menuLists.add(menuList)
+            }
+            //리사이클러에 넣을 카테고리 만들기
+            val categoryList : ArrayList<ArrayList<String>> = arrayListOf()
+            for(i in categoryKorName.indices){
+                var category : ArrayList<String> = arrayListOf()
+                category.add(categoryKorName[i].category_name)
+                category.add(categoryEngName[i].category_name)
+                category.add(mainActivity.menuLists[i][0][3])
+                categoryList.add(category)
+            }
             //카테고리 리사이클러
-            var categoryAdapter = CategoryRVAdapter(mainActivity,categoryList)
-            var categoryRecyclerView = view.findViewById<RecyclerView>(R.id.category_recyclerview)
+            val categoryAdapter = CategoryRVAdapter(mainActivity,categoryList)
+            val categoryRecyclerView = view.findViewById<RecyclerView>(R.id.category_recyclerview)
             categoryRecyclerView.adapter = categoryAdapter
             categoryRecyclerView.setHasFixedSize(true)
-
         }
         return view
     }
@@ -88,105 +111,6 @@ class CategoryFragment : Fragment(){
             mainActivity.openBasket()
         }
 
-    }
-
-    suspend fun getCategoryKr() : List<CategoryData>{ //한글 카테고리 가져오기
-        var categoryKorName: List<CategoryData> = arrayListOf()
-        withContext(Dispatchers.IO) {
-            mainActivity.requestCategoryApi.getCategory("kr").enqueue(object : Callback<Category> {
-
-                override fun onResponse(call: Call<Category>, response: Response<Category>) {
-                    categoryKorName = response.body()!!.data
-                }
-                override fun onFailure(call: Call<Category>, t: Throwable) {
-                }
-            })
-
-        }
-        return categoryKorName
-    }
-
-    suspend fun getCategoryEng() : List<CategoryData> { //영어 카테고리 가져오기
-        var categoryEngName: List<CategoryData> = arrayListOf()
-        var job = CoroutineScope(Dispatchers.Default).async {
-            withContext(Dispatchers.IO) {
-                mainActivity.requestCategoryApi.getCategory("en")
-                    .enqueue(object : Callback<Category> {
-
-                        override fun onResponse(call: Call<Category>, response: Response<Category>) {
-                            categoryEngName = response.body()!!.data
-                            Log.d("Dd1",categoryEngName.toString())
-                        }
-
-                        override fun onFailure(call: Call<Category>, t: Throwable) {
-                        }
-                    })
-            }
-            categoryEngName
-        }
-        Log.d("Dd2",categoryEngName.toString())
-        return categoryEngName
-    }
-
-    suspend fun getMenu(): ArrayList<ArrayList<ArrayList<String>>> {
-        //메뉴 가져오기
-        var categoryKorName : List<CategoryData> = getCategoryKr()
-        var categoryEngName : List<CategoryData> = getCategoryEng()
-        var menuLists : ArrayList<ArrayList<ArrayList<String>>> = arrayListOf()
-        withContext(Dispatchers.IO) {
-
-            for (i in categoryKorName.indices) {
-                val menuList: ArrayList<ArrayList<String>> = arrayListOf()
-                mainActivity.requestCategoryApi.getMenu(
-                    categoryKorName[i].category_name,
-                    "kr"
-                )
-                    .enqueue(object : Callback<Menu> {
-                        override fun onResponse(call: Call<Menu>, response: Response<Menu>) {
-                            var menuListKr: List<MenuData> = response.body()!!.data // 한국어 메뉴들
-
-                            mainActivity.requestCategoryApi.getMenu(categoryEngName[i].category_name, "en").enqueue(object : Callback<Menu> {
-                                    override fun onResponse(call: Call<Menu>, response: Response<Menu>) {
-                                        var menuListEn = response.body()!!.data // 영어 메뉴들
-                                        for (j in menuListKr.indices) {
-                                            var menu: ArrayList<String> = arrayListOf()
-                                            menu.add(0, menuListKr[j].menu_name)
-                                            menu.add(1, menuListEn[j].menu_name)
-                                            menu.add(2, menuListKr[j].menu_price.toString())
-                                            menu.add(3, menuListKr[j].menu_image)
-                                            menuList.add(menu)
-                                            Log.d("ekwqlel", menuList.toString())
-                                        }
-                                    }
-
-                                    override fun onFailure(call: Call<Menu>, t: Throwable) {
-                                    }
-                                })
-                        }
-                        override fun onFailure(call: Call<Menu>, t: Throwable) {
-                        }
-                    })
-                menuLists.add(menuList)
-            }
-            Log.d("menuLists",menuLists.toString())
-        }
-        return menuLists
-    }
-
-    suspend fun makeCategoryList(categoryKorName : List<CategoryData>,categoryEngName:List<CategoryData>,menuLists : ArrayList<ArrayList<ArrayList<String>>>): ArrayList<ArrayList<String>> {//리사이클러 뷰에 넘길 카테고리 데이터 만들기
-        var categoryList : ArrayList<ArrayList<String>> = arrayListOf()
-        withContext(Dispatchers.IO) {
-
-            for(i in categoryKorName.indices){
-                var category : ArrayList<String> = arrayListOf()
-                category.add(categoryKorName[i].category_name)
-                category.add(categoryEngName[i].category_name)
-                category.add(menuLists[i][0][3])
-                categoryList.add(category)
-            }
-            Log.d("Category",categoryList.toString())
-        }
-        return categoryList
     }
 }
 

@@ -17,7 +17,6 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList
 
     RecyclerView.Adapter<CategoryRVAdapter.Holder>() {
     var myCategoryList = categoryList
-    var isChecked = true
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.category_recycler_view_item, parent, false)
@@ -52,11 +51,10 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList
                 var mainActivity = context as MainActivity
                 var menuFragment = MenuFragment()
                 bundle.putInt("title",position)
-                bundle.putBoolean("isChecked",isChecked)
                 if(mainActivity.applang == "ko") {
-                    bundle.putString("categoryName", category[position][1])
+                    bundle.putString("categoryName", category[position][0])
                 }else if (mainActivity.applang == "en"){
-                    bundle.putString("categoryName", category[position][2])
+                    bundle.putString("categoryName", category[position][1])
                 }
                 menuFragment.arguments = bundle
                 mainActivity.addFragment(menuFragment,"menu")

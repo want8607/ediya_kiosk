@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.stage.R
+import com.example.stage.ServerConnection.RetrofitClient
 
 class PaymentRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
     RecyclerView.Adapter<PaymentRVAdapter.Holder>() {
@@ -35,14 +37,9 @@ class PaymentRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
         fun bind(basketList: ArrayList<Bundle>, position: Int) {
             paymentName?.text = basketList[position].getString("basketName")
             paymentMenuNum?.text = basketList[position].getString("basketMenuNum")
-            val resourceId = context.resources.getIdentifier(
-                basketList[position].getString("photo"),
-                "drawable",
-                context.packageName
-            )
-            paymentImg?.setImageResource(resourceId)
-
-
+            Glide.with(context)
+                .load(RetrofitClient.initRetrofit().baseUrl().toString()+basketList[position].getString("photo"))
+                .into(paymentImg!!)
         }
     }
 }

@@ -10,7 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.stage.R
+import com.example.stage.ServerConnection.RetrofitClient
 import com.example.stage.mainfragments.mainInterface.OnItemClick
 import com.example.stage.mainfragments.maindialog.BasketOptionDialogFragment
 import com.example.stage.mainfragments.BasketFragment
@@ -93,8 +95,9 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
             basketMenuNum?.text = basketList.getString("basketMenuNum")
             basketMenuCost?.text = basketList.getString("basketMenuCost")
             basketTotalCost?.text = basketList.getString("basketTotalCost")
-            val resourceId = context.resources.getIdentifier(basketList.getString("photo"), "drawable", context.packageName)
-            basketImg?.setImageResource(resourceId)
+            Glide.with(context)
+                .load(RetrofitClient.initRetrofit().baseUrl().toString()+basketList.getString("photo"))
+                .into(basketImg!!)
 
             //마이너스 버튼
             basketMenuMinusBtn?.setOnClickListener {

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.ServerConnection.RetrofitClient
 import com.example.stage.mainfragments.SelectMenuFragment
 
 class MenuRVAdapter(var context: Context, var menuList : ArrayList<ArrayList<String>>) :
@@ -40,22 +41,21 @@ class MenuRVAdapter(var context: Context, var menuList : ArrayList<ArrayList<Str
 
         fun bind (menu: ArrayList<ArrayList<String>>,position: Int){
 
-            menuName?.text = menu[position][1]
-            menuEnglishName?.text = menu[position][2]
-            menuCost?.text = menu[position][3]
-            var resourceId = context.resources.getIdentifier(menu[position][4], "drawable", context.packageName)
+            menuName?.text = menu[position][0]
+            menuEnglishName?.text = menu[position][1]
+            menuCost?.text = menu[position][2]
             Glide.with(context)
-                .load(resourceId)
+                .load(RetrofitClient.initRetrofit().baseUrl().toString()+menu[position][3])
                 .into(menuImg!!)
             itemView.setOnClickListener {
                 var mainActivity = context as MainActivity
                 var selectMenuFragment = SelectMenuFragment()
                 var bundle = Bundle()
                 //클래스를 넘겨야함
-                bundle.putString("menuName",menu[position][1])
-                bundle.putString("menuEnglishName",menu[position][2])
-                bundle.putString("menuCost",menu[position][3])
-                bundle.putString("menuImg",menu[position][4])
+                bundle.putString("menuName",menu[position][0])
+                bundle.putString("menuEnglishName",menu[position][1])
+                bundle.putString("menuCost",menu[position][2])
+                bundle.putString("menuImg",menu[position][3])
                 selectMenuFragment.arguments = bundle
                 mainActivity.addFragment(selectMenuFragment,"selectMenu")
             }

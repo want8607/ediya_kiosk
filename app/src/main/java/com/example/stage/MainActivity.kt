@@ -43,12 +43,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var databaseControl: DatabaseControl
     lateinit var readableDb: SQLiteDatabase
     lateinit var writableDb: SQLiteDatabase
+    lateinit var menuLists : ArrayList<ArrayList<ArrayList<String>>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginFlag = "false"
         settingFlag = "false"
         userId = intent.getStringExtra("id").toString()
+
         //레트로핏
         retrofit = RetrofitClient.initRetrofit()
         requestCategoryApi = retrofit.create(CategoryApi::class.java)
@@ -56,6 +58,8 @@ class MainActivity : AppCompatActivity() {
         databaseControl = DatabaseControl()
         readableDb = databaseHelper.readableDatabase
         writableDb = databaseHelper.writableDatabase
+        menuLists = arrayListOf()
+
         //window설정
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()

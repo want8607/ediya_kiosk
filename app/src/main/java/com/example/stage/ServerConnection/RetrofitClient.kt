@@ -70,4 +70,7 @@ interface CategoryApi{
     //메뉴 가져오기
     @GET("/category/menu")
     fun getMenu(@Query("category_name") category_name: String, @Query("lang") lang: String ) : Call<Menu>
+
+    @GET("/category/menu")
+    suspend fun getMenuSuspend(@Query("category_name") category_name: String, @Query("lang") lang: String ) : Menu
 }
