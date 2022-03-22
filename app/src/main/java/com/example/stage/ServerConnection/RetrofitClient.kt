@@ -63,7 +63,10 @@ interface CategoryApi{
     //카테고리 가져오기
     @GET("/category")
     fun getCategory(@Query("lang") lang : String) : Call<Category>
-    
+
+    @GET("/category")
+    suspend fun getCategorySuspend(@Query("lang") lang : String) : Category
+
     //메뉴 가져오기
     @GET("/category/menu")
     fun getMenu(@Query("category_name") category_name: String, @Query("lang") lang: String ) : Call<Menu>
