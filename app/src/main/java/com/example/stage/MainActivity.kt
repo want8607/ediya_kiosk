@@ -19,12 +19,14 @@ import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
 import com.example.stage.ServerConnection.AccountApi
 import com.example.stage.ServerConnection.CategoryApi
+import com.example.stage.ServerConnection.OrderApi
 import com.example.stage.ServerConnection.RetrofitClient
 import com.example.stage.database.DatabaseControl
 import com.example.stage.database.DatabaseHelper
 import com.example.stage.mainfragments.BasketFragment
 import com.example.stage.mainfragments.CategoryFragment
 import retrofit2.Retrofit
+import retrofit2.create
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,11 +41,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var appMode : String
     lateinit var retrofit : Retrofit
     lateinit var requestCategoryApi : CategoryApi
+    lateinit var requestOrderApi : OrderApi
     lateinit var databaseHelper: DatabaseHelper
     lateinit var databaseControl: DatabaseControl
     lateinit var readableDb: SQLiteDatabase
     lateinit var writableDb: SQLiteDatabase
     lateinit var menuLists : ArrayList<ArrayList<ArrayList<String>>>
+    lateinit var orderStorage: ArrayList<ArrayList<String>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         //레트로핏
         retrofit = RetrofitClient.initRetrofit()
         requestCategoryApi = retrofit.create(CategoryApi::class.java)
+        requestOrderApi = retrofit.create(OrderApi::class.java)
         databaseHelper = DatabaseHelper(this,"ediya.db",null,1)
         databaseControl = DatabaseControl()
         readableDb = databaseHelper.readableDatabase

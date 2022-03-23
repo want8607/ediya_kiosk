@@ -12,25 +12,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.mainfragments.mainRVAdapter.RecipeRVAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class RecipeDialogFragment: DialogFragment() {
     lateinit var mainActivity: MainActivity
     lateinit var orderMenuList : ArrayList<ArrayList<String>>
     var orderNum = 0
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        orderNum = arguments?.getInt("seq")!!
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view: View = inflater.inflate(R.layout.recipe_dialog,container,false)
         mainActivity = activity as MainActivity
-//        db 불러오기
-        val value = arrayListOf(
-            arrayListOf("seq",orderNum.toString())
-        )
-        orderMenuList = mainActivity.databaseControl.readData(mainActivity.readableDb,"orderMenus",value)
 
 //        크기설정
         dialog?.setContentView(R.layout.recipe_dialog)
@@ -38,7 +32,9 @@ class RecipeDialogFragment: DialogFragment() {
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT)
         dialog!!.setCancelable(false)
+        CoroutineScope(Dispatchers.Main).launch {
 
+        }
 //        리사이클 뷰 설정
         val recipeRVAdapter = RecipeRVAdapter(mainActivity,orderMenuList)
         val recipeRecyclerView = view.findViewById<RecyclerView>(R.id.recipe_recyclerview)

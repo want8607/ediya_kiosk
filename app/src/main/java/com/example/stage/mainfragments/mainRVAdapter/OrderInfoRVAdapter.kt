@@ -35,7 +35,7 @@ class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<ArrayLi
         var orderInfoItem = itemView?.findViewById<ConstraintLayout>(R.id.order_info_item)
         fun bind(orderInfo: ArrayList<String>) {
             orderInfoNum?.text = (orderInfo[0]+" "+context.getString(R.string.order_history_comment)+"\n"+context.getString(R.string.order_history_comment2))
-            orderInfoDate?.text = orderInfo[2]
+            orderInfoDate?.text = ""
             orderInfoItem?.setOnClickListener {
                 orderInfoItemClick.onclick(RecipeDialogFragment(),orderInfo[0].toInt())
             }

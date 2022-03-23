@@ -11,8 +11,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.ServerConnection.Order
+import com.example.stage.ServerConnection.OrderItem
+import com.example.stage.ServerConnection.OrderItemPackage
 import com.example.stage.mainfragments.mainRVAdapter.PaymentRVAdapter
 import com.example.stage.mainfragments.maindialog.RecipeDialogFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -56,42 +62,30 @@ class PaymentFragment : Fragment() {
         var paymentPayBtn = view.findViewById<Button>(R.id.payment_pay_button)
         paymentPayBtn.text = (totalCost.toString()+"￦ "+getString(R.string.pay))
         paymentPayBtn.setOnClickListener {
-            //주문 내역 orders에 저장
-            val dateFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")
-            val currentDate = LocalDateTime.now()
-            var value = arrayListOf(
-                arrayListOf("id",mainActivity.userId,"TEXT"),
-                arrayListOf("orderTime",currentDate.format(dateFormat),"TEXT")
-            )
-            mainActivity.databaseControl.createData(mainActivity.writableDb,"orders",value)
 
-            //orders에서 seq가져오기
-            var seq =mainActivity.databaseControl.readData(mainActivity.readableDb,"orders",
-                arrayListOf(
-                    arrayListOf("id",mainActivity.userId),
-                    arrayListOf("orderTime",currentDate.format(dateFormat))
-                )
-            )[0][0]
+            CoroutineScope(Dispatchers.Main).launch{
+                var orderList : MutableList<OrderItem> = mutableListOf()
+                for(i in basketList.indices){
+                    var orderItem : OrderItem = OrderItem(
+                        basketList[i].getString("basketName")!!,
+                        basketList[i].getString("basketMenuCost")!!.toInt(),
+                        basketList[i].getString("basketMenuNum")!!.toInt()
+                    )
+                    orderList.add(orderItem)
+                }
 
-            //orderMenus에 추가
-            for( i in basketList.indices){
-                value = arrayListOf(
-                    arrayListOf("seq",seq,"INTEGER"),
-                    arrayListOf("menuName",basketList[i].getString("basketName")!!,"TEXT"),
-                    arrayListOf("menuCost",basketList[i].getString("basketMenuCost")!!,"INTEGER"),
-                    arrayListOf("menuNum",basketList[i].getString("basketMenuNum")!!,"INTEGER")
-                )
-                mainActivity.databaseControl.createData(mainActivity.writableDb,"orderMenus",value)
+                var orderItemPackage = OrderItemPackage(mainActivity.userId,orderList.toList(),totalCost)
+                mainActivity.requestOrderApi.postOrderSuspend(orderItemPackage)
+
+                //영수증 띄우기
+                var recipeDialog = RecipeDialogFragment()
+                recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
+                mainActivity.basketService.resetBasket()
+                mainActivity.basketService.updateTotalMenuNum()
+
             }
 
-            //영수증 띄우기
-            var recipeDialog = RecipeDialogFragment()
-            var bundle = Bundle()
-            bundle.putInt("seq",seq.toInt())
-            recipeDialog.arguments = bundle
-            recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
-            mainActivity.basketService.resetBasket()
-            mainActivity.basketService.updateTotalMenuNum()
+
         }
     }
 }

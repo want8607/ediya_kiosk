@@ -28,21 +28,36 @@ object RetrofitClient{
         return  connection
     }
 }
-//post 할때 정보를 담을 객체
-data class UserData(val id: String, val pw: String, val name: String, val contact : String )
-//받아온 데이터를 저장할 객체
+
+
+//회원가입
 data class  SignUp(val message: String, val success: Boolean)
 data class  IdDuplicate(val message: String, val success: Boolean)
+    // post
+data class UserData(val id: String, val pw: String, val name: String, val contact : String )
+
+//로그인
 data class  Login(val message: String, val success: Boolean)
+
+//카테고리
 data class  Category(val message: String, val success: Boolean, val data : List<CategoryData>)
 data class  CategoryData( val category_name : String)
+
+//메뉴
 data class  Menu(val message: String, val success: Boolean, val data: List<MenuData>)
 data class  MenuData(val menu_name : String, val menu_price : Int, val menu_image : String )
+
+//주문 내용 넣기
 data class  Order(val message: String, val success: Boolean)
+    //post
+data class OrderItemPackage(val id: String, val order_list: List<OrderItem>, val total_price: Int )
+data class OrderItem(val name: String, val count: Int, val sum_price: Int)
+
+//주문 기록 가져오기
 data class  OrderHistory(val message: String, val success: Boolean, val data: List<OrderHistoryData>, val total_price : Int)
 data class  OrderHistoryData(val name : String, val count : Int, val sum_price : Int)
 
-//API로 요청을 보내는 함수
+
 interface AccountApi{
 
     //아이디 중복체크
@@ -73,4 +88,16 @@ interface CategoryApi{
 
     @GET("/category/menu")
     suspend fun getMenuSuspend(@Query("category_name") category_name: String, @Query("lang") lang: String ) : Menu
+}
+
+interface OrderApi{
+    //주문내용 넣기
+    @POST("/order")
+    fun postOrder(@Body orderItemPackage: OrderItemPackage) : Call<Order>
+    suspend fun  postOrderSuspend(@Body orderItemPackage: OrderItemPackage) : Order
+
+    //주문내용 가져오기
+    @GET("/order")
+    fun getOrderHistory(@Query("id") id: String) : Call<OrderHistory>
+    suspend fun getOrderHistorySuspend(@Query("id") id: String) :OrderHistory
 }
