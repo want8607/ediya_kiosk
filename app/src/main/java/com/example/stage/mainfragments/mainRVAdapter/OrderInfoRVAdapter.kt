@@ -8,10 +8,11 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
+import com.example.stage.ServerConnection.OrderHistoryData
 import com.example.stage.mainfragments.mainInterface.OrderInfoItemClick
 import com.example.stage.mainfragments.maindialog.RecipeDialogFragment
 
-class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<ArrayList<String>>, var orderInfoItemClick: OrderInfoItemClick):
+class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<ArrayList<OrderHistoryData>>, var orderInfoItemClick: OrderInfoItemClick):
     RecyclerView.Adapter<OrderInfoRVAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -33,11 +34,11 @@ class OrderInfoRVAdapter (var context: Context, var orderInfo: ArrayList<ArrayLi
         var orderInfoNum = itemView?.findViewById<TextView>(R.id.order_info_order_num)
         var orderInfoDate = itemView?.findViewById<TextView>(R.id.order_info_date)
         var orderInfoItem = itemView?.findViewById<ConstraintLayout>(R.id.order_info_item)
-        fun bind(orderInfo: ArrayList<String>) {
-            orderInfoNum?.text = (orderInfo[0]+" "+context.getString(R.string.order_history_comment)+"\n"+context.getString(R.string.order_history_comment2))
+        fun bind(orderInfo: ArrayList<OrderHistoryData>) {
+            orderInfoNum?.text = (adapterPosition.toString()+" "+context.getString(R.string.order_history_comment)+"\n"+context.getString(R.string.order_history_comment2))
             orderInfoDate?.text = ""
             orderInfoItem?.setOnClickListener {
-                orderInfoItemClick.onclick(RecipeDialogFragment(),orderInfo[0].toInt())
+                orderInfoItemClick.onclick(RecipeDialogFragment(),adapterPosition)
             }
         }
     }

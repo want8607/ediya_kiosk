@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.ServerConnection.OrderHistoryData
+import com.example.stage.ServerConnection.OrderHistoryDatas
 import com.example.stage.mainfragments.mainInterface.OrderInfoItemClick
 import com.example.stage.mainfragments.mainRVAdapter.OrderInfoRVAdapter
 import com.example.stage.mainfragments.maindialog.RecipeDialogFragment
@@ -34,15 +35,11 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
         var view: View = inflater.inflate(R.layout.order_info_fragment,container,false)
 
         CoroutineScope(Dispatchers.Main).launch {
-            var historyData : List<OrderHistoryData> = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
-            var newList = arrayListOf<ArrayList<String>>()
-            for(i in historyData.indices){
-                var data : ArrayList<String> = arrayListOf()
-                data.add(i.toString())
-                data.add(historyData[i].name)
-                data.add(historyData[i].count.toString())
-                data.add(historyData[i].sum_price.toString())
-                data.add(historyData[i].total_price.toString())
+            var historyDatas : List<OrderHistoryDatas> = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
+            var newList = arrayListOf<ArrayList<OrderHistoryData>>()
+            for(i in historyDatas.indices){
+                var data : ArrayList<OrderHistoryData> = arrayListOf()
+                data.add(historyDatas[i].orderHistoryData)
                 newList.add(data)
             }
             mainActivity.orderStorage = newList

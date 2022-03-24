@@ -54,9 +54,9 @@ data class OrderItemPackage(val id: String, val order_list: List<OrderItem>, val
 data class OrderItem(val name: String, val count: Int, val sum_price: Int)
 
 //주문 기록 가져오기
-data class  OrderHistory(val message: String, val success: Boolean, val data: List<OrderHistoryData>)
-data class  OrderHistoryData(val name : String, val count : Int, val sum_price : Int,val total_price : Int)
-
+data class  OrderHistory(val message: String, val success: Boolean, val data: List<OrderHistoryDatas>)
+data class  OrderHistoryDatas(val orderHistoryData: OrderHistoryData, val total_price : Int)
+data class  OrderHistoryData(val name : String, val count : Int, val sum_price : Int)
 
 interface AccountApi{
 
@@ -94,10 +94,12 @@ interface OrderApi{
     //주문내용 넣기
     @POST("/order")
     fun postOrder(@Body orderItemPackage: OrderItemPackage) : Call<Order>
+    @POST("/order")
     suspend fun  postOrderSuspend(@Body orderItemPackage: OrderItemPackage) : Order
 
     //주문내용 가져오기
     @GET("/order")
     fun getOrderHistory(@Query("id") id: String) : Call<OrderHistory>
+    @GET("/order")
     suspend fun getOrderHistorySuspend(@Query("id") id: String) :OrderHistory
 }

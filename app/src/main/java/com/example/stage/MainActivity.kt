@@ -17,10 +17,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
-import com.example.stage.ServerConnection.AccountApi
-import com.example.stage.ServerConnection.CategoryApi
-import com.example.stage.ServerConnection.OrderApi
-import com.example.stage.ServerConnection.RetrofitClient
+import com.example.stage.ServerConnection.*
 import com.example.stage.database.DatabaseControl
 import com.example.stage.database.DatabaseHelper
 import com.example.stage.mainfragments.BasketFragment
@@ -47,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var readableDb: SQLiteDatabase
     lateinit var writableDb: SQLiteDatabase
     lateinit var menuLists : ArrayList<ArrayList<ArrayList<String>>>
-    lateinit var orderStorage: ArrayList<ArrayList<String>>
+    lateinit var orderStorage: ArrayList<ArrayList<OrderHistoryData>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

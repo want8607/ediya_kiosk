@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.R
+import com.example.stage.ServerConnection.OrderHistoryData
 
 
-class RecipeRVAdapter (var context: Context, var basketList: ArrayList<ArrayList<String>>):
+class RecipeRVAdapter (var context: Context, var basketList: ArrayList<OrderHistoryData>):
     RecyclerView.Adapter<RecipeRVAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -33,11 +34,11 @@ class RecipeRVAdapter (var context: Context, var basketList: ArrayList<ArrayList
         var recipeMenuCost = itemView?.findViewById<TextView>(R.id.recipe_menu_cost)
         var recipeTotalCost = itemView?.findViewById<TextView>(R.id.recipe_menu_totalcost)
 
-        fun bind(basketList: ArrayList<String>) {
-            recipeMenuName?.text = basketList[1]
-            recipeMenuNum?.text = basketList[3]
-            recipeMenuCost?.text = basketList[2]
-            recipeTotalCost?.text = (basketList[2].toInt() * basketList[3].toInt()).toString()
+        fun bind(orderHistoryData: OrderHistoryData) {
+            recipeMenuName?.text = orderHistoryData.name
+            recipeMenuNum?.text = orderHistoryData.count.toString()
+            recipeMenuCost?.text = (orderHistoryData.sum_price/orderHistoryData.count).toString()
+            recipeTotalCost?.text = orderHistoryData.sum_price.toString()
         }
     }
 }
