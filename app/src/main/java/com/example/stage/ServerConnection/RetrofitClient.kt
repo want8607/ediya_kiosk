@@ -54,8 +54,8 @@ data class OrderItemPackage(val id: String, val order_list: List<OrderItem>, val
 data class OrderItem(val name: String, val count: Int, val sum_price: Int)
 
 //주문 기록 가져오기
-data class  OrderHistory(val message: String, val success: Boolean, val data: List<OrderHistoryData>, val total_price : Int)
-data class  OrderHistoryData(val name : String, val count : Int, val sum_price : Int)
+data class  OrderHistory(val message: String, val success: Boolean, val data: List<OrderHistoryData>)
+data class  OrderHistoryData(val name : String, val count : Int, val sum_price : Int,val total_price : Int)
 
 
 interface AccountApi{

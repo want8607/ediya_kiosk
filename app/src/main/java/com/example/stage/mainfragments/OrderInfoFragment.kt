@@ -23,6 +23,7 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     lateinit var orderInfoRecyclerView: RecyclerView
     lateinit var orderInfoRVAdapter: OrderInfoRVAdapter
 
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = activity as MainActivity
@@ -34,13 +35,18 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
 
         CoroutineScope(Dispatchers.Main).launch {
             var historyData : List<OrderHistoryData> = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
+            var newList = arrayListOf<ArrayList<String>>()
             for(i in historyData.indices){
                 var data : ArrayList<String> = arrayListOf()
                 data.add(i.toString())
-                orderStorage.add(data)
+                data.add(historyData[i].name)
+                data.add(historyData[i].count.toString())
+                data.add(historyData[i].sum_price.toString())
+                data.add(historyData[i].total_price.toString())
+                newList.add(data)
             }
-
-            orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,orderStorage,this@OrderInfoFragment)
+            mainActivity.orderStorage = newList
+            orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,mainActivity.orderStorage,this@OrderInfoFragment)
             orderInfoRecyclerView = view.findViewById<RecyclerView>(R.id.order_info_recyclerview)
             orderInfoRecyclerView.adapter = orderInfoRVAdapter
             orderInfoRecyclerView.setHasFixedSize(true)

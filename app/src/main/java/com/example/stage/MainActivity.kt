@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         loginFlag = "false"
         settingFlag = "false"
+        orderStorage = arrayListOf()
         userId = intent.getStringExtra("id").toString()
 
         //레트로핏

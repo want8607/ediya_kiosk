@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
 import com.example.stage.ServerConnection.Order
+import com.example.stage.ServerConnection.OrderHistoryData
 import com.example.stage.ServerConnection.OrderItem
 import com.example.stage.ServerConnection.OrderItemPackage
 import com.example.stage.mainfragments.mainRVAdapter.PaymentRVAdapter
@@ -64,6 +65,7 @@ class PaymentFragment : Fragment() {
         paymentPayBtn.setOnClickListener {
 
             CoroutineScope(Dispatchers.Main).launch{
+                //주문내역 넣기
                 var orderList : MutableList<OrderItem> = mutableListOf()
                 for(i in basketList.indices){
                     var orderItem : OrderItem = OrderItem(
@@ -78,7 +80,24 @@ class PaymentFragment : Fragment() {
                 mainActivity.requestOrderApi.postOrderSuspend(orderItemPackage)
 
                 //영수증 띄우기
+                //정보 가져오기
+                var historyData : List<OrderHistoryData> = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
+                var newList = arrayListOf<ArrayList<String>>()
+                for(i in historyData.indices){
+                    var data : ArrayList<String> = arrayListOf()
+                    data.add(i.toString())
+                    data.add(historyData[i].name)
+                    data.add(historyData[i].count.toString())
+                    data.add(historyData[i].sum_price.toString())
+                    data.add(historyData[i].total_price.toString())
+                    newList.add(data)
+                }
+                mainActivity.orderStorage = newList  //[0,
+
                 var recipeDialog = RecipeDialogFragment()
+                var bundle = Bundle()
+                bundle.putInt("seq",historyData.size-1)
+                recipeDialog.arguments = bundle
                 recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
                 mainActivity.basketService.resetBasket()
                 mainActivity.basketService.updateTotalMenuNum()

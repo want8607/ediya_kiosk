@@ -20,26 +20,27 @@ import kotlinx.coroutines.launch
 class RecipeDialogFragment: DialogFragment() {
     lateinit var mainActivity: MainActivity
     lateinit var orderMenuList : ArrayList<ArrayList<String>>
-    var orderNum = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view: View = inflater.inflate(R.layout.recipe_dialog,container,false)
         mainActivity = activity as MainActivity
-
 //        크기설정
         dialog?.setContentView(R.layout.recipe_dialog)
         dialog?.window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT)
         dialog!!.setCancelable(false)
+
         CoroutineScope(Dispatchers.Main).launch {
+            var orderNum = arguments?.getInt("seq")!!
+            orderMenuList = mainActivity.orderStorage[orderNum]
+            //        리사이클 뷰 설정
+            val recipeRVAdapter = RecipeRVAdapter(mainActivity,orderMenuList)
+            val recipeRecyclerView = view.findViewById<RecyclerView>(R.id.recipe_recyclerview)
+            recipeRecyclerView.adapter = recipeRVAdapter
+            recipeRecyclerView.setHasFixedSize(true)
 
         }
-//        리사이클 뷰 설정
-        val recipeRVAdapter = RecipeRVAdapter(mainActivity,orderMenuList)
-        val recipeRecyclerView = view.findViewById<RecyclerView>(R.id.recipe_recyclerview)
-        recipeRecyclerView.adapter = recipeRVAdapter
-        recipeRecyclerView.setHasFixedSize(true)
         return view
     }
 
