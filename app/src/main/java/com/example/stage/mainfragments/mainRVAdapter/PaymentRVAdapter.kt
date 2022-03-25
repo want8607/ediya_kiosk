@@ -39,6 +39,7 @@ class PaymentRVAdapter(var context: Context, var basketList: ArrayList<Bundle>):
             paymentMenuNum?.text = basketList[position].getString("basketMenuNum")
             Glide.with(context)
                 .load(RetrofitClient.initRetrofit().baseUrl().toString()+basketList[position].getString("photo"))
+                .override(70,70)
                 .into(paymentImg!!)
         }
     }

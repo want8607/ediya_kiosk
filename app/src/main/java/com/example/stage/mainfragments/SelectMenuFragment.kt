@@ -60,6 +60,7 @@ class SelectMenuFragment : Fragment(){
 
         Glide.with(this)
             .load(RetrofitClient.initRetrofit().baseUrl().toString()+arguments?.getString("menuImg"))
+            .override(200,200)
             .into(imageView!!)
 
         //총금액 설정

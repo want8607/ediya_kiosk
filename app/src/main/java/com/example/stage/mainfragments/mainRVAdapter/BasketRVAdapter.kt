@@ -97,6 +97,7 @@ class BasketRVAdapter(var context: Context, var basketList: ArrayList<Bundle>, v
             basketTotalCost?.text = basketList.getString("basketTotalCost")
             Glide.with(context)
                 .load(RetrofitClient.initRetrofit().baseUrl().toString()+basketList.getString("photo"))
+                .override(110,110)
                 .into(basketImg!!)
 
             //마이너스 버튼

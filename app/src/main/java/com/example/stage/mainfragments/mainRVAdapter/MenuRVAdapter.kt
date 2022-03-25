@@ -46,6 +46,7 @@ class MenuRVAdapter(var context: Context, var menuList : ArrayList<ArrayList<Str
             menuCost?.text = menu[position][2]
             Glide.with(context)
                 .load(RetrofitClient.initRetrofit().baseUrl().toString()+menu[position][3])
+                .override(120,120)
                 .into(menuImg!!)
             itemView.setOnClickListener {
                 var mainActivity = context as MainActivity

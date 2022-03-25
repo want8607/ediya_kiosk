@@ -44,6 +44,7 @@ class CategoryRVAdapter(var context: Context, categoryList : ArrayList<ArrayList
             categoryEnglishName?.text = category[position][1]
             Glide.with(context)
                 .load(RetrofitClient.initRetrofit().baseUrl().toString()+category[position][2])
+                .override(80,80)
                 .into(categoryImg!!)
             itemView.setOnClickListener {
                 // 아이템 위치를 전달
