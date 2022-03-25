@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
@@ -17,6 +18,7 @@ import com.example.stage.mainfragments.mainRVAdapter.PaymentRVAdapter
 import com.example.stage.mainfragments.maindialog.RecipeDialogFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -62,8 +64,9 @@ class PaymentFragment : Fragment() {
         paymentPayBtn.text = (totalCost.toString()+"￦ "+getString(R.string.pay))
         paymentPayBtn.setOnClickListener {
 
-            CoroutineScope(Dispatchers.Main).launch{
+            lifecycleScope.launch{
                 //주문내역 넣기
+                Log.d("dd","dddd")
                 var orderList : MutableList<OrderItem> = mutableListOf()
                 for(i in basketList.indices){
                     var orderItem : OrderItem = OrderItem(
@@ -73,20 +76,24 @@ class PaymentFragment : Fragment() {
                     )
                     orderList.add(orderItem)
                 }
-                Log.d("orderItem",orderList.toList().toString())
                 var orderItemPackage = OrderItemPackage(mainActivity.userId,orderList.toList(),totalCost)
+
+                //서버용 코루틴 생성해서 주문내역 보내기
+
                 mainActivity.requestOrderApi.postOrderSuspend(orderItemPackage)
+
 
                 //영수증 띄우기
                 //정보 가져오기
-                var historyDatas : List<OrderHistoryDatas> = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
-                Log.d("ddd",mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data.toString())
+                Log.d("dd","2dddd")
+                mainActivity.historyDatas = async(Dispatchers.IO) {
+                    mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
+                }.await()
 
-                mainActivity.historyDatas = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
-
+                Log.d("dd","3dddd")
                 var recipeDialog = RecipeDialogFragment()
                 var bundle = Bundle()
-                bundle.putInt("seq",historyDatas.size-1)
+                bundle.putInt("seq",mainActivity.historyDatas.lastIndex)
                 recipeDialog.arguments = bundle
                 recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
                 mainActivity.basketService.resetBasket()

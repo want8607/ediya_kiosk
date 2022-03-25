@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
@@ -31,23 +32,26 @@ class CategoryFragment : Fragment(){
 
         var view: View = inflater.inflate(R.layout.category_fragment,container,false)
 
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
+            Log.d("aaa","11111")
             //카테고리 값 가져오기
-            val categoryKorName: List<CategoryData> = mainActivity.requestCategoryApi.getCategorySuspend("kr").data
-            val categoryEngName : List<CategoryData> = mainActivity.requestCategoryApi.getCategorySuspend("en").data
+            val categoryKorName: List<CategoryData> = async(Dispatchers.IO) {
+                mainActivity.requestCategoryApi.getCategorySuspend("kr").data
+            }.await()
+            Log.d("aaa","1")
+            val categoryEngName : List<CategoryData> = async(Dispatchers.IO) {
+                mainActivity.requestCategoryApi.getCategorySuspend("en").data
+            }.await()
 
             //카테고리 정보로 메뉴만들기
-
             for (i in categoryKorName.indices) {
-                val menuListKr: List<MenuData> = mainActivity.requestCategoryApi.getMenuSuspend(
-                    categoryKorName[i].category_name,
-                    "kr"
-                ).data
+                val menuListKr: List<MenuData> = async(Dispatchers.IO) {
+                    mainActivity.requestCategoryApi.getMenuSuspend(categoryKorName[i].category_name, "kr").data
+                }.await()
 
-                val menuListEng: List<MenuData> = mainActivity.requestCategoryApi.getMenuSuspend(
-                    categoryEngName[i].category_name,
-                    "en"
-                ).data
+                val menuListEng: List<MenuData> = async(Dispatchers.IO) {
+                    mainActivity.requestCategoryApi.getMenuSuspend(categoryEngName[i].category_name, "en").data
+                }.await()
                 val menuList: ArrayList<ArrayList<String>> = arrayListOf()
                 for (j in menuListKr.indices) {
                     var menu: ArrayList<String> = arrayListOf()
@@ -56,7 +60,6 @@ class CategoryFragment : Fragment(){
                     menu.add(2, menuListKr[j].menu_price.toString())
                     menu.add(3, menuListKr[j].menu_image)
                     menuList.add(menu)
-                    Log.d("ekwqlel", menuList.toString())
                 }
                 mainActivity.menuLists.add(menuList)
             }
@@ -65,7 +68,7 @@ class CategoryFragment : Fragment(){
             for(i in categoryKorName.indices){
                 var category : ArrayList<String> = arrayListOf()
                 category.add(categoryKorName[i].category_name)
-                category.add(categoryEngName[i].category_name)
+                category.add(categoryKorName[i].category_name)
                 category.add(mainActivity.menuLists[i][0][3])
                 categoryList.add(category)
             }
@@ -74,6 +77,7 @@ class CategoryFragment : Fragment(){
             val categoryRecyclerView = view.findViewById<RecyclerView>(R.id.category_recyclerview)
             categoryRecyclerView.adapter = categoryAdapter
             categoryRecyclerView.setHasFixedSize(true)
+            Log.d("aaa","3")
         }
         return view
     }
@@ -109,7 +113,7 @@ class CategoryFragment : Fragment(){
         categoryBasketBtn.setOnClickListener {
             mainActivity.openBasket()
         }
-
+        Log.d("ggg","12")
     }
 }
 

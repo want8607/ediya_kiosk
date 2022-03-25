@@ -19,6 +19,7 @@ import com.example.stage.mainfragments.mainRVAdapter.OrderInfoRVAdapter
 import com.example.stage.mainfragments.maindialog.RecipeDialogFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
@@ -40,7 +41,11 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
         var view: View = inflater.inflate(R.layout.order_info_fragment,container,false)
 
         CoroutineScope(Dispatchers.Main).launch {
-            mainActivity.historyDatas = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
+
+            mainActivity.historyDatas = async(Dispatchers.IO) {
+                mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
+            }.await()
+
             orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,mainActivity.historyDatas,this@OrderInfoFragment)
             orderInfoRecyclerView = view.findViewById<RecyclerView>(R.id.order_info_recyclerview)
             orderInfoRecyclerView.adapter = orderInfoRVAdapter
