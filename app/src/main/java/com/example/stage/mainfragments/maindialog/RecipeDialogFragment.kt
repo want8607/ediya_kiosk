@@ -10,17 +10,13 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
-import com.example.stage.ServerConnection.OrderHistoryData
+import com.example.stage.ServerConnection.OrderHistoryDatas
 import com.example.stage.mainfragments.mainRVAdapter.RecipeRVAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 
 class RecipeDialogFragment: DialogFragment() {
     lateinit var mainActivity: MainActivity
-    lateinit var orderMenuList : ArrayList<OrderHistoryData>
-
+    lateinit var orderMenuList : OrderHistoryDatas
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view: View = inflater.inflate(R.layout.recipe_dialog,container,false)
         mainActivity = activity as MainActivity
@@ -32,31 +28,29 @@ class RecipeDialogFragment: DialogFragment() {
         dialog!!.setCancelable(false)
 
         var orderNum = arguments?.getInt("seq")!!
-        orderMenuList = mainActivity.orderStorage[orderNum]
-        //        리사이클 뷰 설정
-        val recipeRVAdapter = RecipeRVAdapter(mainActivity,orderMenuList)
-        val recipeRecyclerView = view.findViewById<RecyclerView>(R.id.recipe_recyclerview)
-        recipeRecyclerView.adapter = recipeRVAdapter
-        recipeRecyclerView.setHasFixedSize(true)
-        val totalCost = 0
-        Log.d("dd",orderMenuList.toString())
-        val recipeTotalCostView = view.findViewById<TextView>(R.id.recipe_total_cost)
-        val recipePaymentCostView = view.findViewById<TextView>(R.id.recipe_payment_cost)
-        recipeTotalCostView.text = totalCost.toString()
-        recipePaymentCostView.text = totalCost.toString()
+        orderMenuList = mainActivity.historyDatas[orderNum]
 
+        Log.d("ff",orderMenuList.toString())
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recipeExitBtn = view.findViewById<ImageButton>(R.id.recipe_exit_button)
-
         val recipeOrderNumView = view.findViewById<TextView>(R.id.recipe_order_num)
-
-
         recipeOrderNumView.text =arguments?.getInt("seq")!!.toString()
-        
+
+        //        리사이클 뷰 설정
+        val recipeRVAdapter = RecipeRVAdapter(mainActivity,orderMenuList.order_list)
+        val recipeRecyclerView = view.findViewById<RecyclerView>(R.id.recipe_recyclerview)
+        recipeRecyclerView.adapter = recipeRVAdapter
+        recipeRecyclerView.setHasFixedSize(true)
+        val totalCost = orderMenuList.total_price
+        val recipeTotalCostView = view.findViewById<TextView>(R.id.recipe_total_cost)
+        val recipePaymentCostView = view.findViewById<TextView>(R.id.recipe_payment_cost)
+        recipeTotalCostView.text = totalCost.toString()
+        recipePaymentCostView.text = totalCost.toString()
+
         // X버튼
         recipeExitBtn.setOnClickListener {
             var flag = arguments?.getString("flag")
@@ -73,11 +67,4 @@ class RecipeDialogFragment: DialogFragment() {
         }
     }
 
-//    fun calTotalCost(): Int{
-//        var totalCost = 0
-//        for(i in orderMenuList.indices) {
-//            totalCost += orderMenuList[i].sum_price
-//        }
-//        return totalCost
-//    }
 }

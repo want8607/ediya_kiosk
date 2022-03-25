@@ -31,7 +31,6 @@ class CategoryFragment : Fragment(){
 
         var view: View = inflater.inflate(R.layout.category_fragment,container,false)
 
-        //쓰레드
         CoroutineScope(Dispatchers.Main).launch {
             //카테고리 값 가져오기
             val categoryKorName: List<CategoryData> = mainActivity.requestCategoryApi.getCategorySuspend("kr").data

@@ -2,6 +2,7 @@ package com.example.stage.mainfragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stage.MainActivity
 import com.example.stage.R
+import com.example.stage.ServerConnection.OrderHistory
 import com.example.stage.ServerConnection.OrderHistoryData
 import com.example.stage.ServerConnection.OrderHistoryDatas
 import com.example.stage.mainfragments.mainInterface.OrderInfoItemClick
@@ -18,6 +20,9 @@ import com.example.stage.mainfragments.maindialog.RecipeDialogFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class OrderInfoFragment : Fragment(), OrderInfoItemClick{
     lateinit var mainActivity: MainActivity
@@ -35,15 +40,8 @@ class OrderInfoFragment : Fragment(), OrderInfoItemClick{
         var view: View = inflater.inflate(R.layout.order_info_fragment,container,false)
 
         CoroutineScope(Dispatchers.Main).launch {
-            var historyDatas : List<OrderHistoryDatas> = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
-            var newList = arrayListOf<ArrayList<OrderHistoryData>>()
-            for(i in historyDatas.indices){
-                var data : ArrayList<OrderHistoryData> = arrayListOf()
-                data.add(historyDatas[i].orderHistoryData)
-                newList.add(data)
-            }
-            mainActivity.orderStorage = newList
-            orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,mainActivity.orderStorage,this@OrderInfoFragment)
+            mainActivity.historyDatas = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
+            orderInfoRVAdapter = OrderInfoRVAdapter(mainActivity,mainActivity.historyDatas,this@OrderInfoFragment)
             orderInfoRecyclerView = view.findViewById<RecyclerView>(R.id.order_info_recyclerview)
             orderInfoRecyclerView.adapter = orderInfoRVAdapter
             orderInfoRecyclerView.setHasFixedSize(true)

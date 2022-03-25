@@ -68,36 +68,26 @@ class PaymentFragment : Fragment() {
                 for(i in basketList.indices){
                     var orderItem : OrderItem = OrderItem(
                         basketList[i].getString("basketName")!!,
-                        basketList[i].getString("basketMenuCost")!!.toInt(),
-                        basketList[i].getString("basketMenuNum")!!.toInt()
+                        basketList[i].getString("basketMenuNum")!!.toInt(),
+                        basketList[i].getString("basketMenuNum")!!.toInt()*basketList[i].getString("basketMenuCost")!!.toInt()
                     )
                     orderList.add(orderItem)
                 }
-
+                Log.d("orderItem",orderList.toList().toString())
                 var orderItemPackage = OrderItemPackage(mainActivity.userId,orderList.toList(),totalCost)
                 mainActivity.requestOrderApi.postOrderSuspend(orderItemPackage)
 
                 //영수증 띄우기
                 //정보 가져오기
                 var historyDatas : List<OrderHistoryDatas> = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
-                Log.d("ddd",historyDatas.toString())
-                var newList = arrayListOf<ArrayList<OrderHistoryData>>()
-                var newtotalCost = arrayListOf<Int>()
-                for(i in historyDatas.indices){
-                    var data : ArrayList<OrderHistoryData> = arrayListOf()
-                    data.add(historyDatas[i].orderHistoryData)
-                    newtotalCost.add(historyDatas[i].total_price)
-                    newList.add(data)
-                    Log.d("gg",newList.toString())
-                }
+                Log.d("ddd",mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data.toString())
 
-                mainActivity.orderStorage = newList  //[0,
-                Log.d("gg2",newList.toString())
+                mainActivity.historyDatas = mainActivity.requestOrderApi.getOrderHistorySuspend(mainActivity.userId).data
+
                 var recipeDialog = RecipeDialogFragment()
                 var bundle = Bundle()
                 bundle.putInt("seq",historyDatas.size-1)
                 recipeDialog.arguments = bundle
-                Log.d("이거실행","ㅇ")
                 recipeDialog.show(mainActivity.supportFragmentManager,"recipeDialog")
                 mainActivity.basketService.resetBasket()
                 mainActivity.basketService.updateTotalMenuNum()

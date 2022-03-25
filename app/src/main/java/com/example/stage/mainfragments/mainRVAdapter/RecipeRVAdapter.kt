@@ -10,7 +10,7 @@ import com.example.stage.R
 import com.example.stage.ServerConnection.OrderHistoryData
 
 
-class RecipeRVAdapter (var context: Context, var basketList: ArrayList<OrderHistoryData>):
+class RecipeRVAdapter (var context: Context, var basketList: List<OrderHistoryData>):
     RecyclerView.Adapter<RecipeRVAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {

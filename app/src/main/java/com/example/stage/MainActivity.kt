@@ -44,13 +44,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var readableDb: SQLiteDatabase
     lateinit var writableDb: SQLiteDatabase
     lateinit var menuLists : ArrayList<ArrayList<ArrayList<String>>>
-    lateinit var orderStorage: ArrayList<ArrayList<OrderHistoryData>>
+    lateinit var historyDatas : List<OrderHistoryDatas>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginFlag = "false"
         settingFlag = "false"
-        orderStorage = arrayListOf()
+        historyDatas = listOf()
         userId = intent.getStringExtra("id").toString()
 
         //레트로핏
